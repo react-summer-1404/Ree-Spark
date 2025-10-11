@@ -21,7 +21,7 @@ export default function DarkMode() {
   return (
     <button
       onClick={() => setDarkMode(!darkMode)}
-      className="p-2 rounded-3xl bg-gray-800 dark:bg-gray-200 text-gray-800 dark:text-blue-600 transition duration-300 mt-2"
+      className="p-2 rounded-3xl bg-gray-800 dark:bg-gray-200 text-gray-800 dark:text-blue-600 transition duration-300 mt-1"
     >
       {darkMode ? (
         <FiSun className="text-black w-6 h-6" />
