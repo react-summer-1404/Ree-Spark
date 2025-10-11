@@ -5,7 +5,7 @@ import Footer from "./Footer/Footer";
 
 const Layout = () => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center dark:bg-[#242424]">
       <div className="w-[1440px] flex justify-center flex-col">
         <div className="border border-red-500 h-[50px] mt-6 ">
           <Navbar />
