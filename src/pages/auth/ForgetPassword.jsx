@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AuthSideLogo = () => {
+const ForgetPassword = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const AuthSideLogo = () => {
   )
 }
 
-export default AuthSideLogo
+export  {ForgetPassword}
