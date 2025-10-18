@@ -1,0 +1,95 @@
+import React, { Fragment } from "react";
+import * as yup from "yup";
+import { Link, useNavigate } from "react-router-dom";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import { BiHomeAlt2 } from "react-icons/bi";
+const LoginForm = () => {
+  const validation = yup.object().shape({
+    phoneNumber: yup.number().required("شماره تلفن خود را وارد کنید ⚠️"),
+    password: yup.string().required("رمز عبور را وارد کنید ⚠️"),
+  });
+  const navigate = useNavigate();
+  const onSubmit = (event) => {
+    console.log("form submit=", event);
+    navigate("/Auth/VerifyNumber");
+  };
+  return (
+    <Fragment>
+      <Formik
+        initialValues={{ phone: "", pass: "" }}
+        onSubmit={onSubmit}
+        validationSchema={validation}
+      >
+        <Form>
+          <h3 className="w-[134px] h-[23px] absolute top-[260px] right-0 text-[15px] text-right font-medium dark:text-white">
+            شماره همراه یا ایمیل
+          </h3>
+          <Field
+            className="border border-[#DCDCDC] dark:bg-slate-200 w-full sm:w-4/5 text-sm absolute top-[292px] dark:text-black right-0 h-12 rounded-3xl text-right pr-2 outline-blue-600"
+            placeholder="شماره همراه یا ایمیل خود را وارد کنید"
+            name="phoneNumber"
+          />
+          <ErrorMessage
+            name="phoneNumber"
+            className="absolute top-[350px] right-[10px] text-red-600 w-52 dark:text-red-400"
+            component={"span"}
+          />
+          <h3 className="w-[134px] h-[23px] absolute top-[380px] right-0 text-[15px] text-right font-medium dark:text-white">
+            رمزعبور
+          </h3>
+          <Field
+            className="border border-[#DCDCDC] dark:bg-slate-200 text-sm w-full dark:text-black sm:w-4/5 absolute top-[410px] right-0 h-12 rounded-3xl text-right pr-2 outline-blue-600"
+            placeholder="رمزعبور خود را وارد کنید"
+            type="password"
+            name="password"
+          />
+          <ErrorMessage
+            name="password"
+            className="absolute top-[470px] right-[-40px] text-red-600 dark:text-red-400 w-48"
+            component={"span"}
+          />
+          <button
+            onClick={navigate}
+            type="submit"
+            className="w-full sm:w-4/5 h-[48px] shadow-md absolute top-[580px] right-0 rounded-[40px] bg-[#3772FF]  text-center  leading-10 text-[16px] font-medium text-[#FCFCFC]"
+          >
+            ورود به حساب
+          </button>
+
+          <div className="absolute top-[520px] right-0 w-full sm:w-4/5 h-10">
+            <Link
+              to={"/Auth/ForgetPassword"}
+              className="h-[36px] absolute rounded-[40px] bg-[#F6F6F6] py-2 px-4 shadow-md"
+            >
+              <h2 className=" h-[20px] text-[#3772FF] text-[13px] font-semibold text-center ">
+                رمزعبور را فراموش کردی؟
+              </h2>
+            </Link>
+            <div className="float-right mt-2 flex gap-1">
+              <label htmlFor="save" className="">
+                مرا به خاطر بسپار
+              </label>
+              <input
+                type="checkbox"
+                id="save"
+                className=" appearance-none w-6 h-6 border-2 border-[#DCDCDC] bg-[#F1F1F1] checked:bg-blue-500  rounded-lg"
+              />
+            </div>
+          </div>
+          <div className="absolute top-[660px] right-0 w-full sm:w-4/5 h-10 flex">
+            {" "}
+            <Link
+              to={"/"}
+              className="w-[140px] mx-auto h-10 border border-[#dcdcdc] text-right text-[#3772FF] sm:right-[35%] rounded-[34px] py-2 px-4 "
+            >
+              صفحه اصلی
+              <BiHomeAlt2 size={17} className="absolute bottom-[10px]" />
+            </Link>
+          </div>
+        </Form>
+      </Formik>
+    </Fragment>
+  );
+};
+
+export { LoginForm };
