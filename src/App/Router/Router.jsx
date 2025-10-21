@@ -11,7 +11,7 @@ import { SendCode } from "../../pages/auth/SendCode";
 import { PersonalInfo } from "../../pages/auth/PersonalInfo";
 import { Blog } from "../../pages/Blog";
 import NotFound from "../../pages/NotFound";
-import { Loading } from "../../components/common/Loading";
+import Loading from "../../components/common/Loading";
 
 const Routes = createBrowserRouter([
   {
