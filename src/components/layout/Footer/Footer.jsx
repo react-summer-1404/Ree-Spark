@@ -1,11 +1,23 @@
 import React from 'react'
-
+import FooterLogo from './components/FooterLogo'
+import FooterLink from './components/FooterLink'
+import FooterIcons from './components/FooterIcons'
 const Footer = () => {
+
   return (
-    <div>
-      
+    <>
+    <div className='border-t-2 h-full flex justify-center sm:justify-between  sm:flex-nowrap flex-wrap items-center gap-5'>
+        {/* cyberspace// */}
+        <FooterIcons/>
+      {/* //{} */}
+
+      {/* FooterLink */}
+      <FooterLink/>
+      {/* FooterLogo */}
+      <FooterLogo/>
     </div>
+    </>
   )
 }
 
-export default Footer
+export default Footer;
