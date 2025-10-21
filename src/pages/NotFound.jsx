@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
-    <div className="flex flex-col items-center justify-center text-center">
+    <div className="flex flex-col items-center justify-center text-center min-h-screen">
       {/* انیمیشن دایره‌ای پس‌زمینه */}
       {/* <div className="absolute w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute w-40 h-40 bg-purple-500/20 rounded-full blur-2xl animate-ping" /> */}
@@ -14,7 +14,7 @@ const NotFound = () => {
       </h1>
 
       {/* متن توضیحی */}
-      <p className="text-gray-700 dark:text-gray-300 text-lg md:text-xl mb-6">
+      <p className=" text-lg md:text-xl mb-6">
         صفحه‌ای که دنبالش بودی پیدا نشد 😕
       </p>
 

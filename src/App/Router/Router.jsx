@@ -34,9 +34,10 @@ const Routes = createBrowserRouter([
       { path: "/", element: <Landing /> },
       { path: "Blog", element: <Blog /> },
       { path: "Loading", element: <Loading /> },
-      { path: "*", element: <NotFound /> },
+      
     ],
   },
+  { path: "*", element: <NotFound /> },
 ]);
 
 export { Routes };
