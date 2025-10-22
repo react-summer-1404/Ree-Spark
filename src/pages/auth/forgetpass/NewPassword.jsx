@@ -57,7 +57,7 @@ const NewPassword = () => {
             تکرار رمزعبور جدید
           </h3>
           <Field
-            className="border border-[#DCDCDC] dark:bg-slate-200 text-sm w-full dark:text-black sm:w-4/5 absolute top-[410px] right-0 h-12 rounded-3xl text-right pr-2 outline-blue-600"
+            className="border border-[#DCDCDC] dark:bg-slate-200 dark:text-black  text-sm w-full  sm:w-4/5 absolute top-[410px] right-0 h-12 rounded-3xl text-right pr-2 outline-blue-600"
             placeholder="تکرار رمزعبور خود را وارد کنید"
             type="password"
             name="password"
