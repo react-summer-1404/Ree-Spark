@@ -8,7 +8,7 @@ function LandingServices() {
           <div className="  flex-col">
 
 
-            <div classNameName="relative  flex justify-center top-[800px]  font-bold text-2xl ">
+            <div className="relative  flex justify-center top-[800px]  font-bold text-2xl ">
               اهداف ما در اکادمی
             </div>
 
