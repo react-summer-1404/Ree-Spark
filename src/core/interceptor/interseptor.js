@@ -11,7 +11,7 @@ const http = axios.create({
 const onSuccess = (response) => {
   console.log("interceptor", response);
   if (response.data.success != undefined && !response.data.success) {
-    console.log("toast error");
+    return 
     // toast(response.data.message);
   } else if (response.data.success != undefined && response.data.success) {
     console.log("toast info");
