@@ -9,6 +9,7 @@ const TopCourseBody = ({
   coursePrice,
 }) => {
   return (
+    // {mobile} //
     <Link className=" w-[322px] h-[366px] ">
       <div className="lg:hidden  relative top-[2600px] dark:text-white ">
         <div className="absolute right-[1000px]">
@@ -52,7 +53,8 @@ const TopCourseBody = ({
 
       </div>
 
-  
+                    {/* // {DeskTop}   // */}
+
       <div className="lg:block hidden lg:dark:text-white ">
         <div
           className={`lg:w-[322px] lg:h-[293px] ${bgcolor} lg:rounded-[32px] lg:relative`}

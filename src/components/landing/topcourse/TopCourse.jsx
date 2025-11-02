@@ -1,6 +1,7 @@
 import React from "react";
 import { TopCourseBody } from "./TopCourseBody";
 import Button from "../../common/Button";
+import ButtonResponsive from "../../common/ButtonResponsive"
 const TopCourse = () => {
   return (
     <div>
@@ -66,6 +67,7 @@ const TopCourse = () => {
 
         </div>
         <Button/>
+          <ButtonResponsive/>
       </div>
        
     </div>

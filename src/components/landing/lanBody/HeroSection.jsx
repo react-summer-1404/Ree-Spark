@@ -120,42 +120,44 @@ function HeroSection() {
         </div>
       </div>
 
+           {/* {desktop border} */}
       <div className="lg:relative hidden lg:block lg:bottom-[1450px] ">
         <div className="lg:w-full lg:absolute lg:top-[572px]  right-[-80px] lg:border-4 lg:"></div>
         <div className="lg:w-[290px] lg:absolute lg:top-[572px] left-[16px] lg:border-4 lg:border-[#3772FF] lg:rounded-r"></div>
         <div className="lg:w-6 lg:h-6 lg:absolute lg:top-[562px] lg:left-[175px] lg:bg-[#3772FF] lg:rounded-full"></div>
-        <div className="lg:w-3 lg:h-3 lg:absolute lg:top-[568px] lg:left-[181px] lg:bg-[#FCFCFC] lg:rounded-full dark:bg-[#242424]"></div>
+        <div className="lg:w-3 lg:h-3 lg:absolute lg:top-[568px] lg:left-[181px] lg:bg-[#FCFCFC] lg:rounded-full lg:dark:bg-[#242424]"></div>
 
         <div className="lg:w-6 lg:h-6 lg:absolute lg:top-[562px] lg:left-[449px] lg:bg-[#D9D9D9] lg:rounded-full"></div>
-        <div className="lg:w-3 lg:h-3 lg:absolute lg:top-[568px] lg:left-[455px] lg:bg-[#FCFCFC] lg:rounded-full dark:bg-[#242424]"></div>
+        <div className="lg:w-3 lg:h-3 lg:absolute lg:top-[568px] lg:left-[455px] lg:bg-[#FCFCFC] lg:rounded-full lg:dark:bg-[#242424]"></div>
 
         <div className="lg:w-6 lg:h-6 lg:absolute lg:top-[562px] lg:left-[708px] lg:bg-[#D9D9D9] lg:rounded-full"></div>
-        <div className="lg:w-3 lg:h-3 lg:absolute lg:top-[568px] lg:left-[714px] lg:bg-[#FCFCFC] lg:rounded-full dark:bg-[#242424]"></div>
+        <div className="lg:w-3 lg:h-3 lg:absolute lg:top-[568px] lg:left-[714px] lg:bg-[#FCFCFC] lg:rounded-full lg:dark:bg-[#242424]"></div>
 
         <div className="lg:w-6 lg:h-6 lg:absolute lg:top-[562px] lg:left-[977px] lg:bg-[#D9D9D9] lg:rounded-full"></div>
-        <div className="lg:w-3 lg:h-3 lg:absolute lg:top-[568px] lg:left-[983px] lg:bg-[#FCFCFC] lg:rounded-full dark:bg-[#242424]"></div>
+        <div className="lg:w-3 lg:h-3 lg:absolute lg:top-[568px] lg:left-[983px] lg:bg-[#FCFCFC] lg:rounded-full lg:dark:bg-[#242424]"></div>
 
         <div className="lg:w-6 lg:h-6 lg:absolute lg:top-[562px] lg:left-[1258px] lg:bg-[#D9D9D9] lg:rounded-full"></div>
-        <div className="lg:w-3 lg:h-3 lg:absolute lg:top-[568px] lg:left-[1264px] lg:bg-[#FCFCFC] lg:rounded-full dark:bg-[#242424]"></div>
+        <div className="lg:w-3 lg:h-3 lg:absolute lg:top-[568px] lg:left-[1264px] lg:bg-[#FCFCFC] lg:rounded-full lg:dark:bg-[#242424]"></div>
       </div>
-
+            
+            {/* {mobile border} */}
       <div className="relative flex justify-center lg:hidden bottom-[3450px]">
         <div className="w-[393px] absolute top-[572px]  border-4 border-[#00000014]"></div>
         <div className="w-[150px] absolute top-[572px] right-[300px] border-4 border-[#3772FF] rounded-r"></div>
         <div className="w-6 h-6 absolute top-[562px]  right-[325px] bg-[#3772FF] rounded-full"></div>
-        <div className="w-3 h-3 absolute top-[568px]  right-[331px]  bg-[#FCFCFC] rounded-full"></div>
+        <div className="w-3 h-3 absolute top-[568px]  right-[331px]  bg-[#FCFCFC] rounded-full dark:bg-[#242424]"></div>
    
         <div className="w-6 h-6 absolute top-[562px] right-[245px]  bg-[#D9D9D9] rounded-full"></div>
-        <div className="w-3 h-3 absolute top-[568px] right-[251px]  bg-[#FCFCFC] rounded-full"></div>
+        <div className="w-3 h-3 absolute top-[568px] right-[251px]  bg-[#FCFCFC] rounded-full dark:bg-[#242424]"></div>
 
         <div className="w-6 h-6 absolute top-[562px] left-[240px] bg-[#D9D9D9] rounded-full"></div>
-        <div className="w-3 h-3 absolute top-[568px] left-[246px] bg-[#FCFCFC] rounded-full"></div>
+        <div className="w-3 h-3 absolute top-[568px] left-[246px] bg-[#FCFCFC] rounded-full dark:bg-[#242424]"></div>
 
         <div className="w-6 h-6 absolute top-[562px] left-[310px] bg-[#D9D9D9] rounded-full"></div>
-        <div className="w-3 h-3 absolute top-[568px] left-[316px] bg-[#FCFCFC] rounded-full"></div>
+        <div className="w-3 h-3 absolute top-[568px] left-[316px] bg-[#FCFCFC] rounded-full dark:bg-[#242424]"></div>
 
         <div className="w-6 h-6 absolute top-[562px]  bg-[#D9D9D9] rounded-full"></div>
-        <div className="w-3 h-3 absolute top-[568px]  bg-[#FCFCFC] rounded-full"></div>
+        <div className="w-3 h-3 absolute top-[568px]  bg-[#FCFCFC] rounded-full dark:bg-[#242424]"></div>
       </div>
     </div>
   );
