@@ -11,7 +11,7 @@ const Layout = () => {
           <Navbar />
         </div>
 
-        <main className="border-2 border-green-500">
+        <main className="border-2 border-green-500 relative">
           <Outlet />
         </main>
 

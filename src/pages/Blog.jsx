@@ -7,7 +7,6 @@ const Blog = () => {
     <div className='h-[2000px]'>
       <BlogHeroSection/>
       <BlogBody/>
-      
     </div>
   )
 }

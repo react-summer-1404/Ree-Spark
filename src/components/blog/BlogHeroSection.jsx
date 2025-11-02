@@ -1,4 +1,5 @@
 import React from "react";
+import { BlogSort } from "./components/blogSort/BlogSort";
 
 const BlogHeroSection = () => {
   return (
@@ -11,6 +12,9 @@ const BlogHeroSection = () => {
           ما در بلاگ ها اطلاعات شما رو نسبت به تکنولوژی ای که یاد میگیرید بیشتر
           میکنیم
         </h5>
+      </div>
+      <div>
+        <BlogSort/>
       </div>
     </div>
   );
