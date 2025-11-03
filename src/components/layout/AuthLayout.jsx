@@ -5,7 +5,7 @@ import DarkMode from "../common/Darkmode/DarkMode";
 const AuthLayout = () => {
   return (
     <>
-      <div className="flex justify-center dark:bg-slate-800 min-h-screen">
+      <div className="flex justify-center bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 min-h-screen">
         <div className=" w-11/12 flex justify-center gap-6  ">
           {/*  */}
 
