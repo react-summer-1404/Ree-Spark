@@ -1,7 +1,8 @@
 import React from "react";
-
+import {TeacherRespansive} from "./TeacherRespansive"
 const Teacher = () => {
   return (
+    <>
     <div className="hidden lg:block">
 
       <div className="lg:w-[1440px] lg:h-[420px] lg:rounded-[32px] lg:flex lg:bg-[#2F2F2F] dark:lg:bg-slate-700 absolute lg:right-[2px] lg:top-[3000px]">
@@ -61,33 +62,43 @@ const Teacher = () => {
       </div>
       
 
-      <div className="w-[527px] h-[266px] absolute top-[px] left-[873px]  gap-6">
-        <div className="relative top-[50px] right-[20px]">
-        <div className="w-[527px] h-[34px] text-[#FCFCFC] text-[24px] font-sans font-bold text-right ">
-          اساتید برتر هفته آکادمی
-        </div>
+    <div className="hidden lg:block">
+  <div className="lg:w-[527px] lg:h-[266px] lg:absolute lg:top-[0px] lg:left-[873px] lg:gap-6">
+    <div className="lg:relative lg:top-[50px] lg:right-[20px]">
+      <div className="lg:w-[527px] lg:h-[34px] lg:text-[#FCFCFC] lg:text-[24px] lg:font-sans lg:font-bold lg:text-right">
+        اساتید برتر هفته آکادمی
+      </div>
 
-        <div className="w-[527px] h-[145px] text-[#F6F6F6] text-[19px] font-sans font-medium text-right  mt-4 ">
-          در هفته جاری، اکادمی برنامه‌نویسی ما مفتخر است که از اساتید برتر خود
-          تقدیر کند. این اساتید با دانش عمیق و تجربه گسترده خود در زمینه‌های
-          مختلف برنامه‌نویسی، نه تنها به ارتقاء مهارت‌های دانشجویان کمک
-          کرده‌اند، بلکه با برگزاری کارگاه‌ها و جلسات مشاوره، فضایی پویا و
-          انگیزشی را برای یادگیری فراهم آورده‌اند.
-        </div>
-        <button className="w-[119px] h-[39px] rounded-[40px] py-2 px-4 bg-[#3772FF] float-right mt-7">
-            <h5 className="w-[87px] h-[23px] text-[#FCFCFC] text-[16px] font-sans font-medium ">صفحه اساتید</h5>
-        </button>
+      <div className="lg:w-[527px] lg:h-[145px] lg:text-[#F6F6F6] lg:text-[19px] lg:font-sans lg:font-medium lg:text-right lg:mt-4">
+        در هفته جاری، اکادمی برنامه‌نویسی ما مفتخر است که از اساتید برتر خود تقدیر کند.
+        این اساتید با دانش عمیق و تجربه گسترده خود در زمینه‌های مختلف برنامه‌نویسی،
+        نه تنها به ارتقاء مهارت‌های دانشجویان کمک کرده‌اند، بلکه با برگزاری کارگاه‌ها
+        و جلسات مشاوره، فضایی پویا و انگیزشی را برای یادگیری فراهم آورده‌اند.
       </div>
+
+      <button className="lg:w-[119px] lg:h-[39px] lg:rounded-[40px] lg:py-2 lg:px-4 lg:bg-[#3772FF] lg:float-right lg:mt-7">
+        <h5 className="lg:w-[87px] lg:h-[23px] lg:text-[#FCFCFC] lg:text-[16px] lg:font-sans lg:font-medium">
+          صفحه اساتید
+        </h5>
+      </button>
+    </div>
+  </div>
+
+  <div className="lg:w-[50px] lg:h-[50px] lg:absolute lg:top-[350px] lg:left-[759px] lg:rotate-[17deg]">
+    <img src="../../../../public/AuthImage/Star 2.png" alt="" />
+  </div>
+
+  <div className="lg:w-[43px] lg:h-[43px] lg:absolute lg:top-[30px] lg:left-[112px] lg:rotate-[17deg]">
+    <img src="../../../../public/AuthImage/Star 1.png" alt="" />
+  </div>
 </div>
-      <div className="w-[50px] h-[50px] absolute top-[350px] left-[759px] rotate-[17px]">
-        <img src="../../../../public/AuthImage/Star 2.png" alt="" />
-      </div>
-      <div className="w-[43px] h-[43px] absolute top-[30px] left-[112px] rotate-[17px]">
-        <img src="../../../../public/AuthImage/Star 1.png" alt="" />
-      </div>
+
 
     </div>
    </div> 
+      <TeacherRespansive/>
+
+   </>
   );
 };
 
