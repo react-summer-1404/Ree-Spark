@@ -1,6 +1,7 @@
+import http from "../../interseptor/interseptor";
 
 
-const GetCourseTopApi = async ({
+const GetCoursesTopApi = async ({
   Count = 4
 }) => {
   try {
@@ -16,4 +17,4 @@ const GetCourseTopApi = async ({
   }
 };
 
-export default GetCourseTopApi   ;
+export default GetCoursesTopApi   ;

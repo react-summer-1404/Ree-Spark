@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import { TopCourseBody } from "./TopCourseBody";
 import Button from "../../common/Button";
 import ButtonResponsive from "../../common/ButtonResponsive";
-import { getTopCourses } from "../../../core/services/api/getTopCourses.api";
+import  getTopCoursesApi  from "../../../core/services/api/getTopCourses.api";
 
 const TopCourse = () => {
   const [courses, setCourses] = useState([]);
-
+  const getTopCourses = async () => {
+    
+  }
   useEffect(() => {
-    getTopCourses()
+    getTopCoursesApi()
   }, []);
 
   return (
