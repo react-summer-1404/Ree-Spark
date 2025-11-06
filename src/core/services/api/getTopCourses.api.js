@@ -1,15 +1,19 @@
-import http from "../../interseptor/interseptor"
 
-export async function getTopCourses () {
-  
-  try{
-  const response = await http.get (
-    "/Home/GetCoursesTop?Count=4")=>{
-      
-    }
- 
+
+const GetCourseTopApi = async ({
+  Count = 4
+}) => {
+  try {
+    const data = await http.get("/Home/GetCoursesTop", {
+      params: {
+        Count,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log("خطا در دریافت دوره",error);
+    throw error;
   }
-catch (err) {
-    console.error(err);
-  };
-}
+};
+
+export default GetCourseTopApi   ;
