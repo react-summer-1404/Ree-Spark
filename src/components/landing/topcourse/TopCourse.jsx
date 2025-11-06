@@ -46,11 +46,11 @@ const TopCourse = () => {
             imageAddress={item.imageAddress}
             level={item.levelName}
             
-            bgcolor={item.tumbImageAddress}
+            bgcolor="bg-blue-400"
           />
         ))}
 
-        <div className="hidden lg:block">
+        <div className="hidden lg:block lg:absolute lg:top-[450px] lg:left-[1px]">
           <Button />
         </div>
         <div className="lg:hidden">
