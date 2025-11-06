@@ -14,7 +14,7 @@ const onSuccess = (response) => {
     return toast.success(response.data.message);
   } else if (response.data.success != undefined && response.data.success) {
     
-    toast.success(response.data.message, { duration: 3000 });
+    toast(response.data.message, { duration: 3000 });
   }
   return response.data;
 };
