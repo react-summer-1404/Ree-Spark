@@ -4,7 +4,7 @@ import { BlogBody } from '../components/blog/BlogBody'
 
 const Blog = () => {
   return (
-    <div className='h-[2000px]'>
+    <div className='sm:h-[2000px]'>
       <BlogHeroSection/>
       <BlogBody/>
     </div>

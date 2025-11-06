@@ -5,7 +5,7 @@ function TopBlogs() {
   return (
     <div>
       <div className="  h-[365px] flex justify-center flex-col relative top-[1083px] lg:dark:text-white ">
-        <div className="text-center text-3xl font-sans bottom-8 relative right-[-10px] top-[320px] lg:hidden font-bold ">
+        <div className="text-center text-3xl bottom-8 relative right-[-10px] top-[320px] lg:hidden font-bold ">
           بلاگ های برتر هفته
         </div>
 
@@ -47,7 +47,7 @@ function TopBlogs() {
           />
         </div>
 
-        <div className="lg:text-center lg:text-3xl lg:font-sans lg:bottom-8 lg:relative lg:right-[20px] lg:top-[-40px] lg:font-bold lg:block hidden lg:dark:text-white lg:text-black">
+        <div className="lg:text-center lg:text-3xl lg:bottom-8 lg:relative lg:right-[20px] lg:top-[-40px] lg:font-bold lg:block hidden lg:dark:text-white lg:text-black">
           بلاگ‌های برتر هفته
         </div>
 

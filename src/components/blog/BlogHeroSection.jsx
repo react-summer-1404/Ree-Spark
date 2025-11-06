@@ -1,5 +1,8 @@
 import React from "react";
 
+import { BlogSort } from "./components/blogSort/BlogSort";
+
+
 const BlogHeroSection = () => {
   return (
     <div>
@@ -12,8 +15,15 @@ const BlogHeroSection = () => {
           میکنیم
         </h5>
       </div>
+
+      <div>
+        <BlogSort/>
+      </div>
+
     </div>
   );
 };
 
+
 export { BlogHeroSection };
+

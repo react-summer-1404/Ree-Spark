@@ -7,12 +7,12 @@ const TopCourse = () => {
       <div className="w-[1361px] h-[547px] absolute  top-[1646px] gap-12  lg:dark:text-white dark:text-white">
         
 
-        <div className="lg:w-[1361px]  lg:h-[46px] lg:text-center lg:text-3xl lg:font-sans lg:font-bold  hidden lg:block  ">
+        <div className="lg:w-[1361px]  lg:h-[46px] lg:text-center lg:text-3xl  lg:font-bold  hidden lg:block  ">
           دوره‌های برتر هفته
         </div>
 
 
-        <div className=" absolute left-[55px] top-[2500px] text-3xl font-sans  font-bold lg:hidden ">
+        <div className=" absolute left-[55px] top-[2500px] text-3xl  font-bold lg:hidden ">
 
           دوره‌های برتر هفته
         </div>

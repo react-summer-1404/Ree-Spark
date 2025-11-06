@@ -1,6 +1,6 @@
 import axios from "axios";
-
-import { getItem, removeItem } from "../services/storage/storage.aoi";
+import { getItem, removeItem } from "../services/storage/storage.api";
+import toast from "react-hot-toast";
 
 const baseURL = import.meta.env.VITE_BASE_URL;
 
@@ -11,11 +11,10 @@ const http = axios.create({
 const onSuccess = (response) => {
   console.log("interceptor", response);
   if (response.data.success != undefined && !response.data.success) {
-    console.log("toast error");
-    // toast(response.data.message);
+    return toast.success(response.data.message);
   } else if (response.data.success != undefined && response.data.success) {
-    console.log("toast info");
-    // toast(response.data.message);
+    
+    toast(response.data.message, { duration: 3000 });
   }
   return response.data;
 };
@@ -27,7 +26,7 @@ const onError = (err) => {
     removeItem("token");
   }
   if (err.response.status >= 400 && err.response.status < 500) {
-    // alert("Client error: " + err.response.status);
+    toast.error
   }
 
   return Promise.reject(err);
