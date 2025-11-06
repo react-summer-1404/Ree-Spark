@@ -2,37 +2,62 @@ import React, { useEffect, useState } from "react";
 import { TopCourseBody } from "./TopCourseBody";
 import Button from "../../common/Button";
 import ButtonResponsive from "../../common/ButtonResponsive";
-import  getTopCoursesApi  from "../../../core/services/api/getTopCourses.api";
+import getTopCoursesApi from "../../../core/services/api/getTopCourses.api";
+import GetCoursesTopApi from "../../../core/services/api/getTopCourses.api";
 
 const TopCourse = () => {
   const [courses, setCourses] = useState([]);
-  const getTopCourses = async () => {
-    
-  }
-  useEffect(() => {
-    getTopCoursesApi()
-  }, []);
+  const getTopCourses = async (Count = 4) => {
+    try {
+      const res = await GetCoursesTopApi({
+        Count: Count,
+      });
+      console.log("🔥 API Response:", res);
+      setCourses(res || []);
+      if (res.totalCount) {
+        setTotalPages(Math.ceil(res.totalCount / rowsPerPage));
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("خطا در دریافت اخبار");
+    }
+  };
 
+  useEffect(() => {
+    getTopCourses();
+  }, []);
+  console.log("a121", courses);
   return (
-    <div>
+    <div className="relative top-[300px]">
       <h2 className="hidden lg:block text-center text-3xl font-bold font-sans max-w-7xl mx-auto mb-8">
         دوره‌های برتر هفته
       </h2>
       <h2 className="lg:hidden text-3xl font-bold font-sans text-center mb-8">
         دوره‌های برتر هفته
       </h2>
-      <div className="mt-12 flex justify-center gap-4">
-
-        {courses.map((item) =>(
-        <TopCourseBody key={item.id} {...item} />
+      <div className="mt-12 flex justify-center gap-4 ">
+        {courses.map((item) => (
+          <TopCourseBody
+            key={item.id}
+            courseName={item.title}
+            teacherName={item.teacherName}
+            coursePrice={item.cost}
+            coding={item.statusName}
+            imageAddress={item.imageAddress}
+            level={item.levelName}
+            
+            bgcolor={item.tumbImageAddress}
+          />
         ))}
 
-
-        <div className="hidden lg:block"><Button /></div>
-        <div className="lg:hidden"><ButtonResponsive /></div>
+        <div className="hidden lg:block">
+          <Button />
+        </div>
+        <div className="lg:hidden">
+          <ButtonResponsive />
+        </div>
       </div>
     </div>
   );
 };
-
-export  {TopCourse};
+export { TopCourse };

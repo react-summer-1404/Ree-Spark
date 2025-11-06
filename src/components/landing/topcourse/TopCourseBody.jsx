@@ -7,6 +7,7 @@ const TopCourseBody = ({
   imageAddress,
   bgcolor,
   coursePrice,
+  coding,
 }) => {
   return (
     // {mobile} //
@@ -20,7 +21,7 @@ const TopCourseBody = ({
 
             <div className="w-[89px] h-[24px] absolute top-[8px] left-[151px] rounded-[32px] bg-[#3772FF] py-[2px] px-2 ">
               <h5 className="w-[73px] h-[20px] text-[13px] font-sans font-medium text-[#FCFCFC]">
-                برنامه نویسی
+                {coding}
               </h5>
             </div>
 
@@ -38,8 +39,10 @@ const TopCourseBody = ({
           </div>
 
           <div className=" w-[322px] absolute h-[61px] gap-1 ml-[170px] mt-[10px]">
-            <h1 className=" w-[322px] h-[34px] gap-1 font-sans font-bold text-right relative right-[180px] bottom-[10px] dark:text-white text-[23px]
-             text-[#2F2F2F]">
+            <h1
+              className=" w-[322px] h-[34px] gap-1 font-sans font-bold text-right relative right-[180px] bottom-[10px] dark:text-white text-[23px]
+             text-[#2F2F2F]"
+            >
               {courseName}
             </h1>
             <div className="w-[322px] h-[23px] ">
@@ -49,11 +52,9 @@ const TopCourseBody = ({
             </div>
           </div>
         </div>
-                     
-
       </div>
 
-                    {/* // {DeskTop}   // */}
+      {/* // {DeskTop}   // */}
 
       <div className="lg:block hidden lg:dark:text-white ">
         <div
@@ -65,7 +66,7 @@ const TopCourseBody = ({
 
           <div className="lg:w-[89px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[151px] lg:rounded-[32px] lg:bg-[#3772FF] lg:py-[2px] lg:px-2">
             <h5 className="lg:w-[73px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:font-medium lg:text-[#FCFCFC]">
-              برنامه نویسی
+              { coding}
             </h5>
           </div>
 
