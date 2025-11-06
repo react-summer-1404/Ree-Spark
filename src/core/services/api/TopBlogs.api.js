@@ -1,20 +1,29 @@
 import http from "../../interseptor/interseptor";
 
-
-const GetCoursesTopApi = async ({
-  Count = 4,
+const TopBlogsApi = async ({
+  PageNumber = 1,
+  RowsOfPage = 10,
+  SortingCol = "insertDate",
+  SortType = "DESC",
+  Query = "",
+  NewsCategoryId = null,
 }) => {
   try {
-    const data = await http.get("", {
+    const data = await http.get("/News", {
       params: {
-        Count,
+        PageNumber,
+        RowsOfPage,
+        SortingCol,
+        SortType,
+        Query,
+        NewsCategoryId,
       },
     });
     return data;
   } catch (error) {
-    console.log("خطا در دریافت دوره",error);
+    console.log("خطا در دریافت بلاگ",error);
     throw error;
   }
 };
 
-export default GetCoursesTopApi   ;
+export default TopBlogsApi;
