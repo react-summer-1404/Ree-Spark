@@ -1,15 +1,18 @@
+import { View } from "lucide-react";
 import React from "react";
+import { LuCalendarRange, LuEye } from "react-icons/lu";
 
-const BlogList = ({BlogName,BlogTeacher,BlogImage,BlogBg}) => {
-  
+const BlogList = ({ BlogName, BlogTeacher, BlogImage, BlogBg, view }) => {
   return (
     <div className=" w-full sm:w-[499px] h-[365px] flex flex-col gap-3">
       {/* blog image */}
-      <div className={`h-[293px] rounded-[32px] flex justify-center items-center shadow-sm ${BlogBg}`}>
+      <div
+        className={`h-[293px] rounded-[32px] flex justify-center items-center shadow-sm ${BlogBg}`}
+      >
         <img
           src={BlogImage}
           alt=""
-          className="w-[167px] h-[167px]"
+          className="w-[167px] h-[167px] rounded-3xl"
         />
       </div>
       {/* blog description */}
@@ -18,8 +21,13 @@ const BlogList = ({BlogName,BlogTeacher,BlogImage,BlogBg}) => {
           {BlogName}
         </span>
         <div className="h-6 flex justify-between">
-            <div></div>
-            <span className="text-[13px] text-[#707070] text-right dark:text-slate-300">{BlogTeacher}</span>
+          <div className="flex gap-1">
+            <LuEye size={20} className="dark:text-slate-400 text-[#707070]" />{" "}
+            <span className="dark:text-slate-400 text-[#707070] text-sm">{view}</span>
+          </div>
+          <span className="text-[13px] text-[#707070] text-right dark:text-slate-300">
+            {BlogTeacher}
+          </span>
         </div>
       </div>
     </div>
