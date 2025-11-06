@@ -14,7 +14,8 @@ const NotFound = () => {
       </h1>
 
       {/* متن توضیحی */}
-      <p className=" text-lg md:text-xl mb-6">
+
+      <p className="text-gray-700 dark:text-gray-300 text-lg md:text-xl mb-6">
         صفحه‌ای که دنبالش بودی پیدا نشد 😕
       </p>
 
