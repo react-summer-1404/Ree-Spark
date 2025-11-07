@@ -35,6 +35,7 @@ const TopCourse = () => {
       <h2 className="lg:hidden  text-3xl font-bold font-sans text-center mb-8">
         دوره‌های برتر هفته
       </h2>
+      
       <div className="mt-12 flex justify-center gap-4 ">
         {courses.map((item) => (
           <TopCourseBody
@@ -45,10 +46,11 @@ const TopCourse = () => {
             coding={item.statusName}
             imageAddress={item.imageAddress}
             level={item.levelName}
-            
             bgcolor="bg-blue-400"
           />
         ))}
+
+        
 
         <div className="hidden lg:block lg:absolute lg:top-[450px] lg:left-[1px]">
           <Button />

@@ -4,6 +4,21 @@ import TopBlogApi from "../../../../core/services/api/TopBlogs.api"
 import { useEffect } from "react";
 function TopBlogs() {
     const [Blogs, setBlogs] = useState([]);
+    const TopBlogsApi = async () => {
+        try {
+          const res = await TopBlogsApi({
+            
+          });
+          console.log("🔥 API Response:", res);
+          setCourses(res || []);
+          if (res.totalCount) {
+            
+          }
+        } catch (error) {
+          console.error(error);
+          toast.error("خطا در دریافت بلاگ");
+        }
+      };
 
   useEffect(()=>{
 
@@ -16,7 +31,7 @@ function TopBlogs() {
           بلاگ های برتر هفته
         </div>
 
-        <div className="h-[366px] lg:hidden  bottom-[] flex">
+        <div className="h-[366px] lg:hidden  relative bottom-[400px] flex">
        
         </div>
       </div>
