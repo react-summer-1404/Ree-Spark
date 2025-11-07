@@ -23,7 +23,7 @@ function TopBlogs() {
 
   useEffect(() => {
     GetTopBlogsApi();
-  });
+  })
 
   return (
     <div>
