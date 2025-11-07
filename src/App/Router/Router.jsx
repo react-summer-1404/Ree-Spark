@@ -11,7 +11,6 @@ import { ForgetPassword } from "../../pages/auth/forgetpass/ForgetPassword";
 import { SendCode } from "../../pages/auth/SendCode";
 import { PersonalInfo } from "../../pages/auth/PersonalInfo";
 import { Blog } from "../../pages/Blog";
-
 import Loading from "../../components/common/Loading";
 import NotFound from "../../pages/NotFound";
 
