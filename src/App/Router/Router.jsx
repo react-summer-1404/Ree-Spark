@@ -14,6 +14,9 @@ import { Blog } from "../../pages/Blog";
 
 import Loading from "../../components/common/Loading";
 import NotFound from "../../pages/NotFound";
+import DashboardLayout from "../../components/layout/DashboardLayout";
+import { Panel } from "../../pages/Panel";
+import { MyCourse } from "../../pages/MyCourse";
 
 const Routes = createBrowserRouter([
   {
@@ -39,6 +42,14 @@ const Routes = createBrowserRouter([
     ],
   },
   { path: "*", element: <NotFound /> },
+  {
+    path: "/Dashboard",
+    element: <DashboardLayout />,
+    children: [
+      { path: "panel", element: <Panel /> },
+      { path: "MyCourse", element: <MyCourse /> },
+    ],
+  },
 ]);
 
 export { Routes };

@@ -3,7 +3,7 @@ import { BiCategoryAlt } from "react-icons/bi";
 import { CiSearch } from "react-icons/ci";
 import { LuCalendarRange } from "react-icons/lu";
 
-const BlogFilter = () => {
+const BlogFilter = ({Search}) => {
   return (
     <div className="dark:text-white">
       <h2 className="float-right text-2xl font-bold mt-4 mr-5">فیلتر</h2>
@@ -20,6 +20,7 @@ const BlogFilter = () => {
             type="search"
             placeholder="دوره مورد نظر را جست‌جو کنید"
             className="w-[258px] h-[48px] rounded-[16px] text-[12px] font-medium text-right bg-[#F1F1F1] outline-blue-500 dark:text-black"
+            onChange={(e) => Search(e.target.value)}
           />
           <button className="w-12 h-12 bg-[#3772FF] absolute left-0 rounded-[16px]">
             <CiSearch size={25} className="m-auto text-white" />

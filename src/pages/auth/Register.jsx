@@ -13,7 +13,7 @@ const Register = () => {
     gmail: yup
       .string()
       .email("ایمیل نامعتبر است")
-      .required("شماره همراه خود را وارد کنید ⚠️"),
+      .required("ایمیل خود را وارد کنید⚠️"),
   });
 
   const onSubmit = async (values, { setSubmitting }) => {
@@ -59,7 +59,7 @@ const Register = () => {
         <div className=" w-full sm:w-[160px] h-10">
           <div className="h-2 bg-[#3772FF] rounded-lg"></div>
           <div className="text-center sm:text-right text-base mt-1">
-            واردکردن شماره همراه
+            واردکردن ایمیل
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@ const Register = () => {
         !خوش اومدی
       </h2>
       <h5 className="text-base text-[#707070] dark:text-slate-300 absolute right-0 top-[200px] sm:top-[167px] w-4/6 text-right">
-        لطفا شماره همراه خود را وارد کنید تا کد تایید برای شما ارسال شود
+        لطفا ایمیل خود را وارد کنید تا کد تایید فرستاده شود
       </h5>
       {/*  */}
       <Formik
@@ -78,11 +78,11 @@ const Register = () => {
         {({ isSubmitting }) => (
           <Form>
             <h3 className="w-[134px] h-[23px] absolute top-[300px] sm:top-[260px] right-0 text-[15px] text-right font-medium dark:text-white">
-              شماره همراه
+              ایمیل
             </h3>
             <Field
               className="border border-[#DCDCDC] dark:bg-slate-200 dark:text-black w-full sm:w-4/5 text-sm absolute top-[330px] sm:top-[292px] right-0 h-12 rounded-3xl text-right pr-2 outline-blue-600"
-              placeholder="شماره همراه خود را وارد کنید"
+              placeholder="ایمیل خود را وارد کنید"
               name="gmail"
             />
             <ErrorMessage

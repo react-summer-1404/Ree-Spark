@@ -2,17 +2,17 @@ import { View } from "lucide-react";
 import React from "react";
 import { LuCalendarRange, LuEye } from "react-icons/lu";
 
-const BlogList = ({ BlogName, BlogTeacher, BlogImage, BlogBg, view }) => {
+const BlogList = ({ BlogName, BlogTeacher, BlogImage, view , BlogAlt }) => {
   return (
     <div className=" w-full sm:w-[499px] h-[365px] flex flex-col gap-3">
       {/* blog image */}
       <div
-        className={`h-[293px] rounded-[32px] flex justify-center items-center shadow-sm ${BlogBg}`}
+        className={`h-[293px] rounded-[32px] flex justify-center items-center shadow-sm `}
       >
         <img
           src={BlogImage}
-          alt=""
-          className="w-[167px] h-[167px] rounded-3xl"
+          alt={BlogAlt}
+          className="container rounded-3xl"
         />
       </div>
       {/* blog description */}
