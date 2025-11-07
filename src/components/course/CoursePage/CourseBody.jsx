@@ -8,8 +8,8 @@ const CourseBody = () => {
   const [Course, setCourse] = useState([]);
   const [currentPage, setCurrentPage] = useState(3);
   const [totalPages, setTotalPages] = useState(1);
-
-  const CoursePage = async (page = 1, rowsPerPage = 12) => {
+  const rowsPerPage = 6;
+  const CoursePage = async (page = 1) => {
     try {
       const res = await GetCoursePageApi({
         PageNumber: page,
