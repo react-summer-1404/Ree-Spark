@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {MobileCourseBody} from "./MobileCourseBody"
 import { CourseStyle } from "./CourseStyle";
 import GetCoursePageApi from "../../../core/services/api/getCoursePage.api"
@@ -27,7 +27,7 @@ const CourseBody = () => {
     }
   };
   useEffect(() => {
-    GetCoursePageApi(currentPage);
+    CoursePage(currentPage);
   }, [currentPage]);
 
   const handlePageChange = (page) => {

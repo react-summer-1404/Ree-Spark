@@ -7,6 +7,7 @@ const CourseStyle = ({
   imageAddress,
   bgcolor,
   coursePrice,
+  coding,
 }) => {
   return (
     // {mobile} //
@@ -18,7 +19,7 @@ const CourseStyle = ({
 
             <div className="w-[89px] h-[24px] absolute top-[8px] left-[151px] rounded-[32px] bg-[#3772FF] py-[2px] px-2 ">
               <h5 className="w-[73px] h-[20px] text-[13px] font-sans font-medium text-[#FCFCFC]">
-                برنامه نویسی
+              {coding}
               </h5>
             </div>
 
@@ -63,7 +64,7 @@ const CourseStyle = ({
 
     <div className="xl:w-[89px] xl:h-[24px] xl:absolute xl:top-[8px] xl:left-[151px] xl:rounded-[32px] xl:bg-[#3772FF] xl:py-[2px] xl:px-2">
       <h5 className="xl:w-[73px] xl:h-[20px] xl:text-[13px] xl:font-sans xl:font-medium xl:text-[#FCFCFC]">
-        برنامه نویسی
+      {coding}    
       </h5>
     </div>
 
@@ -105,7 +106,7 @@ const CourseStyle = ({
 
           <div className="lg:w-[89px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[151px] lg:rounded-[32px] lg:bg-[#3772FF] lg:py-[2px] lg:px-2">
             <h5 className="lg:w-[73px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:font-medium lg:text-[#FCFCFC]">
-              برنامه نویسی
+             {coding}
             </h5>
           </div>
 
