@@ -3,7 +3,7 @@ import {MobileCourseBody} from "./MobileCourseBody"
 import { CourseStyle } from "./CourseStyle";
 import GetCoursePageApi from "../../../core/services/api/getCoursePage.api"
 const CourseBody = () => { 
-  const [newsList, setNewsList] = useState([]);
+  const [Course, setCourse] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const rowsPerPage = 6;
@@ -17,7 +17,7 @@ const CourseBody = () => {
         SortType: "DESC",
       });
       console.log("🔥 Course api:", res);
-      setNewsList(res || []);
+      setCourse(res || []);
       if (res.totalCount) {
         setTotalPages(Math.ceil(res.totalCount / rowsPerPage));
       }
@@ -39,10 +39,12 @@ const CourseBody = () => {
     <div>
       <div className=" hidden lg:block">
         <div className=" xl:w-[1061px] lg:w-[961px] lg:h-[366px] lg:relative xl:left-[-120px]  lg:right-[170px] lg:top-[300px] lg:justify-center  lg:flex-wrap lg:gap-6  lg:flex ">
-       
-
- 
-      
+          {Course.map((item)=> {
+            <CourseStyle
+            key={item.item}
+            />
+          }
+        )}
         </div>
       </div>
       <div className="lg:hidden">

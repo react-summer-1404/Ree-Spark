@@ -9,7 +9,6 @@ import { NewPassword } from "../../pages/auth/forgetpass/NewPassword";
 import { ForgetPassword } from "../../pages/auth/forgetpass/ForgetPassword";
 import { SendCode } from "../../pages/auth/SendCode";
 import { PersonalInfo } from "../../pages/auth/PersonalInfo";
-import { Blog } from "../../pages/Blog";
 import Loading from "../../components/common/Loading";
 import NotFound from "../../pages/NotFound";
 
@@ -32,7 +31,6 @@ const Routes = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: "/course", element: <Course /> },
-      { path: "Blog", element: <Blog /> },
       { path: "Loading", element: <Loading /> },
 
     ],
