@@ -1,8 +1,7 @@
 import http from "../../interseptor/interseptor";
 
 const TopBlogsApi = async ({
-  PageNumber = 1,
-  RowsOfPage = 10,
+  RowsOfPage = 3,
   SortingCol = "insertDate",
   SortType = "DESC",
   Query = "",
@@ -11,7 +10,6 @@ const TopBlogsApi = async ({
   try {
     const data = await http.get("/News", {
       params: {
-        PageNumber,
         RowsOfPage,
         SortingCol,
         SortType,

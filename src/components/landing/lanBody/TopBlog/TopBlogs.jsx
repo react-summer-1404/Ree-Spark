@@ -1,28 +1,29 @@
 import React, { useState } from "react";
 import TopBlogInfo from "./TopBlogInfo";
-import TopBlogApi from "../../../../core/services/api/TopBlogs.api"
+import TopBlogApi from "../../../../core/services/api/TopBlogs.api";
 import { useEffect } from "react";
 function TopBlogs() {
-    const [Blogs, setBlogs] = useState([]);
-    const TopBlogsApi = async () => {
-        try {
-          const res = await TopBlogsApi({
-            
-          });
-          console.log("🔥 API Response:", res);
-          setCourses(res || []);
-          if (res.totalCount) {
-            
-          }
-        } catch (error) {
-          console.error(error);
-          toast.error("خطا در دریافت بلاگ");
-        }
-      };
+  const [Blogs, setBlogs] = useState([]);
+  const GetTopBlogsApi = async () => {
+    try {
+      const res = await TopBlogApi({
+        RowsOfPage: rowsPerPage,
+        SortingCol: "InsertDate",
+        SortType: "DESC",
+      });
+      console.log("🔥 API Response:", res);
+      setBlogs(res || []);
+      if (res.totalCount) {
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("خطا در دریافت بلاگ");
+    }
+  };
 
-  useEffect(()=>{
-
-  })
+  useEffect(() => {
+    GetTopBlogsApi();
+  });
 
   return (
     <div>
@@ -31,8 +32,14 @@ function TopBlogs() {
           بلاگ های برتر هفته
         </div>
 
-        <div className="h-[366px] lg:hidden  relative bottom-[400px] flex">
-       
+        <div className="h-[366px] lg:hidden  relative flex">
+          {Blogs.map((item) => (
+            <TopBlogInfo
+             title={item.title}
+            
+            />
+         
+          ))}
         </div>
       </div>
     </div>

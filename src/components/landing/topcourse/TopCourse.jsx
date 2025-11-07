@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { TopCourseBody } from "./TopCourseBody";
 import Button from "../../common/Button";
 import ButtonResponsive from "../../common/ButtonResponsive";
-import getTopCoursesApi from "../../../core/services/api/getTopCourses.api";
 import GetCoursesTopApi from "../../../core/services/api/getTopCourses.api";
 
 const TopCourse = () => {
