@@ -59,7 +59,7 @@ const CourseStyle = ({
     className={`xl:w-[322px] xl:h-[293px] ${bgcolor} xl:rounded-[32px] xl:relative`}
   >
     <div className="xl:w-[172px] xl:h-[172px] xl:absolute xl:top-[68px] xl:left-[75px]">
-      <img src={`../../../../public/AuthImage/${imageAddress}.png`} />
+      <img src={imageAddress}/>
     </div>
 
     <div className="xl:w-[89px] xl:h-[24px] xl:absolute xl:top-[8px] xl:left-[151px] xl:rounded-[32px] xl:bg-[#3772FF] xl:py-[2px] xl:px-2">
@@ -101,7 +101,7 @@ const CourseStyle = ({
           className={`lg:w-[322px] lg:h-[293px] ${bgcolor} lg:rounded-[32px] lg:relative`}
         >
           <div className="lg:w-[172px] lg:h-[172px] lg:absolute lg:top-[68px] lg:left-[75px]">
-            <img src={`../../../../public/AuthImage/${imageAddress}.png`} />
+            <img src={imageAddress} />
           </div>
 
           <div className="lg:w-[89px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[151px] lg:rounded-[32px] lg:bg-[#3772FF] lg:py-[2px] lg:px-2">

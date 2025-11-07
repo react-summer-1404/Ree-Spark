@@ -2,7 +2,6 @@ import React from 'react'
 import {HeaderCourse} from '../course/top/HeaderCourse'
 import {CourseBody} from "../course/CoursePage/CourseBody"
 import {Filter} from "../course/filter/Filter"
-import { PageInationBlog } from './CoursePage/PageInationBlog'
 
 const Course = () => {
   return (
@@ -11,7 +10,6 @@ const Course = () => {
         <HeaderCourse/>
         <CourseBody/>
         <Filter/>
-        <PageInationBlog/>
       </div>
     </div>
   )
