@@ -1,7 +1,7 @@
 import React from "react";
 import {MobileCourseBody} from "./MobileCourseBody"
 import { CourseStyle } from "./CourseStyle";
-
+import GetCoursePageApi from "../../../core/services/api/getCoursePage.api"
 const CourseBody = () => {
   return (
     <div>

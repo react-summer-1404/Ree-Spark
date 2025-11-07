@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { getItem, removeItem } from "../services/storage/storage.aoi";
+import { getItem, removeItem } from "../services/storage/storage.api";
 
 const baseURL = import.meta.env.VITE_BASE_URL;
 
