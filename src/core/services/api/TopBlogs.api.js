@@ -4,8 +4,7 @@ const TopBlogsApi = async ({
   RowsOfPage = 3,
   SortingCol = "insertDate",
   SortType = "DESC",
-  Query = "",
-  NewsCategoryId = null,
+
 }) => {
   try {
     const data = await http.get("/News", {
@@ -13,8 +12,6 @@ const TopBlogsApi = async ({
         RowsOfPage,
         SortingCol,
         SortType,
-        Query,
-        NewsCategoryId,
       },
     });
     return data;

@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import TopBlogInfo from "./TopBlogInfo";
 import TopBlogApi from "../../../../core/services/api/TopBlogs.api";
 import { useEffect } from "react";
-function TopBlogs() {
-  const [Blogs, setBlogs] = useState([]);
-  const GetTopBlogsApi = async () => {
+const TopBlogs = () => {
+  const [BlogInfo, setBlogInfo] = useState([]);
+  const getTopBlogsApi = async (RowsOfPage = 3) => {
     try {
       const res = await TopBlogApi({
-        RowsOfPage: rowsPerPage,
+        RowsOfPage:RowsOfPage ,
         SortingCol: "InsertDate",
         SortType: "DESC",
       });
-      console.log("🔥 API Response:", res);
-      setBlogs(res || []);
+      console.log("Response topBlog:", res);
+      setBlogInfo(res.news || []);
+
       if (res.totalCount) {
       }
     } catch (error) {
@@ -20,29 +21,37 @@ function TopBlogs() {
       toast.error("خطا در دریافت بلاگ");
     }
   };
-
+console.log()
   useEffect(() => {
-    GetTopBlogsApi();
-  })
+    getTopBlogsApi();
+  },[]);
 
   return (
     <div>
-      <div className="  h-[365px] flex justify-center flex-col relative top-[1083px] lg:dark:text-white ">
-        <div className="text-center text-3xl font-sans bottom-8 relative right-[-10px] top-[320px] lg:hidden font-bold ">
+    
+
+        <div className=" text-center text-3xl font-sans bottom-8 relative right-[-10px] top-[320px]  font-bold lg:hidden">
+          بلاگ های برتر هفت
+        </div>
+
+        <div className="lg:text-center lg:text-3xl lg:font-sans lg:bottom-8 lg:relative  lg:top-[520px] lg:block hidden font-bold ">
           بلاگ های برتر هفته
         </div>
 
-        <div className="h-[366px] lg:hidden  relative flex">
-          {Blogs.map((item) => (
-            <TopBlogInfo
-             title={item.title}
-            
-            />
-         
-          ))}
+
+        <div className="h-[366px] border-8 border-black top-[570px] relative flex">
+
+
+          {BlogInfo.length > 0 && BlogInfo.map((item) => (
+          <TopBlogInfo
+            key={item.id}
+            title={item.title}
+            Teacher={item.addUserFullName}
+            img={item.currentImageAddress}
+          />
+        ))}
         </div>
       </div>
-    </div>
   );
 }
 

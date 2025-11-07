@@ -3,7 +3,7 @@ import Button from "../../../common/Button"
 import ButtonResponsive from "../../../common/ButtonResponsive"
 
 const TopBlogInfo = ({
-  titel,
+  title,
   Teacher,
   img,
   blogBg,
@@ -18,7 +18,7 @@ const TopBlogInfo = ({
         <div className={`w-[322px]  h-[293px] rounded-[32px] ${blogBg}`}>
           <img
             className="w-[185px] relative left-[70px] top-[50px] h-[185px] "
-            src={`../../../../../../public/AuthImage/${img}.png`}
+            src={img}
           />
         </div>
 
@@ -27,7 +27,7 @@ const TopBlogInfo = ({
             dir="rtl"
             className="w-[318px] relative left-[100px]  h-[34px] text-[23px] text-right font-bold   truncate"
           >
-            {titel}
+            {title}
           </p>
           <div className="relative left-[277px]">
             <div className="w-[133px] absolute h-[20px]  text-right text-[13px] font-medium text-[#707070]">
@@ -75,7 +75,7 @@ const TopBlogInfo = ({
             <img
               className="lg:w-[167px] lg:h-[167px] lg:relative lg:left-[130px] lg:top-[70px]"
               src={`../../../../../../public/AuthImage/${img}.png`}
-              alt={titel}
+              alt={title}
             />
           </div>
 
@@ -84,7 +84,7 @@ const TopBlogInfo = ({
               dir="rtl"
               className="lg:w-[342px] lg:h-[34px] lg:text-[19px] lg:text-right lg:font-bold relative left-[70px] truncate  "
             >
-              {titel}
+              {title}
             </p>
 
             <div className="lg:relative lg:left-[277px]">

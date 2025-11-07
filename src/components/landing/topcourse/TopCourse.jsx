@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { TopCourseBody } from "./TopCourseBody";
 import Button from "../../common/Button";
 import ButtonResponsive from "../../common/ButtonResponsive";
-import GetCoursesTopApi from "../../../core/services/api/getTopCourses.api";
+import GetCoursesTopApi from "../../../core/services/api/GetTopCourses.api";
 
 const TopCourse = () => {
   const [courses, setCourses] = useState([]);
@@ -27,7 +27,7 @@ const TopCourse = () => {
   }, []);
   
   return (
-    <div className="relative top-[500px]">
+    <div className="relative top-[300px]">
       <h2 className="hidden lg:block text-center text-3xl font-bold font-sans max-w-7xl mx-auto mb-8">
         دوره‌های برتر هفته
       </h2>

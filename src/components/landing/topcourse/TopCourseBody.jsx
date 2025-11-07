@@ -16,7 +16,7 @@ const TopCourseBody = ({
         <div className="">
           <div className={`w-[322px] h-[293px] ${bgcolor}  rounded-[32px]  `}>
             <div className="w-[172px] h-[172px] relative top-[58px] left-[75px] ">
-              <img src={`../../../../public/AuthImage/${imageAddress}.png`} />
+              <img src={imageAddress} />
             </div>
 
             <div className="w-[89px] h-[24px] absolute top-[8px] left-[151px] rounded-[32px] bg-[#3772FF] py-[2px] px-2 ">
@@ -61,7 +61,7 @@ const TopCourseBody = ({
           className={`lg:w-[322px] lg:h-[293px] ${bgcolor} lg:rounded-[32px] lg:relative`}
         >
           <div className="lg:w-[172px] lg:h-[172px] lg:absolute lg:top-[68px] lg:left-[75px]">
-            <img src={`../../../../public/AuthImage/${imageAddress}.png`} />
+            <img src={imageAddress} />
           </div>
 
           <div className="lg:w-[89px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[151px] lg:rounded-[32px] lg:bg-[#3772FF] lg:py-[2px] lg:px-2">
