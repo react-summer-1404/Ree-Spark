@@ -27,7 +27,7 @@ const TopCourse = () => {
   }, []);
   
   return (
-    <div className="relative top-[300px]">
+    <div className="lg:relative relative top-[600px] lg:top-[300px]">
       <h2 className="hidden lg:block text-center text-3xl font-bold font-sans max-w-7xl mx-auto mb-8">
         دوره‌های برتر هفته
       </h2>

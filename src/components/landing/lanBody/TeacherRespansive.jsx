@@ -4,7 +4,7 @@ const TeacherRespansive = () => {
   return (
     <div className="lg:hidden block">
 
-      <div className="w-[393px] h-[1190px] rounded-[32px] flex bg-[#2F2F2F] dark:bg-slate-700 absolute right-[2px] top-[5700px]">
+      <div className="w-[393px] h-[1190px] rounded-[32px] flex bg-[#2F2F2F] dark:bg-slate-700 absolute right-[1px] top-[5700px]">
         <div className="w-[361px] h-[717px] absolute left-[20px] bg-[#353535] rounded-[24px] dark:bg-slate-800 top-[445px] ">
           {/* border */}
           <div className="w-[873px] h-[154px] absolute top-[1px] left-[100px]">

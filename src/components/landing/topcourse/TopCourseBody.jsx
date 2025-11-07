@@ -20,13 +20,13 @@ const TopCourseBody = ({
             </div>
 
             <div className="w-[89px] h-[24px] absolute top-[8px] left-[151px] rounded-[32px] bg-[#3772FF] py-[2px] px-2 ">
-              <h5 className="w-[73px] h-[20px] text-[13px] font-sans font-medium text-[#FCFCFC]">
+              <h5 className="w-[73px] h-[20px] text-[13px] font-sans  font-medium absolute left-[25px] text-[#FCFCFC]">
                 {coding}
               </h5>
             </div>
 
             <div className="w-[62px] h-[24px] absolute top-[8px] left-[244px] rounded-[32px] bg-[#FF37F5] py-[2px] px-2 ">
-              <h5 className="w-[46px] h-[20px] text-[13px] font-sans font-medium text-[#FCFCFC]">
+              <h5 className="w-[46px] h-[20px] text-[13px] font-sans absolute left-[20px] font-medium text-[#FCFCFC]">
                 {level}
               </h5>
             </div>
@@ -65,13 +65,13 @@ const TopCourseBody = ({
           </div>
 
           <div className="lg:w-[89px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[151px] lg:rounded-[32px] lg:bg-[#3772FF] lg:py-[2px] lg:px-2">
-            <h5 className="lg:w-[73px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:font-medium lg:text-[#FCFCFC]">
+            <h5 className="lg:w-[73px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:absolute lg:left-[25px] lg:font-medium lg:text-[#FCFCFC]">
               { coding}
             </h5>
           </div>
 
           <div className="lg:w-[62px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[244px] lg:rounded-[32px] lg:bg-[#FF37F5] lg:py-[2px] lg:px-2">
-            <h5 className="lg:w-[46px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:font-medium lg:text-[#FCFCFC]">
+            <h5 className="lg:w-[46px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:absolute lg:left-[18px] lg:font-medium lg:text-[#FCFCFC]">
               {level}
             </h5>
           </div>

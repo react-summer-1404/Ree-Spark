@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "../../../common/Button"
-import ButtonResponsive from "../../../common/ButtonResponsive"
+import Button from "../../../common/Button";
+import ButtonResponsive from "../../../common/ButtonResponsive";
 
 const TopBlogInfo = ({
   title,
@@ -14,10 +14,10 @@ const TopBlogInfo = ({
 }) => {
   return (
     <div>
-      <div className="flex justify-center relative top-[350px]  flex-col lg:hidden right-[670px]">
+      <div className="flex justify-center relative top-[480px]  flex-col lg:hidden right-[736px]">
         <div className={`w-[322px]  h-[293px] rounded-[32px] ${blogBg}`}>
           <img
-            className="w-[185px] relative left-[70px] top-[50px] h-[185px] "
+            className="w-[185px] relative left-[70px] top-[50px] h-[165px] rounded-[15px] "
             src={img}
           />
         </div>
@@ -58,22 +58,26 @@ const TopBlogInfo = ({
                   className="w-[20px] absolute left-[-22px] bottom-[1px] h-[20px] "
                   src={`../../../../../../public/AuthImage/${icView}.png`}
                 />
-             
               </h5>
-               
             </div>
           </div>
         </div>
-          <ButtonResponsive/>
+        <div className="relative left-[40px]">
+          <ButtonResponsive />
+        </div>
+        <div className="absolute bottom-[860px] left-[30px]">
+          <ButtonResponsive />
+        </div>
       </div>
 
+      {/* {Desktop} */}
       <div>
         <div className=" lg:justify-center lg:gap-3 lg:flex-col hidden lg:block">
           <div
             className={`lg:w-[432px] lg:h-[293px] lg:rounded-[32px] ${blogBg}`}
           >
             <img
-              className="lg:w-[167px] lg:h-[167px] lg:relative lg:left-[130px] lg:top-[70px]"
+              className="lg:w-[187px] lg:h-[127px] lg:relative lg:left-[130px] lg:top-[70px] rounded-[15px]"
               src={img}
               alt={title}
             />
@@ -92,39 +96,42 @@ const TopBlogInfo = ({
                 {Teacher}
               </div>
             </div>
+            <div className="relative left-[20px] ">
+              <div className="lg:relative lg:left-[90px]">
+                <h5
+                  dir="rtl"
+                  className="lg:text-[#707070] lg:absolute lg:bottom-[-23px] lg:text-[13px] lg:font-medium"
+                >
+                  {Date}
+                  <img
+                    className="lg:w-[20px] lg:h-[20px] lg:absolute lg:left-[-22px] lg:bottom-[1px]"
+                    src={`../../../../../../public/AuthImage/${icDate}.png`}
+                    alt="date icon"
+                  />
+                </h5>
+              </div>
 
-            <div className="lg:relative lg:left-[80px]">
-              <h5
-                dir="rtl"
-                className="lg:text-[#707070] lg:absolute lg:bottom-[-23px] lg:text-[13px] lg:font-medium"
-              >
-                {Date}
-                <img
-                  className="lg:w-[20px] lg:h-[20px] lg:absolute lg:left-[-22px] lg:bottom-[1px]"
-                  src={`../../../../../../public/AuthImage/${icDate}.png`}
-                  alt="date icon"
-                />
-              </h5>
-            </div>
-
-            <div className="lg:relative lg:left-[30px]">
-              <h5
-                dir="rtl"
-                className="lg:text-[#707070] lg:absolute lg:bottom-[-23px] lg:text-[13px] lg:font-medium"
-              >
-                {view}
-                <img
-                  className="lg:w-[20px] lg:h-[20px] lg:absolute lg:left-[-22px] lg:bottom-[1px]"
-                  src={`../../../../../../public/AuthImage/${icView}.png`}
-                  alt="view icon"
-                />
-              </h5>
+              <div className="lg:relative lg:left-[30px]">
+                <h5
+                  dir="rtl"
+                  className="lg:text-[#707070] lg:absolute lg:bottom-[-23px] lg:text-[13px] lg:font-medium"
+                >
+                  {view}
+                  <img
+                    className="lg:w-[20px] lg:h-[20px] lg:absolute lg:left-[-22px] lg:bottom-[1px]"
+                    src={`../../../../../../public/AuthImage/${icView}.png`}
+                    alt="view icon"
+                  />
+                </h5>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <Button />
+      <div className="absolute left-[-20px]">
+        <Button />
+      </div>
     </div>
   );
 };
