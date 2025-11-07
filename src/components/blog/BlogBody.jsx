@@ -6,21 +6,25 @@ import toast from "react-hot-toast";
 import GetNewsApi from "../../core/services/api/Blog/GetNewsApi";
 import Loading from "../common/Loading";
 import debounce from "debounce";
+import { BlogSort } from "./components/blogSort/BlogSort";
 const BlogBody = () => {
   const [newsList, setNewsList] = useState([]);
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+
+  const [sortType, setSortType] = useState("InsertDate");
   const rowsPerPage = 6;
 
-  const GetNews = async (page = 1 , search = "") => {
+  const GetNews = async (page = 1, search = "", sorting = sortType) => {
     try {
       const res = await GetNewsApi({
         PageNumber: page,
         RowsOfPage: rowsPerPage,
-        SortingCol: "InsertDate",
+        SortingCol: sorting,
         SortType: "DESC",
         Query: search,
+        
       });
       console.log("🔥 API Response:", res);
       setNewsList(res.news || []);
@@ -33,24 +37,26 @@ const BlogBody = () => {
     }
   };
   useEffect(() => {
-    GetNews(currentPage , query);
-  }, [currentPage , query]);
+    GetNews(currentPage, query , sortType);
+  }, [currentPage, query, sortType ]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const dibounce = useCallback(
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const dibounce = useCallback(
     debounce((value) => {
       setQuery(value);
       setCurrentPage(1);
     }, 1000),
     []
   );
+ 
   return (
     <div className="w-[95%] m-auto mt-52 flex justify-between flex-col-reverse sm:flex-row gap-2">
+      <BlogSort sortType={sortType} onChangeSort={setSortType}/>
       <div className="w-full sm:w-[75%] h-[95%] sm:h-full flex flex-row gap-5 flex-wrap dark:text-white overflow-hidden">
         {newsList.length > 0 ? (
           newsList.map((item) => (

@@ -3,11 +3,16 @@ import { NavLink } from "react-router-dom";
 import logo from "../../../assets/image/AuthImage/logo.png";
 import sepehrTitle from "../../../assets/image/AuthImage/SepehrTitle.png";
 import { IoIosLogOut } from "react-icons/io";
-import { LuBookText } from "react-icons/lu";
+import { LuBookHeart, LuBookText } from "react-icons/lu";
 import { CgProfile } from "react-icons/cg";
 import { useNavigate } from "react-router-dom";
 import { removeItem } from "../../../core/services/storage/storage.api";
 import { motion, AnimatePresence } from "framer-motion";
+import { HiOutlinePresentationChartLine } from "react-icons/hi";
+import { GoBookmark } from "react-icons/go";
+import { RiBookShelfLine } from "react-icons/ri";
+import { PiMoneyWavy } from "react-icons/pi";
+import toast from "react-hot-toast";
 const RightSidePanel = () => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
@@ -16,6 +21,7 @@ const RightSidePanel = () => {
     removeItem("token");
     setShowModal(false);
     navigate("/auth/register");
+    toast.success("حساب کاربر با موفقیت حذف شد")
   };
   return (
     <div>
@@ -28,84 +34,84 @@ const RightSidePanel = () => {
           to={"panel"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-[#fcfcfc] font-medium"
+              isActive && "border-b border-black dark:border-[#fcfcfc] font-medium"
             } dark:text-[#FCFCFC] text-black text-[18px] h-[26px] leading-3 cursor-pointer`
           }
         >
           داشبرد
         </NavLink>
-        <img src="src/assets/images/activity-01.png" className="size-6  " />
+        <HiOutlinePresentationChartLine size={20} className="dark:text-white"/>
       </div>
 
       {/* my course */}
       <div className="absolute top-[175px] right-[35px] flex gap-2">
         {" "}
         <NavLink
-          to={"/MyCourse"}
+          to={"MyCourse"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-[#fcfcfc] font-medium"
+              isActive && "border-b border-black dark:border-[#fcfcfc] font-medium"
             } dark:text-[#FCFCFC] text-black text-[18px] h-[26px] leading-3`
           }
         >
           دوره من
         </NavLink>
-        <LuBookText size={20} color="white" />
+        <LuBookText size={20} className="dark:text-white" />
       </div>
 
       {/* my reserve */}
       <div className="absolute top-[231px] right-[35px] flex gap-2">
         {" "}
         <NavLink
-          to={"/myReserve"}
+          to={"myReserve"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-[#fcfcfc] font-medium"
+              isActive && "border-b border-black dark:border-[#fcfcfc] font-medium"
             } dark:text-[#FCFCFC] text-black text-[18px] h-[26px] leading-3`
           }
         >
           رزرو من
         </NavLink>
-        <img src="src/assets/images/book-02.png" className="size-6 " />
+        <GoBookmark size={20} className="dark:text-white"/>
       </div>
 
       {/* favorite course */}
       <div className="absolute top-[287px] right-[35px] flex gap-2">
         {" "}
         <NavLink
-          to={"/favoriteCourse"}
+          to={"favoriteCourse"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-[#fcfcfc] font-medium"
+              isActive && "border-b border-black dark:border-[#fcfcfc] font-medium"
             } dark:text-[#FCFCFC] text-black text-[17px] h-[26px] leading-3`
           }
         >
           دوره های موردعلاقه
         </NavLink>
-        <img src="src/assets/images/books-02.png" className="size-6 " />
+        <LuBookHeart size={20} className="dark:text-white"/>
       </div>
 
       {/* favorite blog */}
       <div className="absolute top-[343px] right-[35px] flex gap-2">
         {" "}
         <NavLink
-          to={"/favoriteBlog"}
+          to={"favoriteBlog"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-[#fcfcfc] font-medium"
+              isActive && "border-b border-black dark:border-[#fcfcfc] font-medium"
             } dark:text-[#FCFCFC] text-black text-[17px] h-[26px] leading-3`
           }
         >
           بلاگ های موردعلاقه
         </NavLink>
-        <img src="src/assets/images/library.png" className="size-6 " />
+        <RiBookShelfLine size={20} className="dark:text-white"/>
       </div>
 
       {/* profile */}
       <div className="absolute top-[399px] right-[35px] flex gap-2">
         {" "}
         <NavLink
-          to={"/profile"}
+          to={"profile"}
           className={({ isActive }) =>
             `${
               isActive && "border-b border-[#fcfcfc] font-medium"
@@ -114,7 +120,7 @@ const RightSidePanel = () => {
         >
           پروفایل
         </NavLink>
-        <CgProfile size={20} color="white" />
+        <CgProfile size={20} className="dark:text-white" />
       </div>
 
       {/* pay money */}
@@ -123,10 +129,7 @@ const RightSidePanel = () => {
         <div className="dark:text-[#FCFCFC] text-black text-[18px] h-[26px]  leading-3">
           پرداخت ها
         </div>
-        <img
-          src="src/assets/images/money-send-02-stroke-rounded1.png"
-          className="size-6 "
-        />
+      <PiMoneyWavy size={20} className="dark:text-white"/>
       </div>
       {/*  */}
       <div

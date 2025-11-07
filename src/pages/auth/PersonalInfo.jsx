@@ -3,15 +3,25 @@ import { ErrorMessage, Field, FieldArray, Form, Formik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { BiHomeAlt2 } from "react-icons/bi";
+import RegisterStepOneApi from "../../core/services/api/Auth/register/RegisterStepTwo.api";
+import toast from "react-hot-toast";
 const PersonalInfo = () => {
   const validation = yup.object().shape({
     phone: yup.number().required("شماره همراه خود را وارد کنید ⚠️"),
     password: yup.string().required("رمز عبور خود را وارد کنید⚠️"),
   });
   const navigate = useNavigate();
-  const onSubmit = (event) => {
-    console.log("form submit=", event);
-    navigate("/auth/PersonalInfo");
+  const onSubmit = async (values) => {
+    try {
+      const res = await RegisterStepOneApi(values);
+      console.log("register response", res);
+
+      toast.success("ثبت‌نام با موفقیت انجام شد ");
+      navigate("/");
+    } catch (error) {
+      toast.error("خطا در ثبت‌نام ");
+      console.error(error);
+    }
   };
   return (
     <div className="relative">

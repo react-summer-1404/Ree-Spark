@@ -16,9 +16,7 @@ const BlogHeroSection = () => {
         </h5>
       </div>
 
-      <div>
-        <BlogSort/>
-      </div>
+
 
     </div>
   );

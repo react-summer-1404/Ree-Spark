@@ -14,7 +14,7 @@ const DashboardLayout = () => {
         <div className="w-[80%] h-[7%] ">
           <HeaderPanel/>
         </div>
-        <div className="w-[78%] border-blue-400 h-[90%] float-end rounded-[50px] bg-[#fcfcfc]">
+        <div className="w-[78%] border-blue-400 h-[908px] float-end rounded-[50px] bg-[#fcfcfc]">
           <Outlet />
         </div>
       </div>

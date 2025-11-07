@@ -17,6 +17,9 @@ import NotFound from "../../pages/NotFound";
 import DashboardLayout from "../../components/layout/DashboardLayout";
 import { Panel } from "../../pages/Panel";
 import { MyCourse } from "../../pages/MyCourse";
+import { MyReserve } from "../../pages/MyReserve";
+import { FavoriteCourse } from "../../pages/FavoriteCourse";
+import FavoriteBlog from "../../pages/FavoriteBlog";
 
 const Routes = createBrowserRouter([
   {
@@ -48,6 +51,9 @@ const Routes = createBrowserRouter([
     children: [
       { path: "panel", element: <Panel /> },
       { path: "MyCourse", element: <MyCourse /> },
+      { path: "MyReserve", element: <MyReserve /> },
+      { path: "FavoriteCourse", element: <FavoriteCourse /> },
+      { path: "FavoriteBlog", element: <FavoriteBlog /> },
     ],
   },
 ]);
