@@ -45,7 +45,7 @@ function HeroSection() {
             <div dir="rtl" className="absolute left-[375px]">
               شروع کن به یادگیری!
             </div>
-            <div className="bg-[#2F2F2F] w-36 lg:h-11 absolute left-[370px] top-10 rounded-3xl text-gray-50 text-center py-2">
+            <div className="dark:bg-slate-400 bg-[#2F2F2F] dark:text-black w-36 lg:h-11 absolute left-[370px] top-10 rounded-3xl text-gray-50 text-center py-2">
               جدیدترین دوره‌ها
             </div>
           </div>
@@ -74,7 +74,7 @@ function HeroSection() {
             <div dir="rtl" className="lg:absolute lg:left-[375px]">
               شروع کن به یادگیری!
             </div>
-            <div className="lg:bg-[#2F2F2F] lg:w-36 lg:h-11 lg:absolute lg:left-[370px] lg:top-10 lg:rounded-3xl lg:text-gray-50 lg:text-center lg:py-2">
+            <div className="dark:bg-slate-400 lg:bg-[#2F2F2F] lg:w-36 lg:h-11 lg:absolute lg:left-[370px] lg:top-10 lg:rounded-3xl dark:text-black lg:text-gray-50 lg:text-center lg:py-2">
               جدیدترین دوره‌ها
             </div>
           </div>
