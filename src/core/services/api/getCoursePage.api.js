@@ -8,7 +8,7 @@ const GetCoursePageApi = async ({
   SortType = "DESC",
 }) => {
   try {
-    const data = await http.get("/Home/GetCoursesTop", {
+    const data = await http.get("/News", {
       params: {
         PageNumber,
         RowsOfPage,

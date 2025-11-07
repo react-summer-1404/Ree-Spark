@@ -3,10 +3,10 @@ import { MobileCourseBody } from "./MobileCourseBody";
 import { CourseStyle } from "./CourseStyle";
 import GetCoursePageApi from "../../../core/services/api/getCoursePage.api";
 import { PageInationBlog } from "./PageInationBlog";
-
+import Loading from "../../common/Loading";
 const CourseBody = () => {
   const [Course, setCourse] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(3);
   const [totalPages, setTotalPages] = useState(1);
 
   const CoursePage = async (page = 1, rowsPerPage = 12) => {
@@ -18,7 +18,7 @@ const CourseBody = () => {
         SortType: "DESC",
       });
       console.log("🔥 Course api:", res);
-      setCourse(res || []);
+      setCourse(res.news || []);
       if (res.totalCount) {
         setTotalPages(Math.ceil(res.totalCount / rowsPerPage));
       }
@@ -56,7 +56,9 @@ const CourseBody = () => {
               />
             ))
           ) : (
-            <div className=""></div>
+        <div className="absolute top-[200px] left-[450px]">
+            <Loading />
+          </div>
           )}
         </div>
       </div>
@@ -65,6 +67,7 @@ const CourseBody = () => {
       <div className="lg:hidden">
         <MobileCourseBody />
       </div>
+     
 
        <PageInationBlog
         currentPage={currentPage}
