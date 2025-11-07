@@ -8,7 +8,6 @@ import Loading from "../common/Loading";
 
 const BlogBody = () => {
   const [newsList, setNewsList] = useState([]);
-
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const rowsPerPage = 6;

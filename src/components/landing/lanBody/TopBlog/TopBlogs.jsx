@@ -1,95 +1,65 @@
-import React from "react";
-import TopBlogInfo from "./TopBlogInfo";
 
-function TopBlogs() {
+import React, { useEffect,useState } from "react";
+import TopBlogInfo from "./TopBlogInfo";
+import TopBlogApi from "../../../../core/services/api/TopBlogs.api";
+import { useEffect } from "react";
+const TopBlogs = () => {
+  const [BlogInfo, setBlogInfo] = useState([]);
+  const getTopBlogsApi = async (RowsOfPage = 3) => {
+    try {
+      const res = await TopBlogApi({ 
+        RowsOfPage:RowsOfPage ,
+        SortingCol: "InsertDate",
+        SortType: "DESC",
+      });
+      console.log("Response topBlog:", res);
+      setBlogInfo(res.news || []);
+
+      if (res.totalCount) {
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("خطا در دریافت بلاگ");
+    }
+  };
+console.log()
+  useEffect(() => {
+    getTopBlogsApi();
+  },[]);
+
   return (
     <div>
-      <div className="  h-[365px] flex justify-center flex-col relative top-[1083px] lg:dark:text-white ">
-        <div className="text-center text-3xl bottom-8 relative right-[-10px] top-[320px] lg:hidden font-bold ">
+    
+
+        <div className=" text-center text-3xl font-sans bottom-8 relative right-[-10px] top-[960px]  font-bold lg:hidden">
           بلاگ های برتر هفته
         </div>
 
-        <div className="h-[366px] lg:hidden  flex">
-          {/*  java   */}
-          <TopBlogInfo
-            titel="زبان جاوا اسکریپت در چه حوزه ای به کار میره؟ "
-            Teacher="محمد حسین بحرالعلومی"
-            img="java"
-            blogBg="bg-[#F0DB4F]"
-            Date="22 1403 اردیبهشت"
-            icDate="Date"
-            view="49"
-            icView="view"
-          />
-
-          {/*  figma */}
-          <TopBlogInfo
-            titel="فیگما یا ادوبی ایکس‌دی؟"
-            Teacher="محمدحسین خلیل‌پور"
-            img="figma"
-            blogBg="bg-[#FF6C6C]"
-            Date="29 1403 فروردین"
-            icDate="Date"
-            view="122"
-            icView="view"
-          />
-
-          {/*  react */}
-          <TopBlogInfo
-            titel="فرق ری‌اکت با نکست جی‌اس چیست؟"
-            Teacher=" محسن اسفندیاری"
-            img="react"
-            blogBg="bg-[#87DFFF]"
-            Date="29 1403 فروردین"
-            view="234"
-            icView="view"
-            icDate="Date"
-          />
+        <div className="lg:text-center lg:text-3xl lg:font-sans lg:bottom-8 lg:relative  lg:top-[520px] lg:block hidden font-bold ">
+          بلاگ های برتر هفته
         </div>
 
-        <div className="lg:text-center lg:text-3xl lg:bottom-8 lg:relative lg:right-[20px] lg:top-[-40px] lg:font-bold lg:block hidden lg:dark:text-white lg:text-black">
-          بلاگ‌های برتر هفته
-        </div>
 
-        <div className="lg:w-[1361px] lg:h-[366] lg:gap-8 lg:flex hidden  ">
-          {/*  java   */}
-          <TopBlogInfo
-            titel="زبان جاوا اسکریپت در چه حوزه ای به کار میره؟ "
-            Teacher="محمد حسین بحرالعلومی"
-            img="java"
-            blogBg="bg-[#F0DB4F]"
-            Date="22 1403 اردیبهشت"
-            icDate="Date"
-            view="49"
-            icView="view"
-          />
+        <div className="h-[366px] gap-[25px] w-[1360px] -[25px]  top-[570px] relative left-[30px] flex">
 
-          {/*  figma */}
-          <TopBlogInfo
-            titel="فیگما یا ادوبی ایکس‌دی؟"
-            Teacher="محمدحسین خلیل‌پور"
-            img="figma"
-            blogBg="bg-[#FF6C6C]"
-            Date="29 1403 فروردین"
-            icDate="Date"
-            view="122"
-            icView="view"
-          />
 
-          {/*  react */}
+          
+
+          {BlogInfo.length > 0 && BlogInfo.map((item) => (
           <TopBlogInfo
-            titel="فرق ری‌اکت با نکست جی‌اس چیست؟"
-            Teacher=" محسن اسفندیاری"
-            img="react"
-            blogBg="bg-[#87DFFF]"
-            Date="29 1403 فروردین"
-            view="234"
+            key={item.id}
+            title={item.title}
+            Teacher={item.addUserFullName}
+            img={item.currentImageAddress}
+            Date={item.insertDate}
+            view={item.currentView}
             icView="view"
             icDate="Date"
+            blogBg="bg-black"
           />
+        ))}
         </div>
       </div>
-    </div>
   );
 }
 
