@@ -9,6 +9,8 @@ import { NewPassword } from "../../pages/auth/forgetpass/NewPassword";
 import { ForgetPassword } from "../../pages/auth/forgetpass/ForgetPassword";
 import { SendCode } from "../../pages/auth/SendCode";
 import { PersonalInfo } from "../../pages/auth/PersonalInfo";
+import CourseDetail from "../../pages/CourseDetail";
+import BlogDetail from "../../pages/BlogDetail";
 
 
 
@@ -19,7 +21,7 @@ const Routes = createBrowserRouter([
     element: <AuthLayout />,
     children: [
       { path: "Login", element: <Login /> },
-      { path: "VerifyNumber", element: <VerifyNumber /> },
+      { path: "VerifyNumber", element: <VerifyNumber /> },  
       { path: "Register", element: <Register /> },
       { path: "SendCode", element: <SendCode /> },
       { path: "PersonalInfo", element: <PersonalInfo /> },
@@ -30,7 +32,12 @@ const Routes = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    children: [{ path: "/", element: <Landing /> }],
+    children: [{ path: "/", element: <Landing /> },
+      {path:'courseDetail', element: <CourseDetail/>},
+      {path:'BlogDetail', element: <BlogDetail/>},
+
+
+    ],
   },
 ]);
 

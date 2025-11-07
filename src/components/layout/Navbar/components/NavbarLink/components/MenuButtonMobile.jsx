@@ -11,4 +11,4 @@ const MenuButtonMobile = ({setIsModalOpen}) => {
   )
 }
 
-export default MenuButtonMobile
+export default MenuButtonMobile;
