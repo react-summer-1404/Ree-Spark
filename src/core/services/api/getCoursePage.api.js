@@ -2,12 +2,16 @@ import http from "../../interseptor/interseptor";
 
 
 const GetCoursePageApi = async ({
-
+  RowsOfPage = 12,
+  SortingCol = "insertDate",
+  SortType = "DESC",
 }) => {
   try {
     const data = await http.get("/Home/GetCoursesTop", {
       params: {
-        
+                RowsOfPage,
+        SortingCol,
+        SortType,
       },
     });
     return data;
@@ -18,3 +22,12 @@ const GetCoursePageApi = async ({
 };
 
 export default GetCoursePageApi ;
+
+
+
+
+
+
+
+
+
