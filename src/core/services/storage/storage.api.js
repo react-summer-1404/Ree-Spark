@@ -1,17 +1,32 @@
 const setItem = (key, value) => {
-  localStorage.setItem(key, JSON.stringify(value));
+  try {
+    if (typeof value === "string") {
+      localStorage.setItem(key, value);
+    } else {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+  } catch (err) {
+    console.error("setItem error:", err);
+  }
 };
 
 const getItem = (key) => {
-  const result = localStorage.getItem(key);
-  console.log("test", result);
-  if (result != "undefined") return JSON.parse(result);
-  return false;
+  try {
+    const result = localStorage.getItem(key);
+    if (!result || result === "undefined") return false;
+    try {
+      return JSON.parse(result);
+    } catch {
+      return result;
+    }
+  } catch (err) {
+    console.error("getItem error:", err);
+    return false;
+  }
 };
 
 const getItemGeneric = (key) => {
-  if (localStorage.getItem(key)) return localStorage.getItem(key);
-  return false;
+  return localStorage.getItem(key) || false;
 };
 
 const setItemGeneric = (key, value) => {
@@ -19,7 +34,6 @@ const setItemGeneric = (key, value) => {
 };
 
 const removeItem = (key) => {
-  if (getItem(key) === false) return false;
   localStorage.removeItem(key);
 };
 
@@ -35,3 +49,4 @@ export {
   setItemGeneric,
   getItemGeneric,
 };
+

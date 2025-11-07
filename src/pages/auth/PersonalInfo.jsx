@@ -3,14 +3,25 @@ import { ErrorMessage, Field, FieldArray, Form, Formik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { BiHomeAlt2 } from "react-icons/bi";
+import RegisterStepOneApi from "../../core/services/api/Auth/register/RegisterStepTwo.api";
+import toast from "react-hot-toast";
 const PersonalInfo = () => {
   const validation = yup.object().shape({
-    sendCode: yup.number().required("شماره همراه خود را وارد کنید ⚠️"),
+    phone: yup.number().required("شماره همراه خود را وارد کنید ⚠️"),
+    password: yup.string().required("رمز عبور خود را وارد کنید⚠️"),
   });
   const navigate = useNavigate();
-  const onSubmit = (event) => {
-    console.log("form submit=", event);
-    navigate("/auth/PersonalInfo");
+  const onSubmit = async (values) => {
+    try {
+      const res = await RegisterStepOneApi(values);
+      console.log("register response", res);
+
+      toast.success("ثبت‌نام با موفقیت انجام شد ");
+      navigate("/");
+    } catch (error) {
+      toast.error("خطا در ثبت‌نام ");
+      console.error(error);
+    }
   };
   return (
     <div className="relative">
@@ -33,7 +44,7 @@ const PersonalInfo = () => {
         <div className=" w-full sm:w-[160px] h-10 opacity-[50%]">
           <div className="h-2 bg-[#3772FF] rounded-lg"></div>
           <div className="text-center sm:text-right text-base mt-1">
-            واردکردن شماره همراه
+            واردکردن ایمیل
           </div>
         </div>
       </div>
@@ -45,36 +56,50 @@ const PersonalInfo = () => {
       </h5>
       {/*  */}
       <Formik
-        initialValues={{ sendCode: "" }}
+        initialValues={{ phone: "" ,password:"" }}
         onSubmit={onSubmit}
         validationSchema={validation}
       >
         <Form>
           <h3 className="w-[134px] h-[23px] absolute top-[300px] sm:top-[260px] right-0 text-[15px] text-right font-medium dark:text-white">
-            کد تایید
+            شماره همراه
           </h3>
           <Field
             className="border border-[#DCDCDC] dark:bg-slate-200 dark:text-black w-full sm:w-4/5 text-sm absolute top-[330px] sm:top-[292px] right-0 h-12 rounded-3xl text-right pr-2 outline-blue-600"
-            placeholder="کد تایید خود را وارد کنید"
-            name="sendCode"
+            placeholder="شماره خود را وارد کنید"
+            name="phone"
           />
           <ErrorMessage
-            name="sendCode"
+            name="phone"
             className="absolute top-[390px] sm:top-[350px] right-[10px] text-red-600 dark:text-red-400 w-52"
+            component={"span"}
+          />
+          {/*  */}
+          <h3 className="w-[134px] h-[23px] absolute top-[440px] sm:top-[390px] right-0 text-[15px] text-right font-medium dark:text-white">
+            رمز عبور 
+          </h3>
+          <Field
+            className="border border-[#DCDCDC] dark:bg-slate-200 dark:text-black w-full sm:w-4/5 text-sm absolute top-[470px] sm:top-[430px] right-0 h-12 rounded-3xl text-right pr-2 outline-blue-600"
+            placeholder="رمز عبور خود را وارد کنید"
+            name="password"
+          />
+          <ErrorMessage
+            name="password"
+            className="absolute top-[530px] sm:top-[485px] text-right right-[10px] text-red-600 dark:text-red-400 w-52"
             component={"span"}
           />
           <button
             onClick={navigate}
             type="submit"
-            className="w-full sm:w-4/5 h-[48px] absolute top-[430px] sm:top-[380px] right-0 rounded-[40px] bg-[#3772FF]  text-center  leading-10 text-[16px] font-medium text-[#FCFCFC]"
+            className="w-full sm:w-4/5 h-[48px] absolute top-[630px] sm:top-[540px] right-0 rounded-[40px] bg-[#3772FF]  text-center  leading-10 text-[16px] font-medium text-[#FCFCFC]"
           >
-            ارسال کد تایید
+            تایید
           </button>
-          <div className="absolute top-[480px] right-0 w-full sm:w-4/5 h-10 flex">
+          <div className="absolute top-[610px] right-0 w-full sm:w-4/5 h-10 flex">
             {" "}
             <Link
               to={"/"}
-              className="w-[140px] mx-auto h-10 border border-[#dcdcdc] text-right text-[#3772FF] sm:right-[35%] rounded-[34px] py-2 px-4 "
+              className="w-[140px] mx-auto h-10 border border-[#dcdcdc] text-right dark:text-blue-400 dark:hover:border-blue-400 text-[#3772FF] sm:right-[35%] rounded-[34px] py-2 px-4 "
             >
               صفحه اصلی
               <BiHomeAlt2 size={17} className="absolute bottom-[10px]" />

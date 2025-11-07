@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../../components/layout/Layout";
 import { Landing } from "../../pages/Landing";
+// import { Course } from "../../components/course/Course";
 import { AuthLayout } from "../../components/layout/AuthLayout";
 import { Register } from "../../pages/auth/Register";
 import { Login } from "../../pages/auth/login/Login";
@@ -9,9 +10,16 @@ import { NewPassword } from "../../pages/auth/forgetpass/NewPassword";
 import { ForgetPassword } from "../../pages/auth/forgetpass/ForgetPassword";
 import { SendCode } from "../../pages/auth/SendCode";
 import { PersonalInfo } from "../../pages/auth/PersonalInfo";
+import { Blog } from "../../pages/Blog";
 
-
-
+import Loading from "../../components/common/Loading";
+import NotFound from "../../pages/NotFound";
+import DashboardLayout from "../../components/layout/DashboardLayout";
+import { Panel } from "../../pages/Panel";
+import { MyCourse } from "../../pages/MyCourse";
+import { MyReserve } from "../../pages/MyReserve";
+import { FavoriteCourse } from "../../pages/FavoriteCourse";
+import FavoriteBlog from "../../pages/FavoriteBlog";
 
 const Routes = createBrowserRouter([
   {
@@ -30,7 +38,23 @@ const Routes = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    children: [{ path: "/", element: <Landing /> }],
+    children: [
+      { path: "/", element: <Landing /> },
+      { path: "Blog", element: <Blog /> },
+      { path: "Loading", element: <Loading /> },
+    ],
+  },
+  { path: "*", element: <NotFound /> },
+  {
+    path: "/Dashboard",
+    element: <DashboardLayout />,
+    children: [
+      { path: "panel", element: <Panel /> },
+      { path: "MyCourse", element: <MyCourse /> },
+      { path: "MyReserve", element: <MyReserve /> },
+      { path: "FavoriteCourse", element: <FavoriteCourse /> },
+      { path: "FavoriteBlog", element: <FavoriteBlog /> },
+    ],
   },
 ]);
 
