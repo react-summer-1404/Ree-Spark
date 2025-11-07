@@ -129,7 +129,7 @@ const TopBlogInfo = ({
         </div>
       </div>
 
-      <div className="absolute left-[-px]">
+      <div className="absolute left-[-20px]">
         <Button />
       </div>
     </div>
