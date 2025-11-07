@@ -42,12 +42,19 @@ console.log()
         <div className="h-[366px] border-8 border-black top-[570px] relative flex">
 
 
+          <TopBlogInfo
+            
+          />
+
           {BlogInfo.length > 0 && BlogInfo.map((item) => (
           <TopBlogInfo
             key={item.id}
             title={item.title}
             Teacher={item.addUserFullName}
             img={item.currentImageAddress}
+            Date={item.insertDate}
+            view={item.currentView}
+            
           />
         ))}
         </div>

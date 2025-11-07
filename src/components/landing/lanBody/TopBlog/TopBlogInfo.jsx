@@ -74,7 +74,7 @@ const TopBlogInfo = ({
           >
             <img
               className="lg:w-[167px] lg:h-[167px] lg:relative lg:left-[130px] lg:top-[70px]"
-              src={`../../../../../../public/AuthImage/${img}.png`}
+              src={img}
               alt={title}
             />
           </div>

@@ -45,7 +45,7 @@ const TopCourse = () => {
             coding={item.statusName}
             imageAddress={item.imageAddress}
             level={item.levelName}
-            bgcolor="bg-blue-400"
+            bgcolor="bg-black"
           />
         ))}
 
