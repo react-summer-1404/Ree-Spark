@@ -6,9 +6,9 @@ import { PageInationBlog } from "./PageInationBlog";
 import Loading from "../../common/Loading";
 const CourseBody = () => {
   const [Course, setCourse] = useState([]);
-  const [currentPage, setCurrentPage] = useState(3);
+  const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const rowsPerPage = 6;
+  const rowsPerPage = 12;
   const CoursePage = async (page = 1) => {
     try {
       const res = await GetCoursePageApi({
@@ -41,12 +41,13 @@ const CourseBody = () => {
     <div>
       {/* Desktop */}
       <div className="hidden lg:block">
-        <div className="xl:w-[1061px] lg:w-[961px] lg:h-[366px] lg:relative xl:left-[-120px] lg:right-[170px] lg:top-[300px] lg:justify-center lg:flex-wrap lg:gap-6 lg:flex">
+        <div className="xl:w-[1061px]  lg:w-[961px] lg:h-[366px] lg:relative xl:left-[-120px] lg:right-[170px] lg:top-[300px] lg:justify-center lg:flex-wrap lg:gap-6 lg:flex">
           {Course.length > 0 ? (
             Course.map((item) => (
               <CourseStyle
                 key={item.id}
                 courseName={item.title}
+                
                 teacherName={item.teacherName}
                 coursePrice={item.cost}
                 coding={item.statusName}
@@ -56,7 +57,7 @@ const CourseBody = () => {
               />
             ))
           ) : (
-        <div className="absolute top-[200px] left-[450px]">
+        <div className="relative top-[200px] left-[450px]">
             <Loading />
           </div>
           )}
@@ -68,13 +69,13 @@ const CourseBody = () => {
         <MobileCourseBody />
       </div>
      
-
+      <div className="absolute top-[-500px]">
        <PageInationBlog
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
-    
+      </div>
     </div>
   );
 };
