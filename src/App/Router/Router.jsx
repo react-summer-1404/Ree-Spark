@@ -21,6 +21,7 @@ import { MyCourse } from "../../pages/MyCourse";
 import { MyReserve } from "../../pages/MyReserve";
 import { FavoriteCourse } from "../../pages/FavoriteCourse";
 import FavoriteBlog from "../../pages/FavoriteBlog";
+import { Blog } from "../../pages/Blog";
 
 const Routes = createBrowserRouter([
   {
@@ -41,6 +42,7 @@ const Routes = createBrowserRouter([
     element: <Layout />,
     children: [{ path: "/", element: <Landing /> },
       {path:'courseDetail', element: <CourseDetail/>},
+      {path:'Blog', element: <Blog/>},
       {path:'BlogDetail', element: <BlogDetail/>},
     ],
   },
