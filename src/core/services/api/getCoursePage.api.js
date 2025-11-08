@@ -6,6 +6,8 @@ const GetCoursePageApi = async ({
   RowsOfPage = 9,
   SortingCol = "insertDate",
   SortType = "DESC",
+    Query = "",
+  NewsCategoryId = null,
 }) => {
   try {
     const data = await http.get("/News", {
@@ -14,6 +16,8 @@ const GetCoursePageApi = async ({
         RowsOfPage,
         SortingCol,
         SortType,
+        Query,
+        NewsCategoryId,
       },
     });
     return data;
