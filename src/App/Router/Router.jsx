@@ -10,7 +10,8 @@ import { NewPassword } from "../../pages/auth/forgetpass/NewPassword";
 import { ForgetPassword } from "../../pages/auth/forgetpass/ForgetPassword";
 import { SendCode } from "../../pages/auth/SendCode";
 import { PersonalInfo } from "../../pages/auth/PersonalInfo";
-import { Blog } from "../../pages/Blog";
+import CourseDetail from "../../pages/CourseDetail";
+import BlogDetail from "../../pages/BlogDetail";
 
 import Loading from "../../components/common/Loading";
 import NotFound from "../../pages/NotFound";
@@ -27,7 +28,7 @@ const Routes = createBrowserRouter([
     element: <AuthLayout />,
     children: [
       { path: "Login", element: <Login /> },
-      { path: "VerifyNumber", element: <VerifyNumber /> },
+      { path: "VerifyNumber", element: <VerifyNumber /> },  
       { path: "Register", element: <Register /> },
       { path: "SendCode", element: <SendCode /> },
       { path: "PersonalInfo", element: <PersonalInfo /> },
@@ -38,22 +39,11 @@ const Routes = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    children: [
-      { path: "/", element: <Landing /> },
-      { path: "Blog", element: <Blog /> },
-      { path: "Loading", element: <Loading /> },
-    ],
-  },
-  { path: "*", element: <NotFound /> },
-  {
-    path: "/Dashboard",
-    element: <DashboardLayout />,
-    children: [
-      { path: "panel", element: <Panel /> },
-      { path: "MyCourse", element: <MyCourse /> },
-      { path: "MyReserve", element: <MyReserve /> },
-      { path: "FavoriteCourse", element: <FavoriteCourse /> },
-      { path: "FavoriteBlog", element: <FavoriteBlog /> },
+    children: [{ path: "/", element: <Landing /> },
+      {path:'courseDetail', element: <CourseDetail/>},
+      {path:'BlogDetail', element: <BlogDetail/>},
+
+
     ],
   },
 ]);
