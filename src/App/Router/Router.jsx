@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../../components/layout/Layout";
-import { Landing } from "../../pages/Landing";
+import { Course } from "../../components/course/Course";
 import { AuthLayout } from "../../components/layout/AuthLayout";
 import { Register } from "../../pages/auth/Register";
 import { Login } from "../../pages/auth/login/Login";
@@ -9,9 +9,8 @@ import { NewPassword } from "../../pages/auth/forgetpass/NewPassword";
 import { ForgetPassword } from "../../pages/auth/forgetpass/ForgetPassword";
 import { SendCode } from "../../pages/auth/SendCode";
 import { PersonalInfo } from "../../pages/auth/PersonalInfo";
-
-
-
+import Loading from "../../components/common/Loading";
+import NotFound from "../../pages/NotFound";
 
 const Routes = createBrowserRouter([
   {
@@ -30,8 +29,13 @@ const Routes = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    children: [{ path: "/", element: <Landing /> }],
+    children: [
+      { path: "/course", element: <Course /> },
+      { path: "Loading", element: <Loading /> },
+
+    ],
   },
+  { path: "*", element: <NotFound /> },
 ]);
 
 export { Routes };
