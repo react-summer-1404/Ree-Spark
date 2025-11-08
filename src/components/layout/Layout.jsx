@@ -12,7 +12,7 @@ const Layout = () => {
         </div>
 
 
-        <main className="border-2 border-green-500">
+        <main className="">
           <Outlet />
         </main>
 
