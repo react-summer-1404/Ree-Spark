@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../../components/layout/Layout";
 import { Landing } from "../../pages/Landing";
-// import { Course } from "../../components/course/Course";
+import { Course } from "../../components/course/Course";
 import { AuthLayout } from "../../components/layout/AuthLayout";
 import { Register } from "../../pages/auth/Register";
 import { Login } from "../../pages/auth/login/Login";
@@ -10,6 +10,7 @@ import { NewPassword } from "../../pages/auth/forgetpass/NewPassword";
 import { ForgetPassword } from "../../pages/auth/forgetpass/ForgetPassword";
 import { SendCode } from "../../pages/auth/SendCode";
 import { PersonalInfo } from "../../pages/auth/PersonalInfo";
+<<<<<<< HEAD
 import CourseDetail from "../../pages/CourseDetail";
 import BlogDetail from "../../pages/BlogDetail";
 
@@ -23,6 +24,11 @@ import { FavoriteCourse } from "../../pages/FavoriteCourse";
 import FavoriteBlog from "../../pages/FavoriteBlog";
 import { Blog } from "../../pages/Blog";
 
+=======
+import Loading from "../../components/common/Loading";
+import NotFound from "../../pages/NotFound";
+import { BlogBody } from "../../components/blog/BlogBody";
+>>>>>>> feacher/landing
 const Routes = createBrowserRouter([
   {
     path: "/Auth",

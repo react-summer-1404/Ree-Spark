@@ -7,24 +7,28 @@ const TopCourseBody = ({
   imageAddress,
   bgcolor,
   coursePrice,
+
+  coding,
 }) => {
   return (
+    // {mobile} //
     <Link className=" w-[322px] h-[366px] ">
-      <div className="lg:hidden  relative top-[2600px] dark:text-white ">
-        <div className="absolute right-[1000px]">
+      <div className="lg:hidden  relative top-[30px] dark:text-white right-[500px] ">
+        <div className="">
           <div className={`w-[322px] h-[293px] ${bgcolor}  rounded-[32px]  `}>
-            <div className="w-[172px] h-[172px] relative top-[58px] left-[75px] ">
-              <img src={`../../../../public/AuthImage/${imageAddress}.png`} />
+            <div className="w-[172px] h-[172px] relative top-[88px] left-[75px] ">
+              <img src={imageAddress} />
             </div>
 
             <div className="w-[89px] h-[24px] absolute top-[8px] left-[151px] rounded-[32px] bg-[#3772FF] py-[2px] px-2 ">
-              <h5 className="w-[73px] h-[20px] text-[13px] font-sans font-medium text-[#FCFCFC]">
-                برنامه نویسی
+              <h5 className="w-[73px] h-[20px] text-[13px] font-sans  font-medium absolute left-[25px] text-[#FCFCFC]">
+                {coding}
               </h5>
             </div>
 
             <div className="w-[62px] h-[24px] absolute top-[8px] left-[244px] rounded-[32px] bg-[#FF37F5] py-[2px] px-2 ">
-              <h5 className="w-[46px] h-[20px] text-[13px] font-sans font-medium text-[#FCFCFC]">
+
+              <h5 className="w-[46px] h-[20px] text-[13px] font-sans absolute left-[20px] font-medium text-[#FCFCFC]">
                 {level}
               </h5>
             </div>
@@ -37,8 +41,12 @@ const TopCourseBody = ({
           </div>
 
           <div className=" w-[322px] absolute h-[61px] gap-1 ml-[170px] mt-[10px]">
-            <h1 className=" w-[322px] h-[34px] gap-1 font-sans font-bold text-right relative right-[180px] bottom-[10px] dark:text-white text-[23px]
-             text-[#2F2F2F]">
+
+            <h1
+              className=" w-[322px] h-[34px] gap-1 font-sans font-bold text-right relative right-[180px] bottom-[10px] dark:text-white text-[23px]
+             text-[#2F2F2F]"
+            >
+
               {courseName}
             </h1>
             <div className="w-[322px] h-[23px] ">
@@ -48,27 +56,32 @@ const TopCourseBody = ({
             </div>
           </div>
         </div>
-                     
 
       </div>
 
-  
+      {/* // {DeskTop}   // */}
+
+
       <div className="lg:block hidden lg:dark:text-white ">
         <div
           className={`lg:w-[322px] lg:h-[293px] ${bgcolor} lg:rounded-[32px] lg:relative`}
         >
-          <div className="lg:w-[172px] lg:h-[172px] lg:absolute lg:top-[68px] lg:left-[75px]">
-            <img src={`../../../../public/AuthImage/${imageAddress}.png`} />
+
+          <div className="lg:w-[172px] lg:h-[172px] lg:absolute lg:top-[78px] lg:left-[75px]">
+            <img src={imageAddress} />
           </div>
 
           <div className="lg:w-[89px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[151px] lg:rounded-[32px] lg:bg-[#3772FF] lg:py-[2px] lg:px-2">
-            <h5 className="lg:w-[73px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:font-medium lg:text-[#FCFCFC]">
-              برنامه نویسی
+            <h5 className="lg:w-[73px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:absolute lg:left-[25px] lg:font-medium lg:text-[#FCFCFC]">
+              { coding}
+
             </h5>
           </div>
 
           <div className="lg:w-[62px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[244px] lg:rounded-[32px] lg:bg-[#FF37F5] lg:py-[2px] lg:px-2">
-            <h5 className="lg:w-[46px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:font-medium lg:text-[#FCFCFC]">
+
+            <h5 className="lg:w-[46px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:absolute lg:left-[18px] lg:font-medium lg:text-[#FCFCFC]">
+
               {level}
             </h5>
           </div>

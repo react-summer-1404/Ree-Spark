@@ -1,76 +1,65 @@
-import React from "react";
+
+import React, { useEffect, useState } from "react";
 import { TopCourseBody } from "./TopCourseBody";
 import Button from "../../common/Button";
+import ButtonResponsive from "../../common/ButtonResponsive";
+import GetCoursesTopApi from "../../../core/services/api/GetTopCourses.api";
+
 const TopCourse = () => {
+  const [courses, setCourses] = useState([]);
+  const getTopCourses = async (Count = 4) => {
+    try {
+      const res = await GetCoursesTopApi({
+        Count: Count,
+      });
+      console.log("🔥 API Response:", res);
+      setCourses(res || []);
+      if (res.totalCount) {
+        setTotalPages(Math.ceil(res.totalCount / rowsPerPage));
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("خطا در دریافت اخبار");
+    }
+  };
+
+  useEffect(() => {
+    getTopCourses();
+  }, []);
+  
   return (
-    <div>
-      <div className="w-[1361px] h-[547px] absolute  top-[1646px] gap-12  lg:dark:text-white dark:text-white">
+    <div className="lg:relative relative top-[600px] lg:top-[300px]">
+      <h2 className="hidden lg:block text-center text-3xl font-bold font-sans max-w-7xl mx-auto mb-8">
+        دوره‌های برتر هفته
+      </h2>
+      <h2 className="lg:hidden  text-3xl font-bold font-sans text-center mb-8">
+        دوره‌های برتر هفته
+      </h2>
+      
+      <div className="mt-12 flex justify-center lg:gap-10 gap-[60px] ">
+        {courses.map((item) => (
+          <TopCourseBody
+            key={item.id}
+            courseName={item.title}
+            teacherName={item.teacherName}
+            coursePrice={item.cost}
+            coding={item.statusName}
+            imageAddress={item.imageAddress}
+            level={item.levelName}
+            bgcolor="bg-black"
+          />
+        ))}
+
         
 
-        <div className="lg:w-[1361px]  lg:h-[46px] lg:text-center lg:text-3xl  lg:font-bold  hidden lg:block  ">
-          دوره‌های برتر هفته
+        <div className="hidden lg:block lg:absolute lg:top-[450px] lg:left-[1px]">
+          <Button />
         </div>
-
-
-        <div className=" absolute left-[55px] top-[2500px] text-3xl  font-bold lg:hidden ">
-
-          دوره‌های برتر هفته
+        <div className="lg:hidden">
+          <ButtonResponsive />
         </div>
-
-        <div className=" w-[1361px] h-[366px] gap-6 mt-8 flex ">
-          {/* html css */}
-
-          <TopCourseBody
-            level="پیشرفته"
-            courseName="دوره طراحی سایت"
-            coursePrice="500.000تومان"
-            imageAddress="html2"
-            teachername="محمدحسین بحرالعلومی"
-            bgcolor="bg-[#675CFF]"
-            teacherName="محمدحسین بحرالعلومی"
-
-          />
-
-          {/* java */}
-
-          <TopCourseBody
-            courseName="دوره جاوااسکریپت"
-            teacherName="محمدحسین بحرالعلومی"
-            level="پیشرفته"
-            imageAddress="java"
-            coursePrice="تومان2.500.000"
-            bgcolor="bg-[#F0DB4F]"
-          />
-          {/* figma */}
-
-          <TopCourseBody
-            courseName="دوره فیگما"
-            teacherName="محمدحسین خلیل‌پور"
-            level="پیشرفته"
-            imageAddress="figma"
-            coursePrice="1.000.000تومان"
-            bgcolor="bg-[#FF6C6C]"
-          />
-
-          {/* react */}
-
-          <TopCourseBody
-            courseName="دوره ری‌اکت جی‌اس"
-            teacherName="محسن اسفندیاری"
-            level="مقدماتی"
-            imageAddress="react"
-            bgcolor="bg-[#87DFFF]"
-            coursePrice="4.500.000تومان"
-          />
-
-
-        </div>
-        <Button/>
       </div>
-       
     </div>
-
-   
   );
 };
 export { TopCourse };

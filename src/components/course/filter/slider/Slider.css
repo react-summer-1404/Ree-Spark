@@ -1,0 +1,40 @@
+/* slider.css */
+.range-thumb {
+    @apply absolute w-full appearance-none pointer-events-none;
+    height: 0;
+    top: 0;
+  }
+  
+  /* برای thumb سمت چپ */
+  .range-thumb-left::-webkit-slider-thumb {
+  @apply w-4 h-4 bg-[#3772FF] rounded-full pointer-events-auto;
+
+    -webkit-appearance: none;
+    margin-top: -6px;
+  }
+  
+  .range-thumb-left::-moz-range-thumb {
+    @apply w-5 h-5 bg-indigo-600 rounded-full border-2 border-white shadow-md pointer-events-auto;
+  }
+  
+  /* برای thumb سمت راست */
+  .range-thumb-right::-webkit-slider-thumb {
+   @apply w-4 h-4 bg-[#3772FF] rounded-full pointer-events-auto;
+
+    -webkit-appearance: none;
+    margin-top: -6px;
+  }
+  
+  .range-thumb-right::-moz-range-thumb {
+    @apply w-5 h-5 bg-indigo-600 rounded-full border-2 border-white shadow-md pointer-events-auto;
+  }
+  
+  /* track مخفی */
+  .range-thumb::-webkit-slider-runnable-track {
+    @apply bg-transparent;
+  }
+  
+  .range-thumb::-moz-range-track {
+    @apply bg-transparent;
+  }
+  
