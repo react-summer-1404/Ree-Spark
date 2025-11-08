@@ -12,7 +12,7 @@ const TopCourseBody = ({
   return (
     // {mobile} //
     <Link className=" w-[322px] h-[366px] ">
-      <div className="lg:hidden  relative top-[30px] dark:text-white right-[500px] ">
+      <div className="lg:hidden  relative top-[30px] dark:text-white right-[545px] ">
         <div className="">
           <div className={`w-[322px] h-[293px] ${bgcolor}  rounded-[32px]  `}>
             <div className="w-[172px] h-[172px] relative top-[88px] left-[75px] ">

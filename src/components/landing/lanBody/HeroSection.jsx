@@ -27,7 +27,7 @@ function HeroSection() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center absolute top-30px mr-[20px]">
+            <div className="flex flex-col items-center absolute top-30px mr-[35px]">
               <div className="text-base font-bold left-[69px] top-[22px] relative">
                 +50
               </div>

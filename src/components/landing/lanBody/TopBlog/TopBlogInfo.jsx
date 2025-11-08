@@ -14,7 +14,7 @@ const TopBlogInfo = ({
 }) => {
   return (
     <div>
-      <div className="flex justify-center relative top-[480px]  flex-col lg:hidden right-[736px]">
+      <div className="flex justify-center relative top-[480px]  flex-col lg:hidden right-[760px]">
         <div className={`w-[322px]  h-[293px] rounded-[32px] ${blogBg}`}>
           <img
             className="w-[185px] relative left-[70px] top-[50px] h-[165px] rounded-[15px] "
@@ -62,10 +62,10 @@ const TopBlogInfo = ({
             </div>
           </div>
         </div>
-        <div className="relative left-[40px]">
+        <div className="relative left-[50px]">
           <ButtonResponsive />
         </div>
-        <div className="absolute bottom-[860px] left-[30px]">
+        <div className="absolute bottom-[860px] left-[45px]">
           <ButtonResponsive />
         </div>
       </div>
