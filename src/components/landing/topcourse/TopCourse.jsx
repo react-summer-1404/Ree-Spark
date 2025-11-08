@@ -35,7 +35,7 @@ const TopCourse = () => {
         دوره‌های برتر هفته
       </h2>
       
-      <div className="mt-12 flex justify-center gap-[60px] ">
+      <div className="mt-12 flex justify-center lg:gap-10 gap-[60px] ">
         {courses.map((item) => (
           <TopCourseBody
             key={item.id}

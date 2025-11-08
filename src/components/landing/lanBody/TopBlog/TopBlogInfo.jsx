@@ -17,7 +17,7 @@ const TopBlogInfo = ({
       <div className="flex justify-center relative top-[480px]  flex-col lg:hidden right-[760px]">
         <div className={`w-[322px]  h-[293px] rounded-[32px] ${blogBg}`}>
           <img
-            className="w-[185px] relative left-[70px] top-[50px] h-[165px] rounded-[15px] "
+            className="w-full relative left-[70px] top-[50px] h-full rounded-[15px] "
             src={img}
           />
         </div>
@@ -77,7 +77,7 @@ const TopBlogInfo = ({
             className={`lg:w-[432px] lg:h-[293px] lg:rounded-[32px] ${blogBg}`}
           >
             <img
-              className="lg:w-[187px] lg:h-[127px] lg:relative lg:left-[130px] lg:top-[70px] rounded-[15px]"
+              className="lg:w-full lg:h-full  lg:left-[130px] lg:top-[70px] rounded-[15px]"
               src={img}
               alt={title}
             />
