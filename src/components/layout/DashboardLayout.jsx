@@ -10,7 +10,6 @@ const DashboardLayout = () => {
         <div className="w-[20%] h-[100%] float-right  ">
           <RightSidePanel/>
         </div>
-
         <div className="w-[80%] h-[7%] ">
           <HeaderPanel/>
         </div>

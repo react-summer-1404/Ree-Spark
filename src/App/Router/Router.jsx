@@ -42,8 +42,6 @@ const Routes = createBrowserRouter([
     children: [{ path: "/", element: <Landing /> },
       {path:'courseDetail', element: <CourseDetail/>},
       {path:'BlogDetail', element: <BlogDetail/>},
-
-
     ],
   },
 ]);
