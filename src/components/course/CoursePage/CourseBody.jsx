@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { MobileCourseBody } from "./MobileCourseBody";
+import { MobileCourseStyle } from "./MobileCourseStyle";
 import { CourseStyle } from "./CourseStyle";
 import GetCoursePageApi from "../../../core/services/api/getCoursePage.api";
 import { PageInationBlog } from "./PageInationBlog";
@@ -40,36 +40,59 @@ const CourseBody = () => {
   return (
     <div>
       {/* Desktop */}
-      <div className="hidden lg:block">
+      <div className="">
+
         <div className="xl:w-[1061px]  lg:w-[961px] lg:h-[366px] lg:relative xl:left-[-120px] lg:right-[170px] lg:top-[300px] lg:justify-center lg:flex-wrap lg:gap-6 lg:flex">
+        
           {Course.length > 0 ? (
             Course.map((item) => (
               <CourseStyle
                 key={item.id}
                 courseName={item.title}
-                
-                teacherName={item.teacherName}
-                coursePrice={item.cost}
-                coding={item.statusName}
-                imageAddress={item.imageAddress}
+                teacherName={item.addUserFullName}
+                imageAddress={item.currentImageAddress}
                 level={item.levelName}
                 bgcolor="bg-black"
+                coursePrice="1000تومان"
+                coding="started"
+                level="hard"
               />
             ))
           ) : (
-        <div className="relative top-[200px] left-[450px]">
+        <div className="relative lg:block hidden top-[200px] left-[450px]">
             <Loading />
           </div>
           )}
-        </div>
+   
       </div>
+    </div>
+          {/* Mobile */}
+ <div className="lg:hidden xs:left-[5px] flex flex-col relative ml-[10px] mt-[] justify-center  gap-[50px] ">
+{Course.length > 0 ? (
+            Course.map((item) => (
+              <MobileCourseStyle
+                key={item.id}
+                courseName={item.title}
+                teacherName={item.addUserFullName}
+                imageAddress={item.currentImageAddress}
+                level={item.levelName}
+                bgcolor="bg-black"
+                coursePrice="1000تومان"
+                coding="started"
+                level="hard"
+              />
+            ))
+          ) : (
+        <div className="relative lg:hidden z-30 top-[350px] left-[]">
+            <Loading />
+          </div>
+   )}
+   </div>
 
-      {/* Mobile */}
-      <div className="lg:hidden">
-        <MobileCourseBody />
-      </div>
+    
+   
      
-      <div className="absolute top-[-500px]">
+      <div className="absolute top-[-157px] left-[-13px] xl:left-[-40px] lg:top-[-390px] lg:left-[-133px] lgg:top-[-410px] lgg:left-[-130px] ">
        <PageInationBlog
         currentPage={currentPage}
         totalPages={totalPages}

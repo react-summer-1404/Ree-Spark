@@ -7,6 +7,7 @@ const MobileCourseStyle = ({
   imageAddress,
   bgcolor,
   coursePrice,
+  coding
 }) => {
   return (
     // {mobile} //
@@ -14,18 +15,18 @@ const MobileCourseStyle = ({
       <div className="lg:hidden left-[20px]  relative top-[300px] dark:text-white ">
         <div className="absolute">
           <div className={`w-[322px] h-[293px] ${bgcolor}  rounded-[32px]  `}>
-            <div className="w-[172px] h-[172px] relative top-[58px] left-[75px] ">
-              <img src={`../../../../public/AuthImage/${imageAddress}.png`} />
+            <div className="w-[172px] h-[132px] relative top-[58px] left-[75px] ">
+              <img className="rounded-[15px] w-[182px] h-[132px]" src={imageAddress} />
             </div>
 
             <div className="w-[89px] h-[24px] absolute top-[8px] left-[151px] rounded-[32px] bg-[#3772FF] py-[2px] px-2 ">
-              <h5 className="w-[73px] h-[20px] text-[13px] font-sans font-medium text-[#FCFCFC]">
-                برنامه نویسی
+              <h5 className="w-[73px] h-[20px] absolute left-[25px] text-[13px] font-sans font-medium text-[#FCFCFC]">
+                {coding}
               </h5>
             </div>
 
-            <div className="w-[62px] h-[24px] absolute top-[8px] left-[244px] rounded-[32px] bg-[#FF37F5] py-[2px] px-2 ">
-              <h5 className="w-[46px] h-[20px] text-[13px] font-sans font-medium text-[#FCFCFC]">
+            <div className="w-[62px] h-[24px] absolute top-[8px] left-[244px]  rounded-[32px] bg-[#FF37F5] py-[2px] px-2 ">
+              <h5 className="w-[46px] h-[20px] text-[13px] font-sans font-medium absolute left-[18px] text-[#FCFCFC]">
                 {level}
               </h5>
             </div>
@@ -38,7 +39,7 @@ const MobileCourseStyle = ({
           </div>
 
           <div className=" w-[322px] absolute h-[61px] gap-1 ml-[170px] mt-[10px]">
-            <h1 className=" w-[322px] h-[34px] gap-1 font-sans font-bold text-right relative right-[180px] bottom-[10px] dark:text-white text-[23px]
+            <h1 className=" w-[322px] lg:truncate h-[34px] gap-1 font-sans font-bold text-right relative right-[180px] bottom-[10px] dark:text-white text-[23px]
              text-[#2F2F2F]">
               {courseName}
             </h1>
