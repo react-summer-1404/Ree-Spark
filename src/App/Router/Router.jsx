@@ -42,8 +42,26 @@ const Routes = createBrowserRouter([
     element: <Layout />,
     children: [{ path: "/", element: <Landing /> },
       {path:'courseDetail', element: <CourseDetail/>},
+
       {path:'Blog', element: <Blog/>},
+
       {path:'BlogDetail', element: <BlogDetail/>},
+       { path: "Loading", element: <Loading /> },
+
+
+    ],
+  },
+
+  { path: "*", element: <NotFound /> },
+  {
+    path: "/Dashboard",
+    element: <DashboardLayout />,
+    children: [
+      { path: "panel", element: <Panel /> },
+      { path: "MyCourse", element: <MyCourse /> },
+      { path: "MyReserve", element: <MyReserve /> },
+      { path: "FavoriteCourse", element: <FavoriteCourse /> },
+      { path: "FavoriteBlog", element: <FavoriteBlog /> },
     ],
   },
 ]);
