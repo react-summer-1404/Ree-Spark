@@ -17,7 +17,7 @@ const TopBlogInfo = ({
       <div className="flex justify-center relative top-[480px]  flex-col lg:hidden right-[760px]">
         <div className={`w-[322px]  h-[293px] rounded-[32px] ${blogBg}`}>
           <img
-            className="w-full relative left-[70px] top-[50px] h-full rounded-[15px] "
+            className="w-full  left-[70px] top-[50px] h-full rounded-[15px] "
             src={img}
           />
         </div>
