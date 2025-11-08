@@ -2,8 +2,8 @@ import http from "../../interseptor/interseptor";
 
 
 const GetCoursePageApi = async ({
-  PageNumber=1,
-  RowsOfPage = 12,
+  PageNumber=5,
+  RowsOfPage = 9,
   SortingCol = "insertDate",
   SortType = "DESC",
 }) => {

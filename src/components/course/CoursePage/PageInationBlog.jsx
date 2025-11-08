@@ -1,26 +1,18 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import React, { useState } from "react";
-import { LuChevronLeft } from "react-icons/lu";
 
-const PageInationBlog = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 5; // مثلا ۵ صفحه داریم
-
-  const handlePageClick = (page) => {
-    setCurrentPage(page);
-  };
-
+const PageInationBlog = ({ currentPage, totalPages, onPageChange }) => {
   const handleNext = () => {
-    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+    if (currentPage < totalPages) onPageChange(currentPage + 1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handlePrev = () => {
-    if (currentPage > 1) setCurrentPage(currentPage - 1);
+    if (currentPage > 1) onPageChange(currentPage - 1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <div className="flex justify-center bg-gray-100 rounded-xl w-[322px] h-12 absolute top-[2109px]  xl:top-[2109px] lg:top-[2709px] lg:left-[290px] left-[50px]   dark:text-white dark:bg-slate-700 ">
-      {/* فلش قبل */}
+    <div className="flex justify-center bg-gray-100 rounded-xl w-[322px] h-12 mt-10 mx-auto absolute top-[1970px] right-[724px] dark:bg-slate-700">
       <button
         onClick={handlePrev}
         className="p-2 hover:bg-gray-200 text-blue-500 rounded-full disabled:opacity-40"
@@ -29,13 +21,12 @@ const PageInationBlog = () => {
         <ChevronLeft size={25} />
       </button>
 
-      {/* شماره صفحات */}
       {[...Array(totalPages)].map((_, index) => {
         const page = index + 1;
         return (
           <button
             key={page}
-            onClick={() => handlePageClick(page)}
+            onClick={() => onPageChange(page)}
             className={`w-11 h-12 rounded-md flex items-center justify-center transition-all duration-200 ${
               currentPage === page
                 ? "bg-blue-500 text-white"
@@ -47,7 +38,6 @@ const PageInationBlog = () => {
         );
       })}
 
-      {/* فلش بعد */}
       <button
         onClick={handleNext}
         className="p-2 hover:bg-gray-200 text-blue-500 rounded-full disabled:opacity-40"
@@ -58,5 +48,4 @@ const PageInationBlog = () => {
     </div>
   );
 };
-
-export { PageInationBlog };
+export default PageInationBlog;

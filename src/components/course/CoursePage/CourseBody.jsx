@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MobileCourseStyle } from "./MobileCourseStyle";
 import { CourseStyle } from "./CourseStyle";
 import GetCoursePageApi from "../../../core/services/api/getCoursePage.api";
-import { PageInationBlog } from "./PageInationBlog";
+import PageInationBlog  from "./PageInationBlog";
 import Loading from "../../common/Loading";
 const CourseBody = () => {
   const [Course, setCourse] = useState([]);
@@ -51,11 +51,10 @@ const CourseBody = () => {
                 courseName={item.title}
                 teacherName={item.addUserFullName}
                 imageAddress={item.currentImageAddress}
-                level={item.levelName}
                 bgcolor="bg-black"
                 coursePrice="1000تومان"
                 coding="started"
-                level="hard"
+                level="hard" 
               />
             ))
           ) : (
@@ -75,7 +74,6 @@ const CourseBody = () => {
                 courseName={item.title}
                 teacherName={item.addUserFullName}
                 imageAddress={item.currentImageAddress}
-                level={item.levelName}
                 bgcolor="bg-black"
                 coursePrice="1000تومان"
                 coding="started"
@@ -92,7 +90,7 @@ const CourseBody = () => {
     
    
      
-      <div className="absolute top-[-157px] left-[-13px] xl:left-[-40px] lg:top-[-390px] lg:left-[-133px] lgg:top-[-410px] lgg:left-[-130px] ">
+      <div className="relative bottom-[30px] left-[305px] xl:left-[90px] xl:top-[-850px] lg:top-[] lg:left-[] lgg:top-[-85px] lgg:left-[146px] ">
        <PageInationBlog
         currentPage={currentPage}
         totalPages={totalPages}
