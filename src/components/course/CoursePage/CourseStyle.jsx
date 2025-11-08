@@ -61,8 +61,8 @@ const CourseStyle = ({
         <div
           className={`lg:w-[322px] lg:h-[293px] ${bgcolor} lg:rounded-[32px] lg:relative`}
         >
-          <div className="lg:w-[172px] lg:h-[172px] lg:rounded-[105px] lg:absolute lg:top-[68px] lg:left-[75px]">
-            <img className="rounded-[15px] w-[182px] h-[132px]" src={imageAddress} />
+          <div className="lg:w-full lg:h-full lg:rounded-[105px] lg:top-[68px] lg:left-[75px]">
+            <img className="rounded-[15px] w-full h-full" src={imageAddress} />
           </div>
 
           <div className="lg:w-[89px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[151px] lg:rounded-[32px] lg:bg-[#3772FF] lg:py-[2px] lg:px-2">

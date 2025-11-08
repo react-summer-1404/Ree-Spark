@@ -2,6 +2,7 @@ import React from "react";
 
 function LandingServices() {
   return (
+
     
     <div>
       {/* {info mobile} */}
@@ -12,8 +13,11 @@ function LandingServices() {
               اهداف ما در اکادمی
             </div>
 
+
+
             <div className="w-[100px] h-[2300px] left-[15px] top-[870px] relative dark:text-white ">
               <div className="w-[321px] h-[404px] bg-[#FCFCFC] border border-[#DCDCDC] rounded-3xl hover:border-[#3772FF] transition-[0.3s] dark:bg-slate-700">
+
                 <h1 className="text-right relative top-5 right-3 text-base font-bold">
                   آماده سازی برای بازار کار
                 </h1>
@@ -27,7 +31,9 @@ function LandingServices() {
                 />
               </div>
 
+
               <div className="w-[321px] h-[434px] bg-[#FCFCFC] border border-[#DCDCDC] relative mt-7 hover:border-[#3772FF] transition-[0.3s] rounded-3xl dark:bg-slate-700">
+
                 <h1 className="text-right relative top-5 right-3 text-base font-bold">
                   آموزش‌های تخصصی
                 </h1>
@@ -45,7 +51,9 @@ function LandingServices() {
                 />
               </div>
 
+
               <div className="w-[321px] h-[434px] bg-[#FCFCFC] border border-[#DCDCDC] relative mt-7 hover:border-[#3772FF] transition-[0.3s] rounded-3xl dark:bg-slate-700">
+
                 <h1 className="text-right relative top-5 right-3 text-base font-bold">
                   راهنمایی و ایجاد انگیزه
                 </h1>
@@ -59,7 +67,9 @@ function LandingServices() {
                 />
               </div>
 
+
               <div className="w-[321px] h-[434px] bg-[#FCFCFC] border border-[#DCDCDC] relative mt-7 hover:border-[#3772FF] transition-[0.3s] rounded-3xl dark:bg-slate-700">
+
                 <h1 className="text-right relative top-5 right-3 text-base font-bold">
                   استعدادیابی
                 </h1>
@@ -78,7 +88,9 @@ function LandingServices() {
             </div>
 
 
+
             {/* {service mobile} */}
+
 
             <div className="relative top-[530px] flex justify-center whitespace-nowrap">
               <div className="  text-center font-bold text-3xl absolute ">
@@ -88,6 +100,7 @@ function LandingServices() {
                 به شما ارائه میدیم
               </div>
             </div>
+
 
             <div className="lg:hidden justify-center flex  relative top-[650px] dark:text-white  h-[1200px]  ">
               <div className=" relative  ">
@@ -121,10 +134,12 @@ function LandingServices() {
                   <div className="w-[88px] h-[88px] bg-[#FCFCFC] border border-[#DCDCDC] relative left-[260px] bottom-[-10px] rounded-[100px] hover:border-[#3772FF] transition-[0.3s] dark:bg-slate-700">
                     <img
                       src="../../../../public/AuthImage/task-daily-01 (2).png"
+
                       className="absolute left-[24px] top-5"
                     />
                   </div>
                 </div>
+
 
                 <div className="bg-[#F6F6F6] border border-[#DCDCDC] w-[361px] h-[235px] rounded-[32px] text-right relative mt-[25px] hover:border-[#3772FF] transition-[0.3s] dark:bg-slate-700">
                   <div className="absolute top-16 ">
@@ -161,11 +176,11 @@ function LandingServices() {
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
       </div>
-
 
 
 
@@ -269,6 +284,7 @@ function LandingServices() {
             ></img>
           </div>
         </div>
+
 
         <div className="lg:bg-[#F6F6F6] lg:border lg:border-[#DCDCDC] lg:w-[664px] lg:h-[144px] lg:rounded-[32px] lg:text-right lg:relative  lg:hover:border-[#3772FF] transition-[0.3s] lg:dark:bg-slate-700">
           <h1 className="lg:font-bold lg:text-xl lg:relative lg:right-24 lg:top-10">

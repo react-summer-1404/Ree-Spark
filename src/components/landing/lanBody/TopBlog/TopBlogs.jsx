@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+
+import React, { useEffect,useState } from "react";
 import TopBlogInfo from "./TopBlogInfo";
 import TopBlogApi from "../../../../core/services/api/TopBlogs.api";
-import { useEffect } from "react";
+
 const TopBlogs = () => {
   const [BlogInfo, setBlogInfo] = useState([]);
   const getTopBlogsApi = async (RowsOfPage = 3) => {
@@ -21,7 +22,7 @@ const TopBlogs = () => {
       toast.error("خطا در دریافت بلاگ");
     }
   };
-console.log()
+
   useEffect(() => {
     getTopBlogsApi();
   },[]);

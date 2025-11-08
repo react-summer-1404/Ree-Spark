@@ -1,22 +1,45 @@
 import React, { Fragment } from "react";
 import * as yup from "yup";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { BiHomeAlt2 } from "react-icons/bi";
+import { LoginApi } from "../../../core/services/api/Auth/Login.api";
+import toast from "react-hot-toast";
+
+
 const LoginForm = () => {
   const validation = yup.object().shape({
     phoneNumber: yup.number().required("شماره تلفن خود را وارد کنید ⚠️"),
     password: yup.string().required("رمز عبور را وارد کنید ⚠️"),
   });
-  const navigate = useNavigate();
-  const onSubmit = (event) => {
-    console.log("form submit=", event);
-    navigate("/Auth/VerifyNumber");
+  const navigate = useNavigate("");
+  const onSubmit = async (values, { setSubmitting}) => {
+    try {
+      const { phoneNumber, password } = values;
+
+      const rememberMe = document.getElementById("save").checked;
+
+      const { user, accessToken } = await LoginApi({
+        phoneOrGmail: phoneNumber,
+        password,
+        rememberMe,
+      });
+
+      console.log("Login successful:", user, accessToken);
+
+      // هدایت به صفحه بعدی
+      navigate("/auth/verifyNumber")
+    } catch (err) {
+      console.error("Login failed:", err);
+      toast.error("شماره یا رمز عبور اشتباه است ⚠️");
+    } finally {
+      setSubmitting(false);
+    }
   };
   return (
     <Fragment>
       <Formik
-        initialValues={{ phone: "", pass: "" }}
+        initialValues={{ phoneNumber: "", password: "" }}
         onSubmit={onSubmit}
         validationSchema={validation}
       >
@@ -49,8 +72,8 @@ const LoginForm = () => {
             component={"span"}
           />
           <button
-            onClick={navigate}
             type="submit"
+            
             className="w-full sm:w-4/5 h-[48px] shadow-md absolute top-[580px] right-0 rounded-[40px] bg-[#3772FF]  text-center  leading-10 text-[16px] font-medium text-[#FCFCFC]"
           >
             ورود به حساب

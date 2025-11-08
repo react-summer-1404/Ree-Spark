@@ -1,4 +1,4 @@
-import http from "../../interseptor/interseptor";
+import http from "../../interceptor/interseptor";
 
 const TopBlogsApi = async ({
   RowsOfPage = 3,

@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../../components/layout/Layout";
+import { Landing } from "../../pages/Landing";
 import { Course } from "../../components/course/Course";
 import { AuthLayout } from "../../components/layout/AuthLayout";
 import { Register } from "../../pages/auth/Register";
@@ -11,7 +12,7 @@ import { SendCode } from "../../pages/auth/SendCode";
 import { PersonalInfo } from "../../pages/auth/PersonalInfo";
 import Loading from "../../components/common/Loading";
 import NotFound from "../../pages/NotFound";
-
+import { BlogBody } from "../../components/blog/BlogBody";
 const Routes = createBrowserRouter([
   {
     path: "/Auth",
@@ -30,6 +31,9 @@ const Routes = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
+
+      { path: "/", element: <Landing /> },
+      { path: "Blog", element: <BlogBody /> },
       { path: "/course", element: <Course /> },
       { path: "Loading", element: <Loading /> },
 
