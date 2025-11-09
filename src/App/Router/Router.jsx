@@ -12,7 +12,6 @@ import { SendCode } from "../../pages/auth/SendCode";
 import { PersonalInfo } from "../../pages/auth/PersonalInfo";
 import CourseDetail from "../../pages/CourseDetail";
 import BlogDetail from "../../pages/BlogDetail";
-
 import Loading from "../../components/common/Loading";
 import NotFound from "../../pages/NotFound";
 import DashboardLayout from "../../components/layout/DashboardLayout";
@@ -29,7 +28,7 @@ const Routes = createBrowserRouter([
     element: <AuthLayout />,
     children: [
       { path: "Login", element: <Login /> },
-      { path: "VerifyNumber", element: <VerifyNumber /> },  
+      { path: "VerifyNumber", element: <VerifyNumber /> },
       { path: "Register", element: <Register /> },
       { path: "SendCode", element: <SendCode /> },
       { path: "PersonalInfo", element: <PersonalInfo /> },
@@ -40,15 +39,14 @@ const Routes = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    children: [{ path: "/", element: <Landing /> },
-      {path:'courseDetail', element: <CourseDetail/>},
+    children: [
+      { path: "/", element: <Landing /> },
+      { path: "courseDetail", element: <CourseDetail /> },
+      { path: "Courses", element: <Course /> },
+      { path: "Blog", element: <Blog /> },
 
-      {path:'Blog', element: <Blog/>},
-
-      {path:'BlogDetail', element: <BlogDetail/>},
-       { path: "Loading", element: <Loading /> },
-
-
+      { path: "BlogDetail", element: <BlogDetail /> },
+      { path: "Loading", element: <Loading /> },
     ],
   },
 
