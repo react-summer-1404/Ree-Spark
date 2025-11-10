@@ -82,17 +82,17 @@ const SendCode = () => {
             />
             <ErrorMessage
               name="sendCode"
-              className="absolute top-[390px] sm:top-[350px] right-[10px] text-red-600 dark:text-red-400 w-52"
+              className="absolute text-right top-[390px] sm:top-[350px] right-[10px] text-red-600 dark:text-red-400 w-52"
               component={"span"}
             />
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full sm:w-4/5 h-[48px] absolute top-[430px] sm:top-[380px] right-0 rounded-[40px] bg-[#3772FF]  text-center  leading-10 text-[16px] font-medium text-[#FCFCFC]"
+              className="w-full sm:w-4/5 shadow-lg h-[48px] absolute top-[430px] sm:top-[380px] right-0 rounded-[40px] bg-[#3772FF]  text-center  leading-10 text-[16px] font-medium text-[#FCFCFC]"
             >
               ارسال کد تایید
             </button>
-            <div className="absolute top-[480px] right-0 w-full sm:w-4/5 h-10 flex">
+            <div className="absolute top-[500px] sm:top-[460px] right-0 w-full sm:w-4/5 h-10 flex">
               {" "}
               <Link
                 to={"/auth/register"}

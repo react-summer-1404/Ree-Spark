@@ -91,20 +91,11 @@ const PersonalInfo = () => {
           <button
             onClick={navigate}
             type="submit"
-            className="w-full sm:w-4/5 h-[48px] absolute top-[630px] sm:top-[540px] right-0 rounded-[40px] bg-[#3772FF]  text-center  leading-10 text-[16px] font-medium text-[#FCFCFC]"
+            className="w-full sm:w-4/5 h-[48px] absolute top-[580px] sm:top-[540px] right-0 rounded-[40px] bg-[#3772FF]  text-center  leading-10 text-[16px] font-medium text-[#FCFCFC]"
           >
             تایید
           </button>
-          <div className="absolute top-[610px] right-0 w-full sm:w-4/5 h-10 flex">
-            {" "}
-            <Link
-              to={"/"}
-              className="w-[140px] mx-auto h-10 border border-[#dcdcdc] text-right dark:text-blue-400 dark:hover:border-blue-400 text-[#3772FF] sm:right-[35%] rounded-[34px] py-2 px-4 "
-            >
-              صفحه اصلی
-              <BiHomeAlt2 size={17} className="absolute bottom-[10px]" />
-            </Link>
-          </div>
+
         </Form>
       </Formik>
     </div>

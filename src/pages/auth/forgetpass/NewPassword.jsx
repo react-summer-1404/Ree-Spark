@@ -8,6 +8,10 @@ import { BiHomeAlt2 } from "react-icons/bi";
 const NewPassword = () => {
   const validation = yup.object().shape({
     NewPass: yup.string().required("رمز جدید خود را وارد کنید ⚠️"),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("newPassword"), null], "رمزها یکسان نیستند ⚠️")
+      .required("تکرار رمز را وارد کنید ⚠️"),
   });
   const navigate = useNavigate();
   const onSubmit = (event) => {
@@ -59,18 +63,17 @@ const NewPassword = () => {
           <Field
             className="border border-[#DCDCDC] dark:bg-slate-200 dark:text-black  text-sm w-full  sm:w-4/5 absolute top-[410px] right-0 h-12 rounded-3xl text-right pr-2 outline-blue-600"
             placeholder="تکرار رمزعبور خود را وارد کنید"
-            type="password"
-            name="password"
+            name="confirmPassword"
           />
           <ErrorMessage
-            name="password"
+            name="confirmPassword"
             className="absolute top-[470px] right-[-40px] text-red-600 dark:text-red-400 w-48"
             component={"span"}
           />
           <button
             onClick={navigate}
             type="submit"
-            className="w-full sm:w-4/5 h-[48px] absolute top-[480px] right-0 rounded-[40px] bg-[#3772FF]  text-center  leading-10 text-[16px] font-medium text-[#FCFCFC]"
+            className="w-full sm:w-4/5 h-[48px] absolute top-[500px] right-0 rounded-[40px] bg-[#3772FF]  text-center  leading-10 text-[16px] font-medium text-[#FCFCFC]"
           >
             تایید رمزعبور
           </button>
