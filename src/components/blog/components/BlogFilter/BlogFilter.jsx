@@ -19,7 +19,7 @@ const BlogFilter = ({Search}) => {
           <input
             type="search"
             placeholder="دوره مورد نظر را جست‌جو کنید"
-            className="w-[258px] h-[48px] rounded-[16px] text-[12px] font-medium text-right bg-[#F1F1F1] outline-blue-500 dark:text-black"
+            className="w-[258px] h-[48px] rounded-[16px] text-[14px] font-medium text-right bg-[#F1F1F1] outline-blue-500 dark:text-black"
             onChange={(e) => Search(e.target.value)}
           />
           <button className="w-12 h-12 bg-[#3772FF] absolute left-0 rounded-[16px]">
@@ -39,7 +39,7 @@ const BlogFilter = ({Search}) => {
         <input
           type="text"
           placeholder="دسته مورد نظر را انتخاب کنید"
-          className="  dark:text-black w-[258px] h-[48px] absolute top-8 rounded-[16px] bg-[#F1F1F1]  text-[11px] font-medium text-right pr-2 outline-blue-500"
+          className="  dark:text-black w-[258px] h-[48px] absolute top-8 rounded-[16px] bg-[#F1F1F1]  text-[14px] font-medium text-right pr-2 outline-blue-500"
         ></input>
       </div>
       {/*  */}
@@ -51,6 +51,7 @@ const BlogFilter = ({Search}) => {
           <LuCalendarRange size={20}/>
         </div>
         <input
+        type="date"
           placeholder="29 اردیبهشت 1403 - 5 خرداد 1403"
           className="w-[258px] h-[48px] rounded-[16px] bg-[#F1F1F1] outline-blue-500 absolute top-8 text-[#707070] font-medium text-[14px] p-4 text-right"
         />

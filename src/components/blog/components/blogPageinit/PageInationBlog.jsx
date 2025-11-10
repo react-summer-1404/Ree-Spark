@@ -12,7 +12,7 @@ const PageInationBlog = ({ currentPage, totalPages, onPageChange }) => {
   };
 
   return (
-    <div className="flex justify-center dark:bg-slate-300 bg-gray-100 rounded-xl w-[322px] h-12 mt-10 mx-auto absolute top-[1700px] right-20 sm:right-[100px] md:right-[200px] lg:top-[1570px] lg:right-[724px] ">
+    <div className="flex justify-center dark:bg-slate-300 bg-gray-100 rounded-xl w-[322px] h-12 mt-10 mx-auto absolute top-[1800px] sm:top-[1600px] right-20 sm:right-[100px] md:right-[200px] lg:right-[724px] ">
       <button
         onClick={handlePrev}
         className="p-2 hover:bg-gray-200 text-blue-500 rounded-full disabled:opacity-40"
