@@ -5,7 +5,7 @@ const Teacher = () => {
     <>
     <div className="hidden lg:block">
 
-      <div className="lg:w-[1440px] lg:h-[420px] lg:rounded-[32px] lg:flex lg:bg-[#2F2F2F] dark:lg:bg-slate-700 absolute lg:right-[2px] lg:top-[2820px]">
+      <div className="lg:w-[1440px] lg:h-[420px] lg:rounded-[32px] lg:flex lg:bg-[#2F2F2F] dark:lg:bg-slate-700 absolute lg:right-[2px] lg:top-[3260px]">
       <div className="lg:w-[768px] lg:h-[356px] lg:absolute lg:left-[39px] lg:bg-[#353535] lg:rounded-[24px] lg:dark:bg-slate-800 lg:top-[30px]">
         {/* border */}
         <div className="lg:w-[873px] lg:h-[154px] lg:absolute lg:top-[97px]">

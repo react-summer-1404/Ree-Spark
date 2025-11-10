@@ -30,20 +30,17 @@ const TopBlogs = () => {
   return (
     <div>
     
-
-        <div className=" text-center text-3xl font-sans bottom-8 relative right-[-10px] top-[960px]  font-bold lg:hidden">
+      
+        <div className=" text-center text-3xl  relative right-[-10px] top-[420px]  font-bold lg:hidden">
           بلاگ های برتر هفته
         </div>
 
-        <div className="lg:text-center lg:text-3xl lg:font-sans lg:bottom-8 lg:relative  lg:top-[520px] lg:block hidden font-bold ">
+        <div className="lg:text-center lg:text-3xl  lg:bottom-8 lg:relative  lg:top-[930px] lg:block hidden font-bold ">
           بلاگ های برتر هفته
         </div>
 
 
-        <div className="h-[366px] gap-[25px] w-[1360px] -[25px]  top-[570px] relative left-[30px] flex">
-
-
-          
+        <div className="h-[366px] gap-[25px] w-[1360px]  top-[-50px]  relative left-[30px] flex  lg:h-[366px]rr
 
           {BlogInfo.length > 0 && BlogInfo.map((item) => (
           <TopBlogInfo
