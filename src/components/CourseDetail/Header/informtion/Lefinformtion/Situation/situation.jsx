@@ -3,7 +3,7 @@ import React from "react";
 const Situation = () => {
   return (
     <div
-      className="= flex justify-center dark:text-white w-full h-[80px] 
+      className="= hidden sm:flex justify-center dark:text-white w-full h-[80px] 
                         rounded-2xl 
                         border-2"
     >

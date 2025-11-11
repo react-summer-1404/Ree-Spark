@@ -4,9 +4,9 @@ import CourseStar from "./Star";
 
 const StarAndPrice = () => {
   return (
-    <div className="flex justify-between h-[34px] w-full ">
+    <div className="sm:flex hidden justify-between h-[34px] w-full ">
         <CoursePrice />
-        <CourseStar rating={4} />
+        <CourseStar />
     </div>
   );
 };

@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <>
-    <div className='border-t-2 h-full flex justify-center sm:justify-between mr-3 ml-3  sm:flex-nowrap flex-wrap items-center gap-5'>
+    <div className='border-t-2 h-full flex justify-center sm:justify-between mr-4 ml-4  sm:flex-nowrap flex-wrap items-end gap-5'>
         {/* cyberspace// */}
         <FooterIcons/>
       {/* //{} */}

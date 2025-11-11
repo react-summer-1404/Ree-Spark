@@ -13,11 +13,11 @@ const CourseComment = () => {
       <div className="text-[20px] text-[#707070] font-bold ">
         نظرات دانشجو ها و اساتید
       </div>
-      <div className=" flex justify-center sm:justify-end  gap-[10px] w-[100%] flex-wrap-reverse sm:flex-nowrap ">
+      <div className=" flex justify-center sm:justify-end gap-[10px] w-[100%] flex-wrap-reverse sm:flex-nowrap ">
         <div
           className="w-[360px] sm:w-[40%] sm:h[280px] h-[260px] sm:hidden  md:h-[260xp] bg-[#F6F6F6] rounded-[24px] 
                     flex justify-center items-center flex-wrap
-                        lg:flex
+                      lg:flex
                     "
         >
           <div className="flex text-right  p-2 gap-y-4  flex-wrap  w-[100%] h-[157px] dark:text-wihte">
@@ -206,15 +206,16 @@ const CourseComment = () => {
             <div className="bg-white w-[90%] dark:bg-slate-800 h-[653px] min-w-md p-6 rounded-xl shadow-lg overflow-hidden">
               <div className="w-full h-full overflow-y-auto pr-2">
                 {/* Header */}
-                <div className="w-full flex flex-wrap items-center justify-between mb-6">
+                <div className="w-full flex flex-wrap justify-between mb-6">
                   <button
                     onClick={closeModal}
-                    className="flex items-center justify-center gap-3 w-[100px] h-[40px] border-red-600 border-2 rounded-full text-red-600 dark:text-white"
+                    className="flex items-center fixed justify-center gap-3 w-[80px] md:w-[100px] h-[40px] border-red-600 border-2 rounded-full text-red-600 dark:text-white"
                   >
                     <div>بستن</div>
                     <div className="mt-1">✕</div>
                   </button>
-                  <div className="flex gap-2 items-center justify-end flex-wrap-reverse text-right">
+                  <div className="flex gap-2 w-[100%] items-center justify-end flex-wrap-reverse text-right">
+                    <div className="w-[100px]"></div>
                     <div className="w-[160px] text-[#707070] font-bold text-[18px]">
                       <div>( دوره جاوااسکریپت )</div>
                     </div>
@@ -238,7 +239,7 @@ const CourseComment = () => {
                   </div>
 
                   {/* نظرات کاربران */}
-                  {[1, 2, 3].map((item) => (
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
                     <div
                       key={item}
                       className="flex flex-wrap justify-end gap-2 mb-10"
