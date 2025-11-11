@@ -31,7 +31,7 @@ const TopBlogs = () => {
     <div>
     
       
-        <div className=" text-center text-3xl  relative right-[-10px] top-[420px]  font-bold lg:hidden">
+        <div className=" text-center text-3xl  relative right-[-10px] top-[500px]  font-bold lg:hidden">
           بلاگ های برتر هفته
         </div>
 
@@ -40,9 +40,9 @@ const TopBlogs = () => {
         </div>
 
 
-        <div className="h-[366px] gap-[25px] w-[1360px]  top-[-50px]  relative left-[30px] flex  lg:h-[366px]rr
+        <div className="h-[366px] gap-[25px] w-[1360px]  top-[50px]  lg:top-[1000px] relative left-[30px] flex  lg:h-[366px]">
 
-          {BlogInfo.length > 0 && BlogInfo.map((item) => (
+                {BlogInfo.length > 0 && BlogInfo.map((item) => (
           <TopBlogInfo
             key={item.id}
             title={item.title}

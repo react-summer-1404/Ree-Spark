@@ -89,13 +89,13 @@ const TopCourseBody = ({
 
         <div
           dir="rtl"
-          className="lg:absolute lg:w-[96px] lg:h-[20px] lg:mt-[45px] lg:text-[13px] lg:font-sans lg:font-bold lg:dark:text-white lg:text-[#2F2F2F]"
+          className="lg:absolute lg:w-[76px] lg:h-[20px] lg:mt-[45px]  lg:text-[13px] lg:font-sans lg:font-bold lg:dark:text-white lg:text-[#2F2F2F]"
         >
-          {coursePrice}
+          {coursePrice}تومان
         </div>
 
         <div className="lg:w-[322px] lg:absolute lg:h-[61px] lg:gap-1 lg:ml-[170px] lg:mt-[10px]">
-          <h1 className="lg:w-[322px] lg:h-[34px] lg:gap-1 lg:font-sans lg:font-bold lg:text-right lg:relative lg:right-[180px] lg:bottom-[10px] lg:text-[23px] lg:dark:text-white lg:text-[#2F2F2F]">
+          <h1 className="lg:w-[322px] lg:h-[34px] lg:gap-1 lg:font-sans lg:font-bold lg:text-right lg:relative lg:right-[190px] lg:bottom-[10px] lg:text-[23px] lg:dark:text-white lg:text-[#2F2F2F]">
             {courseName}
           </h1>
           <div className="lg:w-[322px] lg:h-[23px]">

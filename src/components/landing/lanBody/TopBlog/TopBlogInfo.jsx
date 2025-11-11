@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../../../common/Button";
 import ButtonResponsive from "../../../common/ButtonResponsive";
+import moment from "moment-jalaali";
 
 const TopBlogInfo = ({
   title,
@@ -12,6 +13,7 @@ const TopBlogInfo = ({
   icView,
   view,
 }) => {
+
   return (
     <div>
       
@@ -41,7 +43,7 @@ const TopBlogInfo = ({
                 dir="rtl"
                 className="text-[#707070]  absolute bottom-[-23px] text-[13px] font-medium "
               >
-                {Date}
+                  {persianDate}
                 <img
                   className="w-[20px] absolute left-[-22px] bottom-[1px] h-[20px] "
                   src={`../../../../../../public/AuthImage/${icDate}.png`}
@@ -66,7 +68,7 @@ const TopBlogInfo = ({
         <div className="relative left-[50px]">
           <ButtonResponsive />
         </div>
-        <div className="absolute bottom-[540px] left-[45px]">
+        <div className="absolute bottom-[600px] left-[45px]">
           <ButtonResponsive />
         </div>
       </div>
@@ -103,7 +105,7 @@ const TopBlogInfo = ({
                   dir="rtl"
                   className="lg:text-[#707070] lg:absolute lg:bottom-[-23px] lg:text-[13px] lg:font-medium"
                 >
-                  {Date}
+                 {persianDate}
                   <img
                     className="lg:w-[20px] lg:h-[20px] lg:absolute lg:left-[-22px] lg:bottom-[1px]"
                     src={`../../../../../../public/AuthImage/${icDate}.png`}
