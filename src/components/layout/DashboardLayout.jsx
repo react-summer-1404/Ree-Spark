@@ -5,8 +5,8 @@ import { RightSidePanel } from './Panel/RightSidePanel'
 
 const DashboardLayout = () => {
   return (
-    <div className="flex justify-center bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 min-h-screen relative">
-      <div className="w-[1440px] relative bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 ">
+    <div className="flex justify-center bg-slate-200 bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 min-h-screen relative">
+      <div className="w-[1440px] relative bg-slate-200 bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 ">
         <div className="w-[20%] h-[100%] float-right  ">
           <RightSidePanel/>
         </div>

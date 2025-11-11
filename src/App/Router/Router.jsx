@@ -60,6 +60,7 @@ const Routes = createBrowserRouter([
       { path: "MyReserve", element: <MyReserve /> },
       { path: "FavoriteCourse", element: <FavoriteCourse /> },
       { path: "FavoriteBlog", element: <FavoriteBlog /> },
+      { path: "profile", element: <FavoriteBlog /> },
     ],
   },
 ]);

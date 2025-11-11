@@ -31,7 +31,7 @@ const MyReserve = () => {
       </div>
 
       {/* course status */}
-      <div className="bg-[#F6F6F6] w-[1078px] h-[710px] absolute top-[236px] left-[24px] rounded-[24px]">
+      <div className="bg-[#F6F6F6] dark:bg-gray-600 w-[1078px] h-[710px] absolute top-[236px] left-[24px] rounded-[24px]">
         <ReserveStatus
           title="دوره فیگما"
           AcceptReserve="تایید شده"

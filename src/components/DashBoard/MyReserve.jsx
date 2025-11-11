@@ -4,7 +4,7 @@ import { CourseReserve } from './components/CourseReserve'
 const MyReserve = () => {
   return (
     <div>
-        <h5 className='h-5 absolute top-2 left-[603px] font-medium text-sm'>رزرو من</h5>
+        <h5 className='h-5 absolute top-2 left-[603px] font-semibold text-sm'>رزرو من</h5>
 
         <div className='w-[630px] h-11 absolute top-10 left-4 rounded-2xl bg-[#F1F1F1]'>
             <h6 className='absolute top-3 left-[607px] text-[#707070] text-sm font-semibold'>#</h6>
@@ -19,7 +19,7 @@ const MyReserve = () => {
             <div className='size-4'>            
                 <img src="./img/backicon.png" className='w-[10px] h-[10px] mt-1'/>
             </div>
-            <h6 className='h-5 text-[#3772FF] text-sm font-semibold text-right leading-3 cursor-pointer '>مشاهده بیشتر</h6>
+            <h6 className='h-5 text-[#3772FF] text-sm  text-right leading-5 cursor-pointer '>مشاهده بیشتر</h6>
         </div>
     </div>
   )
