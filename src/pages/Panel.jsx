@@ -15,7 +15,7 @@ const Panel = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const data = await GetProfileInfoApi(); // فرض بر این است که API فقط داده را return می‌کند
+        const data = await GetProfileInfoApi(); 
         setProfile(data);
       } catch (err) {
         console.error("Fetch profile error:", err);
