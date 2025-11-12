@@ -64,21 +64,21 @@ const TopCourseBody = ({
 
       <div className="lg:block hidden lg:dark:text-white ">
         <div
-          className={`lg:w-[322px] lg:h-[293px] ${bgcolor} lg:rounded-[32px] lg:relative`}
+          className={`lg:w-[322px] xl:w-[322px] xl:h-[293px] lgg:w-[280px] lgg:h-[290px] lg:h-[293px] ${bgcolor} lg:rounded-[32px] lg:relative`}
         >
 
-          <div className="lg:w-[172px] lg:h-[172px] lg:absolute lg:top-[78px] lg:left-[75px]">
+          <div className="lg:w-[172px] lg:h-[172px] lg:absolute lg:top-[90px] lgg:left-[60px] lg:left-[80px] xl:left-[80px] ">
             <img src={imageAddress} />
           </div>
 
-          <div className="lg:w-[89px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[151px] lg:rounded-[32px] lg:bg-[#3772FF] lg:py-[2px] lg:px-2">
+          <div className="lg:w-[89px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[151px] xl:left-[151px] lg:rounded-[32px] lg:bg-[#3772FF] lg:py-[2px] lg:px-2 lgg:left-[112px]">
             <h5 className="lg:w-[73px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:absolute lg:left-[25px] lg:font-medium lg:text-[#FCFCFC]">
               { coding}
 
             </h5>
           </div>
 
-          <div className="lg:w-[62px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[244px] lg:rounded-[32px] lg:bg-[#FF37F5] lg:py-[2px] lg:px-2">
+          <div className="lg:w-[62px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[244px] xl:left-[244px] lgg:left-[204px]  lg:rounded-[32px] lg:bg-[#FF37F5] lg:py-[2px] lg:px-2">
 
             <h5 className="lg:w-[46px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:absolute lg:left-[18px] lg:font-medium lg:text-[#FCFCFC]">
 
@@ -86,10 +86,10 @@ const TopCourseBody = ({
             </h5>
           </div>
         </div>
-
+        <div className="lgg:relative lgg:right-[30px] xl:right-[0] lg:right-[0]">
         <div
           dir="rtl"
-          className="lg:absolute lg:w-[76px] lg:h-[20px] lg:mt-[45px]  lg:text-[13px] lg:font-sans lg:font-bold lg:dark:text-white lg:text-[#2F2F2F]"
+          className="lg:absolute lg:w-[76px] lg:h-[20px] lg:mt-[45px] lg:left-[35px] xl:left-[0] lgg:left-[-] lg:text-[13px] lg:font-sans lg:font-bold lg:dark:text-white lg:text-[#2F2F2F]"
         >
           {coursePrice}تومان
         </div>
@@ -105,6 +105,7 @@ const TopCourseBody = ({
           </div>
         </div>
       </div>
+    </div>
     </Link>
   );
 };

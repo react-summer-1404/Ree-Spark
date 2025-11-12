@@ -1,7 +1,6 @@
 import React from "react";
-import Button from "../../../common/Button";
-import ButtonResponsive from "../../../common/ButtonResponsive";
-import moment from "moment-jalaali";
+import Button from "../../../common/Button/Button";
+import ButtonResponsive from "../../../common/Button/ButtonResponsive";
 
 const TopBlogInfo = ({
   title,
@@ -43,7 +42,7 @@ const TopBlogInfo = ({
                 dir="rtl"
                 className="text-[#707070]  absolute bottom-[-23px] text-[13px] font-medium "
               >
-                  {persianDate}
+                  {Date}
                 <img
                   className="w-[20px] absolute left-[-22px] bottom-[1px] h-[20px] "
                   src={`../../../../../../public/AuthImage/${icDate}.png`}
@@ -105,7 +104,7 @@ const TopBlogInfo = ({
                   dir="rtl"
                   className="lg:text-[#707070] lg:absolute lg:bottom-[-23px] lg:text-[13px] lg:font-medium"
                 >
-                 {persianDate}
+                 {Date}
                   <img
                     className="lg:w-[20px] lg:h-[20px] lg:absolute lg:left-[-22px] lg:bottom-[1px]"
                     src={`../../../../../../public/AuthImage/${icDate}.png`}
@@ -132,7 +131,7 @@ const TopBlogInfo = ({
         </div>
       </div>
 
-      <div className="absolute left-[-20px] top-[310px]">
+      <div className="absolute left-[-52px] top-[310px]">
         <Button />
       </div>
     </div>

@@ -2,13 +2,15 @@ import React from "react";
 import HeroSection from "../components/landing/lanBody/HeroSection";
 import LandingServices from "../components/landing/lanBody/LandingService";
 import {TopCourse} from "../components/landing/topcourse/TopCourse";
-import HeroImage from "../components/landing/lanBody/HeroImage";
+import HeroImage from "../components/landing/lanBody/HeroImageAndBorder/HeroImage";
 import TopBlogs  from "../components/landing/lanBody/TopBlog/TopBlogs"
 import {Teacher} from "../components/landing/lanBody/Teacher"
 const Landing = () => {
   return (
-    <div className="   lg:overflow-x-hidden mx-auto px-4 lg:h-[3750px] lg:w-[1440px] overflow-x-hidden  w-[393px] h-[6380px]   relative lg:relative dark:text-white">
-      <div className="flex flex-col"> 
+    
+      <div className=" border-[10px] w-[393px] h-[6380px] sm:w-[430px] md:w-[768px] lg:w-[1200px] lgg:w-[1310px] xl:w-[1510px]
+      overflow-x-hidden mx-auto px-4 relative dark:text-white">
+        <div className="flex flex-col"> 
         <LandingServices />
         <HeroSection />
         <TopCourse />
@@ -18,6 +20,7 @@ const Landing = () => {
 
       </div>
     </div>
+  
   );
 };
 

@@ -2,6 +2,7 @@
 import React, { useEffect,useState } from "react";
 import TopBlogInfo from "./TopBlogInfo";
 import TopBlogApi from "../../../../core/services/api/TopBlogs.api";
+import moment from "moment-jalaali";
 
 const TopBlogs = () => {
   const [BlogInfo, setBlogInfo] = useState([]);
@@ -40,7 +41,7 @@ const TopBlogs = () => {
         </div>
 
 
-        <div className="h-[366px] gap-[25px] w-[1360px]  top-[50px]  lg:top-[1000px] relative left-[30px] flex  lg:h-[366px]">
+        <div className="h-[366px] gap-[25px] w-[1360px]  top-[50px]  lg:top-[1000px] relative left-[50px] flex  lg:h-[366px]">
 
                 {BlogInfo.length > 0 && BlogInfo.map((item) => (
           <TopBlogInfo
@@ -48,7 +49,7 @@ const TopBlogs = () => {
             title={item.title}
             Teacher={item.addUserFullName}
             img={item.currentImageAddress}
-            Date={item.insertDate}
+            Date={moment(item.insertDate).format("jYYYY/jMM/jDD")}
             view={item.currentView}
             icView="view"
             icDate="Date"
