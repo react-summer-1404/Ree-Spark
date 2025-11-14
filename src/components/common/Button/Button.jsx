@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Button = () => {
   return (
     <div>
-      <Link to={"/course"}
+      <Link to={"/courses"}
         className="lg:w-[125px] hidden lg:block lg:h-[39px] lg:gap-2 lg:rounded-[40px] lg:bg-[#2F2F2F]  dark:bg-slate-400
         lg:text-white lg:mt-[90px] lg:mb-10 lg:pt-2 lg:pr-4 lg:pb-2 lg:pl-4 lg:absolute lg:left-[660px] dark:lg:text-black "
       >

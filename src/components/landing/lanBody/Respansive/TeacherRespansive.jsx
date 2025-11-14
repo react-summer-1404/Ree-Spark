@@ -84,7 +84,7 @@ const TeacherRespansive = () => {
                 و جلسات مشاوره، فضایی پویا و انگیزشی را برای یادگیری فراهم آورده‌اند.
               </div>
 
-              <button className="w-[119px] right-[140px] top-[280px] absolute h-[39px] rounded-[40px] py-2 px-4 bg-[#3772FF] float-right mt-7">
+              <button className="w-[119px] right-[140px] top-[280px] absolute h-[39px] rounded-[40px] py-2 px-4 bg-[#3772FF] float-right mt-7 ">
                 <h5 className="w-[87px] h-[23px] text-[#FCFCFC] text-[16px] font-sans font-medium">
                   صفحه اساتید
                 </h5>

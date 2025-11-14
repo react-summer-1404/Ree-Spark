@@ -6,7 +6,7 @@ const ButtonResponsive = () => {
     <div>
       <Link
 
-         to={"/course"}
+         to={"/courses"}
        className="w-[125px] h-[39px] lg:hidden  rounded-[40px] bg-[#2F2F2F]  mt-[90px]
         mb-10 pt-2 pr-4 pb-2 pl-4 absolute left-[800px] dark:bg-slate-400 dark:text-black"
       >

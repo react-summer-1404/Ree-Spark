@@ -28,7 +28,7 @@ const  HeroImageResponsive = ()=> {
       </div>
 
       {/* // {mobule} // */}
-      <div className=" lg:hidden flex flex-row justify-center relative w-[62.183835415005994px] h-[62.183835415005994px] right-[358px] top-[-3500px]">
+      <div className=" lg:hidden flex flex-row justify-center relative w-[62.183835415005994px] h-[62.183835415005994px] right-[358px] top-[-3520px]">
         <img
           className="absolute left-[350px] top-[90px] rotate-[11deg]"
           src="../../../../public/AuthImage/html.png"

@@ -12,8 +12,6 @@ const LandingServiceResponsive = () =>  {
               اهداف ما در اکادمی
             </div>
 
-
-
             <div className="w-[100px] h-[2300px] left-[15px] top-[870px] relative dark:text-white ">
               <div className="w-[321px] h-[404px] bg-[#FCFCFC] border border-[#DCDCDC] rounded-3xl hover:border-[#3772FF] transition-[0.3s] dark:bg-slate-700">
 
@@ -97,7 +95,7 @@ const LandingServiceResponsive = () =>  {
             </div>
 
             <div className="lg:hidden justify-center flex  relative top-[650px] dark:text-white  h-[1200px]  ">
-              <div className="   ">
+              <div className="">
                 <div className="bg-[#F6F6F6] border border-[#DCDCDC] w-[361px] h-[235px] rounded-[32px] dark:bg-slate-700 text-right relative hover:border-[#3772FF] transition-[0.3s]">
                   <div className="absolute top-16 ">
                     <h1 className="font-bold text-xl relative right-[-34px] top-10">
@@ -185,12 +183,13 @@ const LandingServiceResponsive = () =>  {
     </div>
 
     <div className="xl:w-full hidden xl:h-[500px] xl:top-[430px] xl:relative xl:flex xl:justify-center xl:gap-[28px]">
-      {/* Card 1 */}
+      
+
       <div className="xl:w-[321px] xl:h-[434px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:rounded-3xl xl:hover:border-[#3772FF] transition-all duration-300 xl:dark:bg-slate-700">
         <h1 className="xl:text-right xl:text-[20px] xl:relative xl:top-5 xl:right-[20px] xl:font-bold">
           آماده سازی برای بازار کار
         </h1>
-        <div className="xl:relative xl:top-[45px] xl:left-[24px] xl:text-[#7E7E7E] xl:break-words xl:w-[275px] xl:font-medium xl:text-base xl:text-right xl:leading-7">
+        <div className="xl:relative xl:top-[30px] xl:left-[24px] xl:text-[#7E7E7E] xl:break-words xl:w-[275px] xl:font-medium xl:text-base xl:text-right xl:leading-7">
           جلسات تنظیم <span dir="ltr">cv</span> برای ساخت‌واشتراک رزومه فنی در بسترهای داخلی و بین‌المللی کاریابی و آماده‌سازی برای شرکت‌ها
         </div>
         <img
@@ -199,29 +198,30 @@ const LandingServiceResponsive = () =>  {
         />
       </div>
 
-      {/* Card 2 */}
+
       <div className="xl:w-[321px] xl:h-[434px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:rounded-3xl xl:hover:border-[#3772FF] transition-all duration-300 xl:dark:bg-slate-700">
         <h1 className="xl:text-right xl:text-[20px] xl:relative xl:top-5 xl:right-[18px] xl:font-bold">
           آموزش‌های تخصصی
         </h1>
         <p
           dir="rtl"
-          className="xl:relative xl:w-[278px] xl:text-[#7E7E7E] xl:break-words xl:top-[45px] xl:left-[24px] xl:font-medium xl:text-base xl:text-right xl:leading-7"
+          className="xl:relative xl:w-[278px] xl:text-[#7E7E7E] xl:break-words xl:top-[30px] xl:left-[24px] xl:font-medium xl:text-base xl:text-right xl:leading-7"
         >
           کارگاه‌های تخصصی و تکمیلی برای کار با پلتفرم‌های بازاری مورد اقبال و برگزاری تورنمنت‌های تیمی رقابتی برای تقویت روحیه کار تیمی و...
         </p>
         <img
           src="../../../../public/AuthImage/L3.png"
-          className="xl:relative xl:left-8 xl:top-14 xl:w-[260px] xl:h-[236px]"
+          className="xl:relative xl:left-8 xl:top-14 xl:w-[260px] xl:h-[216px]"
         />
       </div>
 
-      {/* Card 3 */}
+      
+      
       <div className="xl:w-[321px] xl:h-[434px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:rounded-3xl xl:hover:border-[#3772FF] transition-all duration-300 xl:dark:bg-slate-700">
         <h1 className="xl:text-right xl:text-[20px] xl:relative xl:top-5 xl:right-[23px] xl:font-bold">
           راهنمایی و ایجاد انگیزه
         </h1>
-        <p className="xl:relative xl:top-[45px] xl:left-[24px] xl:text-[#7E7E7E] xl:font-medium xl:break-words xl:w-[270px] xl:text-right xl:leading-7">
+        <p className="xl:relative xl:top-[30px] xl:left-[24px] xl:text-[#7E7E7E] xl:font-medium xl:break-words xl:w-[270px] xl:text-right xl:leading-7">
           آشنایی با پشته‌ای تکنولوژیک از زبان‌های کدنویسی با نگاهی عمل‌محور برای تحریک ذهنیت خلاق در طول فرآیند آموزش
         </p>
         <img
@@ -230,14 +230,14 @@ const LandingServiceResponsive = () =>  {
         />
       </div>
 
-      {/* Card 4 */}
+   
       <div className="xl:w-[321px] xl:h-[434px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:rounded-3xl xl:hover:border-[#3772FF] transition-all duration-300 xl:dark:bg-slate-700">
         <h1 className="xl:text-right xl:text-[20px] xl:relative xl:top-5 xl:right-[23px] xl:font-bold">
           استعدادیابی
         </h1>
         <p
           dir="rtl"
-          className="xl:relative xl:text-[#7E7E7E] xl:top-[45px] xl:left-[-22px] xl:font-medium xl:text-base xl:text-right xl:leading-7"
+          className="xl:relative xl:w-[300px] xl:break-words xl:text-[#7E7E7E] xl:top-[30px]  xl:font-medium xl:text-base xl:text-right xl:leading-7"
         >
           یافتن رگه‌های علاقه و استعداد در دوره‌های پایلوت استعدادیابی صرف نظر از سن، رشته تحصیلی، جغرافیا و جنسیت و...
         </p>
@@ -252,17 +252,17 @@ const LandingServiceResponsive = () =>  {
     {/* {xl Desktop} */}
 
     <div className="xl:block hidden lg:hidden">
-  <div className="xl:flex xl:flex-col xl:flex-wrap xl:justify-center xl:relative xl:top-[750px] xl:w-full xl:h-[500px] xl:left-[32px] xl:gap-[20px] xl:text-dark xl:dark:text-white">
+  <div className="xl:flex xl:flex-col xl:flex-wrap xl:justify-center xl:relative xl:top-[630px] xl:w-full xl:h-[500px] xl:left-[22px] xl:gap-[22px] xl:text-dark xl:dark:text-white">
     <div className="xl:relative xl:left-[340px] top-[-20px] xl:bottom-14">
       <div className="xl:flex xl:justify-center xl:font-bold xl:text-3xl">
         خدماتی که ما در طی دوره‌ها
       </div>
-      <div className="xl:flex xl:justify-center xl:font-bold xl:text-3xl">
+      <div className="xl:flex xl:justify-center xl:font-bold xl:text-3xl lg:mt-[15px]">
         به شما ارائه میدیم
       </div>
     </div>
 
-    <div className="xl:relative xl:left-[20px] xl:gap-[22px] flex flex-col">
+    <div className="xl:relative xl:left-[30px] xl:gap-[22px] flex flex-col">
       <div className="xl:bg-[#F6F6F6] xl:border xl:border-[#DCDCDC] xl:w-[664px] xl:h-[144px] xl:rounded-[32px] xl:text-right xl:dark:bg-slate-700 xl:hover:border-[#3772FF] transition-[0.3s]">
         <div className="xl:relative xl:right-[40px]">
           <h1 className="xl:font-bold xl:text-xl xl:relative xl:right-24 xl:top-10">
@@ -298,7 +298,7 @@ const LandingServiceResponsive = () =>  {
       </div>
     </div>
 
-    <div className="xl:relative xl:gap-[21px] xl:top-[45px] xl:right-[32px] xl:flex xl:flex-col">
+    <div className="xl:relative xl:gap-[22px] xl:top-[55px] xl:right-[22px] xl:flex xl:flex-col">
       <div className="xl:bg-[#F6F6F6] xl:border xl:border-[#DCDCDC] xl:w-[664px] xl:h-[144px] xl:rounded-[32px] xl:text-right xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700">
         <div className="xl:relative xl:right-[40px]">
           <h1 className="xl:font-bold xl:text-xl xl:relative xl:right-24 xl:top-10">

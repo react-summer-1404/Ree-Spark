@@ -8,8 +8,8 @@ import {Teacher} from "../components/landing/lanBody/Teacher"
 const Landing = () => {
   return (
     
-      <div className=" border-[10px] w-[393px] h-[6380px] sm:w-[430px] md:w-[768px] lg:w-[1200px] lgg:w-[1310px] xl:w-[1510px]
-      overflow-x-hidden mx-auto px-4 relative dark:text-white">
+      <div className=" w-[393px] h-[6380px]  overflow-hidden lg:w-[1200px] lgg:w-[1310px] xl:w-[1510px] 
+        lg:h-[4900px] xl:h-[3390px] lgg:h-[3520px]  overflow-x-hidden mx-auto px-4 relative dark:text-white">
         <div className="flex flex-col"> 
         <LandingServices />
         <HeroSection />

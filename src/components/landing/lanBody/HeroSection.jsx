@@ -9,7 +9,7 @@ function HeroSection() {
     <HeroSectionRespansive/>
       {/* {Desktop} */}
      
-        <div className="hidden lg:block lg:h-48  lg:relative lg:bottom-[950px] lg:w-[1440px] lg:text-center  lgg:right-[80px] lg:right-[110px]  xl:right-[0] lg:flex lg:flex-col ">
+        <div className="hidden lg:block lg:h-48  lg:relative lg:bottom-[950px] lg:w-[1440px] lg:text-center  lgg:right-[80px] lg:right-[140px]  xl:right-[0] lg:flex lg:flex-col ">
           
           <span className="lg:font-bold lg:text-3xl lg:justify-center">
             آموزش مدرن

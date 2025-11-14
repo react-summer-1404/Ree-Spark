@@ -7,11 +7,12 @@ const TopCourseBody = ({
   imageAddress,
   bgcolor,
   coursePrice,
-
+  coursePriceDub,
   coding,
 }) => {
   return (
     // {mobile} //
+    <>
     <Link className=" w-[322px] h-[366px] ">
       <div className="lg:hidden  relative top-[30px] dark:text-white right-[500px] ">
         <div className="">
@@ -37,7 +38,7 @@ const TopCourseBody = ({
             dir="rtl"
             className="absolute  w-[96px] h-[20px]  mt-[45px] text-[13px] font-sans font-bold text-[#2F2F2F] dark:text-white "
           >
-            {coursePrice}
+            {coursePrice}تومان
           </div>
 
           <div className=" w-[322px] absolute h-[61px] gap-1 ml-[170px] mt-[10px]">
@@ -59,8 +60,9 @@ const TopCourseBody = ({
 
       </div>
 
-      {/* // {DeskTop}   // */}
 
+      {/* // {DeskTop}   // */}
+    
 
       <div className="lg:block hidden lg:dark:text-white ">
         <div
@@ -86,11 +88,19 @@ const TopCourseBody = ({
             </h5>
           </div>
         </div>
+        
         <div className="lgg:relative lgg:right-[30px] xl:right-[0] lg:right-[0]">
-        <div
+                <div
           dir="rtl"
-          className="lg:absolute lg:w-[76px] lg:h-[20px] lg:mt-[45px] lg:left-[35px] xl:left-[0] lgg:left-[-] lg:text-[13px] lg:font-sans lg:font-bold lg:dark:text-white lg:text-[#2F2F2F]"
-        >
+          className="lg:absolute lg:w-[76px] lg:h-[20px] lg:mt-[45px] lgg:left-[35px] lg:left-[510px] xl:left-[0]  lg:text-[13px] lg:font-sans lg:font-bold lg:dark:text-white lg:text-[#2F2F2F]"
+      >
+          {coursePriceDub}تومان
+        </div>
+
+      <div
+          dir="rtl"
+          className="lg:absolute lg:w-[76px] lg:h-[20px] lg:mt-[45px] lgg:left-[35px] lg:left-[150px] xl:left-[0]  lg:text-[13px] lg:font-sans lg:font-bold lg:dark:text-white lg:text-[#2F2F2F]"
+      >
           {coursePrice}تومان
         </div>
 
@@ -106,7 +116,9 @@ const TopCourseBody = ({
         </div>
       </div>
     </div>
-    </Link>
+  </Link>
+    
+    </>
   );
 };
 
