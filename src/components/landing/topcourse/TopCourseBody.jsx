@@ -7,11 +7,12 @@ const TopCourseBody = ({
   imageAddress,
   bgcolor,
   coursePrice,
-
+  coursePriceDub,
   coding,
 }) => {
   return (
     // {mobile} //
+    <>
     <Link className=" w-[322px] h-[366px] ">
       <div className="lg:hidden  relative top-[30px] dark:text-white right-[500px] ">
         <div className="">
@@ -37,7 +38,7 @@ const TopCourseBody = ({
             dir="rtl"
             className="absolute  w-[96px] h-[20px]  mt-[45px] text-[13px] font-sans font-bold text-[#2F2F2F] dark:text-white "
           >
-            {coursePrice}
+            {coursePrice}تومان
           </div>
 
           <div className=" w-[322px] absolute h-[61px] gap-1 ml-[170px] mt-[10px]">
@@ -59,26 +60,27 @@ const TopCourseBody = ({
 
       </div>
 
-      {/* // {DeskTop}   // */}
 
+      {/* // {DeskTop}   // */}
+    
 
       <div className="lg:block hidden lg:dark:text-white ">
         <div
-          className={`lg:w-[322px] lg:h-[293px] ${bgcolor} lg:rounded-[32px] lg:relative`}
+          className={`lg:w-[322px] xl:w-[322px] xl:h-[293px] lgg:w-[280px] lgg:h-[290px] lg:h-[293px] ${bgcolor} lg:rounded-[32px] lg:relative`}
         >
 
-          <div className="lg:w-[172px] lg:h-[172px] lg:absolute lg:top-[78px] lg:left-[75px]">
+          <div className="lg:w-[172px] lg:h-[172px] lg:absolute lg:top-[90px] lgg:left-[60px] lg:left-[80px] xl:left-[80px] ">
             <img src={imageAddress} />
           </div>
 
-          <div className="lg:w-[89px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[151px] lg:rounded-[32px] lg:bg-[#3772FF] lg:py-[2px] lg:px-2">
+          <div className="lg:w-[89px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[151px] xl:left-[151px] lg:rounded-[32px] lg:bg-[#3772FF] lg:py-[2px] lg:px-2 lgg:left-[112px]">
             <h5 className="lg:w-[73px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:absolute lg:left-[25px] lg:font-medium lg:text-[#FCFCFC]">
               { coding}
 
             </h5>
           </div>
 
-          <div className="lg:w-[62px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[244px] lg:rounded-[32px] lg:bg-[#FF37F5] lg:py-[2px] lg:px-2">
+          <div className="lg:w-[62px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[244px] xl:left-[244px] lgg:left-[204px]  lg:rounded-[32px] lg:bg-[#FF37F5] lg:py-[2px] lg:px-2">
 
             <h5 className="lg:w-[46px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:absolute lg:left-[18px] lg:font-medium lg:text-[#FCFCFC]">
 
@@ -86,16 +88,24 @@ const TopCourseBody = ({
             </h5>
           </div>
         </div>
-
-        <div
+        
+        <div className="lgg:relative lgg:right-[30px] xl:right-[0] lg:right-[0]">
+                <div
           dir="rtl"
-          className="lg:absolute lg:w-[96px] lg:h-[20px] lg:mt-[45px] lg:text-[13px] lg:font-sans lg:font-bold lg:dark:text-white lg:text-[#2F2F2F]"
-        >
-          {coursePrice}
+          className="lg:absolute lg:w-[76px] lg:h-[20px] lg:mt-[45px] lgg:left-[35px] lg:left-[510px] xl:left-[0]  lg:text-[13px] lg:font-sans lg:font-bold lg:dark:text-white lg:text-[#2F2F2F]"
+      >
+          {coursePriceDub}تومان
+        </div>
+
+      <div
+          dir="rtl"
+          className="lg:absolute lg:w-[76px] lg:h-[20px] lg:mt-[45px] lgg:left-[35px] lg:left-[150px] xl:left-[0]  lg:text-[13px] lg:font-sans lg:font-bold lg:dark:text-white lg:text-[#2F2F2F]"
+      >
+          {coursePrice}تومان
         </div>
 
         <div className="lg:w-[322px] lg:absolute lg:h-[61px] lg:gap-1 lg:ml-[170px] lg:mt-[10px]">
-          <h1 className="lg:w-[322px] lg:h-[34px] lg:gap-1 lg:font-sans lg:font-bold lg:text-right lg:relative lg:right-[180px] lg:bottom-[10px] lg:text-[23px] lg:dark:text-white lg:text-[#2F2F2F]">
+          <h1 className="lg:w-[322px] lg:h-[34px] lg:gap-1 lg:font-sans lg:font-bold lg:text-right lg:relative lg:right-[190px] lg:bottom-[10px] lg:text-[23px] lg:dark:text-white lg:text-[#2F2F2F]">
             {courseName}
           </h1>
           <div className="lg:w-[322px] lg:h-[23px]">
@@ -105,7 +115,10 @@ const TopCourseBody = ({
           </div>
         </div>
       </div>
-    </Link>
+    </div>
+  </Link>
+    
+    </>
   );
 };
 

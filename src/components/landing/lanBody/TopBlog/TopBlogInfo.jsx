@@ -1,6 +1,5 @@
 import React from "react";
-import Button from "../../../common/Button";
-import ButtonResponsive from "../../../common/ButtonResponsive";
+import ButtonResponsive from "../../../common/Button/ButtonResponsive";
 
 const TopBlogInfo = ({
   title,
@@ -12,8 +11,10 @@ const TopBlogInfo = ({
   icView,
   view,
 }) => {
+
   return (
     <div>
+      
       <div className="flex justify-center relative top-[480px]  flex-col lg:hidden right-[760px]">
         <div className={`w-[322px]  h-[293px] rounded-[32px] ${blogBg}`}>
           <img
@@ -40,7 +41,7 @@ const TopBlogInfo = ({
                 dir="rtl"
                 className="text-[#707070]  absolute bottom-[-23px] text-[13px] font-medium "
               >
-                {Date}
+                  {Date}
                 <img
                   className="w-[20px] absolute left-[-22px] bottom-[1px] h-[20px] "
                   src={`../../../../../../public/AuthImage/${icDate}.png`}
@@ -62,19 +63,20 @@ const TopBlogInfo = ({
             </div>
           </div>
         </div>
-        <div className="relative left-[50px]">
+        <div className="relative bottom-[10px] left-[50px]">
           <ButtonResponsive />
         </div>
-        <div className="absolute bottom-[860px] left-[45px]">
+        <div className="absolute bottom-[600px] left-[50px]">
           <ButtonResponsive />
         </div>
       </div>
+      
 
       {/* {Desktop} */}
       <div>
         <div className=" lg:justify-center lg:gap-3 lg:flex-col hidden lg:block">
           <div
-            className={`lg:w-[432px] lg:h-[293px] lg:rounded-[32px] ${blogBg}`}
+            className={`lg:w-[432px] lg:h-[293px] xl:w-[432px] xl:h-[293px] lgg:w-[372px] lgg:h-[293px] lg:rounded-[32px] ${blogBg}`}
           >
             <img
               className="lg:w-full lg:h-full  lg:left-[130px] lg:top-[70px] rounded-[15px]"
@@ -86,23 +88,23 @@ const TopBlogInfo = ({
           <div className="lg:flex lg:flex-col">
             <p
               dir="rtl"
-              className="lg:w-[342px] lg:h-[34px] lg:text-[19px] lg:text-right lg:font-bold relative left-[70px] truncate  "
+              className="lg:w-[342px] xl:w-[342px] lg:h-[34px] lg:text-[19px] lg:text-right lg:font-bold relative xl:left-[89px]  lg:left-[80px] lgg:left-[89px] truncate lgg:w-[270px]  "
             >
               {title}
             </p>
 
-            <div className="lg:relative lg:left-[277px]">
+            <div className="lg:relative lg:left-[290px] lgg:left-[235px] xl:left-[277px]">
               <div className="lg:w-[133px] lg:absolute lg:h-[20px] lg:text-right lg:text-[13px] lg:font-medium lg:text-[#707070]">
                 {Teacher}
               </div>
             </div>
-            <div className="relative left-[20px] ">
+            <div className="relative left-[20px] xl:bottom-[3px] lg:bottom-[3px]  lgg:bottom-[3px]">
               <div className="lg:relative lg:left-[90px]">
                 <h5
                   dir="rtl"
                   className="lg:text-[#707070] lg:absolute lg:bottom-[-23px] lg:text-[13px] lg:font-medium"
                 >
-                  {Date}
+                 {Date}
                   <img
                     className="lg:w-[20px] lg:h-[20px] lg:absolute lg:left-[-22px] lg:bottom-[1px]"
                     src={`../../../../../../public/AuthImage/${icDate}.png`}
@@ -129,10 +131,9 @@ const TopBlogInfo = ({
         </div>
       </div>
 
-      <div className="absolute left-[-20px]">
-        <Button />
-      </div>
+
     </div>
+
   );
 };
 
