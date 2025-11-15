@@ -4,14 +4,7 @@ import { TopCourseBody } from "./TopCourseBody";
 import Button from "../../common/Button/Button";
 import ButtonResponsive from "../../common/Button/ButtonResponsive";
 import GetCoursesTopApi from "../../../core/services/api/GetTopCourses.api";
-import {
-  digitsFaToEn,
-  digitsEnToFa,
-  numberToWords,
-  addCommas,
-  verifyIranianNationalId,
-  toPersianDigits,
-} from "@persian-tools/persian-tools";
+import {digitsEnToFa,addCommas} from "@persian-tools/persian-tools";
 
 const TopCourse = () => {
   const [courses, setCourses] = useState([]);
@@ -52,8 +45,8 @@ const TopCourse = () => {
             key={item.id}
             courseName={item.title}
             teacherName={item.teacherName}
-            coursePrice={item.cost}
-            coursePriceDub={item.cost}
+        coursePrice={digitsEnToFa(addCommas(item.cost))}
+  coursePriceDub={digitsEnToFa(addCommas(item.cost))}
             coding={item.statusName}
             imageAddress={item.imageAddress}
             level={item.levelName}
