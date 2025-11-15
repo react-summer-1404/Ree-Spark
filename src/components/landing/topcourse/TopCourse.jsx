@@ -4,6 +4,8 @@ import { TopCourseBody } from "./TopCourseBody";
 import Button from "../../common/Button/Button";
 import ButtonResponsive from "../../common/Button/ButtonResponsive";
 import GetCoursesTopApi from "../../../core/services/api/GetTopCourses.api";
+import {digitsEnToFa,addCommas} from "@persian-tools/persian-tools";
+
 const TopCourse = () => {
   const [courses, setCourses] = useState([]);
   const getTopCourses = async (Count = 4) => {
@@ -38,12 +40,13 @@ const TopCourse = () => {
       
       <div className="mt-12 flex justify-center lgg:justify-start xl:w-[1460px] lg:gap-[30px] lgg:gap-[0] xl:gap-[30px] gap-[60px] lg:flex-wrap lg:w-[1000px] lg:relative  lgg:flex-nowrap lgg:relative lgg:left-[40px] lgg:w-[1200px]">
         {courses.map((item) => (
+          
           <TopCourseBody
             key={item.id}
             courseName={item.title}
             teacherName={item.teacherName}
-            coursePrice={item.cost}
-            coursePriceDub={item.cost}
+        coursePrice={digitsEnToFa(addCommas(item.cost))}
+  coursePriceDub={digitsEnToFa(addCommas(item.cost))}
             coding={item.statusName}
             imageAddress={item.imageAddress}
             level={item.levelName}
