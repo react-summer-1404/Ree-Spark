@@ -5,8 +5,8 @@ const MobileFilter = ({onClose}) => {
   return (
     <div>
        
-      <div className="w-[393px]   h-[705px] bg-[#FCFCFC] border-2 border-[#DCDCDC]  dark:text-white border-Gray-400 dark:bg-slate-700 rounded-[32px] font-sans ">
-       <div className="w-[56px] h-[8px] border-[2px] border-gray-400 rounded-[4px] absolute mt-[10px] ml-[165px]"></div>
+      <div className="w-[393px]  flex justify-center  h-[705px] bg-[#FCFCFC] border-2 border-[#DCDCDC]  dark:text-white border-Gray-400 dark:bg-slate-700 rounded-[32px] ">
+       <div className="w-[56px] h-[8px] border-[2px] border-gray-400 rounded-[4px] absolute mt-[10px] ml-[265px]"></div>
 
         <div className="relative ">
                <h1 className='font-bold text-2xl w-[278px] h-[34px] absolute top-[20px] ml-[105px] text-right text-[24px]'>فیلتر</h1>

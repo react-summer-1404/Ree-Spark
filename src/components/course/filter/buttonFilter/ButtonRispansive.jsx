@@ -7,7 +7,7 @@ function ButtonRispansive() {
   const [showOrder, setShowOrder] = useState(false);
 
   return (
-    <div className="relative right-[40px] nn:left-[180px] mm:left-[160px] xs:left-[80px] sm:left-[-10px] md:left-[-10px] lg:hidden">
+    <div className="relative right-[40px]  md:left-[-10px] lg:hidden">
       {/* دکمه فیلتر */}
       {!showFilter && !showOrder && (
         <>

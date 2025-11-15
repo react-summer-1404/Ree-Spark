@@ -4,6 +4,8 @@ import { CourseStyle } from "./CourseStyle";
 import GetCoursePageApi from "../../../core/services/api/getCoursePage.api";
 import PageInationBlog  from "./PageInationBlog";
 import Loading from "../../common/Loading";
+import { addCommas, digitsEnToFa } from "@persian-tools/persian-tools";
+
 const CourseBody = () => {
   const [Course, setCourse] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -52,13 +54,13 @@ const CourseBody = () => {
                 teacherName={item.addUserFullName}
                 imageAddress={item.currentImageAddress}
                 bgcolor="bg-black"
-                coursePrice="1000تومان"
+                coursePrice={digitsEnToFa(addCommas(1000))}       
                 coding="started"
                 level="hard" 
               />
             ))
           ) : (
-        <div className="relative lg:block hidden top-[200px] left-[450px]">
+        <div className="relative lg:block hidden top-[200px] left-[100px]">
             <Loading />
           </div>
           )}

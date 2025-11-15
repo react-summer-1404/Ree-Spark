@@ -12,7 +12,7 @@ const MobileCourseStyle = ({
   return (
     // {mobile} //
     <Link className=" w-[322px] h-[366px] ">
-      <div className="lg:hidden left-[20px]  relative top-[300px] dark:text-white ">
+      <div className="lg:hidden left-[] flex justify-center relative top-[300px] dark:text-white ">
         <div className="absolute">
           <div className={`w-[322px] h-[293px] ${bgcolor}  rounded-[32px]  `}>
             <div className="w-[172px] h-[132px] relative top-[58px] left-[75px] ">

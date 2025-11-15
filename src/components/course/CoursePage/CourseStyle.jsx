@@ -40,12 +40,13 @@ const CourseStyle = ({
     dir="rtl"
     className="xl:absolute xl:w-[96px] xl:h-[20px] xl:mt-[45px] xl:text-[13px] xl:font-sans xl:font-bold xl:dark:text-white xl:text-[#2F2F2F]"
   >
-    {coursePrice}
+             {coursePrice} <div className=" left-[5px] bottom-[1px] absolute">تومان</div>  
+
   </div>
 
   <div className="xl:w-[322px] xl:absolute xl:h-[61px] xl:gap-1 xl:ml-[170px] xl:mt-[10px]">
     <h1 className="xl:w-[322px] lg:truncate xl:h-[34px] xl:gap-1 xl:font-sans xl:font-bold xl:text-right xl:relative xl:right-[180px] xl:bottom-[10px] xl:text-[23px] xl:dark:text-white xl:text-[#2F2F2F] text-ellipsis">
-      {courseName}
+          {coursePrice} <div className=" xl:left-[5px] xl:bottom-[1px] xl:absolute">تومان</div>  
     </h1>
     <div className="xl:w-[322px] xl:h-[23px]">
       <h5 className="xl:w-[133px] xl:h-[20px] xl:text-right xl:text-[13px] xl:font-sans xl:font-medium xl:text-[#707070] xl:float-end dark:xl:text-[#8F8F8F]">
@@ -80,17 +81,17 @@ const CourseStyle = ({
 
         <div
           dir="rtl"
-          className="lg:absolute lg:w-[96px] lg:h-[20px] lg:mt-[45px] lg:text-[13px] lg:font-sans lg:font-bold lg:dark:text-white lg:text-[#2F2F2F]"
+          className="lg:absolute lg:w-[66px] lg:h-[20px] lg:mt-[45px]  lg:text-[13px]  lg:font-bold lg:dark:text-white lg:text-[#2F2F2F]"
         >
-          {coursePrice}
+          {coursePrice} <div className=" lg:left-[5px] lg:bottom-[1px] lg:absolute">تومان</div>  
         </div>
 
         <div className="lg:w-[322px] lg:absolute lg:h-[61px] lg:gap-1 lg:ml-[170px] lg:mt-[10px]">
-          <h1 dir="rtl" className="lg:w-[322px] lg:truncate lg:h-[34px] lg:gap-1 lg:font-sans lg:font-bold lg:text-right lg:relative lg:right-[180px] lg:bottom-[10px] lg:text-[23px] lg:dark:text-white lg:text-[#2F2F2F] ">
+          <h1 dir="rtl" className="lg:w-[322px] lg:truncate lg:h-[34px] lg:gap-1  lg:font-bold lg:text-right lg:relative lg:right-[180px] lg:bottom-[10px] lg:text-[23px] lg:dark:text-white lg:text-[#2F2F2F] ">
             {courseName}
           </h1>
           <div className="lg:w-[322px] lg:h-[23px]">
-            <h5 className="lg:w-[133px] lg:h-[20px] lg:text-right lg:text-[13px] lg:font-sans lg:font-medium lg:text-[#707070] lg:float-end dark:lg:text-[#8F8F8F]">
+            <h5 className="lg:w-[133px] lg:h-[20px] lg:text-right lg:text-[13px]  lg:font-medium lg:text-[#707070] lg:float-end dark:lg:text-[#8F8F8F]">
               {teacherName}
             </h5>
           </div>
