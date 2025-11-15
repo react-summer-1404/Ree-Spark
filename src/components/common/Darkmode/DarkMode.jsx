@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { FiMoon, FiSun } from "react-icons/fi";
 
 export default function DarkMode() {

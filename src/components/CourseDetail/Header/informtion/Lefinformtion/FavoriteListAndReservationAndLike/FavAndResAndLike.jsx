@@ -6,7 +6,7 @@ import Reservation from "./Reservation";
 
 const FavAndResAndLike = () => {
   return (
-    <div className="flex gap-3 md:gap-4 justify-between h-[56px] w-full ">
+    <div className="sm:flex hidden gap-3 items-center md:gap-4 justify-between h-[56px] w-full ">
       <LikeAndDisLike />
       <AddFavorite />
       <Reservation />

@@ -5,6 +5,7 @@ import { FiArchive, FiCopy } from "react-icons/fi";
 import { FileTextIcon, Fullscreen } from "lucide-react";
 import jsImage from "../assets/image/LayoutImage/jsImage.svg";
 import DisCriptionStar from "../components/BlogDetail/BlogDiscription/DisCriptionStar";
+import CopyLink from "../components/BlogDetail/BlogDiscription/CopyLink";
 
 const BlogDetail = () => {
   const [isOpenModalComment, setisOpenModalComment] = useState(false);
@@ -106,7 +107,7 @@ const BlogDetail = () => {
           </div>
           {/* ///// */}
           <div className="flex justify-end h-[34px] w-full ">
-            <BlogStar rating={3} />
+            <BlogStar />
           </div>
           {/* //// */}
           <div className="flex gap-3 md:gap-4  justify-between h-[56px] w-full ">
@@ -202,15 +203,7 @@ const BlogDetail = () => {
         </div>
         <div className="flex items-center justify-end gap-10 flex-wrap ">
           {/* //// */}
-          <div className="sm:w-[216px] h-[39px] w-full flex justify-end">
-            <button
-              className="w-[216px] h-[39px] flex justify-center items-center
-                                            rounded-[48px] border-2 border-[#3772FF] gap-2 "
-            >
-              <div className="text-[#3772FF] ">کپی کردن لینک صفحه</div>
-              <FiCopy className="text-[#3772FF] " />
-            </button>
-          </div>
+          <CopyLink />
           {/* //// */}
           <DisCriptionStar rating={2} />
         </div>
@@ -415,15 +408,16 @@ const BlogDetail = () => {
               <div className="bg-white w-[90%] dark:bg-slate-800 h-[653px] min-w-md p-6 rounded-xl shadow-lg overflow-hidden">
                 <div className="w-full h-full overflow-y-auto pr-2">
                   {/* Header */}
-                  <div className="w-full flex flex-wrap items-center justify-between mb-6">
+                  <div className="w-full flex flex-wrap justify-between mb-6">
                     <button
                       onClick={closeModal}
-                      className="flex items-center justify-center gap-3 w-[100px] h-[40px] border-red-600 border-2 rounded-full text-red-600 dark:text-white"
+                      className="flex items-center fixed justify-center gap-3 w-[80px] md:w-[100px] h-[40px] border-red-600 border-2 rounded-full text-red-600 dark:text-white"
                     >
                       <div>بستن</div>
                       <div className="mt-1">✕</div>
                     </button>
-                    <div className="flex gap-2 items-center justify-end flex-wrap-reverse text-right">
+                    <div className="flex gap-2 w-[100%] items-center justify-end flex-wrap-reverse text-right">
+                      <div className="w-[100px]"></div>
                       <div className="w-[160px] text-[#707070] font-bold text-[18px]">
                         <div>( دوره جاوااسکریپت )</div>
                       </div>
@@ -439,7 +433,7 @@ const BlogDetail = () => {
                     <div className="w-full flex justify-end mb-5">
                       <button
                         className="w-[107px] h-[40px] bg-[#3772FF] rounded-[40px] 
-                          flex items-center justify-center text-white gap-2"
+                                      flex items-center justify-center text-white gap-2"
                       >
                         <div>نظر شما</div>
                         <FileTextIcon size={20} />
@@ -447,7 +441,7 @@ const BlogDetail = () => {
                     </div>
 
                     {/* نظرات کاربران */}
-                    {[1, 2, 3].map((item) => (
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
                       <div
                         key={item}
                         className="flex flex-wrap justify-end gap-2 mb-10"
@@ -484,7 +478,7 @@ const BlogDetail = () => {
                         <div className="flex items-center gap-3 mt-3">
                           <div
                             className="w-[99px] h-[40px] border-2 text-[#3772FF] border-[#3772FF] 
-                rounded-[40px] p-2 dark:text-white"
+                            rounded-[40px] p-2 dark:text-white"
                           >
                             جواب دادن
                           </div>
@@ -514,7 +508,6 @@ const BlogDetail = () => {
           بلاگ های مربوط
         </div>
         <div className="flex gap-3 w-[100%] justify-center md:justify-between flex-wrap md:flex-nowrap ">
-
           <div className="min-w-[30%] h-[366px]">
             <div
               className="w-full h-[293px] rounded-[32px]
@@ -531,7 +524,10 @@ const BlogDetail = () => {
               {/* <img src="" alt="" /> */}
             </div>
             <div className="w-[100%] h-[61px] flex flex-wrap justify-end gap-y-4 ">
-              <div className="w-[200px] h-[32px] text-right text-[24px] font-bold dark:text-white line-clamp-1" dir="rtl">
+              <div
+                className="w-[200px] h-[32px] text-right text-[24px] font-bold dark:text-white line-clamp-1"
+                dir="rtl"
+              >
                 فرق ری‌اکت با نکست جی‌اس چیست؟
               </div>
               <div className="w-[100%] h-[23px] flex justify-between ">
@@ -558,7 +554,10 @@ const BlogDetail = () => {
               {/* <img src="" alt="" /> */}
             </div>
             <div className="w-[100%] h-[61px] flex flex-wrap justify-end gap-y-4 ">
-              <div className="w-[200px] h-[32px] text-right text-[24px] font-bold dark:text-white line-clamp-1" dir="rtl">
+              <div
+                className="w-[200px] h-[32px] text-right text-[24px] font-bold dark:text-white line-clamp-1"
+                dir="rtl"
+              >
                 فیگما یا ادوبی ایکس‌دی؟
               </div>
               <div className="w-[100%] h-[23px] flex justify-between ">
@@ -585,7 +584,10 @@ const BlogDetail = () => {
               <img src="" alt="" />
             </div>
             <div className="w-[100%] h-[61px] flex flex-wrap justify-end gap-y-4 ">
-              <div className="w-[200px] h-[32px] text-right text-[24px] font-bold dark:text-white line-clamp-1" dir="rtl">
+              <div
+                className="w-[200px] h-[32px] text-right text-[24px] font-bold dark:text-white line-clamp-1"
+                dir="rtl"
+              >
                 زبان جاوا اسکریپت در چه حوزه ای به کار میره؟
               </div>
               <div className="w-[100%] h-[23px] flex justify-between ">
@@ -596,7 +598,6 @@ const BlogDetail = () => {
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     </div>
