@@ -5,7 +5,7 @@ const GetProfileInfoApi = async () => {
     const response = await http.get("/SharePanel/GetProfileInfo");
     console.log("Axios response:", response);  
     console.log("GetProfileInfo.api data:", response.data); 
-    return response.data; 
+    return response; 
   } catch (error) {
     console.error("Error in GetProfileInfoApi:", error.response || error);
     throw error;

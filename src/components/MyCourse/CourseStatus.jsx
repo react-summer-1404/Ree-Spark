@@ -1,37 +1,17 @@
 import React from "react";
+import figma from "../../assets/image/BlogImage/figma.png";
 
-const CourseStatus = () => {
+const CourseStatus = ({MyCourseName , MyCoursePublisher , MyCourseLevel , MyCourseBg}) => {
   return (
-    <div>
-      <div className="w-[1046px] h-11 bg-[#F1F1F1] rounded-2xl absolute top-4 left-4">
-        <h5 className="absolute top-3 left-[1024px] text-[#707070] text-sm font-medium">
-          #
-        </h5>
-        <h5 className="absolute top-3 left-[906px] text-[#707070] text-sm font-medium">
-          نام
-        </h5>
-        <h5 className="absolute top-3 left-[685px] text-[#707070] text-sm font-medium">
-          مدرس
-        </h5>
-        <h5 className="absolute top-3 left-[470px] text-[#707070] text-sm font-medium">
-          تاریخ برگزاری
-        </h5>
-        <h5 className="absolute top-3 left-[305px] text-[#707070] text-sm font-medium">
-          تاریخ اتمام
-        </h5>
-        <h5 className="absolute top-3 left-[159px] text-[#707070] text-sm font-medium">
-          سطح
-        </h5>
+    <div className="h-16 flex relative">
+      <div className={`w-[83px] h-[52px] rounded-xl ${MyCourseBg} absolute top-[72px] left-[971px]`}>
+        <img src={figma} className="h-8 w-8  mx-auto mt-2" />
       </div>
-
-      <div className="w-[83px] h-[52px] rounded-xl bg-[#FF6C6C] absolute top-[72px] left-[971px]">
-        <img src="./images/figma.png" className="size-[33px] mx-auto mt-2" />
-      </div>
-      <h3 className="h-[23px] absolute top-[86px] left-[869px] font-bold">
-        دوره فیگما
+      <h3 className="h-[23px] absolute top-[86px] left-[869px] text-right font-bold">
+        {MyCourseName}
       </h3>
       <h3 className="h-[20px] absolute top-[86px] left-[620px] font-semibold text-sm">
-        محمدحسین خلیل‌پور
+        {MyCoursePublisher}
       </h3>
       <h3 className="h-[20px] absolute top-[86px] left-[447px] font-semibold text-sm">
         29 اردیبهشت 1403
@@ -39,8 +19,8 @@ const CourseStatus = () => {
       <h3 className="h-[20px] absolute top-[86px] left-[274px] font-semibold text-sm">
         29 اردیبهشت 1403
       </h3>
-      <div className="h-6 absolute top-[85px] left-[144px] bg-[#FF37F5] rounded-[32px] py-[2px] px-2 text-white text-sm">
-        پیشرفته
+      <div className="h-6 absolute top-[85px] left-[154px] bg-[#FF37F5] rounded-[32px] py-[2px] px-2 text-white text-sm">
+        {MyCourseLevel}
       </div>
     </div>
   );

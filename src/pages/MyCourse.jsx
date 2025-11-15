@@ -1,11 +1,11 @@
-import React from 'react'
-import { SearchPanelBox } from '../components/MyCourse/SearchPanelBox'
-import { CourseStatus } from '../components/MyCourse/CourseStatus'
-import { LucideCalendarRange } from 'lucide-react'
+import React from "react";
+import { SearchPanelBox } from "../components/MyCourse/SearchPanelBox";
+import { CourseStatus } from "../components/MyCourse/CourseStatus";
+import { LucideCalendarRange } from "lucide-react";
 
 const MyCourse = () => {
   return (
-    <div className='relative'>
+    <div className="relative">
       <h1 className="h-9 absolute top-[16px] left-[1015px] text-2xl font-bold ">
         دوره من
       </h1>
@@ -30,10 +30,36 @@ const MyCourse = () => {
 
       {/* course status */}
       <div className="bg-[#F6F6F6] dark:bg-gray-600 w-[95%] h-[710px] absolute top-[170px] left-7 rounded-[24px]">
-        <CourseStatus />
+        <div className="w-[1046px] h-11 bg-[#F1F1F1] rounded-2xl absolute top-4 left-4">
+          <h5 className="absolute top-3 left-[1024px] text-[#707070] text-sm font-medium">
+            #
+          </h5>
+          <h5 className="absolute top-3 left-[906px] text-[#707070] text-sm font-medium">
+            نام
+          </h5>
+          <h5 className="absolute top-3 left-[685px] text-[#707070] text-sm font-medium">
+            مدرس
+          </h5>
+          <h5 className="absolute top-3 left-[470px] text-[#707070] text-sm font-medium">
+            تاریخ برگزاری
+          </h5>
+          <h5 className="absolute top-3 left-[305px] text-[#707070] text-sm font-medium">
+            تاریخ اتمام
+          </h5>
+          <h5 className="absolute top-3 left-[159px] text-[#707070] text-sm font-medium">
+            سطح
+          </h5>
+        </div>
+        <CourseStatus
+          MyCourseName={"فیگما دوره"}
+          MyCoursePublisher={"محمد حسین خلیلی"}
+          MyCourseLevel={"hard"}
+          MyCourseBg={"bg-[#F0DB4F]"}
+        />
+        
       </div>
     </div>
-  )
-}
+  );
+};
 
-export  {MyCourse}
+export { MyCourse };

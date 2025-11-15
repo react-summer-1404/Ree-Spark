@@ -9,7 +9,7 @@ const Loading = () => {
         <div className="absolute inset-3 border-2 border-b-transparent border-blue-500 rounded-full animate-spin [animation-direction:reverse] [animation-duration:1.5s]"></div>
         <div className="absolute inset-5 border-2 border-b-transparent border-blue-500 rounded-full animate-spin [animation-duration:2s]"></div>
       </div>
-      <span className="dark:text-blue-200">LOADING ...</span>
+      <span className="dark:text-blue-200 font-semibold">LOADING ...</span>
     </div>
   );
 };
