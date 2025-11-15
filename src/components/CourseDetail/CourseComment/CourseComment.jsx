@@ -1,6 +1,7 @@
 import { FileTextIcon } from "lucide-react";
 import React, { useState } from "react";
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
+import CommentModal from "./CommentModal";
 
 const CourseComment = () => {
   const [isOpenModalComment, setisOpenModalComment] = useState(false);
@@ -202,101 +203,7 @@ const CourseComment = () => {
         </button>
         {/* ModalComment */}
         {isOpenModalComment && (
-          <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
-            <div className="bg-white w-[90%] dark:bg-slate-800 h-[653px] min-w-md p-6 rounded-xl shadow-lg overflow-hidden">
-              <div className="w-full h-full overflow-y-auto pr-2">
-                {/* Header */}
-                <div className="w-full flex flex-wrap justify-between mb-6">
-                  <button
-                    onClick={closeModal}
-                    className="flex items-center fixed justify-center gap-3 w-[80px] md:w-[100px] h-[40px] border-red-600 border-2 rounded-full text-red-600 dark:text-white"
-                  >
-                    <div>بستن</div>
-                    <div className="mt-1">✕</div>
-                  </button>
-                  <div className="flex gap-2 w-[100%] items-center justify-end flex-wrap-reverse text-right">
-                    <div className="w-[100px]"></div>
-                    <div className="w-[160px] text-[#707070] font-bold text-[18px]">
-                      <div>( دوره جاوااسکریپت )</div>
-                    </div>
-                    <div className="text-[24px] font-bold dark:text-white">
-                      نظرات دانشجو ها و اساتید
-                    </div>
-                  </div>
-                </div>
-
-                {/* Comment Section */}
-                <div className="w-full gap-y-5 flex flex-wrap justify-end">
-                  {/* نظر شما */}
-                  <div className="w-full flex justify-end mb-5">
-                    <button
-                      className="w-[107px] h-[40px] bg-[#3772FF] rounded-[40px] 
-                          flex items-center justify-center text-white gap-2"
-                    >
-                      <div>نظر شما</div>
-                      <FileTextIcon size={20} />
-                    </button>
-                  </div>
-
-                  {/* نظرات کاربران */}
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
-                    <div
-                      key={item}
-                      className="flex flex-wrap justify-end gap-2 mb-10"
-                    >
-                      <div className="w-[100px] flex flex-wrap justify-end">
-                        <div
-                          className="text-[14px] w-[100px] h-[20px] line-clamp-1 dark:text-white"
-                          dir="rtl"
-                        >
-                          مهشید محمدزاده اصغرآبادی
-                        </div>
-                        <div className="text-[#707070] text-[12px]">
-                          29 اردیبهشت 1403
-                        </div>
-                      </div>
-
-                      <div className="w-12 h-12 rounded-full bg-[#ccc]">
-                        <img src="" alt="" />
-                      </div>
-
-                      <div className="w-full flex justify-end text-[18px] font-bold dark:text-white">
-                        <div>دوره خیلی خوبی بود واقعا لذت بردم</div>
-                      </div>
-
-                      <div className="flex justify-end">
-                        <div className="w-[85%] text-right dark:text-white">
-                          واقعا عالی بود. هم استادش و هم کلاس‌ها منظم برگزار شدن
-                          و اصلاً از مباحث عقب نموندم و تونستم به مقدار ثابتی
-                          پیشرفت کنم توی کدنویسی جاوااسکریپت. ممنون از آکادمی
-                          بحر که این دوره رو گذاشتن...
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-3 mt-3">
-                        <div
-                          className="w-[99px] h-[40px] border-2 text-[#3772FF] border-[#3772FF] 
-                rounded-[40px] p-2 dark:text-white"
-                        >
-                          جواب دادن
-                        </div>
-                        <div className="flex gap-5 w-[110px] h-[24px] dark:text-white">
-                          <div className="flex gap-2 items-center">
-                            <AiFillLike size={25} />
-                            <div>5</div>
-                          </div>
-                          <div className="flex gap-2 items-center">
-                            <AiFillDislike size={25} />
-                            <div>9</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+          <CommentModal closeModal={closeModal} />
         )}
       </div>
     </div>

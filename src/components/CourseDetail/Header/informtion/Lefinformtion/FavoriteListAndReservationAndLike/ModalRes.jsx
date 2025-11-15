@@ -6,7 +6,7 @@ const ModalRes = ({CloseModal}) => {
           <div
             className="bg-white w-[400px] gap-2
           dark:bg-slate-800 h-[370px] min-w-md flex p-6  
-          justify-center rounded-xl shadow-lg overflow-hidden
+          justify-center rounded-[32px] shadow-lg overflow-hidden
           flex-wrap"
           >
             <div
@@ -16,10 +16,10 @@ const ModalRes = ({CloseModal}) => {
               دوره به لیست رزروی های شما اضافه شد!
             </div>
             <div
-              className="flex justify-center items-center gap-[30px] w-full"
+              className="flex justify-center items-center gap-x-2 w-full"
               dir="rtl"
             >
-              <div className="flex gap-2 w-[200px]">
+              <div className="flex gap-1 w-[160px]">
                 <div className="flex items-center flex-col ">
                   <div className="h-[83px] w-0 border-4 border-[#3772FF] "></div>
                   <div className="w-6 h-6 bg-[#3772FF] rounded-full flex justify-center items-center ">
@@ -54,7 +54,7 @@ const ModalRes = ({CloseModal}) => {
               </button>
               <button 
               onClick={CloseModal}
-              className="w-[154px] h-[47px] text-[20px] bg-[#DCDCDC] rounded-[40px]">
+              className="w-[154px] h-[50px] text-[20px] bg-[#DCDCDC] rounded-[40px]">
                   باشه
               </button>
             </div>
