@@ -8,7 +8,7 @@ const StarAndcopyLink = () => {
       {/* /// */}
         <CopyLink />   
       {/* // */}
-        <DiscriptionStar rating={3} />
+        <DiscriptionStar/>
       {/* /// */}
     </div>
   );

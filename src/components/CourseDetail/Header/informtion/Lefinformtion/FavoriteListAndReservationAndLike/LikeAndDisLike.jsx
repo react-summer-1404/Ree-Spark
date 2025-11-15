@@ -1,26 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
 
 const LikeAndDisLike = () => {
+  const [active, setActive] = useState("");
+
+  const getButtonClass = (type) => {
+    let baseClass =
+      "sm:min-w-[56px] min-w-[48px] h-[48px] sm:h-[56px] cursor-pointer flex justify-center items-center rounded-full border-2";
+
+    if (active === type) {
+      baseClass += " bg-[#3772FF]";
+    } else {
+      baseClass += " bg-transparent";
+    }
+
+    return baseClass;
+  };
+
   return (
     <div className="flex items-center md:gap-4 gap-1 ">
+      {/* Dislike */}
       <div
-        className="sm:min-w-[56px] min-w-[48px] h-[48px] sm:h-[56px] cursor-pointer flex justify-center 
-                                items-center 
-                                border-2 rounded-full 
-                                dark:text-white
-                                "
+        onClick={() => setActive("dislike")}
+        className={getButtonClass("dislike")}
       >
-        <AiFillDislike size={25} />
+        <AiFillDislike size={25} className="dark:text-white"/>
       </div>
-      <div
-        className="sm:min-w-[56px] min-w-[48px] h-[48px] sm:h-[56px] cursor-pointer flex justify-center 
-                                items-center rounded-full
-                                bg-[#3772FF]
-                                dark:text-white
-                                "
-      >
-        <AiFillLike size={25} />
+
+      {/* Like */}
+      <div onClick={() => setActive("like")} className={getButtonClass("like")}>
+        <AiFillLike size={25}  className="dark:text-white" />
       </div>
     </div>
   );
