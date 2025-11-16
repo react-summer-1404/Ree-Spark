@@ -5,7 +5,7 @@ import { FaSmile, FaTelegramPlane } from "react-icons/fa";
 
 const CommentModal = ({ closeModal }) => {
   const [openInputIndex, setOpenInputIndex] = useState(null);
-  const inputRefs = useRef(null);
+  const inputRefs = useRef([]);
 
   const [showCommentInput, setShowCommentInput] = useState(false);
   const commentInputRef = useRef(null);
