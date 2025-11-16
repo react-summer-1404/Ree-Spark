@@ -67,7 +67,6 @@ const BlogBody = () => {
               BlogImage={item.currentImageAddress}
               view={item.currentView}
               BlogAlt={item.currentImageAddress}
-              
             />
           ))
         ) : (
