@@ -63,9 +63,6 @@ const Filter = () => {
     {/* {ترتیب} */}
 
 
-      
-  
-
       {/* {filter} */}
         <div className="flex justify-end ">
       <div className="hidden  lg:block lg:w-[298px] lg:relative xl:left-[50px] lg:left-[80px] lgg:left-[-20px]  lg:bottom-[70px] lg:h-[665px] lg:bg-[#FCFCFC] lg:border-2 lg:border-[#DCDCDC] dark:text-white lg:border-Gray-400 dark:bg-slate-700 lg:rounded-[32px] font-sans ">

@@ -68,8 +68,8 @@ const CourseBody = () => {
       </div>
     </div>
           {/* Mobile */}
- <div className="lg:hidden xs:left-[5px] flex flex-col relative ml-[10px] mt-[] justify-center  gap-[50px] ">
-{Course.length > 0 ? (
+ <div className="lg:hidden  flex flex-col relative  left-[38px] justify-center  gap-[40px] ">
+           {Course.length > 0 ? (
             Course.map((item) => (
               <MobileCourseStyle
                 key={item.id}
@@ -77,7 +77,7 @@ const CourseBody = () => {
                 teacherName={item.addUserFullName}
                 imageAddress={item.currentImageAddress}
                 bgcolor="bg-black"
-                coursePrice="1000تومان"
+                coursePrice={digitsEnToFa(addCommas(1000))}  
                 coding="started"
                 level="hard"
               />

@@ -7,36 +7,38 @@ function ButtonRispansive() {
   const [showOrder, setShowOrder] = useState(false);
 
   return (
-    <div className="relative right-[40px]  md:left-[-10px] lg:hidden">
+    <div className="relative bottom-[10px] flex justify-center  lg:hidden">
       {/* دکمه فیلتر */}
       {!showFilter && !showOrder && (
         <>
           <button
             onClick={() => setShowFilter(true)}
-            className="w-[103px] absolute top-[240px] right-[40px] h-[48px]
+            className="w-[103px] absolute top-[240px] left-[60px] h-[48px]
             rounded-[40px] bg-[#2F2F2F] px-[16px] py-[16px] font-medium text-[16px]
             text-white flex items-center justify-center gap-2 z-40 "
           >
+                        <div className="relative right-[-7px]">فیلتر</div>
+
             <img
-              className="w-[20px] h-[20px]"
-              src="../../../../public/AuthImage/Vector.png"
+              className="w-[20px] relative left-[5px] h-[20px]"
+              src="../../../../../public/AuthImage/filter.png"
               alt="filter"
             />
-            فیلتر
           </button>
 
           <button
             onClick={() => setShowOrder(true)}
-            className="w-[103px] absolute top-[240px] right-[230px] h-[48px]
+            className="w-[103px] absolute top-[240px] right-[60px] h-[48px]
             rounded-[40px] bg-[#2F2F2F] px-[16px] py-[16px] font-medium text-[16px]
             text-white flex items-center justify-center gap-2 z-50"
           >
-            <img
-              className="w-[20px] h-[20px]"
+            <img 
+              className="w-[20px] relative left-[50px] h-[20px]"
               src="../../../../public/AuthImage/sorting-03.png"
               alt="sort"
             />
-            ترتیب
+           <div className="relative right-[25px]">ترتیب</div>
+           
           </button>
 
         </>

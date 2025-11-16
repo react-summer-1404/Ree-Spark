@@ -7,16 +7,16 @@ const MobileCourseStyle = ({
   imageAddress,
   bgcolor,
   coursePrice,
-  coding
+  coding,
 }) => {
   return (
     // {mobile} //
     <Link className=" w-[322px] h-[366px] ">
-      <div className="lg:hidden left-[] flex justify-center relative top-[300px] dark:text-white ">
+      <div className="lg:hidden  flex justify-center relative top-[300px] dark:text-white ">
         <div className="absolute">
-          <div className={`w-[322px] h-[293px] ${bgcolor}  rounded-[32px]  `}>
-            <div className="w-[172px] h-[132px] relative top-[58px] left-[75px] ">
-              <img className="rounded-[15px] w-[182px] h-[132px]" src={imageAddress} />
+          <div className={`w-[322px] h-[293px]  ${bgcolor}  rounded-[32px]  `}>
+            <div className="w-full h-full ">
+              <img className="rounded-[15px] w-full h-full" src={imageAddress} />
             </div>
 
             <div className="w-[89px] h-[24px] absolute top-[8px] left-[151px] rounded-[32px] bg-[#3772FF] py-[2px] px-2 ">
@@ -33,18 +33,18 @@ const MobileCourseStyle = ({
           </div>
           <div
             dir="rtl"
-            className="absolute  w-[96px] h-[20px]  mt-[45px] text-[13px] font-sans font-bold text-[#2F2F2F] dark:text-white "
+            className="absolute  w-[66px] h-[20px]  mt-[45px] text-[13px] font-sans font-bold text-[#2F2F2F] dark:text-white "
           >
-            {coursePrice}
+            {coursePrice} <div className=" left-[5px] bottom-[1px] absolute">تومان</div>
           </div>
 
           <div className=" w-[322px] absolute h-[61px] gap-1 ml-[170px] mt-[10px]">
-            <h1 className=" w-[322px] lg:truncate h-[34px] gap-1 font-sans font-bold text-right relative right-[180px] bottom-[10px] dark:text-white text-[23px]
+            <h1 dir="rtl" className=" w-[322px] truncate h-[34px] gap-1 font-sans font-bold text-right relative right-[180px] bottom-[10px] dark:text-white text-[23px]
              text-[#2F2F2F]">
               {courseName}
             </h1>
             <div className="w-[322px] h-[23px] ">
-              <h5 className="w-[133px] h-[20px]  text-right text-[13px] font-sans font-medium text-[#707070] float-end dark:text-[#8F8F8F] ">
+              <h5 className="w-[138px] h-[20px]  text-right text-[13px] font-sans font-medium text-[#707070] float-end dark:text-[#8F8F8F] ">
                 {teacherName}
               </h5>
             </div>
