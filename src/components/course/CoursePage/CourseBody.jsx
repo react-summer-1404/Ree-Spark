@@ -92,7 +92,9 @@ const CourseBody = () => {
     
    
      
-      <div className="relative bottom-[30px] left-[305px] xl:left-[90px] xl:top-[-850px] lg:top-[] lg:left-[] lgg:top-[-85px] lgg:left-[146px] ">
+    <div className="relative bottom-[30px] left-[305px] xl:left-[90px] lg:top-[-835px]  lgg:top-[-835px] xl:top-[-1200px] lgg:left-[146px]  
+
+      ">
        <PageInationBlog
         currentPage={currentPage}
         totalPages={totalPages}

@@ -11,21 +11,21 @@ const MobileFilter = ({ onClose }) => {
             فیلتر
           </h1>
 
-          <button
-            onClick={onClose}
-            className="w-[101px] h-[40px] rounded-[34px]  mt-[35px] left-[20px]
-               border-[#FF5353] absolute border-[1px] text-[#FF5353] font-medium font-[18px] leading-[20px] "
-          >
-            <img
-              className="absolute ml-[65px] mt-[-1px]"
-              src="../../../../public/AuthImage/cancel-01.png"
-            />
-            <div className="relative border-4 h-2 left-[-10px] bottom-[1px]">بستن</div>{" "}
-          </button>
+     
+               <button 
+               onClick={onClose}
+               className="w-[101px] h-[40px] rounded-[34px] relative top-[35px] ml-[20px]
+               border-[#FF5353] border-[1px] text-[#FF5353] font-medium font-[18px] leading-[20px] z-10 "
+               
+               ><img 
+               className='absolute ml-[70px] mt-[2px]'
+               src="../../../../public/AuthImage/cancel-01.png" />
+               
+               بستن</button>
 
 
           {/* {filter} */}
-         <div className="relative left-[7px] bottom-[-40px]">
+         <div className="relative left-[7px] bottom-[20px]">
           <div className="w-[258px] h-[80px] gap-2  mt-4 relative">
             <div className="w-[90px] h-[24px]   flex absolute left-[290px] gap-[20px]">
               <h3 className="font-medium text-[16px] w-[278px] h-[34px] absolute top-[50px] ">
