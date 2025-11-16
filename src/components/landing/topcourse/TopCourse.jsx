@@ -4,7 +4,9 @@ import Button from "../../common/Button/Button";
 import ButtonResponsive from "../../common/Button/ButtonResponsive";
 import GetCoursesTopApi from "../../../core/services/api/GetTopCourses.api";
 import { digitsEnToFa, addCommas } from "@persian-tools/persian-tools";
+
 import toast from "react-hot-toast";
+
 
 const TopCourse = () => {
   const [courses, setCourses] = useState([]);
