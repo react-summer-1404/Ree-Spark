@@ -1,13 +1,13 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { addCommas, digitsEnToFa, digitsFaToEn } from "@persian-tools/persian-tools";
+
 const PageInationBlog = ({ currentPage, totalPages, onPageChange }) => {
   const handleNext = () => {
-    if (currentPage < totalPages)   onPageChange(parseInt(toEnglishNumber(currentPage)) + 1);
+    if (currentPage < totalPages) onPageChange(currentPage + 1);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handlePrev = () => {
-    if (currentPage > 1) onPageChange(currentPage - 1 );
+    if (currentPage > 1) onPageChange(currentPage - 1);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
