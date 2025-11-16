@@ -5,6 +5,9 @@ import ButtonResponsive from "../../common/Button/ButtonResponsive";
 import GetCoursesTopApi from "../../../core/services/api/GetTopCourses.api";
 import { digitsEnToFa, addCommas } from "@persian-tools/persian-tools";
 
+import toast from "react-hot-toast";
+
+
 const TopCourse = () => {
   const [courses, setCourses] = useState([]);
   const getTopCourses = async (Count = 4) => {
@@ -14,9 +17,6 @@ const TopCourse = () => {
       });
       console.log("🔥 API Response:", res);
       setCourses(res || []);
-      if (res.totalCount) {
-        setTotalPages(Math.ceil(res.totalCount / rowsPerPage));
-      }
     } catch (error) {
       console.error(error);
       toast.error("خطا در دریافت اخبار");
