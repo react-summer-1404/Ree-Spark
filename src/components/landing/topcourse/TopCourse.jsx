@@ -17,9 +17,6 @@ const TopCourse = () => {
       });
       console.log("🔥 API Response:", res);
       setCourses(res || []);
-      if (res.totalCount) {
-        setTotalPages(Math.ceil(res.totalCount / rowsPerPage));
-      }
     } catch (error) {
       console.error(error);
       toast.error("خطا در دریافت اخبار");
