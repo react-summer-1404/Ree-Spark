@@ -6,12 +6,20 @@ import { FileTextIcon, Fullscreen } from "lucide-react";
 import jsImage from "../assets/image/LayoutImage/jsImage.svg";
 import DisCriptionStar from "../components/BlogDetail/BlogDiscription/DisCriptionStar";
 import CopyLink from "../components/BlogDetail/BlogDiscription/CopyLink";
+import { useLocation, useParams } from "react-router-dom";
 
 const BlogDetail = () => {
+  const { id } = useParams();
+  const location = useLocation();
+
+  const blog = location.state; 
+
   const [isOpenModalComment, setisOpenModalComment] = useState(false);
 
   const openModal = () => setisOpenModalComment(true);
   const closeModal = () => setisOpenModalComment(false);
+
+  console.log("blog:", blog);
   return (
     <div className="mt-16 mb-10 mr-2 ml-2 flex flex-wrap gap-y-10 md:gap-y-16 justify-center">
       <div
@@ -21,7 +29,7 @@ const BlogDetail = () => {
         <div className="flex flex-wrap w-full lg:w-[60%] justify-center h-[400px] mt-4 ">
           <div className="w-full h-[46px] dark:text-white flex justify-end font-bold text-[32px]">
             <div className="w-[330px] h-[46px] flex items-center ">
-              فیگما یا ادوبی ایکس‌دی؟
+              {blog?.BlogName}
             </div>
           </div>
           {/* /// */}
@@ -155,7 +163,7 @@ const BlogDetail = () => {
                   "
         >
           <div>
-            <img src={jsImage} />
+            <img src={blog?.BlogImage} />
           </div>
         </div>
       </div>
