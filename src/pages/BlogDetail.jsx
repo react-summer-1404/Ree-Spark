@@ -8,14 +8,15 @@ import BlogRelated from "../components/BlogDetail/BlogComment/BlogRelated/BlogRe
 const BlogDetail = () => {
   
   return (
-    <div className="mt-16 mb-10 mr-2 ml-2 flex flex-wrap gap-y-10 md:gap-y-16 justify-center">
+    <div className="sm:mt-16 mt-5 mb-10 mr-2 ml-2 flex flex-wrap gap-y-10 md:gap-y-16 justify-center">
       <div
         className="flex justify-center lg:justify-between items-center 
-        gap-3 w-full flex-wrap lg:flex-nowrap "
+        gap-3  w-full flex-wrap lg:flex-nowrap"
       >
        <Informtion />
         {/* //// */}
        <BlogImage />
+       
       </div>
       {/* Discription  */}
       <Discription />
