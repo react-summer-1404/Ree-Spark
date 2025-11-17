@@ -3,7 +3,7 @@ import React from 'react'
 const BlogHistory = () => {
   return (
      <div
-            className="flex justify-center dark:text-white w-full h-[80px] 
+            className="sm:flex hidden justify-center dark:text-white w-full h-[80px] 
                             rounded-2xl 
                             border-2"
           >

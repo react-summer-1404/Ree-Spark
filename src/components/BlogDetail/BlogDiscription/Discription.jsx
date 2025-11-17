@@ -46,7 +46,7 @@ const Discription = () => {
                 طراحی اساسا مورد استفاده قرار گیرد.
               </div>
             </div>
-            <div className="flex items-center justify-end gap-10 flex-wrap ">
+            <div className="flex items-center justify-end gap-6 flex-wrap ">
               {/* //// */}
               <CopyLink />
               {/* //// */}
