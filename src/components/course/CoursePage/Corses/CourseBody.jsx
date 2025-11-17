@@ -8,6 +8,7 @@ import MobileCourseBody from "../CoursesResponsive/MobileCourseBody";
 
 const CourseBody = () => {
   const [Course, setCourse] = useState([]);
+  const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const rowsPerPage = 6;
@@ -18,6 +19,7 @@ const CourseBody = () => {
         RowsOfPage: rowsPerPage,
         SortingCol: "InsertDate",
         SortType: "DESC",
+        Query:search
       });
 
       console.log("🔥 Course api:", res);

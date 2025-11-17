@@ -7,6 +7,7 @@ import GetNewsApi from "../../core/services/api/Blog/GetNewsApi";
 import Loading from "../common/Loading";
 import debounce from "debounce";
 import { BlogSort } from "./components/blogSort/BlogSort";
+import moment from "moment-jalaali";
 const BlogBody = () => {
   const [newsList, setNewsList] = useState([]);
   const [query, setQuery] = useState("");
@@ -24,7 +25,6 @@ const BlogBody = () => {
         SortingCol: sorting,
         SortType: "DESC",
         Query: search,
-        
       });
       console.log("🔥 API Response:", res);
       setNewsList(res.news || []);
@@ -37,8 +37,8 @@ const BlogBody = () => {
     }
   };
   useEffect(() => {
-    GetNews(currentPage, query , sortType);
-  }, [currentPage, query, sortType ]);
+    GetNews(currentPage, query, sortType);
+  }, [currentPage, query, sortType]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -53,11 +53,11 @@ const BlogBody = () => {
     }, 1000),
     []
   );
- 
+
   return (
-    <div className="w-[95%] m-auto mt-52 flex justify-between flex-col-reverse sm:flex-row gap-2">
-      <BlogSort sortType={sortType} onChangeSort={setSortType}/>
-      <div className="w-full sm:w-[75%] h-[95%] sm:h-full flex flex-row gap-5 flex-wrap dark:text-white overflow-hidden">
+    <div className="w-[95%] m-auto mt-52 flex justify-between flex-col-reverse sm:flex-row gap-2  h-[1300px] sm:h-auto ">
+      <BlogSort sortType={sortType} onChangeSort={setSortType} />
+      <div className="w-full sm:w-[75%] h-[95%] sm:h-full mt-3 flex flex-row gap-5 flex-wrap dark:text-white overflow-hidden">
         {newsList.length > 0 ? (
           newsList.map((item) => (
             <BlogList
@@ -67,6 +67,7 @@ const BlogBody = () => {
               BlogImage={item.currentImageAddress}
               view={item.currentView}
               BlogAlt={item.currentImageAddress}
+              date={moment(item.insertDate).format("jYYYY/jMM/jDD")}
             />
           ))
         ) : (
@@ -76,7 +77,7 @@ const BlogBody = () => {
         )}
       </div>
       <div className="border-2 border-[#DCDCDC] rounded-[32px] w-[90px] sm:w-[298px] h-[50px] dark:bg-slate-800 sm:h-[370px] bg-[#2F2F2F] sm:bg-white overflow-hidden sm:overflow-auto  mt-24 sm:mt-0 ">
-        <BlogFilter Search={dibounce}/>
+        <BlogFilter Search={dibounce} />
       </div>
       <PageInationBlog
         currentPage={currentPage}
