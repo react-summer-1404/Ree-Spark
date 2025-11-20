@@ -9,23 +9,23 @@ import StarAndPriceMobile from "./starAndPrice/StarAndPriceMobile";
 import FavAndResAndLikeMobile from "./FavoriteListAndReservationAndLike/FavAndResAndLikeMobile";
 import SituationMobile from "./Situation/SituationMobile";
 
-const Leftinformtion = () => {
+const Leftinformtion = ({course}) => {
   return (
     <div className="flex flex-wrap gap-3 w-full lg:w-[60%] justify-center  mt-4 ">
       {/* title// */}
-      <Title  />
+      <Title course={course}  />
       {/* Situation and informton/// */}
-      <Situation />
-      <SituationMobile/>
+      <Situation course={course}/>
+      <SituationMobile course={course}/>
       {/* history course and like&dislike course/// */}
-      <CourseHistory />
-      <CourseHisMobile/>
+      <CourseHistory course={course}/>
+      <CourseHisMobile course={course}/>
       {/* score and price// */}
-      <StarAndPrice />
-      <StarAndPriceMobile/>
+      <StarAndPrice course={course}/>
+      <StarAndPriceMobile course={course}/>
       {/* Reservations and Favorites and likeDislike */}
-      <FavAndResAndLike />
-      <FavAndResAndLikeMobile/>
+      <FavAndResAndLike course={course}/>
+      <FavAndResAndLikeMobile course={course}/>
       
     </div>
   );

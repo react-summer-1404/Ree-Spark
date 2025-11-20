@@ -1,6 +1,6 @@
 import React from "react";
 
-const CoursePrice = () => {
+const CoursePrice = ({ course }) => {
   return (
     <div
       className="dark:text-white 
@@ -9,7 +9,8 @@ const CoursePrice = () => {
                     h-[34px]"
     >
       <div className="flex gap-1 justify-center ">
-        <p className="mt-1 h-[25px] text-[18px] font-thin">تومان</p> 2,500,000{" "}
+        <p className="mt-1 h-[25px] text-[18px] font-thin"></p>{" "}
+        {course.coursePrice}{" "}
       </div>
     </div>
   );

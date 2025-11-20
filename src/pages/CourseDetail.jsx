@@ -4,8 +4,13 @@ import Leftinformtion from "../components/CourseDetail/Header/informtion/Lefinfo
 import CourseDiscription from "../components/CourseDetail/courseDiscription/CourseDiscription";
 import CourseComment from "../components/CourseDetail/CourseComment/CourseComment";
 import CourseRelated from "../components/CourseDetail/courseDiscription/CourseRelated/CourseRelated";
+import { useLocation } from "react-router-dom";
 
 const CourseDetail = () => {
+  const location = useLocation();
+  const course = location.state;
+
+  console.log(course);
   return (
     <div className="sm:mt-16 mt-5 mb-10 mr-2 ml-2 flex flex-wrap gap-y-10 md:gap-y-16 justify-center">
       {/* CourseDetail informtion and image///// */}
@@ -13,8 +18,8 @@ const CourseDetail = () => {
         className="flex justify-center lg:justify-between items-center 
         gap-3  w-full flex-wrap lg:flex-nowrap "
       >
-        <Leftinformtion />
-        <ImageCourse />
+        <Leftinformtion course={course} />
+        <ImageCourse course={course}/>
       </div>
       {/* course discription // */}
       <CourseDiscription />
