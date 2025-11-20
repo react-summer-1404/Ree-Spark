@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { MobileFilter } from "../MobileFilter";
-import {Order} from "../Order";
+import { MobileFilter } from "../filters/MobileFilter";
+import {SortResponsive} from "../Sort/SortResponsive";
 
 function ButtonRispansive() {
   const [showFilter, setShowFilter] = useState(false);
@@ -10,7 +10,7 @@ function ButtonRispansive() {
     <div className="relative bottom-[10px] flex justify-center  lg:hidden">
       {/* دکمه فیلتر */}
       {!showFilter && !showOrder && (
-        <>
+        <>3
           <button
             onClick={() => setShowFilter(true)}
             className="w-[103px] absolute top-[240px] left-[60px] h-[48px]
@@ -55,7 +55,7 @@ function ButtonRispansive() {
       {/* نمایش ترتیب */}
       {showOrder && (
         <div className="relative w-[393px] h-[234px] rounded-[32px] top-[300px] right-0 left-0 mx-auto flex justify-center flex-row items-center bg-white dark:bg-slate-800 z-50">
-          <Order onClose={() => setShowOrder(false)} />
+          <SortResponsive onClose={() => setShowOrder(false)} />
         </div>
       )}
     </div>

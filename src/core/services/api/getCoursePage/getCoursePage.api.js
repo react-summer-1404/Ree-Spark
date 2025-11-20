@@ -1,12 +1,12 @@
-import http from "../../interceptor/interseptor";
+import http from "../../.././interceptor/interseptor";
 
 
-const getCoursePageApiResponsive = async ({
+const GetCoursePageApi = async ({
   PageNumber=1,
-  RowsOfPage = 109,
+  RowsOfPage = 10,
   SortingCol = "insertDate",
   SortType = "DESC",
-    Query = "",
+  Query = "",
   NewsCategoryId = null,
 }) => {
   try {
@@ -27,7 +27,7 @@ const getCoursePageApiResponsive = async ({
   }
 };
 
-export default getCoursePageApiResponsive ;
+export default GetCoursePageApi ;
 
 
 

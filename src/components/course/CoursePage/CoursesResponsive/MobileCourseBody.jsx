@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import getCoursePageapiRsponsive from "../../../../core/services/api/getCoursePageResponsive.api";
+import {getCoursePageApiResponsive} from "../../../../core/services/api/getCoursePage/getCoursePageResponsive.api";
 import { addCommas, digitsEnToFa } from "@persian-tools/persian-tools";
 import { MobileCourseStyle } from "./MobileCourseStyle";
 import Loading from "../../../common/Loading";
@@ -8,10 +8,9 @@ const MobileCourseBody = () => {
   const [Course, setMobileCourses] = useState([]);
 
   const rows = 4;
-
   const MobileCourses = async (page = 1) => {
     try {
-      const resMobile = await getCoursePageapiRsponsive({
+      const resMobile = await getCoursePageApiResponsive({
         PageNumber: page,
         RowsOfPage: rows,
         SortingCol: "InsertDate",
@@ -21,10 +20,6 @@ const MobileCourseBody = () => {
       console.log("📱 Mobile API:", resMobile);
 
       setMobileCourses(resMobile.news || []);
-
-      if (resMobile.totalCount) {
-        setMobileTotalPages(Math.ceil(res.totalCount / rows));
-      }
     } catch (error) {
       console.error("❌ خطای دریافت اطلاعات موبایل:", error);
     }
@@ -32,7 +27,7 @@ const MobileCourseBody = () => {
 
   useEffect(() => {
     MobileCourses();
-  }, );
+  }, []);
 
   return (
  <div className="lg:hidden  flex flex-col relative  left-[38px] justify-center  gap-[40px] ">

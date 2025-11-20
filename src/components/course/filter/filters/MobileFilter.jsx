@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "./slider/Slider";
+import Slider from "../slider/Slider";
 const MobileFilter = ({ onClose }) => {
   return (
     <div>
