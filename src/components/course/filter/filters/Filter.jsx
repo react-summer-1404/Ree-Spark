@@ -4,7 +4,7 @@ import { SortResponsive } from "../Sort/SortResponsive";
 import { Sort } from "../Sort/Sort";
 const Filter = ({
 Search,
-  openCategories,
+  isOpen,
   selectedCategory,
   categories,
   select,
@@ -65,7 +65,7 @@ Search,
 
     <input
       readOnly
-      value={selectedCategory}
+      value={selectedCategory || []}
       onClick={toggle}
       placeholder="دسته مورد نظر را انتخاب کنید   "
    className="lg:w-[258px] cursor-pointer lg:h-[48px] lg:rounded-[16px] font-sans lg:text-[12px] lg:font-medium lg:text-right lg:bg-[#F1F1F1] outline-blue-500 dark:text-black"    />
@@ -77,7 +77,7 @@ Search,
     />
   </div>
 
-  {openCategories && (
+  {isOpen && (
    <ul className="absolute top-[24px]  bg-[#F1F1F1] rounded-[13px] mt-2 w-full h-[100px] z-20 dark:bg-[#F1F1F1]">
 
      <img
@@ -86,11 +86,11 @@ Search,
                 />
         {categories.map((cat) => (
           <li
-            key={cat.id}
-            onClick={() => select(cat.techName)}
+            key={item.courseId}
+            onClick={() => select(cat.TechCount)}
             className="cursor-pointer text-slate-500 dark:text-white border-gray-200 hover:bg-slate-200 hover:rounded-[11px] dark:border-gray-500 border-b-2 last:rounded-b-[11px] text-center font-normal dark:hover:bg-gray-700 p-3 box-border"            
           >
-            {cat.techName}
+            {cat.TechCount}
           </li>
         ))}
     </ul>

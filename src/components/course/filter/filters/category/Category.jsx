@@ -1,35 +1,50 @@
-// Category.jsx
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import { CatgoryApi } from "../../../../../core/services/api/Filter/Catgory.api";
 import { Filter } from "../Filter";
 
-export const Category = ({ Search, onSelectCategory }) => {
+const Category = ({ Search, onSelectCategory }) => {
   const [categories, setCategories] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
+
   const ref = useRef(null);
 
-  useEffect(() => {
-    (async () => {
+  const AxiosCategories = async () => {
+    try {
       const res = await CatgoryApi();
-      setCategories(res.news || []);
-    })();
+      setCategories(res || []);
+    } catch (err) {
+      console.error("خطا در دریافت کتگوری‌ها:", err);
+    }
+  };
+
+  const handleClickOutside = (e) => {
+    if (ref.current && !ref.current.contains(e.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  const filteredCategories = useMemo(() => {
+    if (!selectedCategory) return categories;
+    return categories.filter(c => c.newsCatregoryName === selectedCategory);
+  }, [selectedCategory, categories]);
+
+  useEffect(() => {
+    AxiosCategories();
   }, []);
 
   useEffect(() => {
-    const handleClick = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const toggle = () => setIsOpen(value => !value);
+
   const select = (cate) => {
-    setSelectedCategory(cate);
-    onSelectCategory(cate);
+    setSelectedCategory(cate || []);
+    if (typeof onSelectCategory === "function") {
+      onSelectCategory(cate);
+    }
     setIsOpen(false);
   };
 
@@ -39,10 +54,12 @@ export const Category = ({ Search, onSelectCategory }) => {
         Search={Search}
         isOpen={isOpen}
         selectedCategory={selectedCategory}
-        toggle={toggle}               
-        categories={categories}
-        select={select}               
+        toggle={toggle}
+        categories={filteredCategories}
+        select={select}
       />
     </div>
   );
 };
+
+export { Category };
