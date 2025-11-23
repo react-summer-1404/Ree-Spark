@@ -65,7 +65,7 @@ Search,
 
     <input
       readOnly
-      value={selectedCategory || []}
+      value={selectedCategory || ""}
       onClick={toggle}
       placeholder="دسته مورد نظر را انتخاب کنید   "
    className="lg:w-[258px] cursor-pointer lg:h-[48px] lg:rounded-[16px] font-sans lg:text-[12px] lg:font-medium lg:text-right lg:bg-[#F1F1F1] outline-blue-500 dark:text-black"    />
@@ -84,13 +84,13 @@ Search,
                   src="../../../../public/AuthImage/arrow-down-01.png"
                   className="absolute mt-[26px] ml-[10px] z-20 border-8" 
                 />
-        {categories.map((cat) => (
+        {categories.map((item) => (
           <li
-            key={item.courseId}
-            onClick={() => select(cat.TechCount)}
+            key={item.id}
+            onClick={() => select(item.techName)}
             className="cursor-pointer text-slate-500 dark:text-white border-gray-200 hover:bg-slate-200 hover:rounded-[11px] dark:border-gray-500 border-b-2 last:rounded-b-[11px] text-center font-normal dark:hover:bg-gray-700 p-3 box-border"            
           >
-            {cat.TechCount}
+            {item.techName}
           </li>
         ))}
     </ul>

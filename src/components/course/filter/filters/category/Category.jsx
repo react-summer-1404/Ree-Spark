@@ -6,7 +6,6 @@ const Category = ({ Search, onSelectCategory }) => {
   const [categories, setCategories] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
-
   const ref = useRef(null);
 
   const AxiosCategories = async () => {
@@ -24,10 +23,7 @@ const Category = ({ Search, onSelectCategory }) => {
     }
   };
 
-  const filteredCategories = useMemo(() => {
-    if (!selectedCategory) return categories;
-    return categories.filter(c => c.newsCatregoryName === selectedCategory);
-  }, [selectedCategory, categories]);
+
 
   useEffect(() => {
     AxiosCategories();
@@ -37,6 +33,8 @@ const Category = ({ Search, onSelectCategory }) => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+
 
   const toggle = () => setIsOpen(value => !value);
 
@@ -48,6 +46,9 @@ const Category = ({ Search, onSelectCategory }) => {
     setIsOpen(false);
   };
 
+const filteredCategories = categories;
+
+  
   return (
     <div ref={ref}>
       <Filter

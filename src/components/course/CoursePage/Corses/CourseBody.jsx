@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import GetCoursePageApi from "../../../../core/services/api/getCoursePage/getCoursePage.api";
 import PageInationBlog from "../PageInationBlog";
 import Loading from "../../../common/Loading";
@@ -9,60 +9,53 @@ import debounce from "debounce";
 import { Category } from "../../filter/filters/category/Category";
 import toast from "react-hot-toast";
 
+const rowsPerPage = 9;
+
 const CourseBody = () => {
   const [courses, setCourses] = useState([]);
   const [query, setQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const rowsPerPage = 6;
-
-  const CoursePage = async (page = 1, Search = "", cat = "") => {
-
+  const fetchCourses = async (page = 1, search = "", category = "") => {
+    setLoading(true);
     try {
       const res = await GetCoursePageApi({
         PageNumber: page,
         RowsOfPage: rowsPerPage,
         SortingCol: "InsertDate",
         SortType: "DESC",
-        Query: Search,
-       TechCount: cat,
-       
+        Query: search,
+        ListTech: category ? [category] : [],
       });
 
-      setCourses(res.courseFilterDtos)
-      if (res.totalCount) {
-        setTotalPages(Math.ceil(res.totalCount / rowsPerPage));
-      }
-      
+      setCourses(res.courseFilterDtos || []);
+      setTotalPages(
+        res.totalCount ? Math.ceil(res.totalCount / rowsPerPage) : 1
+      );
+
     } catch (error) {
-      console.error(error);
       toast.error("خطا در دریافت دوره‌ها");
+    } finally {
+      setLoading(false);
     }
   };
 
 
   useEffect(() => {
-    CoursePage(currentPage, query, selectedCategory);
+    fetchCourses(currentPage, query, selectedCategory);
   }, [currentPage, query, selectedCategory]);
 
-
-  // Debounce Search
-  const dibounce = useCallback(
+  const debouncedSearch = useCallback(
     debounce((value) => {
       setQuery(value);
       setCurrentPage(1);
-    }, 1000),
+    }, 600),
     []
   );
 
-  const filterCourse = useMemo(() => {
-    if (!selectedCategory) return courses;
-    return courses.filter((c) => c.newsCatregoryName === selectedCategory);
-  }, [courses, selectedCategory]);
-
-  
   const handlePageChange = (page) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -73,29 +66,36 @@ const CourseBody = () => {
       <div>
         <div className="xl:w-[1061px] lg:w-[961px] lg:h-[366px] lg:relative xl:left-[-120px] lg:right-[170px] lg:top-[300px] lg:justify-center lg:flex-wrap lg:gap-6 lg:flex">
 
-          {filterCourse.length > 0 ? (
-            filterCourse.map((item) => (
+          {/* لیست دوره‌ها */}
+          {loading ? (
+            <div className="relative lg:block hidden top-[200px] left-[100px]">
+              <Loading />
+            </div>
+          ) : courses.length > 0 ? (
+            courses.map((item) => (
               <CourseStyle
-                key={item.id}
+                key={item.courseId}
                 courseName={item.title}
-                teacherName={item.addUserFullName}
+                teacherName={item.teacherName}
                 imageAddress={item.currentImageAddress}
                 bgcolor="bg-black"
-                coursePrice={digitsEnToFa(addCommas({item.cost}))}
+                coursePrice={digitsEnToFa(addCommas(item.cost))}
                 coding={item.statusName}
                 level={item.levelName}
               />
             ))
           ) : (
-            <div className="relative lg:block hidden top-[200px] left-[100px]">
-              <Loading />
-            </div>
+            <p className="text-center text-gray-300 w-full mt-10">
+              دوره‌ای یافت نشد
+            </p>
           )}
 
+          {/* mobile */}
           <MobileCourseBody />
 
+          {/* filter */}
           <Category
-            Search={dibounce}
+            Search={debouncedSearch}
             onSelectCategory={(value) => {
               setSelectedCategory(value);
               setCurrentPage(1);
@@ -104,7 +104,8 @@ const CourseBody = () => {
         </div>
       </div>
 
-      <div className="relative bottom-[1630px] left-[680px] xl:left-[90px] lg:top-[-835px] lg:left-[306px]">
+      {/* Pagination */}
+      <div className="relative bottom-[1630px] left-[680px] xl:top-[-875px] xl:left-[75px] lgg:top-[-105px] lgg:left-[134px] lg:top-[-115px] lg:left-[287px]">
         <PageInationBlog
           currentPage={currentPage}
           totalPages={totalPages}

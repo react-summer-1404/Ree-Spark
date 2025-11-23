@@ -1,13 +1,13 @@
 import http from "../../.././interceptor/interseptor";
 
-
 const GetCoursePageApi = async ({
-  PageNumber=1,
+  PageNumber = 1,
   RowsOfPage = 5,
   SortingCol = "insertDate",
   SortType = "DESC",
   Query = "",
-  TechCount=""
+  TechCount = 0,
+  ListTech = ""   
 }) => {
   try {
     const data = await http.get("/Home/GetCoursesWithPagination", {
@@ -17,25 +17,16 @@ const GetCoursePageApi = async ({
         SortingCol,
         SortType,
         Query,
-        TechCount
+        TechCount,
+        ListTech
       },
     });
 
- return data;
+    return data;  
 
   } catch (error) {
-    console.log("خطا در دریافت دوره",error);
-   return { totalCount: 0, courseFilterDtos: [] };
+    console.log("خطا در دریافت دوره", error);
   }
 };
 
-export default GetCoursePageApi ;
-
-
-
-
-
-
-
-
-
+export default GetCoursePageApi;
