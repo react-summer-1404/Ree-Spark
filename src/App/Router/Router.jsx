@@ -25,7 +25,7 @@ import Profile from "../../pages/Profile";
 import Information from "../../pages/profile/Information";
 import Picture from "../../pages/profile/Picture";
 import Links from "../../pages/profile/Links";
-import ProfileMap from "../../pages/profile/Location";
+import MapSelector from "../../pages/profile/Location";
 
 const Routes = createBrowserRouter([
   {
@@ -71,7 +71,7 @@ const Routes = createBrowserRouter([
         children: [
           { index: true, element: <Information /> },
           { path:"Picture", element: <Picture /> },
-          { path:"location", element: <ProfileMap /> },
+          { path:"location", element: <MapSelector /> },
           { path:"links", element: <Links /> },
         ],
       },

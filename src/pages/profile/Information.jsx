@@ -1,11 +1,15 @@
 import { Calendar } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import AccessCode from "./AccessCode";
+import moment from "moment-jalaali"
 const fName = localStorage.getItem("fName");
 const lName = localStorage.getItem("lName");
 const gmail = localStorage.getItem("gmail");
 const birthDay = localStorage.getItem("birthDay");
 const phoneNumber = localStorage.getItem("phoneNumber");
 const Information = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div dir="rtl" className="max-w-xl mx-auto ">
       <form className="flex flex-col gap-6">
@@ -80,7 +84,7 @@ const Information = () => {
             <div className="relative">
               <input
                 type="text"
-                defaultValue={birthDay || ""}
+                defaultValue={birthDay ? moment(birthDay).format("jYYYY/jMM/jDD") : ""}
                 placeholder="تاریخ تولد خود را وارد کنید"
                 className="w-full rounded-full border border-[#DCDCDC] py-2 px-4 text-right focus:outline-none focus:border-blue-400"
               />
@@ -132,15 +136,47 @@ const Information = () => {
         </div>
 
         {/* دکمه */}
-        <div className="flex justify-start mt-6">
+        <div className="flex  mt-6 justify-between">
           <button
             type="submit"
             className="bg-[#3772FF] text-white rounded-full py-3 px-4 hover:bg-blue-700 transition"
           >
             اعمال تغییرات
           </button>
+          <div
+            className="bg-[#3772FF] text-white rounded-full py-3 px-4 hover:bg-blue-700 transition"
+            onClick={() => setIsOpen(true)}
+          >
+            تایید کد دو مرحله ای
+          </div>
         </div>
       </form>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="bg-white dark:bg-gray-800 flex rounded-lg p-6 w-[90%] max-w-lg relative"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+            >
+              <button
+                className="absolute top-2 right-2 text-gray-800 hover:text-red-500 dark:text-slate-400 dark:hover:text-red-500 font-bold"
+                onClick={() => setIsOpen(false)}
+              >
+                ✕
+              </button>
+
+              <AccessCode/>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
