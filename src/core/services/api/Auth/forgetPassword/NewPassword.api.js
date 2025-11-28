@@ -1,5 +1,7 @@
-import http from "../../../interceptor";
-import { getItem } from "../../../services/storage/storage.api";
+
+import http from "../../../../interceptor/interseptor";
+import { getItem } from "../../../storage/storage.api";
+
 
 const NewPasswordApi = async (data) => {
   try {
