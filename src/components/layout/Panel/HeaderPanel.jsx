@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DarkMode from "../../common/Darkmode/DarkMode";
 import { FiBell } from "react-icons/fi";
-import Peppe from "../../../assets/image/LayoutImage/Peppe.svg"
+import Peppe from "../../../assets/image/LayoutImage/Peppe.svg";
 import { getItem } from "../../../core/services/storage/storage.api";
 
 const HeaderPanel = () => {

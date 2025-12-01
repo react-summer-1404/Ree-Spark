@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { FiMoon, FiSun } from "react-icons/fi";
 
 export default function DarkMode() {
@@ -21,12 +22,12 @@ export default function DarkMode() {
   return (
     <button
       onClick={() => setDarkMode(!darkMode)}
-      className="p-3 rounded-full bg-gray-800 dark:bg-gray-200 text-gray-800 dark:text-blue-600 transition duration-300"
+      className=" w-[48px] h-[48px] flex justify-center items-center rounded-full bg-gray-800 dark:bg-gray-200 text-gray-800 dark:text-blue-600 "
     >
       {darkMode ? (
-        <FiSun className="text-black w-6 h-6" />
+        <FiSun className="text-black w-6 h-6"/>
       ) : (
-        <FiMoon className="text-gray-200 w-6 h-6 " />
+        <FiMoon className="text-gray-200 w-6 h-6 "/>
       )}
     </button>
   );

@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../../components/layout/Layout";
 import { Landing } from "../../pages/Landing";
-// import { Course } from "../../components/course/Course";
+import { Course } from "../../components/course/Course";
 import { AuthLayout } from "../../components/layout/AuthLayout";
 import { Register } from "../../pages/auth/Register";
 import { Login } from "../../pages/auth/login/Login";
@@ -10,8 +10,8 @@ import { NewPassword } from "../../pages/auth/forgetpass/NewPassword";
 import { ForgetPassword } from "../../pages/auth/forgetpass/ForgetPassword";
 import { SendCode } from "../../pages/auth/SendCode";
 import { PersonalInfo } from "../../pages/auth/PersonalInfo";
-import { Blog } from "../../pages/Blog";
-
+import CourseDetail from "../../pages/CourseDetail";
+import BlogDetail from "../../pages/BlogDetail";
 import Loading from "../../components/common/Loading";
 import NotFound from "../../pages/NotFound";
 import DashboardLayout from "../../components/layout/DashboardLayout";
@@ -20,6 +20,7 @@ import { MyCourse } from "../../pages/MyCourse";
 import { MyReserve } from "../../pages/MyReserve";
 import { FavoriteCourse } from "../../pages/FavoriteCourse";
 import FavoriteBlog from "../../pages/FavoriteBlog";
+import { Blog } from "../../pages/Blog";
 
 const Routes = createBrowserRouter([
   {
@@ -40,10 +41,15 @@ const Routes = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: "/", element: <Landing /> },
+      { path: "courseDetail", element: <CourseDetail /> },
+      { path: "Courses", element: <Course /> },
       { path: "Blog", element: <Blog /> },
+
+      { path: "BlogDetail", element: <BlogDetail /> },
       { path: "Loading", element: <Loading /> },
     ],
   },
+
   { path: "*", element: <NotFound /> },
   {
     path: "/Dashboard",

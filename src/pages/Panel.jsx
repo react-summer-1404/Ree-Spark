@@ -3,6 +3,7 @@ import { WellcomePanel } from "../components/DashBoard/WellcomePanel";
 import { ProfileInfo } from "../components/DashBoard/ProfileInfo";
 import MyCoursePanel from "../components/DashBoard/MyCoursePanel";
 import { MyReserve } from "../components/DashBoard/MyReserve";
+import { CommedPanel } from "../components/DashBoard/CommedPanel";
 
 const Panel = () => {
   return (
@@ -18,6 +19,9 @@ const Panel = () => {
 
       <div className="w-[662px] h-[467px] absolute top-[470px] left-[443px] bg-[#F6F6F6] rounded-3xl overflow-y-auto">
         <MyReserve />
+      </div>
+      <div className="w-[392px] h-[467px] rounded-3xl bg-[#F6F6F6] absolute top-[469px] left-6" >
+        <CommedPanel/>
       </div>
     </div>
   );
