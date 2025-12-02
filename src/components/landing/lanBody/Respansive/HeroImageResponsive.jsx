@@ -1,30 +1,66 @@
-import React from 'react'
+import React from "react";
+import { motion } from "framer-motion";
+const icons = [
+  {
+    src: "/AuthImage/html.png",
+    style: "xl:absolute xl:left-[145px] xl:top-[350px] xl:rotate-[11deg]",
+    floatDelay: 0,
+  },
+  {
+    src: "/AuthImage/css.png",
+    style: "xl:absolute xl:left-[410px] xl:top-[350px] xl:rotate-[345deg]",
+    floatDelay: 0.2,
+  },
+  {
+    src: "/AuthImage/java.png",
+    style: "xl:absolute xl:left-[673px] xl:top-[350px] xl:rotate-[-1deg]",
+    floatDelay: 0.4,
+  },
+  {
+    src: "/AuthImage/react.png",
+    style: "xl:absolute xl:left-[940px] xl:top-[350px]",
+    floatDelay: 0.6,
+  },
+  {
+    src: "/AuthImage/figma.png",
+    style: "xl:absolute xl:left-[1230px] xl:top-[350px] xl:rotate-[13deg]",
+    floatDelay: 0.8,
+  },
+];
 
-const  HeroImageResponsive = ()=> {
+const floatAnimation = {
+  animate: {
+    y: [0, -10, 0],
+    rotate: [0, 5, 0],
+  },
+  transition: {
+    duration: 3,
+    repeat: Infinity,
+    ease: "easeInOut",
+  },
+};
+const HeroImageResponsive = () => {
   return (
     <>
-           {/* {Xl Desktop} */}
-      <div className="hidden xl:block lg:hidden xl:flex-row xl:justify-center xl:absolute xl:w-[89px] xl:h-[89px] xl:top-[295px]">
-        <img
-          className="xl:absolute xl:left-[145px] xl:top-[40px] xl:rotate-[11deg]"
-          src="../../../../public/AuthImage/html.png"
-        />
-        <img
-          className="xl:absolute xl:left-[410px] xl:top-[40px] xl:rotate-[345deg]"
-          src="../../../../public/AuthImage/css.png"
-        />
-        <img
-          className="xl:absolute xl:left-[673px] xl:top-[40px] xl:rotate-[-1deg]"
-          src="../../../../public/AuthImage/java.png"
-        />
-        <img
-          className="xl:absolute xl:left-[940px] xl:top-[40px]"
-          src="../../../../public/AuthImage/react.png"
-        />
-        <img
-          className="xl:absolute xl:left-[1230px] xl:top-[40px] xl:rotate-[13deg]"
-          src="../../../../public/AuthImage/figma.png"
-        />
+      {/* {Xl Desktop} */}
+      <div className="hidden xl:block lg:hidden xl:flex-row xl:justify-center xl:w-[89px] xl:h-[89px] ">
+        {icons.map((icon, index) => (
+          <motion.div
+            key={index}
+            className={`absolute ${icon.style}`}
+            animate={floatAnimation.animate}
+            transition={{
+              ...floatAnimation.transition,
+              delay: icon.floatDelay,
+            }}
+          >
+            <img
+              src={icon.src}
+              className="w-[95.78px] h-[95.78px]"
+              alt={`icon-${index}`}
+            />
+          </motion.div>
+        ))}
       </div>
 
       {/* // {mobule} // */}
@@ -51,9 +87,7 @@ const  HeroImageResponsive = ()=> {
         />
       </div>
     </>
-  
-    
-  )
-}
+  );
+};
 
-export  {HeroImageResponsive}
+export { HeroImageResponsive };

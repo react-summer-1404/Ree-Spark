@@ -1,6 +1,6 @@
 import React from "react";
 // import jsImage from "../../src/assets/image/LayoutImage/jsImage.svg";
-import jsImage from '../../../../../assets/image/LayoutImage/jsImage.svg'
+
 
 const ImageCourse = ({ courseData }) => {
   return (
@@ -13,6 +13,7 @@ const ImageCourse = ({ courseData }) => {
         className="w-full h-full object-cover rounded-[32px]"
         
       />
+
     </div>
   );
 };

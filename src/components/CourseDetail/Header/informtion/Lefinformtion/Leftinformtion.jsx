@@ -26,6 +26,7 @@ const Leftinformtion = ({ courseData}) => {
       {/* Reservations and Favorites and likeDislike */}
       <FavAndResAndLike />
       <FavAndResAndLikeMobile />
+
     </div>
   );
 };

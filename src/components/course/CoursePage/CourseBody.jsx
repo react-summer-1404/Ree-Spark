@@ -4,6 +4,7 @@ import { CourseStyle } from "./CourseStyle";
 import GetCoursePageApi from "../../../core/services/api/getCoursePage.api";
 import PageInationBlog  from "./PageInationBlog";
 import Loading from "../../common/Loading";
+import toast from "react-hot-toast";
 const CourseBody = () => {
   const [Course, setCourse] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -48,6 +49,7 @@ const CourseBody = () => {
             Course.map((item) => (
               <CourseStyle
                 key={item.id}
+                id={item.id}
                 courseName={item.title}
                 teacherName={item.addUserFullName}
                 imageAddress={item.currentImageAddress}
