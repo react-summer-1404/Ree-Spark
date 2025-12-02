@@ -1,6 +1,46 @@
 import React from "react";
-
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
 const LandingServiceResponsive = () => {
+  const containerVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+    exit: {
+      opacity: 0,
+      y: -40,
+      transition: { duration: 0.4, ease: "easeIn" },
+    },
+  };
+  const boxVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+    exit: {
+      opacity: 0,
+      y: -40,
+      transition: { duration: 0.9, ease: "easeIn" },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+        delay: i * 0.2,
+      },
+    }),
+  };
   return (
     <div>
       {/* {info mobile} */}
@@ -172,80 +212,194 @@ const LandingServiceResponsive = () => {
       </div>
 
       {/* {xl Desktop} */}
-
-      <div className="xl:top-[240px] lg:hidden xl:block xl:relative">
+      <motion.div
+        className="xl:top-[240px] lg:hidden xl:block xl:relative"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        exit="exit"
+        viewport={{ once: false, amount: 0.2 }}
+      >
         <div className="xl:relative hidden xl:block xl:text-center xl:top-[390px] xl:right-5 xl:justify-center xl:font-bold xl:text-[32px] xl:dark:text-white">
           اهداف ما در آکادمی
         </div>
 
         <div className="xl:w-full hidden xl:h-[500px] xl:top-[430px] xl:right-5 xl:relative xl:flex xl:justify-center xl:gap-[28px]">
-          <div className="xl:w-[321px] xl:h-[434px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:rounded-3xl xl:hover:border-[#3772FF] transition-all duration-300 xl:dark:bg-slate-700">
-            <h1 className="xl:text-right xl:text-[20px] xl:relative xl:top-5 xl:right-[20px] xl:font-bold">
-              آماده سازی برای بازار کار
-            </h1>
-            <div className="xl:relative xl:top-[30px] dark:text-slate-400 xl:left-[24px] xl:text-[#7E7E7E] xl:break-words xl:w-[275px] xl:font-medium xl:text-base xl:text-right xl:leading-7">
-              جلسات تنظیم <span dir="ltr">cv</span> برای ساخت‌واشتراک رزومه فنی
-              در بسترهای داخلی و بین‌المللی کاریابی و آماده‌سازی برای شرکت‌ها
+          {[
+            {
+              title: "آماده سازی برای بازار کار",
+              text: "              جلسات تنظیم cv برای ساخت‌واشتراک رزومه فنی در بسترهای داخلی و بین‌المللی کاریابی و آماده‌سازی برای شرکت‌ها",
+              img: "../../../../public/AuthImage/L4.png",
+            },
+            {
+              title: "آموزش‌های تخصصی",
+              text: "کارگاه‌های تخصصی و تکمیلی برای کار با پلتفرم‌های بازاری مورد اقبال و برگزاری تورنمنت‌های تیمی رقابتی برای تقویت روحیه کار تیمی و",
+              img: "../../../../public/AuthImage/L3.png",
+            },
+            {
+              title: "راهنمایی و ایجاد انگیزه",
+              text: "              آشنایی با پشته‌ای تکنولوژیک از زبان‌های کدنویسی با نگاهی عمل‌محور برای تحریک ذهنیت خلاق در طول فرآیند آموزش",
+              img: "../../../../public/AuthImage/L2.png",
+            },
+            {
+              title: "استعدادیابی",
+              text: "              یافتن رگه‌های علاقه و استعداد در دوره‌های پایلوت استعدادیابی صرف نظر از سن، رشته تحصیلی، جغرافیا و جنسیت و",
+              img: "../../../../public/AuthImage/L1.png",
+            },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.7 }}
+              className="xl:w-[321px] xl:h-[434px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:rounded-3xl xl:hover:border-[#3772FF] transition-all duration-300 xl:dark:bg-slate-700"
+            >
+              <h1 className="xl:text-right xl:text-[20px] xl:relative xl:top-5 xl:right-[20px] xl:font-bold">
+                {item.title}
+              </h1>
+
+              <p className="xl:relative xl:top-[30px] xl:left-[24px] xl:text-[#7E7E7E] dark:text-slate-400 xl:break-words xl:w-[275px] xl:font-medium xl:text-base xl:text-right xl:leading-7">
+                {item.text}
+              </p>
+
+              <img
+                src={item.img}
+                className="xl:relative xl:left-8 xl:top-[75px] xl:w-[260px] xl:h-[236px]"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* {xl Desktop} */}
+      <div className="xl:block hidden lg:hidden">
+        <div className="xl:flex xl:flex-col xl:flex-wrap xl:justify-center xl:relative xl:top-[690px] xl:w-full xl:h-[500px] xl:gap-[22px] xl:text-dark xl:dark:text-white">
+          {/* عنوان */}
+          <motion.div
+            variants={boxVariants}
+            initial="hidden"
+            whileInView="visible"
+            exit="exit"
+            viewport={{ once: false, amount: 0.5 }}
+            className="xl:relative xl:left-[340px] top-[-20px] xl:bottom-14"
+          >
+            <div className="xl:flex xl:justify-center xl:font-bold xl:text-3xl">
+              خدماتی که ما در طی دوره‌ها
             </div>
-            <img
-              src="../../../../public/AuthImage/L4.png"
-              className="xl:relative xl:left-8 xl:top-[75px] xl:w-[260px] xl:h-[236px]"
-            />
-          </div>
+            <div className="xl:flex xl:justify-center xl:font-bold xl:text-3xl lg:mt-[15px]">
+              به شما ارائه میدیم
+            </div>
+          </motion.div>
 
-          <div className="xl:w-[321px] xl:h-[434px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:rounded-3xl xl:hover:border-[#3772FF] transition-all duration-300 xl:dark:bg-slate-700">
-            <h1 className="xl:text-right xl:text-[20px] xl:relative xl:top-5 xl:right-[18px] xl:font-bold">
-              آموزش‌های تخصصی
-            </h1>
-            <p
-              dir="rtl"
-              className="xl:relative xl:w-[278px] xl:text-[#7E7E7E] dark:text-slate-400 xl:break-words xl:top-[30px] xl:left-[24px] xl:font-medium xl:text-base xl:text-right xl:leading-7"
+          {/* ستون اول */}
+          <div className="xl:relative xl:left-[30px] xl:gap-[22px] flex flex-col">
+            <motion.div
+              variants={boxVariants}
+              initial="hidden"
+              whileInView="visible"
+              exit="exit"
+              viewport={{ once: false, amount: 0.5 }}
+              className="xl:bg-[#F6F6F6] xl:border xl:border-[#DCDCDC] xl:w-[664px] xl:h-[144px] xl:rounded-[32px] xl:text-right xl:dark:bg-slate-700 xl:hover:border-[#3772FF] transition-[0.3s]"
             >
-              کارگاه‌های تخصصی و تکمیلی برای کار با پلتفرم‌های بازاری مورد اقبال
-              و برگزاری تورنمنت‌های تیمی رقابتی برای تقویت روحیه کار تیمی و...
-            </p>
-            <img
-              src="../../../../public/AuthImage/L3.png"
-              className="xl:relative xl:left-8 xl:top-14 xl:w-[260px] xl:h-[216px]"
-            />
-          </div>
+              <div className="xl:relative xl:right-[40px]">
+                <h1 className="xl:font-bold xl:text-xl xl:relative xl:right-24 xl:top-10">
+                  آزمون ها
+                </h1>
+                <p className="xl:right-24 xl:top-[48px] dark:text-slate-400 xl:relative xl:text-[#707070]">
+                  با آزمون های تعیین سطح شما میتوانید سطح دانش خودتون رو بسنجید
+                </p>
+              </div>
+              <div className="xl:w-[88px] xl:h-[88px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:relative xl:left-[540px] xl:bottom-7 xl:rounded-full xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700">
+                <img
+                  src="../../../../public/AuthImage/task-daily-01 (2).png"
+                  className="xl:absolute xl:left-[22px] xl:top-5"
+                />
+              </div>
+            </motion.div>
 
-          <div className="xl:w-[321px] xl:h-[434px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:rounded-3xl xl:hover:border-[#3772FF] transition-all duration-300 xl:dark:bg-slate-700">
-            <h1 className="xl:text-right xl:text-[20px] xl:relative xl:top-5 xl:right-[23px] xl:font-bold">
-              راهنمایی و ایجاد انگیزه
-            </h1>
-            <p className="xl:relative xl:top-[30px] xl:left-[24px] dark:text-slate-400 xl:text-[#7E7E7E] xl:font-medium xl:break-words xl:w-[270px] xl:text-right xl:leading-7">
-              آشنایی با پشته‌ای تکنولوژیک از زبان‌های کدنویسی با نگاهی عمل‌محور
-              برای تحریک ذهنیت خلاق در طول فرآیند آموزش
-            </p>
-            <img
-              src="../../../../public/AuthImage/L2.png"
-              className="xl:relative xl:left-[38px] xl:top-[75px] xl:w-[260px] xl:h-[236px]"
-            />
-          </div>
-
-          <div className="xl:w-[321px] xl:h-[434px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:rounded-3xl xl:hover:border-[#3772FF] transition-all duration-300 xl:dark:bg-slate-700">
-            <h1 className="xl:text-right xl:text-[20px] xl:relative xl:top-5 xl:right-[23px] xl:font-bold">
-              استعدادیابی
-            </h1>
-            <p
-              dir="rtl"
-              className="xl:relative xl:w-[300px] xl:break-words dark:text-slate-400 xl:text-[#7E7E7E] xl:top-[30px]  xl:font-medium xl:text-base xl:text-right xl:leading-7"
+            <motion.div
+              variants={boxVariants}
+              initial="hidden"
+              whileInView="visible"
+              exit="exit"
+              viewport={{ once: false, amount: 0.5 }}
+              className="xl:bg-[#F6F6F6] xl:border xl:border-[#DCDCDC] xl:w-[664px] xl:h-[144px] xl:rounded-[32px] xl:text-right xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700"
             >
-              یافتن رگه‌های علاقه و استعداد در دوره‌های پایلوت استعدادیابی صرف
-              نظر از سن، رشته تحصیلی، جغرافیا و جنسیت و...
-            </p>
-            <img
-              src="../../../../public/AuthImage/L1.png"
-              className="xl:relative xl:left-[38px] xl:top-[75px] xl:w-[260px] xl:h-[236px]"
-            />
+              <div className="xl:relative xl:right-[40px]">
+                <h1 className="xl:font-bold xl:text-xl xl:relative xl:right-24 xl:top-10">
+                  مدرک معتبر
+                </h1>
+                <p className="xl:right-24 xl:top-[48px] xl:relative xl:text-[#707070] dark:text-slate-400">
+                  با توجه به سطح توانایی شما فرصت های شغلی به شما پیشنهاد داده
+                  میشه
+                </p>
+              </div>
+              <div className="xl:w-[88px] xl:h-[88px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:relative xl:left-[540px] xl:bottom-7 xl:rounded-full xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700">
+                <img
+                  src="../../../../public/AuthImage/job-link.png"
+                  className="xl:absolute xl:left-[22px] xl:top-5"
+                />
+              </div>
+            </motion.div>
+          </div>
+
+          {/* ستون دوم */}
+          <div className="xl:relative xl:gap-[22px] xl:top-[55px] xl:right-[22px] xl:flex xl:flex-col">
+            <motion.div
+              variants={boxVariants}
+              initial="hidden"
+              whileInView="visible"
+              exit="exit"
+              viewport={{ once: false, amount: 0.5 }}
+              className="xl:bg-[#F6F6F6] xl:border xl:border-[#DCDCDC] xl:w-[664px] xl:h-[144px] xl:rounded-[32px] xl:text-right xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700"
+            >
+              <div className="xl:relative xl:right-[40px]">
+                <h1 className="xl:font-bold xl:text-xl xl:relative xl:right-24 xl:top-10">
+                  فرصت‌های شغلی
+                </h1>
+                <p className="xl:right-24 xl:top-[48px] xl:relative xl:text-[#707070] dark:text-slate-400">
+                  با توجه به سطح توانایی شما فرصت های شغلی به شما پیشنهاد داده
+                  میشه
+                </p>
+              </div>
+              <div className="xl:w-[88px] xl:h-[88px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:relative xl:left-[540px] xl:bottom-7 xl:rounded-full xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700">
+                <img
+                  src="../../../../public/AuthImage/document-validation.png"
+                  className="xl:absolute xl:left-[22px] xl:top-5"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={boxVariants}
+              initial="hidden"
+              whileInView="visible"
+              exit="exit"
+              viewport={{ once: false, amount: 0.5 }}
+              className="xl:bg-[#F6F6F6] xl:border xl:border-[#DCDCDC] xl:w-[664px] xl:h-[144px] xl:rounded-[32px] xl:text-right xl:relative xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700"
+            >
+              <div className="xl:relative xl:right-[40px]">
+                <h1 className="xl:font-bold xl:text-xl xl:relative xl:right-24 xl:top-10">
+                  مشاوره 24 ساعته
+                </h1>
+                <p className="xl:right-24 xl:top-[48px] xl:relative xl:text-[#707070] dark:text-slate-400">
+                  مشاورین ما 24 ساعته جوابگو سوال های شما هستند
+                </p>
+              </div>
+              <div className="xl:w-[88px] xl:h-[88px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:relative xl:left-[580px] xl:bottom-7 xl:rounded-full xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700">
+                <img
+                  src="../../../../public/AuthImage/message-user-01.png"
+                  className="xl:absolute xl:left-[22px] xl:top-5"
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
 
-      {/* {xl Desktop} */}
-
-      <div className="xl:block hidden lg:hidden">
+      {/* <div className="xl:block hidden lg:hidden">
         <div className="xl:flex xl:flex-col xl:flex-wrap xl:justify-center xl:relative xl:top-[690px] xl:w-full xl:h-[500px] xl:gap-[22px] xl:text-dark xl:dark:text-white">
           <div className="xl:relative xl:left-[340px] top-[-20px] xl:bottom-14">
             <div className="xl:flex xl:justify-center xl:font-bold xl:text-3xl">
@@ -330,7 +484,7 @@ const LandingServiceResponsive = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
