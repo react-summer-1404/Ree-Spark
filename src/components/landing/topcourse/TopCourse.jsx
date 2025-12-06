@@ -28,7 +28,7 @@ const TopCourse = () => {
   }, []);
 
   return (
-    <div className="lg:relative relative lg:right-[0] right-[80px] lgg:left-0 xl:left-0 lg:left-[79px] top-[380px] xl:top-[520px] lgg:top-[520px] lg:top-[1100px]">
+    <div className=" relative right-8 lgg:right-8 xl:right-8 lg:right-[40px] top-[380px] xl:top-[520px] lgg:top-[520px] lg:top-[1100px]">
       <h2 className="hidden lg:block text-center lgg:mr-0 lg:mr-[150px]  text-3xl font-bold    mx-auto mb-[60px]">
         دوره‌های برتر هفته
       </h2>
@@ -52,7 +52,7 @@ const TopCourse = () => {
         ))}
 
         <div className="hidden lg:block lg:absolute lgg:top-[300px] lg:top-[710px] lg:left-[-230px] xl:left-[-40px] lgg:left-[-130px]">
-          <Button />
+          <Button buttonAdders={"courses"}/>
         </div>
       </div>
     </div>

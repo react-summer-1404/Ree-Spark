@@ -34,8 +34,8 @@ const RightSidePanel = () => {
           to={"panel"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-black dark:border-[#fcfcfc] font-medium"
-            } dark:text-[#FCFCFC] text-black text-[18px] h-[26px] leading-3 cursor-pointer`
+              isActive && "font-semibold dark:border-[#fcfcfc]"
+            } dark:text-[#FCFCFC] hover:font-semibold text-black text-[18px] h-[26px] leading-3 cursor-pointer`
           }
         >
           داشبرد
@@ -50,8 +50,8 @@ const RightSidePanel = () => {
           to={"MyCourse"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-black dark:border-[#fcfcfc] font-medium"
-            } dark:text-[#FCFCFC] text-black text-[18px] h-[26px] leading-3`
+              isActive && "font-semibold dark:border-[#fcfcfc]"
+            } dark:text-[#FCFCFC] text-black hover:font-semibold text-[18px] h-[26px] leading-3`
           }
         >
           دوره من
@@ -66,8 +66,8 @@ const RightSidePanel = () => {
           to={"myReserve"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-black dark:border-[#fcfcfc] font-medium"
-            } dark:text-[#FCFCFC] text-black text-[18px] h-[26px] leading-3`
+              isActive && "font-semibold dark:border-[#fcfcfc] "
+            } dark:text-[#FCFCFC] text-black hover:font-semibold text-[18px] h-[26px] leading-3`
           }
         >
           رزرو من
@@ -82,8 +82,8 @@ const RightSidePanel = () => {
           to={"favoriteCourse"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-black dark:border-[#fcfcfc] font-medium"
-            } dark:text-[#FCFCFC] text-black text-[17px] h-[26px] leading-3`
+              isActive && "font-semibold dark:border-[#fcfcfc]"
+            } dark:text-[#FCFCFC] text-black hover:font-semibold text-[17px] h-[26px] leading-3`
           }
         >
           دوره های موردعلاقه
@@ -98,8 +98,8 @@ const RightSidePanel = () => {
           to={"favoriteBlog"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-black dark:border-[#fcfcfc] font-medium"
-            } dark:text-[#FCFCFC] text-black text-[17px] h-[26px] leading-3`
+              isActive && "font-semibold dark:border-[#fcfcfc]"
+            } dark:text-[#FCFCFC] text-black hover:font-semibold text-[17px] h-[26px] leading-3`
           }
         >
           بلاگ های موردعلاقه
@@ -114,8 +114,8 @@ const RightSidePanel = () => {
           to={"profile"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-[#fcfcfc] font-medium"
-            } dark:text-[#FCFCFC] text-black text-[17px] h-[26px]  leading-3`
+              isActive && " font-semibold "
+            } dark:text-[#FCFCFC] text-black hover:font-semibold text-[17px] h-[26px]  leading-3`
           }
         >
           پروفایل
@@ -143,16 +143,18 @@ const RightSidePanel = () => {
       <AnimatePresence>
         {showModal && (
           <motion.div
-            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black/50 flex backdrop-blur-sm items-center justify-center z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={() => setShowModal(false)}
           >
             <motion.div
               className="bg-white rounded-2xl shadow-xl p-6 w-80 text-center"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
             >
               <h2 className="text-lg font-semibold text-gray-800 mb-4">
                 آیا مطمئنی می‌خوای خارج شی؟

@@ -14,6 +14,7 @@ const CourseStyle = ({
     <Link
       to={`/courseDetail/${id}`}
       className=" w-[322px] h-[366px]"
+
       state={{
         courseName,
         teacherName,
@@ -22,7 +23,9 @@ const CourseStyle = ({
         bgcolor,
         coursePrice,
         coding,
+
       }}
+
     >
       {/* // {DeskTop hight}   // */}
 
