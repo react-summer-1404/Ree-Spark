@@ -1,13 +1,23 @@
+import React, { useState, useEffect } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React, { useState } from "react";
 import * as yup from "yup";
 import SecurityApi from "../../core/services/api/Auth/AccessCode.api";
 import ToggleSwitch from "./ToggleSwitch";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AccessCode = () => {
   const gmail = localStorage.getItem("gmail");
   const [twoStep, setTwoStep] = useState(false);
+
+  useEffect(() => {
+    const storedTwoStep = localStorage.getItem("twoStepAuth");
+    if (storedTwoStep === "true") {
+      setTwoStep(true);
+    } else {
+      setTwoStep(false);
+    }
+  }, []);
 
   const validation = yup.object().shape({
     RecoveryGmail: yup
@@ -16,7 +26,7 @@ const AccessCode = () => {
       .required("ایمیل خود را وارد کنید⚠️"),
     telegramUser: yup.string().required("این فیلد الزامی است"),
   });
-
+  const navigate = useNavigate();
   const onSubmit = async (values, { setSubmitting }) => {
     try {
       const payload = {
@@ -24,7 +34,7 @@ const AccessCode = () => {
         recoveryEmail: values.RecoveryGmail,
         telegramUsername: values.telegramUser
           .replace(/^@/, "")
-          .replace(/@$/, ""), // پاکسازی
+          .replace(/@$/, ""),
       };
 
       console.log("TOKEN:", localStorage.getItem("token"));
@@ -34,10 +44,11 @@ const AccessCode = () => {
 
       toast.success(data.message || "تغییرات ذخیره شد");
     } catch (error) {
-      console.log(error.response?.data); // لاگ دقیق ارور
+      console.log(error.response?.data);
       toast.error(error.response?.data?.message || "خطا در اتصال");
     } finally {
       setSubmitting(false);
+      navigate("/Auth/Login")
     }
   };
 

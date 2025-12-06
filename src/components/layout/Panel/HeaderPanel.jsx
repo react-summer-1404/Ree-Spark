@@ -7,6 +7,8 @@ import { getItem } from "../../../core/services/storage/storage.api";
 
 const HeaderPanel = () => {
   const gmail = getItem("gmail");
+  const fName = getItem("fName");
+  const lName = getItem("lName");
   return (
     <div className="flex justify-between">
       {/*  */}
@@ -24,14 +26,14 @@ const HeaderPanel = () => {
         {" "}
         <Link
           to={"/"}
-          className="dark:text-[#FCFCFC] text-black  hover:border-b border-black"
+          className="dark:text-[#FCFCFC] text-black  hover:font-semibold"
         >
           صفحه اصلی
         </Link>
-        <div className="dark:text-[#FCFCFC] text-black  hover:border-b border-black">
+        <div className="dark:text-[#FCFCFC] text-black  hover:font-semibold">
           گزارش
         </div>
-        <div className="dark:text-[#FCFCFC] text-black  hover:border-b border-black">
+        <div className="dark:text-[#FCFCFC] text-black  hover:font-semibold">
           ارتباط باما
         </div>
       </div>
@@ -40,7 +42,7 @@ const HeaderPanel = () => {
       <div className=" h-12 flex gap-2 mt-5 mr-6">
         <div className=" flex flex-col dark:text-white text-black">
           <h4 className="h-[23px] text-[15px] font-semibold">
-            {gmail}
+            {fName} {lName}
           </h4>
           <h4 className="h-[23px] text-[13px] font-medium text-right">
             دانشجو

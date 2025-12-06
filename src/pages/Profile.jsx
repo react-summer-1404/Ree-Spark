@@ -12,7 +12,7 @@ const Profile = () => {
             end
             className={({ isActive }) =>
               `${
-                isActive && "bg-[#F1F1F1] text-[#3772FF]"
+                isActive && "bg-[#F1F1F1] text-[#3772FF] dark:bg-slate-500 dark:text-blue-100"
               } mx-auto w-[190px] rounded-[48px] py-3 px-4 text-[#707070]`
             }
           >
@@ -22,7 +22,7 @@ const Profile = () => {
             to={"Picture"}
             className={({ isActive }) =>
               `${
-                isActive && "bg-[#F1F1F1] text-[#3772FF]"
+                isActive && "bg-[#F1F1F1] text-[#3772FF] dark:bg-slate-500 dark:text-blue-100"
               } mx-auto w-[95px] rounded-[48px] py-3 px-4 text-[#707070]`
             }
           >
@@ -32,7 +32,7 @@ const Profile = () => {
             to={"location"}
             className={({ isActive }) =>
               `${
-                isActive && "bg-[#F1F1F1] text-[#3772FF]"
+                isActive && "bg-[#F1F1F1] text-[#3772FF] dark:bg-slate-500 dark:text-blue-100"
               } mx-auto w-[130px] rounded-[48px] py-3 px-4 text-[#707070]`
             }
           >
@@ -42,7 +42,7 @@ const Profile = () => {
             to={"links"}
             className={({ isActive }) =>
               `${
-                isActive && "bg-[#F1F1F1] text-[#3772FF]"
+                isActive && "bg-[#F1F1F1] text-[#3772FF] dark:bg-slate-500 dark:text-blue-100"
               } mx-auto w-[90px] rounded-[48px] py-3 px-4 text-[#707070]`
             }
           >

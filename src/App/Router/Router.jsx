@@ -71,7 +71,7 @@ const Routes = createBrowserRouter([
         children: [
           { index: true, element: <Information /> },
           { path:"Picture", element: <Picture /> },
-          { path:"location", element: <MapSelector /> },
+          // { path:"location", element: <MapSelector /> },
           { path:"links", element: <Links /> },
         ],
       },

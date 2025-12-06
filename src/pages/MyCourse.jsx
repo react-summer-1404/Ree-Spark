@@ -29,7 +29,7 @@ const MyCourse = () => {
       </div>
 
       {/* course status */}
-      <div className="bg-[#F6F6F6] dark:bg-gray-600 w-[95%] h-[710px] absolute top-[170px] left-7 rounded-[24px]">
+      <div className="bg-[#F6F6F6] dark:bg-gray-700 w-[95%] h-[710px] absolute top-[170px] left-7 rounded-[24px]">
         <div className="w-[1046px] h-11 bg-[#F1F1F1] rounded-2xl absolute top-4 left-4">
           <h5 className="absolute top-3 left-[1024px] text-[#707070] text-sm font-medium">
             #

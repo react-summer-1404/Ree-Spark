@@ -33,9 +33,9 @@ const MyCoursePanel = () => {
           سطح
         </h6>
       </div>
-      <div className=" w-[95%] h-[160px] mx-auto mt-20 ">
+      <div className=" w-[95%] h-[130px] mx-auto mt-[85px] overflow-y-hidden ">
         <MyCourses />
-        <MyCourses />
+
       </div>
     </div>
   );

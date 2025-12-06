@@ -1,16 +1,16 @@
 import React from "react";
-import figma from "../../assets/image/BlogImage/figma.png";
 
-const CourseStatus = ({MyCourseName , MyCoursePublisher , MyCourseLevel , MyCourseBg}) => {
+
+const CourseStatus = ({MyCourseName , MyCoursePublisher , MyCourseLevel  , ImageAddress}) => {
   return (
-    <div className="h-16 flex relative">
-      <div className={`w-[83px] h-[52px] rounded-xl ${MyCourseBg} absolute top-[72px] left-[971px]`}>
-        <img src={figma} className="h-8 w-8  mx-auto mt-2" />
+    <div dir="rtl" className="h-16 flex relative">
+      <div className={`w-[83px] h-[52px] rounded-xl  absolute top-[72px] left-[971px]`}>
+        <img src={ImageAddress} className="w-[100%] h-[100%] rounded-xl" />
       </div>
-      <h3 className="h-[23px] absolute top-[86px] left-[869px] text-right font-bold">
+      <h3 dir="rtl" className="h-[23px] w-[150px] text-right absolute top-[86px] left-[780px] font-bold">
         {MyCourseName}
       </h3>
-      <h3 className="h-[20px] absolute top-[86px] left-[620px] font-semibold text-sm">
+      <h3 className="h-[20px] absolute top-[86px] left-[660px] font-semibold text-sm">
         {MyCoursePublisher}
       </h3>
       <h3 className="h-[20px] absolute top-[86px] left-[447px] font-semibold text-sm">

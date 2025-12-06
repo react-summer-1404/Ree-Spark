@@ -1,9 +1,20 @@
-import React from "react";
-import { CourseStatus } from "../components/MyCourse/CourseStatus";
+import React, { useEffect, useState } from "react";
 import { LuCalendarRange } from "react-icons/lu";
 import { SearchPanelBox } from "../components/MyCourse/SearchPanelBox";
+import FavoriteBlogApi from "../core/services/api/User/FavoriteBlog.api";
+import { BlogStatus } from "../components/FavoriteBlog/BlogStatus";
 
 const FavoriteBlog = () => {
+  const [favoriteNews, setFavoriteNews] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await FavoriteBlogApi();
+      setFavoriteNews(data);
+    };
+
+    fetchData();
+  }, []);
   return (
     <div>
       <h1 className="h-9 absolute top-[96px] left-[911px] text-2xl font-bold ">
@@ -29,7 +40,7 @@ const FavoriteBlog = () => {
       </div>
 
       {/* course status */}
-      <div className="bg-[#F6F6F6] dark:bg-gray-600 w-[1078px] h-[710px] absolute top-[236px] left-[24px] rounded-[24px]">
+      <div className="bg-[#F6F6F6] dark:bg-gray-700 w-[1078px] h-[710px] absolute top-[236px] left-[24px] rounded-[24px]">
         <div className="w-[1046px] h-11 bg-[#F1F1F1] rounded-2xl absolute top-4 left-4">
           <h5 className="absolute top-3 left-[1024px] text-[#707070] text-sm font-medium">
             #
@@ -50,7 +61,27 @@ const FavoriteBlog = () => {
             سطح
           </h5>
         </div>
-        <CourseStatus />
+        {favoriteNews.length === 0 && (
+          <div className="w-full h-full flex items-center justify-center">
+            <h2 className="text-gray-500 text-xl font-bold">
+              موردی وجود ندارد
+            </h2>
+          </div>
+        )}
+        {favoriteNews.length > 0 && (
+          <>
+            {favoriteNews.map((item, index) => (
+              <BlogStatus
+                key={item.id}
+                MyCourseName={item.title}
+                MyCoursePublisher={item.auther}
+                MyCourseLevel="پیشرفته"
+                ImageAddress={item.currentImageAddressTumb}
+                bgColor={"bg-[#FFE1FE]"}
+              />
+            ))}
+          </>
+        )}
       </div>
     </div>
   );

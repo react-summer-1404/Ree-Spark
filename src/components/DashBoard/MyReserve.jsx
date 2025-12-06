@@ -23,9 +23,7 @@ const MyReserve = () => {
           وضعیت
         </h6>
       </div>
-      <div className="w-[95%] mx-auto h-[350px] mt-24 overflow-hidden">
-        <CourseReserve />
-        <CourseReserve />
+      <div className="w-[95%] mx-auto h-[320px] mt-24 overflow-hidden">
         <CourseReserve />
         <CourseReserve />
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import GoogleMapReact from "google-map-react";
+
 
 const Marker = () => (
   <div style={{
@@ -40,7 +40,7 @@ const MapSelector = () => {
       <div style={{ height: "500px", width: "100%" }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: localStorage.getItem("GOOGLE_MAPS_KEY") }}
-          defaultCenter={{ lat: 36.5633, lng: 53.0601 }} // مرکز روی ساری
+          defaultCenter={{ lat: 36.5633, lng: 53.0601 }} 
           defaultZoom={12}
           onClick={handleClick}
         >
