@@ -9,25 +9,25 @@ import toast from "react-hot-toast";
 
 const LoginForm = () => {
   const validation = yup.object().shape({
-    phoneNumber: yup.number().required("شماره تلفن خود را وارد کنید ⚠️"),
+    gmail: yup.string().required("شماره تلفن خود را وارد کنید ⚠️"),
     password: yup.string().required("رمز عبور را وارد کنید ⚠️"),
   });
   const navigate = useNavigate("");
   const onSubmit = async (values, { setSubmitting}) => {
     try {
-      const { phoneNumber, password } = values;
+      const { gmail, password } = values;
 
       const rememberMe = document.getElementById("save").checked;
 
       const { user, accessToken } = await LoginApi({
-        phoneOrGmail: phoneNumber,
+        phoneOrGmail: gmail,
         password,
         rememberMe,
       });
 
       console.log("Login successful:", user, accessToken);
 
-      // هدایت به صفحه بعدی
+      
       navigate("/auth/verifyNumber")
     } catch (err) {
       console.error("Login failed:", err);
@@ -39,7 +39,7 @@ const LoginForm = () => {
   return (
     <Fragment>
       <Formik
-        initialValues={{ phoneNumber: "", password: "" }}
+        initialValues={{ gmail: "", password: "" }}
         onSubmit={onSubmit}
         validationSchema={validation}
       >
@@ -50,10 +50,10 @@ const LoginForm = () => {
           <Field
             className="border border-[#DCDCDC] dark:bg-slate-200 w-full sm:w-4/5 text-sm absolute top-[292px] dark:text-black right-0 h-12 rounded-3xl text-right pr-2 outline-blue-600"
             placeholder="شماره همراه یا ایمیل خود را وارد کنید"
-            name="phoneNumber"
+            name="gmail"
           />
           <ErrorMessage
-            name="phoneNumber"
+            name="gmail"
             className="absolute top-[350px] right-[10px] text-red-600 w-52 dark:text-red-400"
             component={"span"}
           />

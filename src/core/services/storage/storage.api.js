@@ -49,4 +49,3 @@ export {
   setItemGeneric,
   getItemGeneric,
 };
-
