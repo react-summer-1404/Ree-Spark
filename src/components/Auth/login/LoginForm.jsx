@@ -6,14 +6,13 @@ import { BiHomeAlt2 } from "react-icons/bi";
 import { LoginApi } from "../../../core/services/api/Auth/Login.api";
 import toast from "react-hot-toast";
 
-
 const LoginForm = () => {
   const validation = yup.object().shape({
     gmail: yup.string().required("شماره تلفن خود را وارد کنید ⚠️"),
     password: yup.string().required("رمز عبور را وارد کنید ⚠️"),
   });
   const navigate = useNavigate("");
-  const onSubmit = async (values, { setSubmitting}) => {
+  const onSubmit = async (values, { setSubmitting }) => {
     try {
       const { gmail, password } = values;
 
@@ -27,8 +26,12 @@ const LoginForm = () => {
 
       console.log("Login successful:", user, accessToken);
 
-      
-      navigate("/auth/verifyNumber")
+      const twoStepAuth = localStorage.getItem("twoStepAuth") === true;
+      if (twoStepAuth) {
+        navigate("/auth/verifyNumber");
+      } else {
+        navigate("/");
+      }
     } catch (err) {
       console.error("Login failed:", err);
       toast.error("شماره یا رمز عبور اشتباه است ⚠️");
@@ -73,7 +76,6 @@ const LoginForm = () => {
           />
           <button
             type="submit"
-            
             className="w-full sm:w-4/5 h-[48px] shadow-md absolute top-[580px] right-0 rounded-[40px] bg-[#3772FF]  text-center  leading-10 text-[16px] font-medium text-[#FCFCFC]"
           >
             ورود به حساب

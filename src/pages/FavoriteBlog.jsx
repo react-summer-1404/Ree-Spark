@@ -3,14 +3,17 @@ import { LuCalendarRange } from "react-icons/lu";
 import { SearchPanelBox } from "../components/MyCourse/SearchPanelBox";
 import FavoriteBlogApi from "../core/services/api/User/FavoriteBlog.api";
 import { BlogStatus } from "../components/FavoriteBlog/BlogStatus";
+import Loading from "../components/common/Loading";
 
 const FavoriteBlog = () => {
   const [favoriteNews, setFavoriteNews] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       const data = await FavoriteBlogApi();
       setFavoriteNews(data);
+      setLoading(false);
     };
 
     fetchData();
@@ -28,7 +31,7 @@ const FavoriteBlog = () => {
       <div className="w-[258px] h-20 absolute top-[142px] left-[566px] flex gap-2">
         <div className="w-[258px] h-[80px] gap-2 relative ">
           <div className="w-[157px] h-[24px] gap-2  float-right flex ">
-            <h3 className="w-[125px] h-[23px] font-sans text-[15px] font-medium leading-5 text-right ">
+            <h3 className="w-[125px] h-[23px]  text-[15px] font-medium leading-5 text-right ">
               تاریخ برگزاری - اتمام
             </h3>
             <LuCalendarRange size={20} />
@@ -61,16 +64,21 @@ const FavoriteBlog = () => {
             سطح
           </h5>
         </div>
-        {favoriteNews.length === 0 && (
+        {loading && (
           <div className="w-full h-full flex items-center justify-center">
-            <h2 className="text-gray-500 text-xl font-bold">
+            <Loading />
+          </div>
+        )}
+        {!loading && favoriteNews.length === 0 && (
+          <div className="w-full h-full flex items-center justify-center">
+            <h2 className="text-blue-500 dark:text-white text-xl font-bold">
               موردی وجود ندارد
             </h2>
           </div>
         )}
-        {favoriteNews.length > 0 && (
+        {!loading && favoriteNews.length > 0 && (
           <>
-            {favoriteNews.map((item, index) => (
+            {favoriteNews.map((item) => (
               <BlogStatus
                 key={item.id}
                 MyCourseName={item.title}

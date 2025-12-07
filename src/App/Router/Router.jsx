@@ -1,26 +1,26 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "../../components/layout/Layout";
+import { Layout } from "../../components/layout/Layout";
 import { Landing } from "../../pages/Landing";
 import { Course } from "../../components/course/Course";
 import { AuthLayout } from "../../components/layout/AuthLayout";
-import { Register } from "../../pages/auth/Register";
 import { Login } from "../../pages/auth/login/Login";
 import { VerifyNumber } from "../../pages/auth/login/VerifyNumber";
 import { NewPassword } from "../../pages/auth/forgetpass/NewPassword";
 import { ForgetPassword } from "../../pages/auth/forgetpass/ForgetPassword";
-import { SendCode } from "../../pages/auth/SendCode";
-import { PersonalInfo } from "../../pages/auth/PersonalInfo";
+import { Panel } from "../../pages/Panel";
+import { MyCourse } from "../../pages/MyCourse";
+import { MyReserve } from "../../pages/MyReserve";
+import { FavoriteCourse } from "../../pages/FavoriteCourse";
+import { Blog } from "../../pages/Blog";
+import { Register } from "../../pages/auth/register/Register";
+import { SendCode } from "../../pages/auth/register/SendCode";
+import { PersonalInfo } from "../../pages/auth/register/PersonalInfo";
 import CourseDetail from "../../pages/CourseDetail";
 import BlogDetail from "../../pages/BlogDetail";
 import Loading from "../../components/common/Loading";
 import NotFound from "../../pages/NotFound";
 import DashboardLayout from "../../components/layout/DashboardLayout";
-import { Panel } from "../../pages/Panel";
-import { MyCourse } from "../../pages/MyCourse";
-import { MyReserve } from "../../pages/MyReserve";
-import { FavoriteCourse } from "../../pages/FavoriteCourse";
 import FavoriteBlog from "../../pages/FavoriteBlog";
-import { Blog } from "../../pages/Blog";
 import Profile from "../../pages/Profile";
 import Information from "../../pages/profile/Information";
 import Picture from "../../pages/profile/Picture";
@@ -28,6 +28,7 @@ import Links from "../../pages/profile/Links";
 import MapSelector from "../../pages/profile/Location";
 
 const Routes = createBrowserRouter([
+  // auth pages
   {
     path: "/Auth",
     element: <AuthLayout />,
@@ -41,6 +42,7 @@ const Routes = createBrowserRouter([
       { path: "NewPassword", element: <NewPassword /> },
     ],
   },
+  // main pages of site
   {
     path: "/",
     element: <Layout />,
@@ -56,6 +58,7 @@ const Routes = createBrowserRouter([
   },
 
   { path: "*", element: <NotFound /> },
+  // dashboard and panel pages
   {
     path: "/Dashboard",
     element: <DashboardLayout />,
@@ -70,9 +73,9 @@ const Routes = createBrowserRouter([
         element: <Profile />,
         children: [
           { index: true, element: <Information /> },
-          { path:"Picture", element: <Picture /> },
+          { path: "Picture", element: <Picture /> },
           // { path:"location", element: <MapSelector /> },
-          { path:"links", element: <Links /> },
+          { path: "links", element: <Links /> },
         ],
       },
     ],
