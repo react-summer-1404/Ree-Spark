@@ -43,7 +43,7 @@ const Routes = createBrowserRouter([
       { path: "/", element: <Landing /> },
       { path: "course/:id", element: <CourseDetail /> },
       { path: "Courses", element: <Course /> },
-      { path: "Blog/:id", element: <Blog /> },
+      { path: "Blog", element: <Blog /> },
 
       { path: "Blog/:id", element: <BlogDetail /> },
       { path: "Loading", element: <Loading /> },
