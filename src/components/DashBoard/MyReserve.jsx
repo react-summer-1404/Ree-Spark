@@ -3,7 +3,7 @@ import { CourseReserve } from "./components/CourseReserve";
 import { Link } from "react-router-dom";
 import Loading from "../common/Loading";
 import MyCourseRes from "../../core/services/api/User/MyReserve.api";
-
+import { FaAngleLeft } from "react-icons/fa6";
 const MyReserve = () => {
   const [courseReserve, setCourseReserve] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -62,14 +62,11 @@ const MyReserve = () => {
       </div>
 
       <div className="w-[106px] h-5 absolute top-2 left-4 flex justify-between">
-        <div className="size-4">
-          <img src="./img/backicon.png" className="w-[10px] h-[10px] mt-1" />
-        </div>
         <Link
-          to={"/Dashboard/MyReserve"}
-          className="h-5 text-[#3772FF] text-sm  text-right leading-5 cursor-pointer "
+          to={"/dashboard/myReserve"}
+          className="h-5 text-[#3772FF] text-sm flex gap-1 text-right leading-4 cursor-pointer"
         >
-          مشاهده بیشتر
+       <FaAngleLeft className="text-blue-500 mt-[2px]"/>   مشاهده بیشتر
         </Link>
       </div>
     </div>

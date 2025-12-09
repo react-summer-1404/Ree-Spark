@@ -43,7 +43,7 @@ const MyReserve = () => {
       </div>
 
       {/* course status */}
-      <div className="bg-[#F6F6F6] dark:bg-gray-700 w-[1078px] h-[710px] absolute top-[236px] left-[24px] rounded-[24px]">
+      <div className="bg-[#F6F6F6] shadow-lg dark:bg-gray-700 w-[1078px] h-[710px] absolute top-[236px] left-[24px] rounded-[24px]">
         <div className="w-[1046px] h-11 bg-[#F1F1F1] rounded-2xl absolute top-5 left-4">
           <h5 className="absolute top-3 left-[1024px] text-[#707070] text-sm font-medium">
             #

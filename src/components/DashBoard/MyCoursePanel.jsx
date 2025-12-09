@@ -1,19 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MyCourses } from "./components/MyCourses";
 import { Link } from "react-router-dom";
-
+import GetMyCourse from "../../core/services/api/User/GetMyCourse.api";
+import Loading from "../common/Loading";
+import { FaAngleLeft } from "react-icons/fa6";
 const MyCoursePanel = () => {
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const load = async () => {
+      const data = await GetMyCourse({
+        PageNumber: 1,
+        RowsOfPage: 10,
+        SortingCol: "id",
+        SortType: "DESC",
+        Query: "",
+        NewsCategoryId: null,
+      });
+
+      if (!data) {
+        setCourses([]);
+      } else {
+        const list = data?.result || data?.items || data?.data || data || [];
+
+        setCourses(list);
+      }
+
+      setLoading(false);
+    };
+
+    load();
+  }, []);
   return (
     <div>
       <h6 className="h-5 absolute top-[7px] left-[738px] text-sm font-semibold">
         دوره من
       </h6>
       <div className="w-[106px] h-5 absolute top-2 left-4 flex justify-between">
-        <div className="size-4">
-          <img src="./img/backicon.png" className="w-[10px] h-[10px] mt-1" />
-        </div>
-        <Link to={"/dashboard/myCourse"} className="h-5 text-[#3772FF] text-sm  text-right leading-4 cursor-pointer">
-          مشاهده بیشتر
+        <Link
+          to={"/dashboard/myCourse"}
+          className="h-5 text-[#3772FF] text-sm flex gap-1 text-right leading-4 cursor-pointer"
+        >
+       <FaAngleLeft className="text-blue-500 mt-[2px]"/>   مشاهده بیشتر
         </Link>
       </div>
       <div className="w-[769px] h-11 absolute top-10 left-4 bg-[#F1F1F1] rounded-2xl">
@@ -34,8 +63,25 @@ const MyCoursePanel = () => {
         </h6>
       </div>
       <div className=" w-[95%] h-[130px] mx-auto mt-[85px] overflow-y-hidden ">
-        <MyCourses />
+        {loading && (
+          <div className="w-full h-full flex items-center justify-center">
+            <Loading />
+          </div>
+        )}
 
+        {!loading && courses.length === 0 && (
+          <div className="w-full h-full flex items-center justify-center">
+            <h2 className="text-blue-500 dark:text-white text-xl font-bold">
+              دوره ای وجود ندارد
+            </h2>
+          </div>
+        )}
+
+        {!loading &&
+          courses.length > 0 &&
+          courses.map((course, index) => (
+            <MyCourses key={course.id || index} course={course.title} />
+          ))}
       </div>
     </div>
   );

@@ -15,6 +15,8 @@ import { Blog } from "../../pages/Blog";
 import { Register } from "../../pages/auth/register/Register";
 import { SendCode } from "../../pages/auth/register/SendCode";
 import { PersonalInfo } from "../../pages/auth/register/PersonalInfo";
+import { Teacher } from "../../pages/Teacher";
+import { TeacherDetail } from "../../pages/TeacherDetail";
 import CourseDetail from "../../pages/CourseDetail";
 import BlogDetail from "../../pages/BlogDetail";
 import Loading from "../../components/common/Loading";
@@ -26,6 +28,7 @@ import Information from "../../pages/profile/Information";
 import Picture from "../../pages/profile/Picture";
 import Links from "../../pages/profile/Links";
 import MapSelector from "../../pages/profile/Location";
+
 
 const Routes = createBrowserRouter([
   // auth pages
@@ -51,7 +54,8 @@ const Routes = createBrowserRouter([
       { path: "courseDetail", element: <CourseDetail /> },
       { path: "Courses", element: <Course /> },
       { path: "Blog", element: <Blog /> },
-
+      { path: "Teacher", element: <Teacher /> },
+      { path: "TeacherDetail/:id", element: <TeacherDetail /> },
       { path: "BlogDetail", element: <BlogDetail /> },
       { path: "Loading", element: <Loading /> },
     ],
