@@ -3,7 +3,7 @@ import React from "react";
 
 const CourseStatus = ({MyCourseName , MyCoursePublisher , MyCourseLevel  , ImageAddress}) => {
   return (
-    <div dir="rtl" className="h-16 flex relative">
+    <div dir="rtl" className="h-16 flex relative ">
       <div className={`w-[83px] h-[52px] rounded-xl  absolute top-[72px] left-[971px]`}>
         <img src={ImageAddress} className="w-[100%] h-[100%] rounded-xl" />
       </div>

@@ -202,19 +202,21 @@ const Information = () => {
           </div>
         </div>
       </form>
-      <AnimatePresence>
+      <AnimatePresence> 
         {isOpen && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={() => setIsOpen(false)}
           >
             <motion.div
               className="bg-white dark:bg-gray-800 flex rounded-lg p-6 w-[90%] max-w-lg relative"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
             >
               <button
                 className="absolute top-2 right-2 text-gray-800 hover:text-red-500 dark:text-slate-400 dark:hover:text-red-500 font-bold"
@@ -225,7 +227,7 @@ const Information = () => {
 
               <AccessCode />
             </motion.div>
-          </motion.div>
+          </motion.div>           
         )}
       </AnimatePresence>
     </div>

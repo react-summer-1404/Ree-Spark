@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const NavbarLinks = () => {
+
   const location = useLocation();
   console.log(location.pathname);
 

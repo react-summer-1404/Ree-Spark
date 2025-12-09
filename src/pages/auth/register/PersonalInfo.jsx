@@ -3,7 +3,7 @@ import { ErrorMessage, Field, FieldArray, Form, Formik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { BiHomeAlt2 } from "react-icons/bi";
-import RegisterStepOneApi from "../../core/services/api/Auth/register/RegisterStepTwo.api";
+import RegisterStepOneApi from "../../../core/services/api/Auth/register/RegisterStepTwo.api";
 import toast from "react-hot-toast";
 const PersonalInfo = () => {
   const validation = yup.object().shape({

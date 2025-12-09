@@ -1,9 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SearchPanelBox } from "../components/MyCourse/SearchPanelBox";
 import { CourseStatus } from "../components/MyCourse/CourseStatus";
 import { LucideCalendarRange } from "lucide-react";
+import GetMyCourse from "../core/services/api/User/GetMyCourse.api";
+import Loading from "../components/common/Loading";
 
 const MyCourse = () => {
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const load = async () => {
+      const data = await GetMyCourse({
+        PageNumber: 1,
+        RowsOfPage: 10,
+        SortingCol: "id",
+        SortType: "DESC",
+        Query: "",
+        NewsCategoryId: null,
+      });
+
+      if (!data) {
+        setCourses([]);
+      } else {
+        const list = data?.result || data?.items || data?.data || data || [];
+
+        setCourses(list);
+      }
+
+      setLoading(false);
+    };
+
+    load();
+  }, []);
   return (
     <div className="relative">
       <h1 className="h-9 absolute top-[16px] left-[1015px] text-2xl font-bold ">
@@ -29,7 +58,7 @@ const MyCourse = () => {
       </div>
 
       {/* course status */}
-      <div className="bg-[#F6F6F6] dark:bg-gray-700 w-[95%] h-[710px] absolute top-[170px] left-7 rounded-[24px]">
+      <div className="bg-[#F6F6F6] shadow-lg dark:bg-gray-700 w-[95%] h-[710px] absolute top-[170px] left-7 rounded-[24px]">
         <div className="w-[1046px] h-11 bg-[#F1F1F1] rounded-2xl absolute top-4 left-4">
           <h5 className="absolute top-3 left-[1024px] text-[#707070] text-sm font-medium">
             #
@@ -50,13 +79,31 @@ const MyCourse = () => {
             سطح
           </h5>
         </div>
-        <CourseStatus
-          MyCourseName={"فیگما دوره"}
-          MyCoursePublisher={"محمد حسین خلیلی"}
-          MyCourseLevel={"hard"}
-          MyCourseBg={"bg-[#F0DB4F]"}
-        />
-        
+        {loading && (
+          <div className="w-full h-full flex items-center justify-center">
+            <Loading />
+          </div>
+        )}
+
+        {!loading && courses.length === 0 && (
+          <div className="w-full h-full flex items-center justify-center">
+            <h2 className="text-blue-500 dark:text-white text-xl font-bold">
+              دوره ای وجود ندارد
+            </h2>
+          </div>
+        )}
+
+        {!loading &&
+          courses.length > 0 &&
+          courses.map((course, index) => (
+            <CourseStatus
+              key={course.id || index}
+              MyCourseName={course?.title || "بدون عنوان"}
+              MyCoursePublisher={course?.teacherName || "نامشخص"}
+              MyCourseLevel={course?.level || "نامشخص"}
+              MyCourseBg={"bg-[#F0DB4F]"} 
+            />
+          ))}
       </div>
     </div>
   );

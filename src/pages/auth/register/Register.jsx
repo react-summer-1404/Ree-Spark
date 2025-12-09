@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { BiHomeAlt2 } from "react-icons/bi";
 import toast from "react-hot-toast";
-import RegisterOneStepApi from "../../core/services/api/Auth/register/RegisterStepOne.api";
+import RegisterOneStepApi from "../../../core/services/api/Auth/register/RegisterStepOne.api";
 
 const Register = () => {
   const navigate = useNavigate();

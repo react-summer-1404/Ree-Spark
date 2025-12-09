@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { BiHomeAlt2 } from "react-icons/bi";
 import toast from "react-hot-toast";
-import { verifyCodeApi } from "../../core/services/api/Auth/register/VerifyMessage.api";
+import { verifyCodeApi } from "../../../core/services/api/Auth/register/VerifyMessage.api";
 import { HiOutlineChevronLeft } from "react-icons/hi";
 
 const SendCode = () => {
@@ -99,7 +99,10 @@ const SendCode = () => {
                 className="w-[110px] mx-auto h-10 border border-[#dcdcdc] text-right text-[#3772FF] sm:right-[35%] rounded-[34px] py-2 px-4 "
               >
                 بازگشت
-                <HiOutlineChevronLeft size={17} className="absolute bottom-[10px]" />
+                <HiOutlineChevronLeft
+                  size={17}
+                  className="absolute bottom-[10px]"
+                />
               </Link>
             </div>
           </Form>

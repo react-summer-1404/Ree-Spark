@@ -3,6 +3,7 @@ import React from "react";
 import { LuCalendarRange, LuEye } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
+
 const BlogList = ({
   BlogName,
   BlogTeacher,
@@ -10,8 +11,10 @@ const BlogList = ({
   view,
   BlogAlt,
   date,
-  id,
+  id,bg
 }) => {
+
+
   return (
     <Link
       to={`/Blog/${id}`}
@@ -22,13 +25,13 @@ const BlogList = ({
         BlogImage,
         view,
         BlogAlt,
-        date,
+        date
       }}
     >
       <div className=" w-full sm:w-[499px] h-[365px] flex flex-col gap-3">
         {/* blog image */}
         <div
-          className={`h-[293px] rounded-[32px] flex justify-center items-center shadow-sm `}
+          className={`h-[293px] rounded-[32px] hover:shadow-xl shadow-lg ${bg} flex justify-center items-center `}
         >
           <img
             src={BlogImage}

@@ -31,7 +31,7 @@ const FavoriteCourse = () => {
       <div className="w-[258px] h-20 absolute top-[142px] left-[566px] flex gap-2">
         <div className="w-[258px] h-[80px] gap-2 relative ">
           <div className="w-[157px] h-[24px] gap-2  float-right flex ">
-            <h3 className="w-[125px] h-[23px] font-sans text-[15px] font-medium leading-5 text-right ">
+            <h3 className="w-[125px] h-[23px]  text-[15px] font-medium leading-5 text-right ">
               تاریخ برگزاری - اتمام
             </h3>
             <LuCalendarRange size={20} />
@@ -43,7 +43,7 @@ const FavoriteCourse = () => {
       </div>
 
       {/* course status */}
-      <div className="bg-[#F6F6F6] w-[1078px] dark:bg-gray-700 h-[710px] absolute top-[236px] left-[24px] rounded-[24px]">
+      <div className="bg-[#F6F6F6] shadow-lg w-[1078px] dark:bg-gray-700 h-[710px] absolute top-[236px] left-[24px] rounded-[24px]">
         <div className="w-[1046px] h-11 bg-[#F1F1F1] rounded-2xl absolute top-4 left-4">
           <h5 className="absolute top-3 left-[1024px] text-[#707070] text-sm font-medium">
             #
@@ -71,7 +71,7 @@ const FavoriteCourse = () => {
         )}
         {!loading && FavoriteCourse.length === 0 && (
           <div className="w-full h-full flex items-center justify-center">
-            <h2 className="text-gray-500 dark:text-white text-xl font-bold">
+            <h2 className="text-blue-500 dark:text-white text-xl font-bold">
               موردی وجود ندارد
             </h2>
           </div>

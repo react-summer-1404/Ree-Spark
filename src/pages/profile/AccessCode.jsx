@@ -48,12 +48,12 @@ const AccessCode = () => {
       toast.error(error.response?.data?.message || "خطا در اتصال");
     } finally {
       setSubmitting(false);
-      navigate("/Auth/Login")
+      navigate("/Auth/Login");
     }
   };
 
   return (
-    <div className="mx-auto flex flex-col gap-8">
+    <div className=" flex flex-col gap-8">
       <ToggleSwitch value={twoStep} onChange={setTwoStep} />
 
       <div className="mx-auto">
@@ -71,7 +71,7 @@ const AccessCode = () => {
         {({ isSubmitting }) => (
           <Form>
             <Field
-              className="border border-[#DCDCDC] w-full sm:w-4/5 text-sm h-12 rounded-3xl text-right pr-2 outline-blue-500"
+              className="border border-[#DCDCDC] w-4/5 mr-10 text-sm h-12 rounded-3xl text-right pr-2 outline-blue-500"
               placeholder="ایمیل خود را وارد کنید"
               name="RecoveryGmail"
             />
@@ -82,7 +82,7 @@ const AccessCode = () => {
             />
 
             <Field
-              className="border border-[#DCDCDC] mt-8 w-full sm:w-4/5 text-sm h-12 rounded-3xl text-right pr-2 outline-blue-500"
+              className="border border-[#DCDCDC] mt-8 mr-10 w-4/5 text-sm h-12 rounded-3xl text-right pr-2 outline-blue-500"
               placeholder="یوزرنیم تلگرام"
               name="telegramUser"
             />
@@ -95,7 +95,7 @@ const AccessCode = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-blue-600 mt-14 hover:bg-blue-700 py-2 px-3 rounded-2xl text-white"
+              className="bg-blue-600 mt-12 mr-12 hover:bg-blue-700 py-2 px-3 rounded-3xl text-white"
             >
               {isSubmitting ? "در حال ارسال..." : "اعمال تغییرات"}
             </button>

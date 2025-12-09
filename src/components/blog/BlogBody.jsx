@@ -70,6 +70,7 @@ const BlogBody = () => {
               view={item.currentView}
               BlogAlt={item.currentImageAddress}
               date={moment(item.insertDate).format("jYYYY/jMM/jDD")}
+              bg={"bg-blue-500"}
             />
           ))
         ) : (
