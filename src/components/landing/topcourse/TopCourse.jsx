@@ -39,7 +39,7 @@ const TopCourse = () => {
       <div className="mt-12 flex justify-center lgg:justify-start xl:w-[1460px] lg:gap-[30px] lgg:gap-[0] xl:gap-[30px] gap-[60px] lg:flex-wrap lg:w-[1000px] lg:relative  lgg:flex-nowrap lgg:relative lgg:left-[40px] lgg:w-[1200px]">
         {courses.map((item) => (
           <TopCourseBody
-            key={item.id}
+            key={item.courseId}
             courseName={item.title}
             teacherName={item.teacherName}
             coursePrice={digitsEnToFa(addCommas(item.cost))}

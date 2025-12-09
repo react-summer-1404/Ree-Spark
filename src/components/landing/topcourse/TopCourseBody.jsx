@@ -18,7 +18,7 @@ const TopCourseBody = ({
         <div className="">
           <div className={`w-[322px] h-[293px] ${bgcolor}  rounded-[32px]  `}>
             <div className="w-[172px] h-[172px] relative top-[88px] left-[75px] ">
-              <img src={imageAddress} />
+              <img src={imageAddress || null} />
             </div>
 
             <div className="w-[89px] h-[24px] absolute top-[8px] left-[151px] rounded-[32px] bg-[#3772FF] py-[2px] px-2 ">

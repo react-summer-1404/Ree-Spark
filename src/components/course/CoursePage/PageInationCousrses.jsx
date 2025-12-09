@@ -1,6 +1,6 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const PageInationBlog = ({ currentPage, totalPages, onPageChange }) => {
+const PageInationCourses = ({ currentPage, totalPages, onPageChange }) => {
   const handleNext = () => {
     if (currentPage < totalPages) onPageChange(currentPage + 1);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -48,4 +48,4 @@ const PageInationBlog = ({ currentPage, totalPages, onPageChange }) => {
     </div>
   );
 };
-export default PageInationBlog;
+export default PageInationCourses;
