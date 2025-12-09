@@ -6,8 +6,9 @@ const NavbarLinks = () => {
   const location = useLocation();
   console.log(location.pathname);
 
+
   const links = [
-    { path: '/about', label: 'درباره ما' },
+    { path: '/teacher', label: 'اساتید' },
     { path: '/Courses', label: 'دوره ها' },
     { path: '/Blog', label: 'بلاگ ها' },
     { path: '/', label: 'خانه' },
