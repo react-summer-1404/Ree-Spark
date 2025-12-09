@@ -3,14 +3,20 @@ import http from "../../.././interceptor/interseptor";
 const GetCoursePageApi = async ({
   PageNumber = 1,
   RowsOfPage = 5,
-  SortingCol = "insertDate",
+  SortingCol = "InsertDate",
   SortType = "DESC",
   Query = "",
   TechCount = 0,
-  ListTech = ""   
+  ListTech = "",
+  courseLevelId = "",
+  TeacherId = "",
+  CostDown,
+  CostUp,
+  EndDate,
+  StartDate,
 }) => {
   try {
-    const data = await http.get("/Home/GetCoursesWithPagination", {
+    const data = await http.get("/Home/GetCoursesWithPagination?", {
       params: {
         PageNumber,
         RowsOfPage,
@@ -18,11 +24,17 @@ const GetCoursePageApi = async ({
         SortType,
         Query,
         TechCount,
-        ListTech
+        ListTech,
+        courseLevelId,
+        TeacherId,
+        CostDown,
+        CostUp,
+        EndDate,
+        StartDate,
       },
     });
 
-    return data;  
+    return data;
 
   } catch (error) {
     console.log("خطا در دریافت دوره", error);

@@ -16,7 +16,7 @@ const MobileCourseStyle = ({
         <div className="absolute">
           <div className={`w-[322px] h-[293px]  ${bgcolor}  rounded-[32px]  `}>
             <div className="w-full h-full ">
-              <img className="rounded-[15px] w-full h-full" src={imageAddress} />
+              <img className="rounded-[32px] w-full h-full" src={imageAddress} />
             </div>
 
             <div className="w-[89px] h-[24px] absolute top-[8px] left-[151px] rounded-[32px] bg-[#3772FF] py-[2px] px-2 ">
@@ -33,7 +33,7 @@ const MobileCourseStyle = ({
           </div>
           <div
             dir="rtl"
-            className="absolute  w-[66px] h-[20px]  mt-[45px] text-[13px] font-sans font-bold text-[#2F2F2F] dark:text-white "
+            className="absolute  w-[76px] h-[20px]  mt-[45px] text-[13px] font-sans font-bold text-[#2F2F2F] dark:text-white "
           >
             {coursePrice} <div className=" left-[5px] bottom-[1px] absolute">تومان</div>
           </div>

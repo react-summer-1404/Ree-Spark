@@ -1,5 +1,4 @@
 import React from 'react'
-import {ButtonRispansive} from "../filter/buttonFilter/ButtonRispansive";
 
  
 const HeaderCourse = () => {
@@ -13,7 +12,6 @@ const HeaderCourse = () => {
         </div>
 
         {/* {Button} */}
-      <ButtonRispansive/>
     </div>
   )
 }

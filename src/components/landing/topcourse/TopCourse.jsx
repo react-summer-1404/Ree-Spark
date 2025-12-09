@@ -39,7 +39,7 @@ const TopCourse = () => {
       <div className="mt-12 flex justify-center lg:gap-10 gap-[60px] ">
         {courses.map((item) => (
           <TopCourseBody
-            key={item.id}
+            key={item.courseId}
             courseName={item.title}
             teacherName={item.teacherName}
             coursePrice={item.cost}

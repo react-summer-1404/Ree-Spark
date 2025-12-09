@@ -19,7 +19,7 @@ const CourseStyle = ({
           className={`lg:w-[322px] lg:h-[293px] ${bgcolor} lg:rounded-[32px] lg:relative`}
         >
           <div className="lg:w-[322px] lg:h-[293px] lg:rounded-[105px] ">
-            <img className="lg:w-full lg:h-full lg:rounded-[105px]" src={imageAddress} />
+            <img className="lg:w-full lg:h-full lg:rounded-[105px]" src={imageAddress || null }  />
           </div>
 
           <div className="lg:w-[89px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[151px] lg:rounded-[32px] lg:bg-[#3772FF] lg:py-[2px] lg:px-2">
@@ -37,9 +37,9 @@ const CourseStyle = ({
 
         <div
           dir="rtl"
-          className="lg:absolute lg:w-[66px] lg:h-[20px] lg:mt-[45px]  lg:text-[13px]  lg:font-bold lg:dark:text-white lg:text-[#2F2F2F]"
+          className="lg:absolute lg:w-[76px] lg:h-[20px] lg:mt-[45px]  lg:text-[13px]  lg:font-bold lg:dark:text-white lg:text-[#2F2F2F]"
         >
-          {coursePrice} <div className=" lg:left-[5px] lg:bottom-[1px] lg:absolute">تومان</div>  
+          {coursePrice} <div className=" lg:left-[10px] lg:bottom-[1px] lg:absolute">تومان</div>  
         </div>
 
         <div className="lg:w-[322px] lg:absolute lg:h-[61px] lg:gap-1 lg:ml-[170px] lg:mt-[10px]">

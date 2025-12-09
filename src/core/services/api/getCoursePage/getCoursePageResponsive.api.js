@@ -1,39 +1,43 @@
 import http from "../../.././interceptor/interseptor";
 
-
-const getCoursePageApiResponsive = async ({
-  PageNumber=1,
-  RowsOfPage = 10,
-  SortingCol = "insertDate",
+const GetCoursePageApi = async ({
+  PageNumber = 1,
+  RowsOfPage = 5,
+  SortingCol = "InsertDate",
   SortType = "DESC",
   Query = "",
-  NewsCategoryId = null,
+  TechCount = 0,
+  ListTech = "",
+  courseLevelId = "",
+  TeacherId = "",
+  CostDown,
+  CostUp,
+  EndDate,
+  StartDate,
 }) => {
   try {
-    const data = await http.get("/News", {
+    const data = await http.get("/Home/GetCoursesWithPagination?", {
       params: {
         PageNumber,
         RowsOfPage,
         SortingCol,
         SortType,
         Query,
-        NewsCategoryId,
+        TechCount,
+        ListTech,
+        courseLevelId,
+        TeacherId,
+        CostDown,
+        CostUp,
+        EndDate,
+        StartDate,
       },
     });
+
     return data;
   } catch (error) {
-    console.log("خطا در دریافت دوره",error);
-    throw error;
+    console.log("خطا در دریافت دوره", error);
   }
 };
 
-export  {getCoursePageApiResponsive} ;
-
-
-
-
-
-
-
-
-
+export default GetCoursePageApi;
