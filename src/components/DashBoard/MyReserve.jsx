@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CourseReserve } from "./components/CourseReserve";
 import { Link } from "react-router-dom";
-
+import Loading from "../common/Loading";
+import MyCourseRes from "../../core/services/api/User/MyReserve.api";
+import { FaAngleLeft } from "react-icons/fa6";
 const MyReserve = () => {
+  const [courseReserve, setCourseReserve] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      const data = await MyCourseRes();
+      setCourseReserve(data);
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
   return (
     <div>
       <h5 className="h-5 absolute top-2 left-[603px] font-semibold text-sm">
@@ -23,20 +37,36 @@ const MyReserve = () => {
           وضعیت
         </h6>
       </div>
+
       <div className="w-[95%] mx-auto h-[320px] mt-24 overflow-hidden">
-        <CourseReserve />
-        <CourseReserve />
+        {loading && (
+          <div className="w-full h-full flex items-center justify-center">
+            <Loading />
+          </div>
+        )}
+        {!loading && courseReserve.length === 0 && (
+          <div className="w-full h-full flex items-center justify-center">
+            <h2 className="text-blue-500 dark:text-white text-xl font-bold">رزروی وجود ندارد
+            </h2>
+          </div>
+        )}
+        {!loading && courseReserve.length > 0 && (
+          <>
+            {courseReserve.map((course) => (
+              <div className="w-[95%] mx-auto h-[320px] mt-24 overflow-hidden">
+                <CourseReserve courseName={course.title} />
+              </div>
+            ))}
+          </>
+        )}
       </div>
 
       <div className="w-[106px] h-5 absolute top-2 left-4 flex justify-between">
-        <div className="size-4">
-          <img src="./img/backicon.png" className="w-[10px] h-[10px] mt-1" />
-        </div>
         <Link
-          to={"/Dashboard/MyReserve"}
-          className="h-5 text-[#3772FF] text-sm  text-right leading-5 cursor-pointer "
+          to={"/dashboard/myReserve"}
+          className="h-5 text-[#3772FF] text-sm flex gap-1 text-right leading-4 cursor-pointer"
         >
-          مشاهده بیشتر
+       <FaAngleLeft className="text-blue-500 mt-[2px]"/>   مشاهده بیشتر
         </Link>
       </div>
     </div>

@@ -1,19 +1,21 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import * as yup from "yup";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { BiHomeAlt2 } from "react-icons/bi";
 import { LoginApi } from "../../../core/services/api/Auth/Login.api";
 import toast from "react-hot-toast";
-
+import { FaRegEyeSlash } from "react-icons/fa";
+import { IoEyeOutline } from "react-icons/io5";
 
 const LoginForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const validation = yup.object().shape({
     gmail: yup.string().required("شماره تلفن خود را وارد کنید ⚠️"),
     password: yup.string().required("رمز عبور را وارد کنید ⚠️"),
   });
   const navigate = useNavigate("");
-  const onSubmit = async (values, { setSubmitting}) => {
+  const onSubmit = async (values, { setSubmitting }) => {
     try {
       const { gmail, password } = values;
 
@@ -27,8 +29,12 @@ const LoginForm = () => {
 
       console.log("Login successful:", user, accessToken);
 
-      
-      navigate("/auth/verifyNumber")
+      const twoStepAuth = localStorage.getItem("twoStepAuth") === true;
+      if (twoStepAuth) {
+        navigate("/auth/verifyNumber");
+      } else {
+        navigate("/");
+      }
     } catch (err) {
       console.error("Login failed:", err);
       toast.error("شماره یا رمز عبور اشتباه است ⚠️");
@@ -38,7 +44,7 @@ const LoginForm = () => {
   };
   return (
     <Fragment>
-      <Formik
+      <Formik dir="rtl"
         initialValues={{ gmail: "", password: "" }}
         onSubmit={onSubmit}
         validationSchema={validation}
@@ -60,12 +66,25 @@ const LoginForm = () => {
           <h3 className="w-[134px] h-[23px] absolute top-[380px] right-0 text-[15px] text-right font-medium dark:text-white">
             رمزعبور
           </h3>
-          <Field
-            className="border border-[#DCDCDC] dark:bg-slate-200 text-sm w-full dark:text-black sm:w-4/5 absolute top-[410px] right-0 h-12 rounded-3xl text-right pr-2 outline-blue-600"
-            placeholder="رمزعبور خود را وارد کنید"
-            type="password"
-            name="password"
-          />
+
+          <div dir="rtl" className="absolute top-[410px] right-0 w-full sm:w-4/5">
+            <Field
+              className="border border-[#DCDCDC] dark:bg-slate-200 text-sm w-full dark:text-black h-12 rounded-3xl text-right pr-2 outline-blue-600"
+              placeholder="رمزعبور خود را وارد کنید"
+              type={showPassword ? "text" : "password"}
+              name="password"
+            />
+
+            
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute left-3 top-[14px] text-xs text-[#707070]"
+            >
+              {showPassword ? <FaRegEyeSlash size={20} /> : <IoEyeOutline size={20}/>}
+            </button>
+          </div>
+
           <ErrorMessage
             name="password"
             className="absolute top-[470px] right-[-40px] text-red-600 dark:text-red-400 w-48"
@@ -73,7 +92,6 @@ const LoginForm = () => {
           />
           <button
             type="submit"
-            
             className="w-full sm:w-4/5 h-[48px] shadow-md absolute top-[580px] right-0 rounded-[40px] bg-[#3772FF]  text-center  leading-10 text-[16px] font-medium text-[#FCFCFC]"
           >
             ورود به حساب
