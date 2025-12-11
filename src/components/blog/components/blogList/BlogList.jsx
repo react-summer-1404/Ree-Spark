@@ -3,9 +3,11 @@ import React from "react";
 import {LuEye } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
-const BlogList = ({ BlogName, BlogTeacher, BlogImage, view, BlogAlt }) => {
+const BlogList = ({ BlogName, BlogTeacher, BlogImage, view, BlogAlt, Id }) => {
   return (
-    <Link to='/BlogDetail'>
+    <Link 
+      to={`BlogDetail/${Id}`}
+    >
       <div className=" w-full sm:w-[499px] h-[365px] flex flex-col gap-3">
         {/* blog image */}
         <div

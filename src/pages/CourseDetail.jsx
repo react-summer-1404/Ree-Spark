@@ -4,13 +4,24 @@ import Leftinformtion from "../components/CourseDetail/Header/informtion/Lefinfo
 import CourseDiscription from "../components/CourseDetail/courseDiscription/CourseDiscription";
 import CourseComment from "../components/CourseDetail/CourseComment/CourseComment";
 import CourseRelated from "../components/CourseDetail/courseDiscription/CourseRelated/CourseRelated";
-import { useLocation} from "react-router-dom";
+import getCourseDetatilapi from "../core/services/api/CourseDetail.api/getCourseDetatil.api";
+import { useParams } from "react-router-dom";
+import Loading from "../components/common/Loading";
 
 const CourseDetail = () => {
-  const location = useLocation();
-  const courseData = location.state;
+  const [courseData, setCourseData] = useState(null);
+  const { CourseId } = useParams();
 
-  return (
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getCourseDetatilapi(CourseId);
+      console.log("CourseId from params:", CourseId);
+      setCourseData(data);
+    };
+    fetchData();
+  }, [CourseId]);
+
+  return courseData ? (
     <div className="sm:mt-16 mt-5 mb-10 mr-2 ml-2 flex flex-wrap gap-y-10 md:gap-y-16 justify-center">
       {/* CourseDetail informtion and image///// */}
       <div
@@ -21,12 +32,14 @@ const CourseDetail = () => {
         <ImageCourse courseData={courseData} />
       </div>
       {/* course discription // */}
-      <CourseDiscription />
+      <CourseDiscription courseData={courseData} />
       {/* Commentns from students // */}
       <CourseComment />
       {/* Related courses */}
       <CourseRelated />
     </div>
+  ) : (
+      <Loading/>
   );
 };
 

@@ -41,11 +41,11 @@ const Routes = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: "/", element: <Landing /> },
-      { path: "courseDetail", element: <CourseDetail /> },
+      { path: "course/:CourseId", element: <CourseDetail /> },
       { path: "Courses", element: <Course /> },
       { path: "Blog", element: <Blog /> },
 
-      { path: "BlogDetail", element: <BlogDetail /> },
+      { path: "BlogDetail/:Id", element: <BlogDetail /> },
       { path: "Loading", element: <Loading /> },
     ],
   },
