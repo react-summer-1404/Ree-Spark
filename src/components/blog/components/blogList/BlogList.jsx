@@ -36,15 +36,9 @@ const BlogList = ({
           className={`h-[293px] rounded-[32px] transition-all duration-300 hover:shadow-xl bg-gradient-to-tr from-blue-500 to-purple-600 shadow-lg flex justify-center items-center `}
         >
           <img
-<<<<<<< HEAD
-            src={BlogImage || null}
-            alt={BlogAlt || null}
-            className="container rounded-3xl"
-=======
             src={BlogImage ? BlogImage : "/AuthImage/react.png" }
             alt={BlogAlt}
             className="w-full h-full rounded-3xl"
->>>>>>> 185ee2a97290fa4cc3af9c9c15d552786422a9b2
           />
           
         </div>
