@@ -4,6 +4,7 @@ import { CourseStatus } from "../components/MyCourse/CourseStatus";
 import { LuCalendarRange } from "react-icons/lu";
 import FavoriteCourseApi from "../core/services/api/User/FavoriteCourse.api";
 import Loading from "../components/common/Loading";
+import moment from "moment-jalaali";
 
 const FavoriteCourse = () => {
   const [FavoriteCourse, setFavoriteCourse] = useState([]);
@@ -18,6 +19,7 @@ const FavoriteCourse = () => {
 
     fetchData();
   }, []);
+  moment.loadPersian({ dialect: "persian-modern" });
   return (
     <div>
       <h1 className="h-9 absolute top-[96px] left-[911px] text-2xl font-bold ">
@@ -84,8 +86,12 @@ const FavoriteCourse = () => {
                 MyCourseName={course.courseTitle}
                 MyCoursePublisher={course.teacheName}
                 MyCourseLevel="hard"
-                MyCourseBg="bg-[#FFE1FE]"
+                MyCourseBg={"bg-[#FFE1FE]"}
                 ImageAddress={course.imageAddress}
+                startDate={moment(course.course.startTime).format(
+                  "jYYYY jMMMM jDD"
+                )}
+                endDate={moment(course.course.endTime).format("jYYYY jMMMM jDD")}
               />
             ))}
           </>

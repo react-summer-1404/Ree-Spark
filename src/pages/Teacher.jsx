@@ -33,8 +33,8 @@ const Teacher = () => {
 
       {!loading && teacher.length === 0 && (
         <div className="w-full h-full flex items-center justify-center">
-          <h2 className="text-blue-500 dark:text-white text-xl font-bold">
-            رزروی وجود ندارد
+          <h2 className="text-red-500 dark:text-white text-xl font-bold">
+            خطا در برقراری ارتباط
           </h2>
         </div>
       )}
