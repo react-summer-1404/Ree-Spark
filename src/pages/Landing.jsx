@@ -5,10 +5,11 @@ import HeroSection from "../components/landing/lanBody/HeroSection";
 import LandingServices from "../components/landing/lanBody/LandingService";
 
 import { TopCourse } from "../components/landing/topcourse/TopCourse";
-import HeroImage from "../components/landing/lanBody/HeroImage";
+
 import TopBlogs from "../components/landing/lanBody/TopBlog/TopBlogs";
 import { Teacher } from "../components/landing/lanBody/Teacher";
 import { WelcomeScreen } from "../components/wellcome/WelcomeScreen";
+import HeroImage from "../components/landing/lanBody/HeroImageAndBorder/HeroImage";
 
 const Landing = () => {
   const [showWelcome, setShowWelcome] = useState(false);
@@ -45,7 +46,7 @@ const Landing = () => {
       </AnimatePresence>
 
       {showLanding && (
-        <div className="lg:overflow-x-hidden mx-auto px-4 lg:h-[3300px] lg:w-[1440px] overflow-x-hidden w-[393px] h-[7038px] font-Isans relative lg:relative dark:text-white">
+        <div className="lg:overflow-x-hidden mx-auto px-4 lg:h-[3500px] lg:w-[1440px] overflow-x-hidden w-[393px] h-[7038px] font-Isans relative lg:relative dark:text-white">
           <div className="flex flex-col">
             <LandingServices />
             <HeroSection />
