@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import { getItem, removeItem } from "../services/storage/storage.api";
+import toast from "react-hot-toast";
 
 const baseURL = import.meta.env.VITE_BASE_URL;
 
@@ -11,11 +12,9 @@ const http = axios.create({
 const onSuccess = (response) => {
   console.log("interceptor", response);
   if (response.data.success != undefined && !response.data.success) {
-    console.log("toast error");
-    // toast(response.data.message);
+    toast.error(response.data.message);
   } else if (response.data.success != undefined && response.data.success) {
-    console.log("toast info");
-    // toast(response.data.message);
+    toast(response.data.message);
   }
   return response.data;
 };

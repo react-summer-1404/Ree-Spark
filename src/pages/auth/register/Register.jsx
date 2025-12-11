@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { BiHomeAlt2 } from "react-icons/bi";
 import toast from "react-hot-toast";
-import RegisterOneStepApi from "../../core/services/api/Auth/register/RegisterStepOne.api";
+import RegisterOneStepApi from "../../../core/services/api/Auth/register/RegisterStepOne.api";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const Register = () => {
       const response = await RegisterOneStepApi({
         gmail: values.gmail,
       });
-      
+
       if (response?.success) {
         toast.success("ایمیل با موفقیت ارسال شد");
         navigate("/auth/SendCode");
@@ -97,7 +97,13 @@ const Register = () => {
             >
               {isSubmitting ? "در حال ارسال..." : "ارسال کد تایید"}
             </button>
-            <div className="absolute top-[480px] right-0 w-full sm:w-4/5 h-10 flex">
+            <div className=" justify-center gap-2 absolute top-[500px] sm:top-[440px] right-0 w-full sm:w-4/5  flex">
+              <Link to="/auth/login" className="text-base text-[#3772FF]">
+                ورود به حساب کاربری
+              </Link>
+              <span className="text-base">حساب کاربری دارید؟</span>
+            </div>
+            <div className="absolute top-[550px] right-0 w-full sm:w-4/5 h-10 sm:top-[480px] flex">
               {" "}
               <Link
                 to={"/"}

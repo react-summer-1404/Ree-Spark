@@ -3,18 +3,48 @@ import React from "react";
 import { LuCalendarRange, LuEye } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
-const BlogList = ({ BlogName, BlogTeacher, BlogImage, view, BlogAlt ,date}) => {
+
+
+const BlogList = ({
+  BlogName,
+  BlogTeacher,
+  BlogImage,
+  view,
+  BlogAlt,
+  date,
+  id
+}) => {
+
+
+
   return (
-    <Link to="/BlogDetail">
+    <Link
+      to={`/Blog/${id}`}
+      state={{
+        id,
+        BlogName,
+        BlogTeacher,
+        BlogImage,
+        view,
+        BlogAlt,
+        date
+      }}
+    >
       <div className=" w-full sm:w-[499px] h-[365px] flex flex-col gap-3">
         {/* blog image */}
         <div
-          className={`h-[293px] rounded-[32px] flex justify-center items-center shadow-sm `}
+          className={`h-[293px] rounded-[32px] transition-all duration-300 hover:shadow-xl bg-gradient-to-tr from-blue-500 to-purple-600 shadow-lg flex justify-center items-center `}
         >
           <img
+<<<<<<< HEAD
             src={BlogImage || null}
             alt={BlogAlt || null}
             className="container rounded-3xl"
+=======
+            src={BlogImage ? BlogImage : "/AuthImage/react.png" }
+            alt={BlogAlt}
+            className="w-full h-full rounded-3xl"
+>>>>>>> 185ee2a97290fa4cc3af9c9c15d552786422a9b2
           />
           
         </div>
@@ -29,7 +59,10 @@ const BlogList = ({ BlogName, BlogTeacher, BlogImage, view, BlogAlt ,date}) => {
               <span className="dark:text-slate-400 text-[#707070] text-sm">
                 {view}
               </span>
-              <LuCalendarRange size={20} className="dark:text-slate-400 text-[#707070]"/>
+              <LuCalendarRange
+                size={20}
+                className="dark:text-slate-400 text-[#707070]"
+              />
               <span className="dark:text-slate-400 text-[#707070] text-sm">
                 {date}
               </span>

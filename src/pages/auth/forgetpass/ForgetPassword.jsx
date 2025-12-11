@@ -3,6 +3,9 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { HiOutlineChevronLeft } from "react-icons/hi";
+import toast from "react-hot-toast";
+import ForgetPasswordApi from "../../../core/services/api/Auth/forgetPassword/ForgetPassword.api";
+
 const ForgetPassword = () => {
   const validation = yup.object().shape({
     Email: yup
@@ -11,10 +14,20 @@ const ForgetPassword = () => {
       .required("لطفا ایمیل خود را وارد کنید ⚠️"),
   });
   const navigate = useNavigate();
-  const onSubmit = (event) => {
-    console.log("form submit=", event);
-    navigate("/auth/NewPassword");
-  };
+const onSubmit = async (values) => {
+  try {
+    const res = await ForgetPasswordApi(values.Email);
+    if (res.success) {
+      toast.success("لینک بازیابی رمز عبور ارسال شد ");
+      navigate("/auth/NewPassword");
+    } else {
+      toast.error(res.message || "ارسال لینک با خطا مواجه شد ");
+    }
+  } catch (error) {
+    toast.error("خطا در ارتباط با سرور ");
+    throw error;
+  }
+};
   return (
     <div className="relative">
       <div className="flex justify-center gap-2 sm:gap-0 sm:justify-evenly flex-col-reverse sm:flex-row">
@@ -61,7 +74,6 @@ const ForgetPassword = () => {
             component={"span"}
           />
           <button
-            onClick={navigate}
             type="submit"
             className="w-full sm:w-4/5 h-[48px] absolute top-[380px] right-0 rounded-[40px] bg-[#3772FF]  text-center  leading-10 text-[16px] font-medium text-[#FCFCFC]"
           >

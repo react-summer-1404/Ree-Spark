@@ -21,7 +21,12 @@ const BlogBody = () => {
 
   const rowsPerPage = 6;
 
+<<<<<<< HEAD
   const GetNews = async () => {
+=======
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const GetNews = async (page = 1, search = "", sorting = sortType) => {
+>>>>>>> 185ee2a97290fa4cc3af9c9c15d552786422a9b2
     try {
 
         const res = await GetNewsApi({
@@ -44,8 +49,13 @@ const BlogBody = () => {
   };
 
   useEffect(() => {
+<<<<<<< HEAD
     GetNews();
   }, [currentPage, query, sortType, sortingCol, selectedCategory]);
+=======
+    GetNews(currentPage, query, sortType);
+  }, [GetNews, currentPage, query, sortType]);
+>>>>>>> 185ee2a97290fa4cc3af9c9c15d552786422a9b2
 
   const dibounce = useCallback(
     debounce((value) => {
@@ -87,6 +97,7 @@ const BlogBody = () => {
           newsList.map((item) => (
             <BlogList
               key={item.id}
+              id={item.id}
               BlogName={item.title}
               BlogTeacher={item.addUserFullName}
               BlogImage={item.currentImageAddress}
