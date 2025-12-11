@@ -1,13 +1,13 @@
 import http from "../../../interceptor/interseptor";
 
 
-const GetCategoryApi = async () => {
+const GetCategoryApi = async (Id) => {
   try {
-    const response = await http.get("/NewsCategory/GetAll");
-    return response; // فرض می‌کنیم سرور لیست دسته‌ها رو داخل data برمی‌گردونه
+const res = await http.get("/News/GetListNewsCategory")
+   return res || [];
   } catch (error) {
-    console.error("خطا در گرفتن دسته‌ها:", error);
-    return [];
+    console.log("خطا در دریافت کتگوری",error);
+    throw error;
   }
 };
 

@@ -12,10 +12,11 @@ const BlogList = ({ BlogName, BlogTeacher, BlogImage, view, BlogAlt ,date}) => {
           className={`h-[293px] rounded-[32px] flex justify-center items-center shadow-sm `}
         >
           <img
-            src={BlogImage}
-            alt={BlogAlt}
+            src={BlogImage || null}
+            alt={BlogAlt || null}
             className="container rounded-3xl"
           />
+          
         </div>
         {/* blog description */}
         <div className="h-[69px] flex flex-col gap-2 ">
