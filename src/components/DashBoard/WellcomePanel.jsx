@@ -24,29 +24,28 @@ const WellcomePanel = ({ profile }) => {
 
     return () => clearInterval(interval);
   }, []);
-    useEffect(() => {
+  useEffect(() => {
     const updateDate = () => {
-      
       const now = new Date().toLocaleString("en-US", {
         timeZone: "Asia/Tehran",
       });
-
-      const iranDate = moment(now).format("jYYYY/jMM/jDD");
+      moment.loadPersian({ dialect: "persian-modern" });
+      const iranDate = moment(now).format("jYYYY jMMMM jDD");
       setDate(iranDate);
     };
 
-    updateDate(); 
-    const interval = setInterval(updateDate, 60000); 
+    updateDate();
+    const interval = setInterval(updateDate, 60000);
 
     return () => clearInterval(interval);
   }, []);
   return (
     <div>
       <div className="w-[424px] h-[69px] absolute top-[115px] left-[48px] font-medium text-right">
-        هستم . این هم بیوگرافی من هست {profile.fName} سلام من
+        {profile.userAbout ? "سلام این بیوگرافی من هست و الان این قسمت خالی میباشد" : ""}
       </div>
-      <h2 className="h-[34px] absolute top-[96px] left-[857px] text-2xl font-bold">
-        سلام ، روزت بخیر {profile.fName}
+      <h2 dir="rtl" className="h-[34px] absolute top-[96px] left-[857px] text-2xl font-bold">
+    سلام {profile.fName} روزت بخیر 
       </h2>
       <h6 className="h-5 absolute top-[106px] left-[627px] text-sm text-[#707070] dark:text-gray-300 font-medium">
         امیدوارم امروز روز خوبی رو داشته باشید
@@ -65,9 +64,9 @@ const WellcomePanel = ({ profile }) => {
       <div className=" flex gap-1 w-[175px] justify-between h-[45px] absolute top-[140px] left-[800px]">
         <div className=" w-[120px] h-11 flex flex-col ">
           <span className="text-[#707070] dark:text-slate-200 text-sm text-right">
-تاریخ
+            تاریخ
           </span>
-          <div className="text-base text-right mr-10 w-[120px]">{date}</div>
+          <div dir="rtl" className="text-base text-right mr-10 w-[120px]">{date}</div>
         </div>
         <div className="w-10 h-10 bg-[#f1f1f1] rounded-full dark:bg-slate-500">
           <LuCalendarRange size={25} className="mx-auto mt-2" />

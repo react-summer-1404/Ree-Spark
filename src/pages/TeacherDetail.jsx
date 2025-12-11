@@ -67,7 +67,7 @@ const TeacherDetail = () => {
       </div>
 
       {/* Courses */}
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div dir="rtl" className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
         {data.courses && data.courses.length > 0 ? (
           data.courses.map((course) => (
             <div
@@ -82,7 +82,7 @@ const TeacherDetail = () => {
 
               <h3 className="text-lg font-semibold">{course.title}</h3>
               <p className="text-gray-500 text-sm">{course.miniDescribe}</p>
-              <div className="text-gray-400 text-xs">Course ID: {course.courseId}</div>
+              <div className="text-gray-400 text-xs">  ایدی کورس:{course.courseId}</div>
             </div>
           ))
         ) : (

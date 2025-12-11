@@ -53,7 +53,7 @@ const CourseBody = () => {
                 courseName={item.title}
                 teacherName={item.addUserFullName}
                 imageAddress={item.currentImageAddress}
-                bgcolor="bg-black"
+                bgcolor="bg-gradient-to-tr from-blue-500 to-purple-600"
                 coursePrice="1000تومان"
                 coding="started"
                 level="hard" 

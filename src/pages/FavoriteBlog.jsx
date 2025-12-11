@@ -64,32 +64,34 @@ const FavoriteBlog = () => {
             سطح
           </h5>
         </div>
-        {loading && (
-          <div className="w-full h-full flex items-center justify-center">
-            <Loading />
-          </div>
-        )}
-        {!loading && favoriteNews.length === 0 && (
+        <div className="mt-16 flex flex-col gap-2">
+          {loading && (
+            <div className="w-full h-full flex items-center justify-center">
+              <Loading />
+            </div>
+          )}
+          {!loading && favoriteNews.length === 0 && (
           <div className="w-full h-full flex items-center justify-center">
             <h2 className="text-blue-500 dark:text-white text-xl font-bold">
               موردی وجود ندارد
             </h2>
           </div>
-        )}
-        {!loading && favoriteNews.length > 0 && (
-          <>
-            {favoriteNews.map((item) => (
-              <BlogStatus
-                key={item.id}
-                MyCourseName={item.title}
-                MyCoursePublisher={item.auther}
-                MyCourseLevel="پیشرفته"
-                ImageAddress={item.currentImageAddressTumb}
-                bgColor={"bg-[#FFE1FE]"}
-              />
-            ))}
-          </>
-        )}
+          )}
+          {!loading && favoriteNews.length > 0 && (
+            <>
+              {favoriteNews.map((item) => (
+                <BlogStatus
+                  key={item.id}
+                  MyCourseName={item.title}
+                  MyCoursePublisher={item.auther}
+                  MyCourseLevel="پیشرفته"
+                  ImageAddress={item.currentImageAddressTumb}
+                  
+                />
+              ))}
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
