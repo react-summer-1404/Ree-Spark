@@ -9,10 +9,10 @@ import HisMobile from './BlogHistory/HistoryMobile'
 import StarMobile from './BlogStar/StarMobile'
 import LikeActionAndFavMobile from './LikeAndDisLikeAndFav/LikeActionAndFav/LikeActionAndFavMobile'
 
-const Informtion = () => {
+const Informtion = ({response}) => {
   return (
      <div className="flex flex-wrap w-full lg:w-[60%] gap-4 justify-center  mt-4 ">
-              <Title />
+              <Title response={response} />
               
               {/* BlogSituation */}
               <BlogSituation />

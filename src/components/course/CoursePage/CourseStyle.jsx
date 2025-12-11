@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 const CourseStyle = ({
+  CourseId,
   courseName,
   teacherName,
   level,
@@ -8,11 +9,10 @@ const CourseStyle = ({
   bgcolor,
   coursePrice,
   coding,
-  id
 }) => {
   return (
     <Link
-      to={`/courseDetail/${id}`}
+      to={`/course/${CourseId}`}
       className=" w-[322px] h-[366px]"
 
       state={{

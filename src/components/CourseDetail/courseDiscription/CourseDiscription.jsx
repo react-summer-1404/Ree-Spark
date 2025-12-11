@@ -3,11 +3,12 @@ import Title from "./Title";
 import Discription from "./Discription";
 import StarAndcopyLink from "./StarAndCopyLink/StarAndcopyLink";
 
-const CourseDiscription = () => {
+const CourseDiscription = ({ courseData }) => {
+ 
   return (
-    <div className="text-right flex flex-wrap dark:text-white justify-end gap-7">
+    <div className="text-right flex w-full flex-wrap dark:text-white justify-end gap-7">
       <Title />
-      <Discription />
+      <Discription courseData={courseData} />
       {/* courseStar and copycourseLink */}
       <StarAndcopyLink />
     </div>

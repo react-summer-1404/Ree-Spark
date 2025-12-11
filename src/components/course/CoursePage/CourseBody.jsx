@@ -49,7 +49,7 @@ const CourseBody = () => {
             Course.map((item) => (
               <CourseStyle
                 key={item.id}
-                id={item.id}
+                CourseId={item.id}
                 courseName={item.title}
                 teacherName={item.addUserFullName}
                 imageAddress={item.currentImageAddress}
@@ -73,6 +73,7 @@ const CourseBody = () => {
             Course.map((item) => (
               <MobileCourseStyle
                 key={item.id}
+                courseId={item.id}
                 courseName={item.title}
                 teacherName={item.addUserFullName}
                 imageAddress={item.currentImageAddress}
