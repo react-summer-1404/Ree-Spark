@@ -27,8 +27,7 @@ const Situation = ({courseData}) => {
         <div className="w-full justify-end flex ">
 
           <div className="sm:w-[69px] w-[60px] h-[27px] text-[13px] sm:text-[16px] flex justify-center items-center rounded-[32px] bg-[#FF37F5] ">
-           {courseData.level}
-
+           {courseData.courseLevelName}
           </div>
         </div>
       </div>
@@ -39,7 +38,6 @@ const Situation = ({courseData}) => {
         </div>
         <div className=" flex w-full justify-end">
           <div className="sm:w-[99px] w-[80px] h-[27px] sm:text-[16px] text-[13px] flex items-center rounded-[32px] bg-[#3772FF] justify-center">
-            29اردیبهشت
           </div>
         </div>
       </div>
@@ -49,8 +47,9 @@ const Situation = ({courseData}) => {
           <div className="w-full text-right">وضعیت</div>
         </div>
         <div className="w-full flex justify-end">
-          <div className="sm:w-[101px] w-[80px] text-white text-[13px] sm:text-[16px] h-[27px] flex justify-center items-center rounded-[32px] bg-[#FF5353] ] ">
-       {course.coding}    
+
+          <div className="sm:w-[101px] w-[80px] text-[13px] sm:text-[16px] h-[27px] flex justify-center items-center rounded-[32px] bg-[#FF5353] ] ">
+            {courseData.courseStatusName} 
           </div>
         </div>
       </div>

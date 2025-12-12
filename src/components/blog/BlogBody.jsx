@@ -20,7 +20,14 @@ const BlogBody = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
 
   const rowsPerPage = 6;
+<<<<<<< HEAD
   const GetNews = async () => {
+=======
+
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const GetNews = async (page = 1, search = "", sorting = sortType) => {
+>>>>>>> 5c6d600af92b47e86d4f9dd9e0200bf84865f4d3
     try {
 
         const res = await GetNewsApi({
@@ -87,7 +94,7 @@ const BlogBody = () => {
           newsList.map((item) => (
             <BlogList
               key={item.id}
-              id={item.id}
+              Id={item.id}
               BlogName={item.title}
               BlogTeacher={item.addUserFullName}
               BlogImage={item.currentImageAddress}

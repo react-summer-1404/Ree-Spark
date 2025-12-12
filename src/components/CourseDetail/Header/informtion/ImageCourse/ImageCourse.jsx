@@ -1,5 +1,4 @@
 import React from "react";
-// import jsImage from "../../src/assets/image/LayoutImage/jsImage.svg";
 
 
 const ImageCourse = ({ courseData }) => {

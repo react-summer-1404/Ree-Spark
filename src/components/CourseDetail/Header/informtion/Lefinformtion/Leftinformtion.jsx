@@ -18,10 +18,10 @@ const Leftinformtion = ({ courseData}) => {
       <Situation courseData={courseData} />
       <SituationMobile courseData={courseData} />
       {/* history course and like&dislike course/// */}
-      <CourseHistory />
+      <CourseHistory courseData={courseData} />
       <CourseHisMobile />
       {/* score and price// */}
-      <StarAndPrice />
+      <StarAndPrice courseData={courseData} />
       <StarAndPriceMobile />
       {/* Reservations and Favorites and likeDislike */}
       <FavAndResAndLike />

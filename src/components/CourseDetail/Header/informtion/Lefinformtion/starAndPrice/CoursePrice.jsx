@@ -2,8 +2,7 @@ import React from "react";
 import {addCommas} from 'persian-tools'
 
 
-const CoursePrice = ({CoursePrice}) => {
-
+const CoursePrice = ({cost}) => {
   return (
     <div
       className="dark:text-white 
@@ -13,9 +12,8 @@ const CoursePrice = ({CoursePrice}) => {
     >
       <div className="flex gap-1 justify-center ">
 
-        <span>{addCommas(CoursePrice)} </span>
         <p className="mt-1 h-[25px] text-[18px] font-thin">تومان</p>
-
+        <span>{addCommas(cost)} </span>
       </div>
     </div>
   );
