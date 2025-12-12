@@ -63,9 +63,8 @@ const PageInationCourses = ({ currentPage, totalPages, onPageChange }) => {
     </div>
   );
 };
-<<<<<<< HEAD:src/components/course/CoursePage/PageInationCousrses.jsx
-export default PageInationCourses;
-=======
 
-export default PageInationBlog;
->>>>>>> 185ee2a97290fa4cc3af9c9c15d552786422a9b2:src/components/course/CoursePage/PageInationBlog.jsx
+export default PageInationCourses;
+
+
+

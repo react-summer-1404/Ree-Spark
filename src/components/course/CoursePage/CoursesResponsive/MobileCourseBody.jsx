@@ -196,13 +196,7 @@ const MobileCourseBody = () => {
       </div>
 
       {/* {Page} */}
-      <div className="flex justify-center relative left-[683px] bottom-[1710px] xl:hidden lg:hidden">
-        <PageInationCourses
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-        />
-      </div>
+     
     </>
   );
 };

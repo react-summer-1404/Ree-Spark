@@ -19,7 +19,7 @@ const CourseStyle = ({
           className={`lg:w-[322px] lg:h-[293px] ${bgcolor} lg:rounded-[32px] lg:relative`}
         >
           <div className="lg:w-[322px] lg:h-[293px] lg:rounded-[105px] ">
-            <img className="lg:w-full lg:h-full lg:rounded-[105px]" src={imageAddress || null }  />
+            <img className="lg:w-full lg:h-full lg:rounded-[105px]" src={imageAddress ? imageAddress : "../../../../../public/AuthImage/react.png" }  />
           </div>
 
           <div className="lg:w-[89px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[151px] lg:rounded-[32px] lg:bg-[#3772FF] lg:py-[2px] lg:px-2">
@@ -29,7 +29,7 @@ const CourseStyle = ({
           </div>
 
           <div className="lg:w-[62px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[244px] lg:rounded-[32px] lg:bg-[#FF37F5] lg:py-[2px] lg:px-2">
-            <h5 className="lg:w-[46px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:font-medium lg:absolute lg:left-[18px] lg:text-[#FCFCFC]">
+            <h5 dir="rtl" className="lg:w-[40px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:font-medium lg:absolute lg:left-[8px] lg:text-[#FCFCFC] truncate">
               {level}
             </h5>
           </div>
