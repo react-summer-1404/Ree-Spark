@@ -14,10 +14,6 @@ const BlogList = ({ BlogName, BlogTeacher, BlogImage, view, BlogAlt, Id }) => {
           className={`h-[293px] rounded-[32px] transition-all duration-300 hover:shadow-xl bg-gradient-to-tr from-blue-500 to-purple-600 shadow-lg flex justify-center items-center `}
         >
           <img
-<<<<<<< HEAD
-=======
-
->>>>>>> 5c6d600af92b47e86d4f9dd9e0200bf84865f4d3
             src={BlogImage ? BlogImage : "/AuthImage/react.png" }
             alt={BlogAlt}
             className="w-full h-full rounded-3xl"
@@ -40,7 +36,7 @@ const BlogList = ({ BlogName, BlogTeacher, BlogImage, view, BlogAlt, Id }) => {
                 className="dark:text-slate-400 text-[#707070]"
               />
               <span className="dark:text-slate-400 text-[#707070] text-sm">
-                {date}
+                {view}
               </span>
             </div>
             <span className="text-[13px] text-[#707070] text-right dark:text-slate-300">

@@ -29,13 +29,8 @@
     "react-dom": "^19.1.1",
     "react-hot-toast": "^2.6.0",
     "react-icons": "^5.5.0",
-<<<<<<< HEAD
     "react-leaflet": "^5.0.0",
     "react-multi-date-picker": "^4.5.2",
-=======
-    "react-multi-date-picker": "^4.5.2",
-    "react-leaflet": "^5.0.0",
->>>>>>> 5c6d600af92b47e86d4f9dd9e0200bf84865f4d3
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.9.4",
     "react-scroll-wheel-handler": "^2.2.0",
