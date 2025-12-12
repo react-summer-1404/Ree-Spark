@@ -1,42 +1,51 @@
-
-
+/* eslint-disable no-unused-vars */
+import { motion } from "framer-motion";
 const ReserveStatus = ({
   title,
   AcceptReserve,
   ReserveImg,
-  reserveBg,
-  AcceptBg,MyReservePublisher
+  startDate,
+  AcceptBg,
+  MyReservePublisher,
+  endDate,
 }) => {
   return (
-    <div>
-      <div className="h-16 flex relative">
+    <motion.div
+      dir="rtl"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+    >
+      <div className="h-16 flex flex-col relative">
         <div
-          className={`w-[83px] h-[52px] rounded-xl ${reserveBg} absolute top-[72px] left-[971px]`}
+          className={`w-[83px] h-[52px] rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg  absolute left-[971px]`}
         >
-          <img
-            src={`./images/${ReserveImg}.png`}
-            className="size-[33px] mx-auto mt-2"
-          />
+          <img src={ReserveImg} className="w-full h-full mx-auto rounded-xl" />
         </div>
-        <h3 className="h-[23px] absolute top-[86px] left-[869px] font-bold">
+        <h3 className="h-[23px] absolute mt-3 left-[869px] font-bold">
           {title}
         </h3>
-        <h3 className="h-[20px] absolute top-[86px] left-[620px] font-semibold text-sm">
+        <h3 className="h-[20px] absolute mt-3 left-[620px] font-semibold text-sm">
           {MyReservePublisher}
         </h3>
-        <h3 className="h-[20px] absolute top-[86px] left-[447px] font-semibold text-sm">
-          29 اردیبهشت 1403
+        <h3
+          dir="rtl"
+          className="h-[20px] absolute mt-3 left-[467px] font-semibold text-sm"
+        >
+          {startDate}
         </h3>
-        <h3 className="h-[20px] absolute top-[86px] left-[274px] font-semibold text-sm">
-          29 اردیبهشت 1403
+        <h3
+          dir="rtl"
+          className="h-[20px] absolute mt-3 left-[294px] font-semibold text-sm"
+        >
+          {endDate}
         </h3>
         <div
-          className={`h-6 absolute top-[85px] left-[144px] ${AcceptBg} rounded-[32px] py-[2px] px-2 text-white text-sm`}
+          className={`h-6 absolute mt-3 left-[144px] ${AcceptBg} rounded-[32px] py-[2px] px-2 text-white text-sm`}
         >
           {AcceptReserve}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

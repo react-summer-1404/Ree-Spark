@@ -28,6 +28,7 @@ import Information from "../../pages/profile/Information";
 import Picture from "../../pages/profile/Picture";
 import Links from "../../pages/profile/Links";
 import MapSelector from "../../pages/profile/Location";
+import { Notification } from "../../pages/notification";
 
 
 const Routes = createBrowserRouter([
@@ -72,6 +73,7 @@ const Routes = createBrowserRouter([
       { path: "MyReserve", element: <MyReserve /> },
       { path: "FavoriteCourse", element: <FavoriteCourse /> },
       { path: "FavoriteBlog", element: <FavoriteBlog /> },
+      { path: "notification", element: <Notification /> },
       {
         path: "profile",
         element: <Profile />,

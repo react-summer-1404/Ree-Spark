@@ -1,9 +1,13 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
-
+import { motion } from "framer-motion";
 
 const CourseStatus = ({MyCourseName , MyCoursePublisher , MyCourseLevel  , ImageAddress , startDate , endDate}) => {
   return (
-    <div dir="rtl" className="h-16 flex relative ">
+    <motion.div
+      dir="rtl"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }} className="h-16 flex relative ">
       <div className={`w-[83px] h-[52px] rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg  absolute top-[72px] left-[971px]`}>
         <img src={ImageAddress} className="w-[100%] h-[100%] rounded-xl" />
       </div>
@@ -22,7 +26,7 @@ const CourseStatus = ({MyCourseName , MyCoursePublisher , MyCourseLevel  , Image
       <div className="h-6 absolute top-[85px] left-[164px] bg-[#FF37F5] rounded-[32px] py-[2px] px-2 text-white text-sm">
         {MyCourseLevel}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

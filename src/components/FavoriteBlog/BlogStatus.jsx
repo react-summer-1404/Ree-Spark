@@ -7,11 +7,15 @@ const BlogStatus = ({
   MyCoursePublisher,
   MyCourseLevel,
   ImageAddress,
-
 }) => {
   const [showModal, setShowModal] = useState(false);
   return (
-    <div dir="rtl" className="h-16 flex flex-col relative">
+    <motion.div
+      dir="rtl"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="h-16 flex flex-col relative"
+    >
       <div
         className={`w-[83px] h-[52px] rounded-xl  bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg absolute  left-[971px]`}
       >
@@ -59,13 +63,10 @@ const BlogStatus = ({
               onClick={(e) => e.stopPropagation()}
             >
               <h2 className="text-lg font-semibold text-gray-800 mb-4">
-             آیا میخوای بلاگ رو حذف کنی؟
+                آیا میخوای بلاگ رو حذف کنی؟
               </h2>
               <div className="flex justify-center gap-4 mt-4">
-                <button
-                  
-                  className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-all"
-                >
+                <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-all">
                   بله
                 </button>
                 <button
@@ -79,7 +80,7 @@ const BlogStatus = ({
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 };
 

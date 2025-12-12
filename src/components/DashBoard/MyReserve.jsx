@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Loading from "../common/Loading";
 import MyCourseRes from "../../core/services/api/User/MyReserve.api";
 import { FaAngleLeft } from "react-icons/fa6";
+import moment from "moment-jalaali";
 const MyReserve = () => {
   const [courseReserve, setCourseReserve] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,7 +39,7 @@ const MyReserve = () => {
         </h6>
       </div>
 
-      <div className="w-[95%] mx-auto h-[320px] mt-24 overflow-hidden">
+      <div className="w-[95%] mx-auto h-[320px] mt-24 ">
         {loading && (
           <div className="w-full h-full flex items-center justify-center">
             <Loading />
@@ -46,15 +47,25 @@ const MyReserve = () => {
         )}
         {!loading && courseReserve.length === 0 && (
           <div className="w-full h-full flex items-center justify-center">
-            <h2 className="text-blue-500 dark:text-white text-xl font-bold">رزروی وجود ندارد
+            <h2 className="text-blue-500 dark:text-white text-xl font-bold">
+              رزروی وجود ندارد
             </h2>
           </div>
         )}
         {!loading && courseReserve.length > 0 && (
           <>
             {courseReserve.map((course) => (
-              <div className="w-[95%] mx-auto h-[320px] mt-24 overflow-hidden">
-                <CourseReserve courseName={course.title} />
+              <div className="w-[95%] mx-auto">
+                <CourseReserve
+                  key={course.id}
+                  title={course.courseName}
+                  MyReservePublisher={course.teacher}
+                  startDate={moment(course.startDate).format("jYYYY jMMMM jDD")}
+                  endDate={moment(course.endDate).format("jYYYY jMMMM jDD")}
+                  AcceptReserve={course.accept ? "تایید شده" : "تایید نشده"}
+                  ReserveImg={course.image}
+                  AcceptBg={course.accept ? "bg-[#3772FF]" : "bg-red-500"}
+                />
               </div>
             ))}
           </>
@@ -66,7 +77,7 @@ const MyReserve = () => {
           to={"/dashboard/myReserve"}
           className="h-5 text-[#3772FF] text-sm flex gap-1 text-right leading-4 cursor-pointer"
         >
-       <FaAngleLeft className="text-blue-500 mt-[2px]"/>   مشاهده بیشتر
+          <FaAngleLeft className="text-blue-500 mt-[2px]" /> مشاهده بیشتر
         </Link>
       </div>
     </div>
