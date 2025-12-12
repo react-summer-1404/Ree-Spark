@@ -3,7 +3,7 @@ import React from "react";
 import { LuCalendarRange, LuEye } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
-const BlogList = ({ BlogName, BlogTeacher, BlogImage, view, BlogAlt, Id }) => {
+const BlogList = ({ BlogName, BlogTeacher, BlogImage, view, BlogAlt, Id, date }) => {
   return (
     <Link 
       to={`BlogDetail/${Id}`}

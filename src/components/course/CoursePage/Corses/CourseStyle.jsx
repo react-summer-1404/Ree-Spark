@@ -8,9 +8,14 @@ const CourseStyle = ({
   bgcolor,
   coursePrice,
   coding,
+  courseId
 }) => {
+  // console.log(CourseId)
   return (
-    <Link className=" w-[322px] h-[366px] ">
+    <Link
+      to={`/course/${courseId}`} 
+    className=" w-[322px] h-[366px] "
+    >
 
      {/* {desktop low} */}
       

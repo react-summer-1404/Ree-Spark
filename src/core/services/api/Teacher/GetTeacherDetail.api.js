@@ -15,4 +15,4 @@ const GetTeacherDetail = async (teacherId) => {
   }
 };
 
-export { GetTeacherDetail };
+export { GetTeacherDetail }; 
