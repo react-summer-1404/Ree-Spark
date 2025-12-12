@@ -20,10 +20,7 @@ const BlogBody = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
 
   const rowsPerPage = 6;
-
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const GetNews = async (page = 1, search = "", sorting = sortType) => {
+  const GetNews = async () => {
     try {
 
         const res = await GetNewsApi({

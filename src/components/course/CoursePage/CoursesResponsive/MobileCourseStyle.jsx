@@ -16,7 +16,7 @@ const MobileCourseStyle = ({
         <div className="absolute">
           <div className={`w-[322px] h-[293px]  ${bgcolor}  rounded-[32px]  `}>
             <div className="w-full h-full ">
-              <img className="rounded-[32px] w-full h-full" src={imageAddress} />
+              <img className="rounded-[32px] w-full h-full" src={imageAddress ? imageAddress : "../../../../../public/AuthImage/react.png"} />
             </div>
 
             <div className="w-[89px] h-[24px] absolute top-[8px] left-[151px] rounded-[32px] bg-[#3772FF] py-[2px] px-2 ">
@@ -26,7 +26,7 @@ const MobileCourseStyle = ({
             </div>
 
             <div className="w-[62px] h-[24px] absolute top-[8px] left-[244px]  rounded-[32px] bg-[#FF37F5] py-[2px] px-2 ">
-              <h5 className="w-[46px] h-[20px] text-[13px] font-sans font-medium absolute left-[18px] text-[#FCFCFC]">
+              <h5 dir="rtl" className="w-[46px] h-[20px] text-[13px] font-sans font-medium absolute left-[8px] text-[#FCFCFC] truncate">
                 {level}
               </h5>
             </div>

@@ -171,7 +171,7 @@ const CourseBody = () => {
         />
       </div>
 
-      <div className="flex justify-center relative lg:bottom-[-265px] lg:left-[295px]  lgg:bottom-[-265px] lgg:left-[130px] xl:bottom-[520px] xl:left-[80px] bottom-[1000px]">
+      <div className=" relative  left-[160px] bottom-[1540px] lv:bottom-[1325px] md1:bottom-[1325px] sm:bottom-[1325px] md:bottom-[1325px] lg:bottom-[-635px] lg:left-[295px]  lgg:bottom-[-635px] lgg:left-[130px] xl:bottom-[140px] xl:left-[80px]  lv1:left-[160px] sm:left-[60px] sm4:left-[30px] xs:left-[100px]  sm3:left-[30px] md1:left-[60px] md:left-[160px] xs3:left-[30px] xs1:left-[30px] sm2:left-[10px] xs4:left-[40px] xs2:left-[30px]">
         <PageInationCourses
           currentPage={currentPage}
           totalPages={totalPages}

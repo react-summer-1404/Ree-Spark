@@ -64,3 +64,7 @@ const PageInationCourses = ({ currentPage, totalPages, onPageChange }) => {
   );
 };
 export default PageInationCourses;
+
+
+
+
