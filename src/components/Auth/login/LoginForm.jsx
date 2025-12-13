@@ -29,7 +29,7 @@ const LoginForm = () => {
 
       console.log("Login successful:", user, accessToken);
 
-      const twoStepAuth = localStorage.getItem("twoStepAuth") === true;
+      const twoStepAuth = localStorage.getItem("twoStepAuth") === "true";
       if (twoStepAuth) {
         navigate("/auth/verifyNumber");
       } else {

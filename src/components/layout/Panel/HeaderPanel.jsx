@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DarkMode from "../../common/Darkmode/DarkMode";
 import { FiBell } from "react-icons/fi";
 import { FiPlusCircle } from "react-icons/fi";
@@ -8,18 +8,24 @@ import Peppe from "../../../assets/image/LayoutImage/Peppe.svg";
 import { getItem } from "../../../core/services/storage/storage.api";
 import GetMyAccounts from "../../../core/services/api/User/myAccounts.api";
 import { motion, AnimatePresence } from "framer-motion";
-import AddAccountForm from "../../AddAccount/AddAccountForm";
+import { Field, Form, Formik } from "formik";
+import toast from "react-hot-toast";
+import * as yup from "yup";
+import AddAccountApi from "../../../core/services/api/User/AddAccount.api";
+
 const HeaderPanel = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [accounts, setAccounts] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  
   const gmail = getItem("gmail");
   const fName = getItem("fName");
   const lName = getItem("lName");
-
+  const validation = yup.object().shape({
+    NewAccGmail: yup.string().required("ایمیل خود را وارد کنید⚠️"),
+    NewAccPass: yup.string().required("رمز عبور را وارد کنید ⚠️"),
+  });
   const toggleDropdown = async () => {
     const willShow = !showDropdown;
     setShowDropdown(willShow);
@@ -34,6 +40,38 @@ const HeaderPanel = () => {
         console.error("Error fetching accounts:", error);
       }
       setLoading(false);
+    }
+  };
+  const onSubmit = async (values, actions) => {
+    try {
+      const payload = {
+        phoneOrGmail: values.NewAccGmail,
+        password: values.NewAccPass,
+        rememberMe: true,
+      };
+
+      const res = await AddAccountApi(payload);
+
+      if (res?.data?.success === true) {
+        toast.success(res.data.message || "اکانت با موفقیت اضافه شد");
+        actions.resetForm();
+        setShowAddModal(false);
+        return;
+      }
+
+      toast.error(res?.data?.message || "خطا در افزودن اکانت");
+    } catch (error) {
+      if (error.response) {
+        toast.error(error.response.data?.message || "خطا در پردازش سمت سرور");
+        return;
+      }
+
+      if (error.request) {
+        toast.error("ارتباط با سرور برقرار نشد");
+        return;
+      }
+
+      toast.error("خطای غیرمنتظره رخ داد");
     }
   };
 
@@ -145,31 +183,43 @@ const HeaderPanel = () => {
                   <h2 className="text-lg font-semibold mb-4 dark:text-white">
                     افزودن اکانت
                   </h2>
-                  
-                    <AddAccountForm/>
-                  <div className="flex justify-end gap-2">
-                    <button
-                      className="px-4 py-2 bg-gray-300 dark:bg-red-600 rounded-xl hover:bg-red-500 hover:text-white transition-all duration-300 dark:text-white"
-                      onClick={() => setShowAddModal(false)}
-                    >
-                      لغو
-                    </button>
-                    <button
-                      className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-all duration-300"
-                      onClick={() => {
-                        console.log("اکانت اضافه شد");
-                        setShowAddModal(false);
-                      }}
-                    >
-                      افزودن
-                    </button>
-                  </div>
-                  <button
-                    className="absolute text-xl top-2 right-2 text-gray-500 hover:text-red-700 dark:hover:text-gray-300"
-                    onClick={() => setShowAddModal(false)}
+
+                  <Formik
+                    initialValues={{ NewAccGmail: "", NewAccPass: "" }}
+                    onSubmit={onSubmit}
+                    validationSchema={validation}
                   >
-                    ×
-                  </button>
+                    <Form>
+                      <Field
+                        name="NewAccGmail"
+                        placeholder="ایمیل یا شماره موبایل"
+                        className="w-full px-3 py-2 border rounded mb-3 dark:bg-gray-700 dark:text-white outline-blue-500"
+                      />
+
+                      <Field
+                        name="NewAccPass"
+                        placeholder="رمز عبور"
+                        className="w-full px-3 py-2 border rounded mb-3 dark:bg-gray-700 dark:text-white outline-blue-500"
+                      />
+
+                      <div className="flex justify-end gap-2">
+                        <button
+                          className="px-4 py-2 bg-gray-300 dark:bg-red-600 rounded-xl hover:bg-red-500 hover:text-white transition-all duration-300 dark:text-white"
+                          onClick={() => setShowAddModal(false)}
+                          type="button"
+                        >
+                          لغو
+                        </button>
+
+                        <button
+                          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-all duration-300"
+                          type="submit"
+                        >
+                          افزودن
+                        </button>
+                      </div>
+                    </Form>
+                  </Formik>
                 </motion.div>
               </motion.div>
             )}
