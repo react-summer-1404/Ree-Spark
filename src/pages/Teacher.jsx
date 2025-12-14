@@ -15,6 +15,7 @@ const Teacher = () => {
       setLoading(true);
       try {
         const data = await GetAllTeacher();
+        console.log(data)
         setTeacher(Array.isArray(data) ? data : []);
       } catch (error) {
         console.error("GetAllTeacher API Error:", error);
