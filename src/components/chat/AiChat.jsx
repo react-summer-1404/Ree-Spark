@@ -95,7 +95,7 @@ export default function AiChat() {
 
                   return (
                     <div
-                      dir="rtl"
+                      
                       key={index}
                       className={`flex items-start gap-2 p-2 rounded shadow text-sm w-3/4 ${
                         isUser
@@ -104,7 +104,6 @@ export default function AiChat() {
                       }`}
                     >
                       <img
-                        dir="rtl"
                         src={msg.avatar}
                         alt=""
                         className="w-8 h-8 rounded-full border"
