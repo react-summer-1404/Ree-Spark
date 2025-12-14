@@ -6,7 +6,7 @@ const ResetButton= ({resetFilters}) => {
     <div>
         <button
       onClick={resetFilters}
-      className="w-[105px] h-[48px] bg-slate-600 hover:bg-slate-500 text-white rounded-[16px] mt-4"
+      className="w-[105px] h-[48px] border-2 bg-slate-100 text-black hover:bg-slate-300 dark:bg-slate-600 dark:hover:bg-slate-500 dark:text-white rounded-[16px] mt-4"
     >
       ریست فیلتر
     </button>

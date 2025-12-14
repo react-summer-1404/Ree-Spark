@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "../../components/layout/Layout";
 import { Landing } from "../../pages/Landing";
-import { Course } from "../../components/course/Course";
+import { Course } from "../../pages/Course";
 import { AuthLayout } from "../../components/layout/AuthLayout";
 import { Login } from "../../pages/auth/login/Login";
 import { VerifyNumber } from "../../pages/auth/login/VerifyNumber";

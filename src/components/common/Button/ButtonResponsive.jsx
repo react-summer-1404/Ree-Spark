@@ -1,21 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ButtonResponsive = () => {
+const ButtonResponsive = ({ buttonAdders }) => {
   return (
-    <div>
+    <div className="flex justify-center mt-6 lg:hidden">
       <Link
-
-         to={"/courses"}
-       className="w-[125px] h-[39px] lg:hidden  rounded-[40px] bg-[#2F2F2F]  mt-[90px]
-        mb-10 pt-2 pr-4 pb-2 pl-4 absolute left-[800px] dark:bg-slate-400 dark:text-black"
+        to={`/${buttonAdders}`}
+        className="w-[125px] h-[47px] rounded-[40px] bg-[#2F2F2F]
+        pt-2 px-4 dark:bg-slate-400 dark:text-black flex items-center justify-center"
       >
-        <button className="w-[95px] h-[23px]  text-base font-sans font-medium text-gray-50">
+        <span className="text-base font-medium text-gray-50 whitespace-nowrap relative bottom-1">
           مشاهده بیشتر
-        </button>
+        </span>
       </Link>
     </div>
   );
 };
+
 
 export default ButtonResponsive;

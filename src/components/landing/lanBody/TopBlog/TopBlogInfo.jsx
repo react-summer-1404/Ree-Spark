@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonResponsive from "../../../common/Button/ButtonResponsive";
+import { Link } from "react-router-dom";
 
 const TopBlogInfo = ({
   title,
@@ -18,15 +19,15 @@ const TopBlogInfo = ({
       <div className="flex justify-center relative top-[480px]  flex-col lg:hidden right-[760px]">
         <div className={`w-[322px]  h-[293px] rounded-[32px] ${blogBg}`}>
           <img
-            className="w-full  left-[70px] top-[50px] h-full rounded-[15px] "
-            src={img}
+            className="w-full  left-[70px] top-[50px] h-full rounded-[32px] "
+              src={img ? img : "/AuthImage/react.png" }
           />
         </div>
 
         <div className="flex flex-col w-[350px] relative right-[90px]">
           <p
             dir="rtl"
-            className="w-[318px] relative left-[100px]  h-[34px] text-[23px] text-right font-bold   truncate"
+            className="w-[318px] relative left-[100px]  h-[34px] text-[23px] text-right font-bold  truncate"
           >
             {title}
           </p>
@@ -63,12 +64,7 @@ const TopBlogInfo = ({
             </div>
           </div>
         </div>
-        <div className="relative bottom-[10px] left-[50px]">
-          <ButtonResponsive />
-        </div>
-        <div className="absolute bottom-[600px] left-[50px]">
-          <ButtonResponsive />
-        </div>
+
       </div>
       
 
@@ -79,8 +75,8 @@ const TopBlogInfo = ({
             className={`lg:w-[432px] lg:h-[293px] xl:w-[432px] xl:h-[293px] lgg:w-[372px] lgg:h-[293px] lg:rounded-[32px] ${blogBg}`}
           >
             <img
-              className="lg:w-full lg:h-full  lg:left-[130px] lg:top-[70px] rounded-[15px]"
-              src={img}
+              className="lg:w-full lg:h-full  lg:left-[130px] lg:top-[70px] rounded-[32px]"
+              src={img ? img : "/AuthImage/react.png" }
               alt={title}
             />
           </div>
@@ -88,13 +84,13 @@ const TopBlogInfo = ({
           <div className="lg:flex lg:flex-col">
             <p
               dir="rtl"
-              className="lg:w-[342px] xl:w-[342px] lg:h-[34px] lg:text-[19px] lg:text-right lg:font-bold relative xl:left-[89px]  lg:left-[80px] lgg:left-[89px] truncate lgg:w-[270px]  "
+              className="lg:w-[342px] xl:w-[332px] lg:h-[34px] lg:text-[19px] lg:text-right lg:font-bold relative xl:left-[89px]  lg:left-[80px] lgg:left-[89px] truncate lgg:w-[270px]  "
             >
               {title}
             </p>
 
-            <div className="lg:relative lg:left-[290px] lgg:left-[235px] xl:left-[277px]">
-              <div className="lg:w-[133px] lg:absolute lg:h-[20px] lg:text-right lg:text-[13px] lg:font-medium lg:text-[#707070]">
+            <div className="lg:relative lg:left-[290px] lgg:left-[215px] xl:left-[277px]">
+              <div className="lg:w-[143px] lg:absolute lg:h-[20px] lg:text-right lg:text-[13px] lg:font-medium lg:text-[#707070]">
                 {Teacher}
               </div>
             </div>
