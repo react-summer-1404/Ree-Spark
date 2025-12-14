@@ -10,54 +10,22 @@ import { WelcomeScreen } from "../components/wellcome/WelcomeScreen";
 import HeroImage from "../components/landing/lanBody/HeroImageAndBorder/HeroImage";
 
 const Landing = () => {
-  const [showWelcome, setShowWelcome] = useState(false);
-  const [showLanding, setShowLanding] = useState(false);
-
-  useEffect(() => {
-    const navType = performance.getEntriesByType("navigation")[0].type;
-
-    if (navType === "reload") {
-      setShowWelcome(true);
-
-      setTimeout(() => {
-        setShowWelcome(false);
-        setShowLanding(true);
-      }, 2000);
-    } else {
-      setShowLanding(true);
-    }
-  }, []);
-
   return (
-
     <>
-      <AnimatePresence>
-        {showWelcome && (
-          <WelcomeScreen
-            wellcomeMessage={"به سایت ری اسپارک خوش آمدید"}
-            onFinish={() => {
-              setShowWelcome(false);
-              setShowLanding(true);
-            }}
-          />
-        )}
-      </AnimatePresence>
-
-      {showLanding && (
-        <div className="lg:overflow-x-hidden mx-auto px-4 xl:h-[3550px] lg:h-[4940px]   lgg:h-[3460px] lg:w-[1440px]
-        overflow-x-hidden w-[393px] h-[6418px]  relative lg:relative dark:text-white">
-          <div className="flex flex-col">
-            <LandingServices />
-            <HeroSection />
-            <TopCourse />
-            <HeroImage />
-            <TopBlogs />
-            <Teacher />
-          </div>
+      <div
+        className="lg:overflow-x-hidden mx-auto px-4 xl:h-[3550px] lg:h-[4940px]   lgg:h-[3460px] lg:w-[1440px]
+        overflow-x-hidden w-[393px] h-[6418px]  relative lg:relative dark:text-white"
+      >
+        <div className="flex flex-col">
+          <LandingServices />
+          <HeroSection />
+          <TopCourse />
+          <HeroImage />
+          <TopBlogs />
+          <Teacher />
         </div>
-      )}
+      </div>
     </>
-
   );
 };
 

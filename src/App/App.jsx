@@ -12,13 +12,13 @@ const App = () => {
         downHandler={() => window.scrollBy({ top: 550, behavior: "smooth" })}
       > */}
         <RouterProvider router={Routes} />
-        <Toaster
+        {/* <Toaster
           position="top-center"
           toastOptions={{ duration: 3000 }}
           style={{
             borderRadius: "10px",
           }}
-        />
+        /> */}
       {/* </ScrollWheelHandler> */}
     </>
   );

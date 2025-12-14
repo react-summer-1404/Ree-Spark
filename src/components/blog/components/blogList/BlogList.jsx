@@ -3,11 +3,10 @@ import React from "react";
 import { LuCalendarRange, LuEye } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
-const BlogList = ({ BlogName, BlogTeacher, BlogImage, view  ,Id, }) => {
+const BlogList = ({ BlogName, BlogTeacher, BlogImage, view  ,id, }) => {
 
   return (
     <Link 
-    onClick={clg}
       to={`/BlogDetail/${id}`}
     >
       <div className=" w-full sm:w-[499px] h-[365px] flex flex-col gap-3">
