@@ -10,7 +10,7 @@ const CourseReserve = ({title , MyReservePublisher ,AcceptReserve , AcceptBg , R
       animate={{ opacity: 1, y: 0 }}>
       <div className="h-16 flex relative">
         <div className="w-[83px] h-[52px] absolute right-0 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg">
-          <img src={ReserveImg} className="w-full h-full object-cover rounded-xl" />
+          <img src={ReserveImg} className="w-full h-full mx-auto rounded-xl" />
         </div>
         <div className="h-[23px] absolute right-[120px] top-3 font-bold text-base">
           {title}

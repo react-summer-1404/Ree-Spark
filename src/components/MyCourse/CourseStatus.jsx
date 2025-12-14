@@ -9,7 +9,7 @@ const CourseStatus = ({MyCourseName , MyCoursePublisher , MyCourseLevel  , Image
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }} className="h-16 flex relative ">
       <div className={`w-[83px] h-[52px] rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg  absolute top-[72px] left-[971px]`}>
-        <img src={ImageAddress} className="w-[100%] h-[100%] rounded-xl" />
+        <img src={ImageAddress} className="w-full h-full mx-auto rounded-xl" />
       </div>
       <h3 dir="rtl" className="h-[23px] w-[150px] text-right absolute top-[86px] left-[780px] font-bold">
         {MyCourseName}

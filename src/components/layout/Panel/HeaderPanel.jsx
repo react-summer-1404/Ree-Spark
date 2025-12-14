@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import DarkMode from "../../common/Darkmode/DarkMode";
 import { FiBell } from "react-icons/fi";
@@ -12,6 +12,7 @@ import { Field, Form, Formik } from "formik";
 import toast from "react-hot-toast";
 import * as yup from "yup";
 import AddAccountApi from "../../../core/services/api/User/AddAccount.api";
+import { getMyUnseenNotifications } from "../../../core/services/api/notification/NoSeenotification.api";
 
 const HeaderPanel = () => {
   const [showAddModal, setShowAddModal] = useState(false);
@@ -74,17 +75,43 @@ const HeaderPanel = () => {
       toast.error("خطای غیرمنتظره رخ داد");
     }
   };
+  const [unseenCount, setUnseenCount] = useState(0);
 
+  useEffect(() => {
+    const fetchUnseen = async () => {
+      try {
+        const notifications = await getMyUnseenNotifications();
+
+        setUnseenCount(Array.isArray(notifications) ? notifications.length : 0);
+      } catch (error) {
+        console.error("Notification fetch error:", error);
+      }
+    };
+
+    fetchUnseen();
+  }, []);
   return (
     <div className="flex justify-between relative">
       {/* بخش سمت چپ */}
       <div className="flex gap-3 mt-4">
-        <button className="w-[48px] h-[48px] border border-black dark:border-white rounded-full flex justify-center items-center">
-          <FiBell size={30} className="dark:text-white" />
-        </button>
         <div>
           <DarkMode />
         </div>
+        <Link
+          to={"/dashboard/notification"}
+          className="w-[48px] h-[48px] border border-black dark:border-white rounded-full relative flex justify-center items-center"
+        >
+          <FiBell size={30} className="dark:text-white" />
+          {unseenCount > 0 && (
+            <div
+              className="bg-red-500 min-w-[16px] h-[16px] px-1
+                       absolute top-9 right-1 rounded-full
+                       flex items-center justify-center"
+            >
+              <span className="text-white text-[10px]">{unseenCount}</span>
+            </div>
+          )}
+        </Link>
       </div>
 
       {/* منو وسط */}

@@ -87,7 +87,7 @@ const FavoriteCourse = () => {
                 MyCoursePublisher={course.teacheName}
                 MyCourseLevel="hard"
                 MyCourseBg={"bg-[#FFE1FE]"}
-                ImageAddress={course.imageAddress}
+                ImageAddress={course?.imageAddress ||"/public/AuthImage/react.png"}
                 startDate={moment(course.course.startTime).format(
                   "jYYYY jMMMM jDD"
                 )}

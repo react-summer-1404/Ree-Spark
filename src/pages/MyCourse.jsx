@@ -4,6 +4,7 @@ import { CourseStatus } from "../components/MyCourse/CourseStatus";
 import { LucideCalendarRange } from "lucide-react";
 import GetMyCourse from "../core/services/api/User/GetMyCourse.api";
 import Loading from "../components/common/Loading";
+import moment from "moment-jalaali";
 
 const MyCourse = () => {
   const [courses, setCourses] = useState([]);
@@ -14,8 +15,8 @@ const MyCourse = () => {
       const data = await GetMyCourse({
         PageNumber: 1,
         RowsOfPage: 10,
-        SortingCol: "id",
-        SortType: "DESC",
+        SortingCol: "DESC",
+        SortType: "LastUpdate",
         Query: "",
         NewsCategoryId: null,
       });
@@ -23,7 +24,12 @@ const MyCourse = () => {
       if (!data) {
         setCourses([]);
       } else {
-        const list = data?.result || data?.items || data?.data || data || [];
+        const list =
+          data?.result ||
+          data?.items ||
+          data?.data ||
+          data.listOfMyCourses ||
+          [];
 
         setCourses(list);
       }
@@ -33,6 +39,7 @@ const MyCourse = () => {
 
     load();
   }, []);
+  moment.loadPersian({ dialect: "persian-modern" });
   return (
     <div className="relative">
       <h1 className="h-9 absolute top-[16px] left-[1015px] text-2xl font-bold ">
@@ -95,13 +102,20 @@ const MyCourse = () => {
 
         {!loading &&
           courses.length > 0 &&
-          courses.map((course, index) => (
+          courses.map((courses, index) => (
             <CourseStatus
-              key={course.id || index}
-              MyCourseName={course?.title || "بدون عنوان"}
-              MyCoursePublisher={course?.teacherName || "نامشخص"}
-              MyCourseLevel={course?.level || "نامشخص"}
-              MyCourseBg={"bg-[#F0DB4F]"} 
+              key={courses.id || index}
+              MyCourseName={courses?.courseTitle || "بدون عنوان"}
+              MyCoursePublisher={courses?.fullName || "نامشخص"}
+              MyCourseLevel={courses.course.courseLvlId || "نامشخص"}
+              MyCourseBg={"bg-[#F0DB4F]"}
+              ImageAddress={
+                courses?.tumbImageAddress || "/public/AuthImage/react.png"
+              }
+              startDate={moment(courses.course.startTime).format(
+                "jYYYY jMMMM jDD"
+              )}
+              endDate={moment(courses.course.endTime).format("jYYYY jMMMM jDD")}
             />
           ))}
       </div>

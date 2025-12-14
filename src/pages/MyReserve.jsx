@@ -89,7 +89,7 @@ const MyReserve = () => {
                   startDate={moment(course.startDate).format("jYYYY jMMMM jDD")}
                   endDate={moment(course.endDate).format("jYYYY jMMMM jDD")}
                   AcceptReserve={course.accept ? "تایید شده" : "تایید نشده"}
-                  ReserveImg={course.image}
+                  ReserveImg={course?.image || "/public/AuthImage/react.png"}
                   AcceptBg={course.accept ? "bg-[#3772FF]" : "bg-red-500"}
                 />
               ))}

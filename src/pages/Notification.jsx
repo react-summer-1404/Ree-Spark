@@ -31,7 +31,7 @@ const Notification = () => {
         prev.map((n) => (n.id === id ? { ...n, seen: true } : n))
       );
     } else {
-      toast.error("مشکلی رخ داد");
+      toast.success("پیام خوانده شد");
     }
   };
 

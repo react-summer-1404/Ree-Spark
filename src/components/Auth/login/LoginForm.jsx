@@ -28,13 +28,8 @@ const LoginForm = () => {
       });
 
       console.log("Login successful:", user, accessToken);
-
-      const twoStepAuth = localStorage.getItem("twoStepAuth") === "true";
-      if (twoStepAuth) {
-        navigate("/auth/verifyNumber");
-      } else {
-        navigate("/");
-      }
+      localStorage.setItem("userGmail", gmail);
+      navigate("/auth/verifyNumber");
     } catch (err) {
       console.error("Login failed:", err);
       toast.error("شماره یا رمز عبور اشتباه است ⚠️");
@@ -44,7 +39,8 @@ const LoginForm = () => {
   };
   return (
     <Fragment>
-      <Formik dir="rtl"
+      <Formik
+        dir="rtl"
         initialValues={{ gmail: "", password: "" }}
         onSubmit={onSubmit}
         validationSchema={validation}
@@ -54,6 +50,7 @@ const LoginForm = () => {
             شماره همراه یا ایمیل
           </h3>
           <Field
+            dir="rtl"
             className="border border-[#DCDCDC] dark:bg-slate-200 w-full sm:w-4/5 text-sm absolute top-[292px] dark:text-black right-0 h-12 rounded-3xl text-right pr-2 outline-blue-600"
             placeholder="شماره همراه یا ایمیل خود را وارد کنید"
             name="gmail"
@@ -67,7 +64,10 @@ const LoginForm = () => {
             رمزعبور
           </h3>
 
-          <div dir="rtl" className="absolute top-[410px] right-0 w-full sm:w-4/5">
+          <div
+            dir="rtl"
+            className="absolute top-[410px] right-0 w-full sm:w-4/5"
+          >
             <Field
               className="border border-[#DCDCDC] dark:bg-slate-200 text-sm w-full dark:text-black h-12 rounded-3xl text-right pr-2 outline-blue-600"
               placeholder="رمزعبور خود را وارد کنید"
@@ -75,13 +75,16 @@ const LoginForm = () => {
               name="password"
             />
 
-            
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
               className="absolute left-3 top-[14px] text-xs text-[#707070]"
             >
-              {showPassword ? <FaRegEyeSlash size={20} /> : <IoEyeOutline size={20}/>}
+              {showPassword ? (
+                <FaRegEyeSlash size={20} />
+              ) : (
+                <IoEyeOutline size={20} />
+              )}
             </button>
           </div>
 
