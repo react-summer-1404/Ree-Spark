@@ -72,6 +72,7 @@ export default function AiChat() {
       <AnimatePresence>
         {open && (
           <motion.div
+          dir="rtl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -124,11 +125,11 @@ export default function AiChat() {
               </div>
 
               <div className="p-3 border-t flex gap-2">
-                <input
+                <textarea
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-                  className="flex-1 border rounded-lg px-3 py-2 text-right"
+                  className="flex-1 border rounded-lg px-3  text-right"
                   placeholder="پیام خود را بنویسید..."
                 />
                 <button

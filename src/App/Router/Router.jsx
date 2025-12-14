@@ -17,6 +17,7 @@ import { SendCode } from "../../pages/auth/register/SendCode";
 import { PersonalInfo } from "../../pages/auth/register/PersonalInfo";
 import { Teacher } from "../../pages/Teacher";
 import { TeacherDetail } from "../../pages/TeacherDetail";
+import { Notification } from "../../pages/Notification";
 import CourseDetail from "../../pages/CourseDetail";
 import BlogDetail from "../../pages/BlogDetail";
 import Loading from "../../components/common/Loading";
@@ -28,8 +29,6 @@ import Information from "../../pages/profile/Information";
 import Picture from "../../pages/profile/Picture";
 import Links from "../../pages/profile/Links";
 import MapSelector from "../../pages/profile/Location";
-import { Notification } from "../../pages/notification";
-
 
 const Routes = createBrowserRouter([
   // auth pages
@@ -80,7 +79,7 @@ const Routes = createBrowserRouter([
         children: [
           { index: true, element: <Information /> },
           { path: "Picture", element: <Picture /> },
-          // { path:"location", element: <MapSelector /> },
+          { path: "location", element: <MapSelector /> },
           { path: "links", element: <Links /> },
         ],
       },

@@ -30,7 +30,6 @@ const HeaderPanel = () => {
     NewAccPass: yup.string().required("رمز عبور را وارد کنید ⚠️"),
   });
 
-  // fetch accounts
   const toggleDropdown = async () => {
     const willShow = !showDropdown;
     setShowDropdown(willShow);
@@ -47,7 +46,6 @@ const HeaderPanel = () => {
     }
   };
 
-  // افزودن اکانت
   const onSubmit = async (values, actions) => {
     try {
       const payload = {
@@ -59,11 +57,11 @@ const HeaderPanel = () => {
       const res = await AddAccountApi(payload);
 
       if (res?.success === true) {
-        setItem("token", res.token); // ذخیره توکن جدید
+        setItem("token", res.token);
         toast.success(res.message || "اکانت با موفقیت اضافه شد");
         actions.resetForm();
         setShowAddModal(false);
-        // refresh accounts
+
         const updatedAccounts = await GetMyAccounts();
         setAccounts(updatedAccounts);
         return;
@@ -75,13 +73,15 @@ const HeaderPanel = () => {
     }
   };
 
-  // سوییچ بین اکانت‌ها
   const handleSwitch = async (accId) => {
     try {
       const res = await SwitchAccountApi(accId);
       if (res?.success === true) {
-        setItem("token", res.token); // بروزرسانی توکن
+        setItem("token", res.token);
         toast.success(res.message || "اکانت فعال شد");
+        setTimeout(() => {
+          window.location.reload();
+        }, 1500);
       } else {
         toast.error(res?.message || "خطا در سوییچ اکانت");
       }

@@ -33,6 +33,9 @@ const Notification = () => {
     } else {
       toast.success("پیام خوانده شد");
     }
+    setTimeout(() => {
+      window.location.reload();
+    }, 1500);
   };
 
   if (loading)
