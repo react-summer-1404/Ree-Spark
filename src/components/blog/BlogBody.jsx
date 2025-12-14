@@ -101,7 +101,7 @@ const BlogBody = () => {
         )}
       </div>
 
-      <div className="border-2 border-[#DCDCDC] rounded-[32px] w-[90px] sm:w-[298px] h-[50px] sm:h-[370px] bg-white dark:bg-slate-800 mt-24 sm:mt-0">
+      <div className="border-2 border-[#DCDCDC] rounded-[32px] w-[90px] sm:w-[298px] h-[50px] sm:h-[310px] bg-white dark:bg-slate-800 mt-24 sm:mt-0">
         <BlogFilter
           Search={dibounce}
           startDate={startDate}
