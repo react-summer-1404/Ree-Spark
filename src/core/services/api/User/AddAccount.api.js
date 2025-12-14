@@ -1,12 +1,12 @@
-/* eslint-disable no-useless-catch */
 import http from "../../../interceptor/interseptor";
 
-const AddAccountApi = async (data) => {
+const AddAccountApi = async (payload) => {
   try {
-    const response = await http.post("/v2/multiAccount/addAccount", data);
-    return response;
+    return await http.post("/v2/multiAccount/addAccount", payload);
   } catch (error) {
+    console.error("Error adding account:", error);
     throw error;
   }
 };
+
 export default AddAccountApi;

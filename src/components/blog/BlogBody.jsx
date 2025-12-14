@@ -64,9 +64,8 @@ const BlogBody = () => {
               key={item.id}
               BlogName={item.title}
               BlogTeacher={item.addUserFullName}
-              BlogImage={item.currentImageAddress}
+              BlogImage={item?.currentImageAddress || "/public/AuthImage/react.png"}
               view={item.currentView}
-              BlogAlt={item.currentImageAddress}
               date={moment(item.insertDate).format("jYYYY/jMM/jDD")}
             />
           ))

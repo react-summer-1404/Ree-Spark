@@ -1,32 +1,36 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import DarkMode from "../../common/Darkmode/DarkMode";
-import { FiBell } from "react-icons/fi";
-import { FiPlusCircle } from "react-icons/fi";
+import { FiBell, FiPlusCircle } from "react-icons/fi";
 import Peppe from "../../../assets/image/LayoutImage/Peppe.svg";
-import { getItem } from "../../../core/services/storage/storage.api";
+import { getItem, setItem } from "../../../core/services/storage/storage.api";
 import GetMyAccounts from "../../../core/services/api/User/myAccounts.api";
+import AddAccountApi from "../../../core/services/api/User/AddAccount.api";
+import SwitchAccountApi from "../../../core/services/api/User/SwitchAccount.api";
+import { getMyUnseenNotifications } from "../../../core/services/api/notification/NoSeenotification.api";
 import { motion, AnimatePresence } from "framer-motion";
 import { Field, Form, Formik } from "formik";
 import toast from "react-hot-toast";
 import * as yup from "yup";
-import AddAccountApi from "../../../core/services/api/User/AddAccount.api";
-import { getMyUnseenNotifications } from "../../../core/services/api/notification/NoSeenotification.api";
 
 const HeaderPanel = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [accounts, setAccounts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [unseenCount, setUnseenCount] = useState(0);
 
   const gmail = getItem("gmail");
   const fName = getItem("fName");
   const lName = getItem("lName");
+
   const validation = yup.object().shape({
     NewAccGmail: yup.string().required("ایمیل خود را وارد کنید⚠️"),
     NewAccPass: yup.string().required("رمز عبور را وارد کنید ⚠️"),
   });
+
+  // fetch accounts
   const toggleDropdown = async () => {
     const willShow = !showDropdown;
     setShowDropdown(willShow);
@@ -35,14 +39,15 @@ const HeaderPanel = () => {
       setLoading(true);
       try {
         const data = await GetMyAccounts();
-        console.log("API returned accounts:", data);
         setAccounts(data);
       } catch (error) {
-        console.error("Error fetching accounts:", error);
+        toast.error("خطا در بارگذاری اکانت‌ها");
       }
       setLoading(false);
     }
   };
+
+  // افزودن اکانت
   const onSubmit = async (values, actions) => {
     try {
       const payload = {
@@ -53,61 +58,63 @@ const HeaderPanel = () => {
 
       const res = await AddAccountApi(payload);
 
-      if (res?.data?.success === true) {
-        toast.success(res.data.message || "اکانت با موفقیت اضافه شد");
+      if (res?.success === true) {
+        setItem("token", res.token); // ذخیره توکن جدید
+        toast.success(res.message || "اکانت با موفقیت اضافه شد");
         actions.resetForm();
         setShowAddModal(false);
+        // refresh accounts
+        const updatedAccounts = await GetMyAccounts();
+        setAccounts(updatedAccounts);
         return;
       }
 
-      toast.error(res?.data?.message || "خطا در افزودن اکانت");
+      toast.error(res?.message || "خطا در افزودن اکانت");
     } catch (error) {
-      if (error.response) {
-        toast.error(error.response.data?.message || "خطا در پردازش سمت سرور");
-        return;
-      }
-
-      if (error.request) {
-        toast.error("ارتباط با سرور برقرار نشد");
-        return;
-      }
-
-      toast.error("خطای غیرمنتظره رخ داد");
+      toast.error("خطا در ارتباط با سرور");
     }
   };
-  const [unseenCount, setUnseenCount] = useState(0);
 
+  // سوییچ بین اکانت‌ها
+  const handleSwitch = async (accId) => {
+    try {
+      const res = await SwitchAccountApi(accId);
+      if (res?.success === true) {
+        setItem("token", res.token); // بروزرسانی توکن
+        toast.success(res.message || "اکانت فعال شد");
+      } else {
+        toast.error(res?.message || "خطا در سوییچ اکانت");
+      }
+    } catch (error) {
+      toast.error("خطا در ارتباط با سرور");
+    }
+  };
+
+  // fetch unseen notifications
   useEffect(() => {
     const fetchUnseen = async () => {
       try {
         const notifications = await getMyUnseenNotifications();
-
         setUnseenCount(Array.isArray(notifications) ? notifications.length : 0);
       } catch (error) {
         console.error("Notification fetch error:", error);
       }
     };
-
     fetchUnseen();
   }, []);
+
   return (
     <div className="flex justify-between relative">
       {/* بخش سمت چپ */}
       <div className="flex gap-3 mt-4">
-        <div>
-          <DarkMode />
-        </div>
+        <DarkMode />
         <Link
           to={"/dashboard/notification"}
           className="w-[48px] h-[48px] border border-black dark:border-white rounded-full relative flex justify-center items-center"
         >
           <FiBell size={30} className="dark:text-white" />
           {unseenCount > 0 && (
-            <div
-              className="bg-red-500 min-w-[16px] h-[16px] px-1
-                       absolute top-9 right-1 rounded-full
-                       flex items-center justify-center"
-            >
+            <div className="bg-red-500 min-w-[16px] h-[16px] px-1 absolute top-9 right-1 rounded-full flex items-center justify-center">
               <span className="text-white text-[10px]">{unseenCount}</span>
             </div>
           )}
@@ -146,6 +153,7 @@ const HeaderPanel = () => {
             className="mt-1 cursor-pointer"
             onClick={toggleDropdown}
           />
+
           {/* منوی دراپ‌دان */}
           {showDropdown && (
             <div className="absolute right-0 top-full mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded shadow-lg z-50">
@@ -157,11 +165,19 @@ const HeaderPanel = () => {
                 <>
                   {accounts.map((acc) => (
                     <div
-                      dir="rtl"
                       key={acc.id}
-                      className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-white cursor-pointer"
+                      dir="rtl"
+                      className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-white cursor-pointer flex justify-between items-center"
                     >
-                      {acc.fName} {acc.lName}
+                      <span>
+                        {acc.fName} {acc.lName}
+                      </span>
+                      <button
+                        onClick={() => handleSwitch(acc.id)}
+                        className="text-blue-600 dark:text-blue-400 hover:underline text-sm"
+                      >
+                        فعال کردن
+                      </button>
                     </div>
                   ))}
                   <div className="border-t border-gray-200 dark:border-gray-600 mt-1">
@@ -170,8 +186,7 @@ const HeaderPanel = () => {
                       className="w-full px-4 py-2 text-base text-blue-600 dark:text-blue-400 flex justify-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-b"
                       onClick={() => setShowAddModal(true)}
                     >
-                      افزودن اکانت
-                      <FiPlusCircle size={20} />
+                      افزودن اکانت <FiPlusCircle size={20} />
                     </button>
                   </div>
                 </>
@@ -192,6 +207,8 @@ const HeaderPanel = () => {
               )}
             </div>
           )}
+
+          {/* مودال افزودن اکانت */}
           <AnimatePresence>
             {showAddModal && (
               <motion.div
@@ -210,7 +227,6 @@ const HeaderPanel = () => {
                   <h2 className="text-lg font-semibold mb-4 dark:text-white">
                     افزودن اکانت
                   </h2>
-
                   <Formik
                     initialValues={{ NewAccGmail: "", NewAccPass: "" }}
                     onSubmit={onSubmit}
@@ -222,13 +238,11 @@ const HeaderPanel = () => {
                         placeholder="ایمیل یا شماره موبایل"
                         className="w-full px-3 py-2 border rounded mb-3 dark:bg-gray-700 dark:text-white outline-blue-500"
                       />
-
                       <Field
                         name="NewAccPass"
                         placeholder="رمز عبور"
                         className="w-full px-3 py-2 border rounded mb-3 dark:bg-gray-700 dark:text-white outline-blue-500"
                       />
-
                       <div className="flex justify-end gap-2">
                         <button
                           className="px-4 py-2 bg-gray-300 dark:bg-red-600 rounded-xl hover:bg-red-500 hover:text-white transition-all duration-300 dark:text-white"
@@ -237,7 +251,6 @@ const HeaderPanel = () => {
                         >
                           لغو
                         </button>
-
                         <button
                           className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-all duration-300"
                           type="submit"
