@@ -28,7 +28,7 @@ const FavoriteBlog = () => {
         <SearchPanelBox />
       </div>
 
-      <div className="w-[258px] h-20 absolute top-[142px] left-[566px] flex gap-2">
+      {/* <div className="w-[258px] h-20 absolute top-[142px] left-[566px] flex gap-2">
         <div className="w-[258px] h-[80px] gap-2 relative ">
           <div className="w-[157px] h-[24px] gap-2  float-right flex ">
             <h3 className="w-[125px] h-[23px]  text-[15px] font-medium leading-5 text-right ">
@@ -40,7 +40,7 @@ const FavoriteBlog = () => {
             29 اردیبهشت 1403 - 5 خرداد 1403
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* course status */}
       <div className="bg-[#F6F6F6] shadow-lg dark:bg-gray-700 w-[1078px] h-[710px] absolute top-[236px] left-[24px] rounded-[24px]">

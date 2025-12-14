@@ -2,6 +2,7 @@ import React from "react";
 
 
 const Title = ({courseData}) => {
+  // console.log(title)
   return (
     <div className="sm:w-full w-[340px] h-[46px] dark:text-white flex justify-end font-bold text-[32px]">
       <div className=" h-[46px] flex items-center ">

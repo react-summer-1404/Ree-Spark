@@ -7,6 +7,7 @@ import GetNewsApi from "../../core/services/api/Blog/GetNewsApi";
 import Loading from "../common/Loading";
 import debounce from "debounce";
 import { BlogSort } from "./components/blogSort/BlogSort";
+import moment from "moment-jalaali";
 
 const BlogBody = () => {
   const [newsList, setNewsList] = useState(null);
@@ -14,7 +15,7 @@ const BlogBody = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  // const [endDate, setEndDate] = useState("");
   const [sortType, setSortType] = useState("DESC");
   const [sortingCol, setSortingCol] = useState("InsertDate");
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -90,15 +91,17 @@ const BlogBody = () => {
               Id={item.id}
               BlogName={item.title}
               BlogTeacher={item.addUserFullName}
-              BlogImage={item.currentImageAddress}
+              BlogImage={item?.currentImageAddress || "/public/AuthImage/react.png"}
               view={item.currentView}
-              BlogAlt={item.currentImageAddress}
+
+              date={moment(item.insertDate).format("jYYYY/jMM/jDD")}
+
             />
           ))
         )}
       </div>
 
-      <div className="border-2 border-[#DCDCDC] rounded-[32px] w-[90px] sm:w-[298px] h-[50px] sm:h-[370px] bg-white dark:bg-slate-800 mt-24 sm:mt-0">
+      <div className="border-2 border-[#DCDCDC] rounded-[32px] w-[90px] sm:w-[298px] h-[50px] sm:h-[310px] bg-white dark:bg-slate-800 mt-24 sm:mt-0">
         <BlogFilter
           Search={dibounce}
           startDate={startDate}

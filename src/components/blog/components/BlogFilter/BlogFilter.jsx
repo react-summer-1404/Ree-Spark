@@ -9,10 +9,7 @@ const BlogFilter = ({
   Search,
   setSelectedCategory,
   selectedCategory,
-  startDate,
-  setStartDate,
-  endDate,
-  setEndDate,
+
 }) => {
   const handleSelectListTech = (value) => {
     setSelectedCategory(value);
@@ -56,7 +53,7 @@ const BlogFilter = ({
         />
       </div>
 
-      <div className="relative top-[20px] right-[20px]">
+      {/* <div className="relative top-[20px] right-[20px]">
         <div className="w-[157px] h-[24px] gap-2 relative bottom-[10px] float-right flex ">
           <h3 className="w-[125px] h-[23px] text-[15px] font-medium leading-5 text-right ">
             تاریخ انتشار{" "}
@@ -70,7 +67,7 @@ const BlogFilter = ({
           setStartDate={setStartDate}
           setEndDate={setEndDate}
         />
-      </div>
+      </div> */}
     </div>
   );
 };

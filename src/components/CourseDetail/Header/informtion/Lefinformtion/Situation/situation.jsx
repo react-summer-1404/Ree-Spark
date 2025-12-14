@@ -1,6 +1,6 @@
 import React from "react";
 
-const Situation = ({courseData}) => {
+const Situation = ({teacherName, courseLevelName, courseStatusName }) => {
 
   return (
     <div
@@ -15,7 +15,7 @@ const Situation = ({courseData}) => {
         </div>
         <div className="min-w-full h-[23px] sm:text-[14px] text-[13px] flex justify-end items-center">
 
-         {courseData.teacherName}
+         {teacherName}
 
         </div>
       </div>
@@ -27,7 +27,7 @@ const Situation = ({courseData}) => {
         <div className="w-full justify-end flex ">
 
           <div className="sm:w-[69px] w-[60px] h-[27px] text-[13px] sm:text-[16px] flex justify-center items-center rounded-[32px] bg-[#FF37F5] ">
-           {courseData.courseLevelName}
+           {courseLevelName}
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@ const Situation = ({courseData}) => {
         <div className="w-full flex justify-end">
 
           <div className="sm:w-[101px] w-[80px] text-[13px] sm:text-[16px] h-[27px] flex justify-center items-center rounded-[32px] bg-[#FF5353] ] ">
-            {courseData.courseStatusName} 
+            {courseStatusName} 
           </div>
         </div>
       </div>

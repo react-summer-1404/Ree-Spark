@@ -3,7 +3,9 @@ import React from "react";
 import { LuCalendarRange, LuEye } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
-const BlogList = ({ BlogName, BlogTeacher, BlogImage, view, BlogAlt, Id }) => {
+
+const BlogList = ({ BlogName, BlogTeacher, BlogImage, view  ,Id, }) => {
+
   return (
     <Link 
       to={`BlogDetail/${Id}`}
@@ -15,7 +17,7 @@ const BlogList = ({ BlogName, BlogTeacher, BlogImage, view, BlogAlt, Id }) => {
         >
           <img
             src={BlogImage ? BlogImage : "/AuthImage/react.png" }
-            alt={BlogAlt}
+            
             className="w-full h-full rounded-3xl"
           />
           

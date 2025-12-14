@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import GetMyCourse from "../../core/services/api/User/GetMyCourse.api";
 import Loading from "../common/Loading";
 import { FaAngleLeft } from "react-icons/fa6";
+import moment from "moment-jalaali";
 const MyCoursePanel = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,7 +23,12 @@ const MyCoursePanel = () => {
       if (!data) {
         setCourses([]);
       } else {
-        const list = data?.result || data?.items || data?.data || data || [];
+        const list =
+          data?.result ||
+          data?.items ||
+          data?.data ||
+          data.listOfMyCourses ||
+          [];
 
         setCourses(list);
       }
@@ -42,7 +48,7 @@ const MyCoursePanel = () => {
           to={"/dashboard/myCourse"}
           className="h-5 text-[#3772FF] text-sm flex gap-1 text-right leading-4 cursor-pointer"
         >
-       <FaAngleLeft className="text-blue-500 mt-[2px]"/>   مشاهده بیشتر
+          <FaAngleLeft className="text-blue-500 mt-[2px]" /> مشاهده بیشتر
         </Link>
       </div>
       <div className="w-[769px] h-11 absolute top-10 left-4 bg-[#F1F1F1] rounded-2xl">
@@ -80,7 +86,19 @@ const MyCoursePanel = () => {
         {!loading &&
           courses.length > 0 &&
           courses.map((course, index) => (
-            <MyCourses key={course.id || index} course={course.title} />
+            <MyCourses
+              key={course.id || index}
+              MyCourseName={course?.courseTitle || "بدون عنوان"}
+              MyCoursePublisher={course?.fullName || "نامشخص"}
+              MyCourseLevel={course.course.courseLvlId || "نامشخص"}
+              MyCourseBg={"bg-[#F0DB4F]"}
+              ImageAddress={
+                course?.tumbImageAddress || "/public/AuthImage/react.png"
+              }
+              startDate={moment(course.course.startTime).format(
+                "jYYYY jMMMM jDD"
+              )}
+            />
           ))}
       </div>
     </div>

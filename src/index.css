@@ -9,6 +9,7 @@
 }
 
 
+
 .mySwiper .swiper-button-prev {
   position: absolute !important;
   top:35% !important;
@@ -30,3 +31,11 @@
   top:45% !important;
   right: 2% !important;
 }
+
+@layer utilities {
+  .size-4 {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+

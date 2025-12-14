@@ -2,6 +2,8 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer/Footer";
+import Chat from "../chat/Chat";
+import AiChat from "../chat/AiChat";
 
 const Layout = () => {
   return (
@@ -12,6 +14,10 @@ const Layout = () => {
         </div>
 
         <main className=" relative">
+          <div className="w-[50px] h-8 flex flex-col gap-2 fixed right-5 bottom-24 z-20">
+            <Chat/>
+            
+          </div><div className=" h-8 flex flex-col gap-2 fixed right-6 bottom-12 z-20"><AiChat/></div>
           <Outlet />
         </main>
 
