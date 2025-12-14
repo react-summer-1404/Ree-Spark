@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../slider/Slider.css";
+// import "../slider/Slider.css";
 
 const Slider = ({ minValue, maxValue, setMinValue, setMaxValue }) => {
   const min = 0;
