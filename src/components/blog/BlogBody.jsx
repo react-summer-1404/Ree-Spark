@@ -7,6 +7,7 @@ import GetNewsApi from "../../core/services/api/Blog/GetNewsApi";
 import Loading from "../common/Loading";
 import debounce from "debounce";
 import { BlogSort } from "./components/blogSort/BlogSort";
+import moment from "moment-jalaali";
 
 const BlogBody = () => {
   const [newsList, setNewsList] = useState(null);
@@ -14,7 +15,7 @@ const BlogBody = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  // const [endDate, setEndDate] = useState("");
   const [sortType, setSortType] = useState("DESC");
   const [sortingCol, setSortingCol] = useState("InsertDate");
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -90,9 +91,11 @@ const BlogBody = () => {
               Id={item.id}
               BlogName={item.title}
               BlogTeacher={item.addUserFullName}
-              BlogImage={item.currentImageAddress}
+              BlogImage={item?.currentImageAddress || "/public/AuthImage/react.png"}
               view={item.currentView}
-              BlogAlt={item.currentImageAddress}
+
+              date={moment(item.insertDate).format("jYYYY/jMM/jDD")}
+
             />
           ))
         )}

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../../assets/image/AuthImage/logo.png";
@@ -12,6 +13,7 @@ import { HiOutlinePresentationChartLine } from "react-icons/hi";
 import { GoBookmark } from "react-icons/go";
 import { RiBookShelfLine } from "react-icons/ri";
 import { PiMoneyWavy } from "react-icons/pi";
+import { IoNotificationsOutline } from "react-icons/io5";
 import toast from "react-hot-toast";
 const RightSidePanel = () => {
   const [showModal, setShowModal] = useState(false);
@@ -21,7 +23,7 @@ const RightSidePanel = () => {
     removeItem("token");
     setShowModal(false);
     navigate("/auth/register");
-    toast.success("حساب کاربر با موفقیت حذف شد")
+    toast.success("حساب کاربر با موفقیت حذف شد");
   };
   return (
     <div>
@@ -40,7 +42,7 @@ const RightSidePanel = () => {
         >
           داشبرد
         </NavLink>
-        <HiOutlinePresentationChartLine size={20} className="dark:text-white"/>
+        <HiOutlinePresentationChartLine size={20} className="dark:text-white" />
       </div>
 
       {/* my course */}
@@ -72,7 +74,7 @@ const RightSidePanel = () => {
         >
           رزرو من
         </NavLink>
-        <GoBookmark size={20} className="dark:text-white"/>
+        <GoBookmark size={20} className="dark:text-white" />
       </div>
 
       {/* favorite course */}
@@ -88,7 +90,7 @@ const RightSidePanel = () => {
         >
           دوره های موردعلاقه
         </NavLink>
-        <LuBookHeart size={20} className="dark:text-white"/>
+        <LuBookHeart size={20} className="dark:text-white" />
       </div>
 
       {/* favorite blog */}
@@ -104,7 +106,7 @@ const RightSidePanel = () => {
         >
           بلاگ های موردعلاقه
         </NavLink>
-        <RiBookShelfLine size={20} className="dark:text-white"/>
+        <RiBookShelfLine size={20} className="dark:text-white" />
       </div>
 
       {/* profile */}
@@ -122,14 +124,27 @@ const RightSidePanel = () => {
         </NavLink>
         <CgProfile size={20} className="dark:text-white" />
       </div>
-
+      <div className="absolute top-[465px] right-[35px] flex gap-2">
+        {" "}
+        <NavLink
+          to={"notification"}
+          className={({ isActive }) =>
+            `${
+              isActive && " font-semibold "
+            } dark:text-[#FCFCFC] text-black hover:font-semibold text-[17px] h-[26px]  leading-3`
+          }
+        >
+          نوتیفیکیشن
+        </NavLink>
+        <IoNotificationsOutline size={20} className="dark:text-white" />
+      </div>
       {/* pay money */}
-      <div className="absolute top-[455px] right-[35px] flex gap-2">
+      <div className="absolute top-[525px] right-[35px] flex gap-2">
         {" "}
         <div className="dark:text-[#FCFCFC] text-black text-[18px] h-[26px]  leading-3">
           پرداخت ها
         </div>
-      <PiMoneyWavy size={20} className="dark:text-white"/>
+        <PiMoneyWavy size={20} className="dark:text-white" />
       </div>
       {/*  */}
       <div

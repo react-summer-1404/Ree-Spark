@@ -4,6 +4,7 @@ import { ReserveStatus } from "../components/MyReserve/ReserveStatus";
 import { LuCalendarRange } from "react-icons/lu";
 import MyCourseRes from "../core/services/api/User/MyReserve.api";
 import Loading from "../components/common/Loading";
+import moment from "moment-jalaali";
 
 const MyReserve = () => {
   const [courseReserve, setCourseReserve] = useState([]);
@@ -18,6 +19,7 @@ const MyReserve = () => {
 
     fetchData();
   }, []);
+  moment.loadPersian({ dialect: "persian-modern" });
   return (
     <div>
       <h1 className="h-9 absolute top-[96px] left-[1025px] text-2xl font-bold ">
@@ -28,7 +30,7 @@ const MyReserve = () => {
         <SearchPanelBox />
       </div>
 
-      <div className="w-[258px] h-20 absolute top-[142px] left-[566px] flex gap-2">
+      {/* <div className="w-[258px] h-20 absolute top-[142px] left-[566px] flex gap-2">
         <div className="w-[258px] h-[80px] gap-2 relative ">
           <div className="w-[157px] h-[24px] gap-2  float-right flex ">
             <h3 className="w-[125px] h-[23px]  text-[15px] font-medium leading-5 text-right ">
@@ -40,7 +42,7 @@ const MyReserve = () => {
             29 اردیبهشت 1403 - 5 خرداد 1403
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* course status */}
       <div className="bg-[#F6F6F6] shadow-lg dark:bg-gray-700 w-[1078px] h-[710px] absolute top-[236px] left-[24px] rounded-[24px]">
@@ -64,32 +66,36 @@ const MyReserve = () => {
             وضعیت
           </h5>
         </div>
-        {loading && (
-          <div className="w-full h-full flex items-center justify-center">
-            <Loading />
-          </div>
-        )}
-        {!loading && courseReserve.length === 0 && (
-          <div className="w-full h-full flex items-center justify-center">
-            <h2 className="text-blue-500 dark:text-white text-xl font-bold">
-              موردی وجود ندارد
-            </h2>
-          </div>
-        )}
-        {!loading && courseReserve.length > 0 && (
-          <>
-            {courseReserve.map((course) => (
-              <ReserveStatus
-                title={course.title}
-                AcceptReserve="تایید شده"
-                ReserveImg="figma"
-                reserveBg="bg-[#FF6C6C]"
-                AcceptBg="bg-[#3772FF]"
-                MyReservePublisher={"محمد حسین خلیل پور"}
-              />
-            ))}
-          </>
-        )}
+        <div className="mt-20 flex flex-col gap-2">
+          {loading && (
+            <div className="w-full h-full flex items-center justify-center">
+              <Loading />
+            </div>
+          )}
+          {!loading && courseReserve.length === 0 && (
+            <div className="w-full h-full flex items-center justify-center">
+              <h2 className="text-blue-500 dark:text-white text-xl font-bold">
+                موردی وجود ندارد
+              </h2>
+            </div>
+          )}
+          {!loading && courseReserve.length > 0 && (
+            <>
+              {courseReserve.map((course) => (
+                <ReserveStatus
+                  key={course.id}
+                  title={course.courseName}
+                  MyReservePublisher={course.teacher}
+                  startDate={moment(course.startDate).format("jYYYY jMMMM jDD")}
+                  endDate={moment(course.endDate).format("jYYYY jMMMM jDD")}
+                  AcceptReserve={course.accept ? "تایید شده" : "تایید نشده"}
+                  ReserveImg={course?.image || "/public/AuthImage/react.png"}
+                  AcceptBg={course.accept ? "bg-[#3772FF]" : "bg-red-500"}
+                />
+              ))}
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

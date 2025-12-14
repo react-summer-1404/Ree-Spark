@@ -14,7 +14,7 @@ const VerifyForm = () => {
     code: yup.number().required(""),
   });
 
-  const phoneOrGmail = localStorage.getItem("gmail");
+  const phoneOrGmail = localStorage.getItem("userGmail");
 
   const onSubmit = async (values) => {
     try {

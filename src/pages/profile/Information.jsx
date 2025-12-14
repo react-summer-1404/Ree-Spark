@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Calendar } from "lucide-react";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -5,6 +6,7 @@ import AccessCode from "./AccessCode";
 import moment from "moment-jalaali";
 import { updateProfileInfo } from "../../core/services/api/User/UpdateProfileInfo.api";
 import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 const fName = localStorage.getItem("fName");
 const lName = localStorage.getItem("lName");
 const gmail = localStorage.getItem("gmail");
@@ -14,39 +16,28 @@ const Information = () => {
   const [isOpen, setIsOpen] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("FORM SUBMITTED!");
-    const form = new FormData(e.target);
-    let payload = {};
-
-    for (let [key, value] of form.entries()) {
-      if (value !== "" && value !== null && value !== undefined) {
-        if (key === "ReceiveMessageEvent") {
-          payload[key] = true;
-        } else if (key === "Gender") {
-          payload[key] = value === "male";
-        } else {
-          payload[key] = value;
-        }
-      }
-    }
-
-    console.log("FINAL PAYLOAD:", payload);
+    const form = e.target;
+    const payload = {
+      FName: form.FName.value,
+      LName: form.LName.value,
+      UserAbout: form.UserAbout.value,
+      PhoneNumber: form.PhoneNumber.value,
+      NationalCode: form.NationalCode.value,
+      BirthDay: form.BirthDay.value,
+      Gender: form.Gender.value === "male",
+      Gmail: form.Gmail.value,
+      HomeAdderess: form.HomeAdderess.value,
+      ReceiveMessageEvent: true, // یا شرط دلخواه
+    };
 
     try {
       const res = await updateProfileInfo(payload);
-      console.log("UPDATED:", res);
-
-      toast.success(
-        res?.data?.message || res?.message || "اطلاعات با موفقیت ذخیره شد"
-      );
+      toast.success("پروفایل شما آپدیت شد", res);
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
     } catch (err) {
       console.log("API ERROR:", err);
-
-      toast.error(
-        err?.response?.data?.message ||
-          err?.message ||
-          "خطا در ذخیره‌سازی اطلاعات"
-      );
     }
   };
 
@@ -202,7 +193,7 @@ const Information = () => {
           </div>
         </div>
       </form>
-      <AnimatePresence> 
+      <AnimatePresence>
         {isOpen && (
           <motion.div
             className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50"
@@ -227,7 +218,7 @@ const Information = () => {
 
               <AccessCode />
             </motion.div>
-          </motion.div>           
+          </motion.div>
         )}
       </AnimatePresence>
     </div>

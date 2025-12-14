@@ -2,9 +2,11 @@ import { LucideClock5 } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { LuCalendarRange } from "react-icons/lu";
 import moment from "moment-jalaali";
+import { getItem } from "../../core/services/storage/storage.api";
 const WellcomePanel = ({ profile }) => {
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");
+  const userAbout = getItem("userAbout");
   useEffect(() => {
     const updateClock = () => {
       const now = new Date();
@@ -42,7 +44,7 @@ const WellcomePanel = ({ profile }) => {
   return (
     <div>
       <div className="w-[424px] h-[69px] absolute top-[115px] left-[48px] font-medium text-right">
-        {profile.userAbout ? "سلام این بیوگرافی من هست و الان این قسمت خالی میباشد" : ""}
+        {userAbout}
       </div>
       <h2 dir="rtl" className="h-[34px] absolute top-[96px] left-[857px] text-2xl font-bold">
     سلام {profile.fName} روزت بخیر 

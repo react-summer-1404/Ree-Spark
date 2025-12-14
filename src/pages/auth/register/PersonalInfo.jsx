@@ -7,6 +7,7 @@ import RegisterStepOneApi from "../../../core/services/api/Auth/register/Registe
 import toast from "react-hot-toast";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
+import { HiOutlineChevronLeft } from "react-icons/hi";
 const PersonalInfo = () => {
   const [showPassword, setShowPassword] = useState(false);
   const validation = yup.object().shape({
@@ -81,7 +82,10 @@ const PersonalInfo = () => {
           <h3 className="w-[134px] h-[23px] absolute top-[440px] sm:top-[390px] right-0 text-[15px] text-right font-medium dark:text-white">
             رمز عبور
           </h3>
-          <div dir="rtl" className="absolute top-[420px] right-0 w-full sm:w-4/5">
+          <div
+            dir="rtl"
+            className="absolute top-[420px] right-0 w-full sm:w-4/5"
+          >
             <Field
               className="border border-[#DCDCDC] dark:bg-slate-200 text-sm w-full dark:text-black h-12 rounded-3xl text-right pr-2 outline-blue-600"
               placeholder="رمز عبور خود را وارد کنید"
@@ -116,11 +120,14 @@ const PersonalInfo = () => {
           <div className="absolute top-[610px] right-0 w-full sm:w-4/5 h-10 flex">
             {" "}
             <Link
-              to={"/"}
-              className="w-[140px] mx-auto h-10 border border-[#dcdcdc] text-right dark:text-blue-400 dark:hover:border-blue-400 text-[#3772FF] sm:right-[35%] rounded-[34px] py-2 px-4 "
+              to={"/auth/SendCode"}
+              className="w-[110px] mx-auto h-10 border border-[#dcdcdc] text-right dark:text-blue-400 dark:hover:border-blue-400 text-[#3772FF] sm:right-[35%] rounded-[34px] py-2 px-4 "
             >
-    بازگشت
-              <BiHomeAlt2 size={17} className="absolute bottom-[10px]" />
+              بازگشت
+              <HiOutlineChevronLeft
+                size={17}
+                className="absolute bottom-[10px]"
+              />
             </Link>
           </div>
 
