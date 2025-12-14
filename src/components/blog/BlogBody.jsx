@@ -87,7 +87,7 @@ const BlogBody = () => {
           newsList.map((item) => (
             <BlogList
               key={item.id}
-              Id={item.id}
+              id={item.id}
               BlogName={item.title}
               BlogTeacher={item.addUserFullName}
               BlogImage={item.currentImageAddress}

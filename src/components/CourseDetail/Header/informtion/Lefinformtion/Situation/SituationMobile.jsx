@@ -1,6 +1,6 @@
 import React from "react";
 
-const SituationMobile = ({ level, coding, teacherName}) => {
+const SituationMobile = ({ courseData, id }) => {
   return (
     <div className="sm:hidden flex flex-col gap-y-4 ">
       <div className="flex w-[360px] h-[80px] border-2 rounded-[16px]">
@@ -8,15 +8,15 @@ const SituationMobile = ({ level, coding, teacherName}) => {
           <div className="text-[#707070] w-[97%] text-right text-[14px]">
             استاد دوره
           </div>
-          <div className="text-[15px] w-full">{teacherName}</div>
+          <div className="text-[15px] w-full">{courseData.teacherName}</div>
         </div>
         <div className="flex flex-col gap-3 justify-end p-3 w-[50%] border-l-2 h-full ">
           <div className="text-[#707070] w-[97%] text-right text-[14px]">
-            سطح آموزشی
+            وضعیت
           </div>
           <div className="flex justify-end ">
             <div className="sm:w-[101px] w-[80px] text-[13px] sm:text-[16px] h-[27px] flex justify-center items-center rounded-[32px] bg-[#FF5353] ] ">
-            {level}
+              {courseData.courseStatusName}
             </div>
           </div>
         </div>
@@ -28,8 +28,8 @@ const SituationMobile = ({ level, coding, teacherName}) => {
           </div>
           <div className="text-[15px] w-full">
             <div className="flex justify-end ">
-              <div className="sm:w-[101px] w-[80px] text-[13px] sm:text-[16px] h-[27px] flex justify-center items-center rounded-[32px] bg-[#3772FF] ] ">
-                برنامه نویسی
+              <div className="sm:w-[101px] w-[80px] text-[13px] sm:text-[16px] h-[27px] flex justify-center items-center rounded-[32px] bg-[#3772FF]">
+                {courseData.courseTech[id]?.Tech.techName}
               </div>
             </div>
           </div>
@@ -40,7 +40,7 @@ const SituationMobile = ({ level, coding, teacherName}) => {
           </div>
           <div className="flex justify-end ">
             <div className="sm:w-[101px] w-[80px] text-[13px] sm:text-[16px] h-[27px] flex justify-center items-center rounded-[32px] bg-[#FF37F5] ] ">
-          {coding}
+              {courseData.courseLevelName}
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Situation = ({teacherName, courseLevelName, courseStatusName }) => {
+const Situation = ({courseData}) => {
 
   return (
     <div
@@ -15,7 +15,7 @@ const Situation = ({teacherName, courseLevelName, courseStatusName }) => {
         </div>
         <div className="min-w-full h-[23px] sm:text-[14px] text-[13px] flex justify-end items-center">
 
-         {teacherName}
+         {courseData.teacherName}
 
         </div>
       </div>
@@ -26,8 +26,8 @@ const Situation = ({teacherName, courseLevelName, courseStatusName }) => {
         </div>
         <div className="w-full justify-end flex ">
 
-          <div className="sm:w-[69px] w-[60px] h-[27px] text-[13px] sm:text-[16px] flex justify-center items-center rounded-[32px] bg-[#FF37F5] ">
-           {courseLevelName}
+          <div className="sm:w-auto p-2 w-[60px] h-[27px] text-[13px] sm:text-[16px] flex justify-center items-center rounded-[32px] bg-[#FF37F5] ">
+           {courseData.courseLevelName}
           </div>
         </div>
       </div>
@@ -37,8 +37,11 @@ const Situation = ({teacherName, courseLevelName, courseStatusName }) => {
           <div className="w-full text-right">دسته‌بندی </div>
         </div>
         <div className=" flex w-full justify-end">
-          <div className="sm:w-[99px] w-[80px] h-[27px] sm:text-[16px] text-[13px] flex items-center rounded-[32px] bg-[#3772FF] justify-center">
-          </div>
+         
+                <div className="sm:w-[99px] w-[80px] h-[27px] sm:text-[16px] text-[13px] flex items-center rounded-[32px] bg-[#3772FF] justify-center"
+                >
+                  {courseData.courseTech[courseData]?.tech.techName}
+                </div>
         </div>
       </div>
       {/* //// */}
@@ -48,8 +51,8 @@ const Situation = ({teacherName, courseLevelName, courseStatusName }) => {
         </div>
         <div className="w-full flex justify-end">
 
-          <div className="sm:w-[101px] w-[80px] text-[13px] sm:text-[16px] h-[27px] flex justify-center items-center rounded-[32px] bg-[#FF5353] ] ">
-            {courseStatusName} 
+          <div className="sm:w-auto p-2 w-[80px] text-[13px] sm:text-[16px] h-[27px] flex justify-center items-center rounded-[32px] bg-[#FF5353] ] ">
+            {courseData.courseStatusName} 
           </div>
         </div>
       </div>
