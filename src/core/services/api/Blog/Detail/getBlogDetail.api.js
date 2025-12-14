@@ -2,11 +2,11 @@ import toast from "react-hot-toast";
 import http from "../../../../interceptor/interseptor";
 
 
-const getBlogDetailapi = async(Id) => {
+const getBlogDetailapi = async(id) => {
     try {
-        const result = await http.get(`/News/${Id}`)
+        const result = await http.get(`/News/${id}`)
         console.log(result);
-        return result;
+        return response || null;
     } catch (err) {
         console.log("error");
         toast.loading("درحال بارگزاری")

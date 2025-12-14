@@ -2,17 +2,20 @@ import { Fullscreen } from "lucide-react";
 import React, { useRef, useState } from "react";
 import { FiBook } from "react-icons/fi";
 import ModalRes from "./ModalRes";
+import toast from "react-hot-toast";
 
 const Reservation = () => {
-  const [isOpenModalRes, setisOpenModalRes] = useState(false);
 
-  const OpenModal = () => setisOpenModalRes(true);
-  const CloseModal = () => setisOpenModalRes(false);
+  // const OpenModal = () => setisOpenModalRes(true);
+  // const CloseModal = () => setisOpenModalRes(false);
+  const handleClickMess = () => {
+    toast.success("ثبت رزرو");
+  }
 
   return (
     <div>
       <button
-        onClick={OpenModal}
+      onClick={handleClickMess}
         className="w-[160px] h-[56px] md:flex hidden justify-center bg-[#3772FF] rounded-full
                         text-white md:w-[194px] 
                         items-center gap-3 "
@@ -24,9 +27,9 @@ const Reservation = () => {
           <FiBook size={Fullscreen} />
         </div>
       </button>
-      {isOpenModalRes && (
+      {/* {isOpenModalRes && (
         <ModalRes CloseModal={CloseModal} />
-      )}
+      )} */}
     </div>
   );
 };

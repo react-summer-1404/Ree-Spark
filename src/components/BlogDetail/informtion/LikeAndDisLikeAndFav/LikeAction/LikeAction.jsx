@@ -4,6 +4,17 @@ import { AiFillDislike, AiFillLike } from "react-icons/ai";
 const LikeAction = () => {
   const [active, setActive] = useState("");
 
+  const handleLike = async () => {
+    if (active === "like") {
+      setActive("");
+      // toast("لایک برداشته شد");
+      return;
+    }
+
+    setActive("like");
+  
+  };
+
   const getButtonClass = (type) => {
     let baseClass =
       "sm:min-w-[56px] min-w-[48px] h-[48px] sm:h-[56px] cursor-pointer flex justify-center items-center rounded-full border-2";
