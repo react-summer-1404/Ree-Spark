@@ -1,7 +1,7 @@
 import React from "react";
 
 const Situation = ({ courseData }) => {
-  console.log("courseData",courseData)
+  console.log("courseData", courseData);
   return (
     <div
       className="= hidden sm:flex justify-center dark:text-white w-full h-[80px] 
@@ -35,7 +35,9 @@ const Situation = ({ courseData }) => {
         </div>
         <div className=" flex w-full justify-end">
           <div className="px-3 h-[27px] flex items-center rounded-[32px] bg-[#3772FF] text-[13px] sm:text-[16px]">
-          {courseData.courseTech?.[0]?.tech?.techName}
+            {courseData.courseTech?.length
+              ? courseData.courseTech[0]?.tech?.techName
+              : " بدونه دسته بندی "}
           </div>
         </div>
       </div>

@@ -25,6 +25,7 @@ const Leftinformtion = ({ courseData, id, handleUpdateLikes }) => {
       <StarAndPriceMobile />
       {/* Reservations and Favorites and likeDislike */}
       <FavAndResAndLike
+      courseData={courseData}
        courseId={courseData.courseId}
         likeCount={courseData.likeCount}
         disLikeCount={courseData.disLikeCount}
