@@ -9,7 +9,7 @@ import { loginTwoStep } from "../../../core/services/api/Auth/TwoStepLogin.api";
 
 const VerifyForm = () => {
   const navigate = useNavigate();
-
+  
   const validation = yup.object().shape({
     code: yup.number().required(""),
   });

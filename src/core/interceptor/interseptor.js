@@ -21,10 +21,10 @@ const onSuccess = (response) => {
 
 const onError = (err) => {
   console.log("interceptor", err);
-  if (err.response.status === 401) {
-    window.location.pathname = "/";
-    removeItem("token");
-  }
+  // if (err.response.status === 401) {
+  //   window.location.pathname = "/";
+  //   removeItem("token");
+  // }
   if (err.response.status >= 400 && err.response.status < 500) {
     // alert("Client error: " + err.response.status);
   }

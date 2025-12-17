@@ -10,8 +10,37 @@ import { WelcomeScreen } from "../components/wellcome/WelcomeScreen";
 import HeroImage from "../components/landing/lanBody/HeroImageAndBorder/HeroImage";
 
 const Landing = () => {
+    const [showWelcome, setShowWelcome] = useState(false);
+    const [showCourse, setShowCourse] = useState(false);
+  
+    useEffect(() => {
+      const navType = performance.getEntriesByType("navigation")[0]?.type;
+  
+      if (navType === "reload") {
+        setShowWelcome(true);
+  
+        setTimeout(() => {
+          setShowWelcome(false);
+          setShowCourse(true);
+        }, 2000);
+      } else {
+        setShowCourse(true);
+      }
+    }, []);
   return (
     <>
+          <AnimatePresence>
+            {showWelcome && (
+              <WelcomeScreen
+                wellcomeMessage={"به سایت ری اسپارک خوش امدید"}
+                onFinish={() => {
+                  setShowWelcome(false);
+                  setShowCourse(true);
+                }}
+              />
+            )}
+          </AnimatePresence>
+          {showCourse && (
       <div
         className="lg:overflow-x-hidden mx-auto px-4 xl:h-[3550px] lg:h-[4940px]   lgg:h-[3460px] lg:w-[1440px]
         overflow-x-hidden w-[393px] h-[6418px]  relative lg:relative dark:text-white"
@@ -25,6 +54,7 @@ const Landing = () => {
           <Teacher />
         </div>
       </div>
+      )}
     </>
   );
 };
