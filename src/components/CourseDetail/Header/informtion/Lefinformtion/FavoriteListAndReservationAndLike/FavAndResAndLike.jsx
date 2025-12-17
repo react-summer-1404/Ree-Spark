@@ -1,8 +1,8 @@
-import { Fullscreen } from "lucide-react";
 import React from "react";
 import LikeAndDisLike from "./LikeAndDisLike";
 import AddFavorite from "./AddFavorite";
 import Reservation from "./Reservation";
+// import { Fullscreen } from "lucide-react";
 
 // const FavAndResAndLike = ({courseId, isUserFavorite}) => {
 //   return (

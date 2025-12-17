@@ -1,7 +1,7 @@
 import React from "react";
 
-const Situation = ({courseData}) => {
-
+const Situation = ({ courseData }) => {
+  console.log("courseData",courseData)
   return (
     <div
       className="= hidden sm:flex justify-center dark:text-white w-full h-[80px] 
@@ -14,9 +14,7 @@ const Situation = ({courseData}) => {
           <div>استاد دوره</div>
         </div>
         <div className="min-w-full h-[23px] sm:text-[14px] text-[13px] flex justify-end items-center">
-
-         {courseData.teacherName}
-
+          {courseData.teacherName}
         </div>
       </div>
       {/* // */}
@@ -25,9 +23,8 @@ const Situation = ({courseData}) => {
           <div className="w-full text-right ">سطح آموزشی</div>
         </div>
         <div className="w-full justify-end flex ">
-
           <div className="sm:w-auto p-2 w-[60px] h-[27px] text-[13px] sm:text-[16px] flex justify-center items-center rounded-[32px] bg-[#FF37F5] ">
-           {courseData.courseLevelName}
+            {courseData.courseLevelName}
           </div>
         </div>
       </div>
@@ -37,11 +34,9 @@ const Situation = ({courseData}) => {
           <div className="w-full text-right">دسته‌بندی </div>
         </div>
         <div className=" flex w-full justify-end">
-         
-                <div className="sm:w-[99px] w-[80px] h-[27px] sm:text-[16px] text-[13px] flex items-center rounded-[32px] bg-[#3772FF] justify-center"
-                >
-                  {courseData.courseTech[courseData]?.tech.techName}
-                </div>
+          <div className="px-3 h-[27px] flex items-center rounded-[32px] bg-[#3772FF] text-[13px] sm:text-[16px]">
+          {courseData.courseTech?.[0]?.tech?.techName}
+          </div>
         </div>
       </div>
       {/* //// */}
@@ -50,9 +45,8 @@ const Situation = ({courseData}) => {
           <div className="w-full text-right">وضعیت</div>
         </div>
         <div className="w-full flex justify-end">
-
-          <div className="sm:w-auto p-2 w-[80px] text-[13px] sm:text-[16px] h-[27px] flex justify-center items-center rounded-[32px] bg-[#FF5353] ] ">
-            {courseData.courseStatusName} 
+          <div className="sm:w-auto p-2 w-[80px] text-[13px] sm:text-[16px] h-[27px] flex justify-center items-center rounded-[32px] bg-[#FF5353]">
+            {courseData.courseStatusName}
           </div>
         </div>
       </div>
