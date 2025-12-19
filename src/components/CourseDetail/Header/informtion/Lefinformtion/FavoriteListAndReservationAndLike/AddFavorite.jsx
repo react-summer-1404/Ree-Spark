@@ -10,11 +10,6 @@ const AddFavorite = ({ courseId, isUserFavorite }) => {
     return saved === "true" ? true : isUserFavorite;
   });
 
-  // useEffect(() => {
-  //   // هر بار تغییر کرد، در localStorage ذخیره کن
-  //   localStorage.setItem(`favorite_${courseId}`, favorite ? "true" : "false");
-  // }, [favorite, courseId]);
-
   const handleClick = async () => {
     try {
       const token = getItem("token"); 
