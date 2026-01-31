@@ -1,5 +1,8 @@
 // import http from "../../../interceptor/interceptor";
 
+import toast from "react-hot-toast";
+// import http from "../../../interceptor/interseptor"
+
 import http from "../../../interceptor/interseptor";
 
 const getCourseDetailApi = async (courseId) => {
@@ -18,3 +21,4 @@ const getCourseDetailApi = async (courseId) => {
 };
 
 export default getCourseDetailApi;
+

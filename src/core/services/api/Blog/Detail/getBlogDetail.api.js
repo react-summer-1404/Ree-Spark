@@ -4,9 +4,9 @@ import http from "../../../../interceptor/interseptor";
 
 const getBlogDetailapi = async(id) => {
     try {
-        const result = await http.get(`/News/${id}`)
-        console.log(result);
-        return response || null;
+        const  response = await http.get(`/News/${id}`)
+
+        return response;
     } catch (err) {
         console.log("error");
         toast.loading("درحال بارگزاری")

@@ -27,6 +27,12 @@ const CourseDetail = () => {
   }, [id]);
 
 
+  useEffect(() => {
+      
+  
+  }, [])
+  
+
 
   return courseData ? (
     <div className="sm:mt-16 mt-5 mb-10 mr-2 ml-2 flex flex-wrap gap-y-10 md:gap-y-16 justify-center">

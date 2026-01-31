@@ -24,6 +24,10 @@ const BlogDetail = () => {
     if (id) fetchData();
   }, [id]);
 
+ if (!response) {
+    return <div className="mt-20 text-center">در حال بارگذاری...</div>;
+  }
+
   return (
     <div className="sm:mt-16 mt-5 mb-10 mr-2 ml-2 flex flex-wrap gap-y-10 md:gap-y-16 justify-center">
       <div className="flex justify-center lg:justify-between items-center gap-3 w-full flex-wrap lg:flex-nowrap">
