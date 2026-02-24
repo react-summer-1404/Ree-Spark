@@ -4,10 +4,12 @@ import TopBlogApi from "../../../../core/services/api/TopBlogs.api";
 import moment from "moment-jalaali";
 import Button from "../../../common/Button/Button";
 import toast from "react-hot-toast";
+import MobileTopBlogs from "../Respansive/MobileTopBlogs";
+import ButtonResponsive from "../../../common/Button/ButtonResponsive";
 
 const TopBlogs = () => {
   const [BlogInfo, setBlogInfo] = useState([]);
-  const getTopBlogsApi = async (RowsOfPage = 2) => {
+  const getTopBlogsApi = async (RowsOfPage = 4) => {
     try {
       const res = await TopBlogApi({
         RowsOfPage: RowsOfPage,
@@ -16,7 +18,6 @@ const TopBlogs = () => {
       });
       console.log("Response topBlog:", res);
       setBlogInfo(res.news || []);
-
     } catch (error) {
       console.error(error);
       toast.error("خطا در دریافت بلاگ");
@@ -28,52 +29,42 @@ const TopBlogs = () => {
   }, []);
 
   return (
-    <div>
-      <div className=" text-center text-3xl relative right-[-10px] top-[500px] font-bold lg:hidden">
-        بلاگ های برتر هفته
-      </div>
+    <>
+    <div className="relative  block"><MobileTopBlogs/></div>
+      <div className="lg:block lgg:block xl:block hidden">
+        <div className="xl:left-0 relative  lg:right-[-134px] lg:bottom-[500px] lgg:left-[90px] lgg:top-[100px] xl:top-[140px]">
+          <div className="lg:text-center lg:text-3xl lg:bottom-8 lg:relative xl:top-[565px] xl:left-[5px] lg:right-[120px] lg:top-[1900px] lgg:top-[620px] lgg:left-[-90px] lg:block hidden font-bold ">
+            بلاگ های برتر هفته
+          </div>
 
-      <div className="lg:text-center lg:text-3xl lg:bottom-8 lg:relative xl:top-[590px] lg:right-10 lg:top-[120px] lgg:top-[620px] lg:block hidden font-bold ">
-        بلاگ های برتر هفته
-      </div>
-
-      <div
-        className="h-[366px] gap-[25px] w-[1360px] top-[50px] lg:top-[1960px] lgg:top-[660px]
+          <div
+            className=" lg:top-[1960px] lgg:top-[660px]
         xl:top-[610px] xl:w-[1370px] lgg:w-[1190px] lg:h-[800px] lg:overflow-hidden xl:overflow-hidden lgg:overflow-hidden  relative lg:gap-[32px] lg:left-[131px] left-[-342px] flex  lgg:relative lgg:left-[20px] lgg:flex-nowrap lg:flex-wrap lg:w-[1300px]"
-      >
-        {BlogInfo.length > 0 &&
-          BlogInfo.map((item) => (
-            <TopBlogInfo
-              key={item.id}
-              title={item.title}
-              Teacher={item.addUserFullName}
-              img={item.currentImageAddress}
-              Date={moment(item.insertDate).format("jYYYY/jMM/jDD")}
-              view={item.currentView}
-              icView="view"
-              icDate="Date"
-              blogBg="bg-black"
-            />
-          ))}
-        {BlogInfo.length > 0 &&
-          BlogInfo.map((item) => (
-            <TopBlogInfo
-              key={item.id}
-              title={item.title}
-              Teacher={item.addUserFullName}
-              img={item.currentImageAddress}
-              Date={moment(item.insertDate).format("jYYYY/jMM/jDD")}
-              view={item.currentView}
-              icView="view"
-              icDate="Date"
-              blogBg="bg-black"
-            />
-          ))}
+          >
+            {BlogInfo.length > 0 &&
+              BlogInfo.map((item) => (
+                <TopBlogInfo
+                  key={item.id}
+                  title={item.title}
+                  Teacher={item.addUserFullName}
+                  img={item.currentImageAddress}
+                  Date={moment(item.insertDate).format("jYYYY/jMM/jDD")}
+                  view={item.currentView}
+                  icView="view"
+                  icDate="Date"
+                  blogBg="bg-black"
+                />
+              ))}
+          </div>
+          <div className="relative left-[50px]  xl:left-[-20px] lg:left-[-146px] lg:top-[1880px] xl:top-[110px] lgg:top-[170px]  top-[310px]  lgg:left-[-120px]">
+            <Button buttonAdders={"blog"} />
+          </div>
+
+
+       
+        </div>
       </div>
-      <div className="relative xl:left-[0px] lg:left-[-146px] lg:top-[1220px] xl:top-[150px] lgg:top-[220px]  top-[310px]  lgg:left-[-90px]">
-        <Button buttonAdders={"blog"}/>
-      </div>
-    </div>
+    </>
   );
 };
 

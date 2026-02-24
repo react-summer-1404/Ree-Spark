@@ -17,7 +17,7 @@ const CourseDetail = () => {
     const fetchData = async () => {
       try {
         const data = await getCourseDetatilapi(id);
-        console.log("data ",data)
+        console.log("data ", data);
         setCourseData(data);
       } catch (error) {
         console.error("Error fetching course:", error);
@@ -26,6 +26,14 @@ const CourseDetail = () => {
     fetchData();
   }, [id]);
 
+
+  useEffect(() => {
+      
+  
+  }, [])
+  
+
+
   return courseData ? (
     <div className="sm:mt-16 mt-5 mb-10 mr-2 ml-2 flex flex-wrap gap-y-10 md:gap-y-16 justify-center">
       {/* CourseDetail informtion and image///// */}
@@ -33,13 +41,18 @@ const CourseDetail = () => {
         className="flex justify-center lg:justify-between items-center 
         gap-3  w-full flex-wrap lg:flex-nowrap "
       >
-        <Leftinformtion courseData={courseData} />
+        <Leftinformtion
+          id={id}
+          courseData={courseData}
+          courseId={courseData.courseId}
+          isUserFavorite={courseData.isUserFavorite ?? courseData.userFavorite}
+        />
         <ImageCourse courseData={courseData} />
       </div>
       {/* course discription // */}
       <CourseDiscription courseData={courseData} />
       {/* Commentns from students // */}
-      <CourseComment />
+      <CourseComment courseData={courseData} courseId={courseData.courseId} />
       {/* Related courses */}
       <CourseRelated />
     </div>

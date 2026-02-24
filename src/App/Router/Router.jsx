@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "../../components/layout/Layout";
 import { Landing } from "../../pages/Landing";
-import { Course } from "../../components/course/Course";
+import { Course } from "../../pages/Course";
 import { AuthLayout } from "../../components/layout/AuthLayout";
 import { Login } from "../../pages/auth/login/Login";
 import { VerifyNumber } from "../../pages/auth/login/VerifyNumber";
@@ -56,8 +56,7 @@ const Routes = createBrowserRouter([
       { path: "course/:id", element: <CourseDetail /> },
       { path: "Courses", element: <Course /> },
       { path: "Blog", element: <Blog /> },
-
-      { path: "BlogDetail/:Id", element: <BlogDetail /> },
+      { path: "BlogDetail/:id", element: <BlogDetail /> },
 
       { path: "Teacher", element: <Teacher /> },
       { path: "TeacherDetail/:id", element: <TeacherDetail /> },

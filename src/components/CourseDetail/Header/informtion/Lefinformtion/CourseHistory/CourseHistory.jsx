@@ -1,6 +1,8 @@
+import moment from "moment-jalaali";
 import React from "react";
 
-const CourseHistory = ({dissLikeCount, likeCount, endTime, startTime }) => {
+const CourseHistory = ({ courseData }) => {
+  moment.loadPersian({ dialect: "persian-modern" });
   return (
     <div
       className="sm:flex hidden justify-center dark:text-white w-full h-[80px] 
@@ -12,32 +14,29 @@ const CourseHistory = ({dissLikeCount, likeCount, endTime, startTime }) => {
           <div className="w-full text-right ">تعداد دیس لایک </div>
         </div>
         <div className="w-[120px] flex justify-end ">
-          {dissLikeCount}
+          {courseData.dissLikeCount}
         </div>
       </div>
       <div className="flex w-[25%] mt-2 flex-wrap justify-end border-r-2 pr-3 ">
         <div className="w-[100px] h-[20px] text-[#707070] text-[14px] flex justify-end  ">
           <div className="w-full text-right">تعداد لایک</div>
         </div>
-        <div className="w-full flex justify-end ">
-          {likeCount}
-        </div>
+        <div className="w-full flex justify-end ">{courseData.likeCount}</div>
       </div>
       <div className="flex w-[25%] mt-2 flex-wrap justify-end border-r-2 pr-3 ">
         <div className="w-[100px] h-[20px] text-[#707070]  text-[14px] flex justify-end ">
           <div className="w-full text-right ">اتمام تاریخ </div>
         </div>
         <div className="w-full flex justify-end text-[14px] ">
-          {endTime}
+          {moment(courseData.endTime).format("jYYYY jMMMM jDD")}
         </div>
       </div>
       <div className="flex w-[25%] mt-2 flex-wrap justify-end pr-3 ">
         <div className="w-[100px] h-[20px]  text-[14px] text-[#707070] flex justify-end  ">
-          {" "}
           <div className="w-full text-right ">تاریخ برگزاری</div>
         </div>
-        <div className="w-full flex justify-end text-[14px]  "> 
-          {startTime}
+        <div className="w-full flex justify-end text-[14px]  ">
+          {moment(courseData.startTime).format("jYYYY jMMMM jDD")}
         </div>
       </div>
     </div>

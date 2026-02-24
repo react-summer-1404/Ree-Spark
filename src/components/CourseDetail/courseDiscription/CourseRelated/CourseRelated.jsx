@@ -1,94 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import GetCoursesTopApi from "../../../../core/services/api/GetTopCourses.api";
+import { digitsEnToFa, addCommas } from "@persian-tools/persian-tools";
+// import { TopCourseBody } from "../../../landing/topcourse/TopCourseBody";
+import TopCorusesStyle from "./TopCorusesStyle";
 
 const CourseRelated = () => {
+  const [courses, setCourses] = useState([]);
+  const getTopCourses = async (Count = 4) => {
+    try {
+      const res = await GetCoursesTopApi({
+        Count: Count,
+      });
+      console.log("🔥 API Response:", res);
+      setCourses(res || []);
+    } catch (error) {
+      console.error(error);
+      toast.error("خطا در دریافت اخبار");
+    }
+  };
+
+  useEffect(() => {
+    getTopCourses();
+  }, []);
   return (
-    <div className="flex w-[100%] justify-end flex-wrap gap-7 ">
+    <div className="flex w-[100%] justify-around flex-wrap gap-7">
       <div className="text-[#707070] w-[100%] text-right text-[20px] font-bold ">
         دوره های مرتبط
       </div>
-      <div className="flex gap-3 w-[100%] justify-center md:justify-between flex-wrap md:flex-nowrap ">
-        <div className="min-w-[30%] h-[366px]">
-          <div
-            className="w-full h-[293px] rounded-[32px]
-                        bg-blue-300 flex flex-wrap p-2 justify-center "
-          >
-            <div className="flex justify-end gap-2 w-[100%] h-[28px]">
-              <div className="h-[24px] rounded-[32px] bg-[#3772FF] ">
-                <div className=" mr-1 ml-1">برنامه نویسی</div>
-              </div>
-              <div className="w-[65px] h-[24px] rounded-[32px] bg-[#FF37F5] ">
-                <div className="mr-1 ml-1 ">مقدماتی</div>
-              </div>
-            </div>
-            <img src="" alt="" />
-          </div>
-          <div className="w-[100%] h-[61px] flex flex-wrap gap-y-4 ">
-            <div className="w-[100%] h-[32px] text-right text-[24px] font-bold dark:text-white">
-              دوره ری‌اکت جی‌اس
-            </div>
-            <div className="w-[100%] h-[23px] flex justify-between ">
-              <div className="flex gap-1 font-bold dark:text-white ">
-                <div className="font-thin ">تومان</div>2,500,000{" "}
-              </div>
-              <div className="text-[#a7a7a7] ">محسن اسفندیاری</div>
-            </div>
-          </div>
-        </div>
-        <div className="min-w-[30%] h-[366px] ">
-          <div
-            className="w-full h-[293px] rounded-[32px]
-                        bg-blue-300 flex flex-wrap p-2 justify-center "
-          >
-            <div className="flex justify-end gap-2 w-[100%] h-[28px]">
-              <div className="h-[24px] rounded-[32px] bg-[#3772FF] ">
-                <div className=" mr-1 ml-1">برنامه نویسی</div>
-              </div>
-              <div className="w-[65px] h-[24px] rounded-[32px] bg-[#FF37F5] ">
-                <div className="mr-1 ml-1 ">مقدماتی</div>
-              </div>
-            </div>
-            {/* <img src="" alt="" /> */}
-          </div>
-          <div className="w-[100%] h-[61px] flex flex-wrap gap-y-4 ">
-            <div className="w-[100%] h-[32px] text-right text-[24px] font-bold dark:text-white">
-              دوره ری‌اکت جی‌اس
-            </div>
-            <div className="w-[100%] h-[23px] flex justify-between ">
-              <div className="flex gap-1 font-bold dark:text-white ">
-                <div className="font-thin ">تومان</div>2,500,000{" "}
-              </div>
-              <div className="text-[#a7a7a7] ">محسن اسفندیاری</div>
-            </div>
-          </div>
-        </div>
-        <div className="min-w-[30%] h-[366px] ">
-          <div
-            className="w-full h-[293px] rounded-[32px]
-                        bg-blue-300 flex flex-wrap p-2 justify-center "
-          >
-            <div className="flex justify-end gap-2 w-[100%] h-[28px]">
-              <div className="h-[24px] rounded-[32px] bg-[#3772FF] ">
-                <div className=" mr-1 ml-1">برنامه نویسی</div>
-              </div>
-              <div className="w-[65px] h-[24px] rounded-[32px] bg-[#FF37F5] ">
-                <div className="mr-1 ml-1 ">مقدماتی</div>
-              </div>
-            </div>
-            <img src="" alt="" />
-          </div>
-          <div className="w-[100%] h-[61px] flex flex-wrap gap-y-4 ">
-            <div className="w-[100%] h-[32px] text-right text-[24px] font-bold dark:text-white">
-              دوره ری‌اکت جی‌اس
-            </div>
-            <div className="w-[100%] h-[23px] flex justify-between ">
-              <div className="flex gap-1 font-bold dark:text-white ">
-                <div className="font-thin ">تومان</div>2,500,000
-              </div>
-              <div className="text-[#a7a7a7] ">محسن اسفندیاری</div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+      {courses.slice(0, 3).map((item) => (
+        <TopCorusesStyle
+          key={item.courseId}
+          courseId={item.courseId}
+          courseName={item.title}
+          teacherName={item.teacherName}
+          coursePrice={digitsEnToFa(addCommas(item.cost))}
+          coursePriceDub={digitsEnToFa(addCommas(item.cost))}
+          coding={item.statusName}
+          imageAddress={item.imageAddress}
+          level={item.levelName}
+          bgcolor="bg-black"
+        />
+      ))}
     </div>
   );
 };

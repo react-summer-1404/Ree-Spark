@@ -19,7 +19,7 @@ function HeroSection() {
         initial={{ opacity: 0, y: 40 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="hidden lg:block lg:h-48 lg:relative lg:bottom-[950px] lg:w-[1440px] lg:text-center lg:flex lg:flex-col"
+        className="hidden lg:block lg:h-48 lg:relative lg:bottom-[950px] xl:w-[1440px] lgg:w-[1440px] lg:text-center lg:flex lg:flex-col lg:w-[1400px]"
       >
         <span className="lg:font-bold lg:text-4xl lg:justify-center">
           آموزش مدرن
@@ -58,14 +58,14 @@ function HeroSection() {
               </span>
             </div>
             دانشجو فعال در دوره
-            <div className="lg:left-[179px] lg:bottom-[30px] lg:relative lg:w-[80px] lg:h-[32px]">
+            <div className="lg:left-[179px] lg:bottom-[30px] lg:relative lg:w-[80px] lg:h-[32px] ">
               <img
                 src="/AuthImage/w3.png"
                 className="lg:absolute lg:left-[53px] lg:w-[32px] lg:h-[32px] lg:rounded-[240px]"
               />
               <img
                 src="/AuthImage/w2.png"
-                className="lg:absolute lg:left-[10px] lg:w-[32px] lg:h-[32px] lg:rounded-[240px] lg:border-[#FCFCFC] lg:border-[2px] lg:z-10"
+                className="lg:absolute lg:left-[10px] lg:w-[32px] lg:h-[32px] lg:rounded-[240px] z-50 lg:border-[#FCFCFC] lg:border-[2px] lg:z-10"
               />
               <img
                 src="/AuthImage/w4.png"

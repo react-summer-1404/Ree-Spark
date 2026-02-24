@@ -28,13 +28,13 @@ const CourseStyle = ({
           </div>
 
           <div className="lg:w-[89px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[151px] lg:rounded-[32px] lg:bg-[#3772FF] lg:py-[2px] lg:px-2">
-            <h5 className="lg:w-[73px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:absolute lg:left-[25px] lg:font-medium lg:text-[#FCFCFC]">
+            <h5 className="lg:w-[73px] lg:h-[20px] lg:text-[13px] lg:absolute lg:left-[15px] lg:top-[2px] lg:font-medium lg:text-[#FCFCFC]">
              {coding}
             </h5>
           </div>
 
           <div className="lg:w-[62px] lg:h-[24px] lg:absolute lg:top-[8px] lg:left-[244px] lg:rounded-[32px] lg:bg-[#FF37F5] lg:py-[2px] lg:px-2">
-            <h5 dir="rtl" className="lg:w-[40px] lg:h-[20px] lg:text-[13px] lg:font-sans lg:font-medium lg:absolute lg:left-[8px] lg:text-[#FCFCFC] truncate">
+            <h5 dir="rtl" className="lg:w-[40px] lg:h-[20px] lg:text-[13px] lg:font-medium lg:absolute lg:left-[8px] lg:text-[#FCFCFC] truncate">
               {level}
             </h5>
           </div>

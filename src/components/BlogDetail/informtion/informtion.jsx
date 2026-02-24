@@ -15,10 +15,10 @@ const Informtion = ({response}) => {
               <Title response={response} />
               
               {/* BlogSituation */}
-              <BlogSituation />
+              <BlogSituation response={response} />
               <SituationMobile /> 
               {/* bloghistory */}
-              <BlogHistory />
+              <BlogHistory response={response} />
               <HisMobile />
               {/* ///// */}
                 <Star />

@@ -47,19 +47,19 @@ const LandingServiceResponsive = () => {
       <div className="">
         <div className="lg:hidden relative ">
           <div className="  flex-col">
-            <div className="relative bottom-[80px]">
-              <div className="relative  flex justify-center top-[840px]  font-bold text-2xl text-[32px]">
+            <div className="relative left-[20px] bottom-[80px]">
+              <div className="relative  flex justify-center top-[840px] left-[-10px]  font-bold text-2xl text-[32px]">
                 اهداف ما در اکادمی
               </div>
 
-              <div className="w-[100px] h-[2300px] left-[15px] top-[870px] relative dark:text-white ">
+              <div className="w-[100px] h-[2300px]  top-[870px] relative dark:text-white ">
                 <div className="w-[321px] h-[404px] bg-[#FCFCFC] border border-[#DCDCDC] rounded-3xl hover:border-[#3772FF] transition-[0.3s] dark:bg-slate-700">
                   <h1 className="text-right text-[20px] relative  top-5 right-[22px] text-base font-bold">
                     استعدادیابی
                   </h1>
                   <p
                     dir="rtl"
-                    className="relative  font-medium text-base text-right leading-7 top-[45px] left-[24px] text-[#7E7E7E] break-words w-[275px]"
+                    className="relative  font-medium text-base dark:text-slate-400 text-right leading-7 top-[45px] left-[24px] text-[#7E7E7E] break-words w-[275px]"
                   >
                     یافتن رگه های علاقه و استعداد در دوره های پایلوت استعدادیابی
                     صرف نظر از سن ، رشته تحصیلی ، جغرافیا و جنسیت و ...
@@ -76,7 +76,7 @@ const LandingServiceResponsive = () => {
                   </h1>
                   <p
                     dir="rtl"
-                    className="relative lg:break-words top-[45px] left-[24px] font-medium text-base text-right leading-7 text-[#7E7E7E] break-words w-[275px]"
+                    className="relative lg:break-words top-[45px] dark:text-slate-400 left-[24px] font-medium text-base text-right leading-7 text-[#7E7E7E] break-words w-[275px]"
                   >
                     آشنایی با پشته ای تکنولوژیک از زبان های کدنویسی با نگاهی عمل
                     محور برای تحریک ذهنیت خلاق در طول فرآیند آموزش
@@ -87,11 +87,11 @@ const LandingServiceResponsive = () => {
                   />
                 </div>
 
-                <div className="w-[321px] h-[434px] bg-[#FCFCFC] border border-[#DCDCDC] relative mt-7 hover:border-[#3772FF] transition-[0.3s] rounded-3xl dark:bg-slate-700">
+                <div className="w-[321px] h-[434px] bg-[#FCFCFC]  border border-[#DCDCDC] relative mt-7 hover:border-[#3772FF] transition-[0.3s] rounded-3xl dark:bg-slate-700">
                   <h1 className="text-right text-[20px] relative  top-[20px] right-[18px] text-base font-bold">
                     راهنمایی و ایجاد انگیزه
                   </h1>
-                  <p className="relative w-[278px]  top-[45px] left-[24px] font-medium text-right leading-7 text-[#7E7E7E]">
+                  <p className="relative w-[278px] dark:text-slate-400 top-[45px] left-[24px] font-medium text-right leading-7 text-[#7E7E7E]">
                     آشنایی با پشته ای تکنولوژیک از زبان های کدنویسی با نگاهی عمل
                     محور برای تحریک ذهنیت خلاق در طول فرآیند آموزش
                   </p>
@@ -107,7 +107,7 @@ const LandingServiceResponsive = () => {
                   </h1>
                   <p
                     dir="rtl"
-                    className="relative top-[45px] right-[-27px] break-words w-[275px] font-medium text-base text-right leading-7 text-[#7E7E7E]"
+                    className="relative top-[45px] right-[-27px] dark:text-slate-400 break-words w-[275px] font-medium text-base text-right leading-7 text-[#7E7E7E]"
                   >
                     جلسات تنظیم <span dir="ltr">cv</span> برای ساخت‌واشتراک
                     رزومه فنی دربسترهای داخلی و بین المللی کاریابی و آماده سازی
@@ -140,7 +140,7 @@ const LandingServiceResponsive = () => {
                       <h1 className="font-bold text-xl relative right-[-34px] top-10">
                         مدرک معتبر
                       </h1>
-                      <p className="right-[-34px] top-10 relative w-[300px] break-before-all mt-2">
+                      <p className="right-[-34px] dark:text-slate-400 top-10 relative w-[300px] break-before-all mt-2">
                         با مدرک ما میتوانید به راحتی در همه جا استخدام بشید
                       </p>
                     </div>
@@ -157,7 +157,7 @@ const LandingServiceResponsive = () => {
                       <h1 className="font-bold text-xl relative right-[-34px] top-10">
                         ازمون ها
                       </h1>
-                      <p className="right-[-34px] top-10 relative w-[300px] break-before-all mt-2">
+                      <p className="right-[-34px] dark:text-slate-400 top-10 relative w-[300px] break-before-all mt-2">
                         با آزمون های تعیین سطح شما میتوانید سطح دانش خودتون رو
                         بسنجید
                       </p>
@@ -175,7 +175,7 @@ const LandingServiceResponsive = () => {
                       <h1 className="font-bold text-xl relative right-[-34px] top-10">
                         مشاوره 24 ساعته
                       </h1>
-                      <p className="right-[-34px] top-10 relative w-[300px] break-before-all mt-2">
+                      <p className="right-[-34px] dark:text-slate-400 top-10 relative w-[300px] break-before-all mt-2">
                         مشاورین ما 24 ساعته جوابگو سوال های شما هستند
                       </p>
                     </div>
@@ -192,7 +192,7 @@ const LandingServiceResponsive = () => {
                       <h1 className="font-bold text-xl relative right-[-34px] top-10">
                         فرصت‌های شغلی
                       </h1>
-                      <p className="right-[-34px] top-10 relative w-[300px] break-before-all mt-2">
+                      <p className="right-[-34px] top-10 dark:text-slate-400 relative w-[300px] break-before-all mt-2">
                         با توجه به سطح توانایی شما فرصت های شغلی به شما پیشنهاد
                         داده میشه
                       </p>
@@ -224,7 +224,7 @@ const LandingServiceResponsive = () => {
           اهداف ما در آکادمی
         </div>
 
-        <div className="xl:w-full hidden xl:h-[500px] xl:top-[430px] xl:right-5 xl:relative xl:flex xl:justify-center xl:gap-[28px]">
+        <div className="xl:w-full hidden xl:h-[500px] xl:top-[430px]  xl:relative xl:flex xl:justify-center xl:gap-[24px]">
           {[
             {
               title: "آماده سازی برای بازار کار",
@@ -266,7 +266,7 @@ const LandingServiceResponsive = () => {
 
               <img
                 src={item.img}
-                className="xl:relative xl:left-8 xl:top-[75px] xl:w-[260px] xl:h-[236px]"
+                className="xl:relative xl:left-8 xl:top-[55px] xl:w-[260px] xl:h-[236px]"
               />
             </motion.div>
           ))}
@@ -275,7 +275,7 @@ const LandingServiceResponsive = () => {
 
       {/* {xl Desktop} */}
       <div className="xl:block hidden lg:hidden">
-        <div className="xl:flex xl:flex-col xl:flex-wrap xl:justify-center xl:relative xl:top-[690px] xl:w-full xl:h-[500px] xl:gap-[22px] xl:text-dark xl:dark:text-white">
+        <div className="xl:flex xl:flex-col xl:flex-wrap xl:right-[9px] xl:justify-center xl:relative xl:top-[690px] xl:w-full xl:h-[500px] xl:gap-[22px] xl:text-dark xl:dark:text-white">
           {/* عنوان */}
           <motion.div
             variants={boxVariants}
@@ -346,7 +346,7 @@ const LandingServiceResponsive = () => {
           </div>
 
           {/* ستون دوم */}
-          <div className="xl:relative xl:gap-[22px] xl:top-[55px] xl:right-[22px] xl:flex xl:flex-col">
+          <div className="xl:relative xl:gap-[22px] xl:top-[55px] xl:right-[-10px] xl:flex xl:flex-col">
             <motion.div
               variants={boxVariants}
               initial="hidden"
@@ -388,7 +388,7 @@ const LandingServiceResponsive = () => {
                   مشاورین ما 24 ساعته جوابگو سوال های شما هستند
                 </p>
               </div>
-              <div className="xl:w-[88px] xl:h-[88px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:relative xl:left-[580px] xl:bottom-7 xl:rounded-full xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700">
+              <div className="xl:w-[88px] xl:h-[88px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:relative xl:left-[540px] xl:bottom-7 xl:rounded-full xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700">
                 <img
                   src="../../../../public/AuthImage/message-user-01.png"
                   className="xl:absolute xl:left-[22px] xl:top-5"
@@ -398,93 +398,6 @@ const LandingServiceResponsive = () => {
           </div>
         </div>
       </div>
-
-      {/* <div className="xl:block hidden lg:hidden">
-        <div className="xl:flex xl:flex-col xl:flex-wrap xl:justify-center xl:relative xl:top-[690px] xl:w-full xl:h-[500px] xl:gap-[22px] xl:text-dark xl:dark:text-white">
-          <div className="xl:relative xl:left-[340px] top-[-20px] xl:bottom-14">
-            <div className="xl:flex xl:justify-center xl:font-bold xl:text-3xl">
-              خدماتی که ما در طی دوره‌ها
-            </div>
-            <div className="xl:flex xl:justify-center xl:font-bold xl:text-3xl lg:mt-[15px]">
-              به شما ارائه میدیم
-            </div>
-          </div>
-
-          <div className="xl:relative xl:left-[30px] xl:gap-[22px] flex flex-col">
-            <div className="xl:bg-[#F6F6F6] xl:border xl:border-[#DCDCDC] xl:w-[664px] xl:h-[144px] xl:rounded-[32px] xl:text-right xl:dark:bg-slate-700 xl:hover:border-[#3772FF] transition-[0.3s]">
-              <div className="xl:relative xl:right-[40px]">
-                <h1 className="xl:font-bold xl:text-xl xl:relative xl:right-24 xl:top-10">
-                  آزمون ها
-                </h1>
-                <p className="xl:right-24 xl:top-[48px] dark:text-slate-400 xl:relative xl:text-[#707070]">
-                  با آزمون های تعیین سطح شما میتوانید سطح دانش خودتون رو بسنجید
-                </p>
-              </div>
-              <div className="xl:w-[88px] xl:h-[88px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:relative xl:left-[540px] xl:bottom-7 xl:rounded-full xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700">
-                <img
-                  src="../../../../public/AuthImage/task-daily-01 (2).png"
-                  className="xl:absolute xl:left-[22px] xl:top-5"
-                />
-              </div>
-            </div>
-
-            <div className="xl:bg-[#F6F6F6] xl:border xl:border-[#DCDCDC] xl:w-[664px] xl:h-[144px] xl:rounded-[32px] xl:text-right xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700">
-              <div className="xl:relative xl:right-[40px]">
-                <h1 className="xl:font-bold xl:text-xl xl:relative xl:right-24 xl:top-10">
-                  مدرک معتبر
-                </h1>
-                <p className="xl:right-24 xl:top-[48px] xl:relative xl:text-[#707070] dark:text-slate-400">
-                  با توجه به سطح توانایی شما فرصت های شغلی به شما پیشنهاد داده
-                  میشه
-                </p>
-              </div>
-              <div className="xl:w-[88px] xl:h-[88px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:relative xl:left-[540px] xl:bottom-7 xl:rounded-full xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700">
-                <img
-                  src="../../../../public/AuthImage/job-link.png"
-                  className="xl:absolute xl:left-[22px] xl:top-5"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="xl:relative xl:gap-[22px] xl:top-[55px] xl:right-[22px] xl:flex xl:flex-col">
-            <div className="xl:bg-[#F6F6F6] xl:border xl:border-[#DCDCDC] xl:w-[664px] xl:h-[144px] xl:rounded-[32px] xl:text-right xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700">
-              <div className="xl:relative xl:right-[40px]">
-                <h1 className="xl:font-bold xl:text-xl xl:relative xl:right-24 xl:top-10">
-                  فرصت‌های شغلی
-                </h1>
-                <p className="xl:right-24 xl:top-[48px] xl:relative xl:text-[#707070] dark:text-slate-400">
-                  با توجه به سطح توانایی شما فرصت های شغلی به شما پیشنهاد داده
-                  میشه
-                </p>
-              </div>
-              <div className="xl:w-[88px] xl:h-[88px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:relative xl:left-[540px] xl:bottom-7 xl:rounded-full xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700">
-                <img
-                  src="../../../../public/AuthImage/document-validation.png"
-                  className="xl:absolute xl:left-[22px] xl:top-5"
-                />
-              </div>
-            </div>
-
-            <div className="xl:bg-[#F6F6F6] xl:border xl:border-[#DCDCDC] xl:w-[664px] xl:h-[144px] xl:rounded-[32px] xl:text-right xl:relative xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700">
-              <div className="xl:relative xl:right-[40px]">
-                <h1 className="xl:font-bold xl:text-xl xl:relative xl:right-24 xl:top-10">
-                  مشاوره 24 ساعته
-                </h1>
-                <p className="xl:right-24 xl:top-[48px] xl:relative xl:text-[#707070] dark:text-slate-400">
-                  مشاورین ما 24 ساعته جوابگو سوال های شما هستند
-                </p>
-                <div className="xl:w-[88px] xl:h-[88px] xl:bg-[#FCFCFC] xl:border xl:border-[#DCDCDC] xl:relative xl:left-[580px] xl:bottom-7 xl:rounded-full xl:hover:border-[#3772FF] transition-[0.3s] xl:dark:bg-slate-700">
-                  <img
-                    src="../../../../public/AuthImage/message-user-01.png"
-                    className="xl:absolute xl:left-[22px] xl:top-5"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };
