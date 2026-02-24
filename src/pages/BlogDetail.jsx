@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Informtion from "../components/BlogDetail/informtion/informtion";
 import BlogImage from "../components/BlogDetail/informtion/BlogImage/BlogImage";
@@ -21,6 +21,7 @@ const BlogDetail = () => {
    } 
     fetchData();
   }, [Id])
+  const 
   
 
   return (
