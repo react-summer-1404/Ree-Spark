@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { getItem, removeItem } from "../services/storage/storage.api";
 import toast from "react-hot-toast";
 
@@ -11,22 +12,21 @@ const http = axios.create({
 const onSuccess = (response) => {
   console.log("interceptor", response);
   if (response.data.success != undefined && !response.data.success) {
-    return toast.success(response.data.message);
+    toast.error(response.data.message);
   } else if (response.data.success != undefined && response.data.success) {
-    
-    toast(response.data.message, { duration: 3000 });
+    toast(response.data.message);
   }
   return response.data;
 };
 
 const onError = (err) => {
   console.log("interceptor", err);
-  if (err.response.status === 401) {
-    window.location.pathname = "/";
-    removeItem("token");
-  }
+  // if (err.response.status === 401) {
+  //   window.location.pathname = "/";
+  //   removeItem("token");
+  // }
   if (err.response.status >= 400 && err.response.status < 500) {
-    toast.error
+    // alert("Client error: " + err.response.status);
   }
 
   return Promise.reject(err);

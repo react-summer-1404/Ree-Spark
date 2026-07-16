@@ -7,3 +7,35 @@
     font-family: 'Isans'
   }
 }
+
+
+
+.mySwiper .swiper-button-prev {
+  position: absolute !important;
+  top:35% !important;
+  left:-2% !important;
+}
+.mySwiper .swiper-button-next{
+  position: absolute !important;
+  top:35% !important;
+  right: 3% !important;
+}
+
+.mySwiper2 .swiper-button-prev {
+  position: absolute !important;
+  top:45% !important;
+  left:4% !important;
+}
+.mySwiper2 .swiper-button-next{
+  position: absolute !important;
+  top:45% !important;
+  right: 2% !important;
+}
+
+@layer utilities {
+  .size-4 {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+

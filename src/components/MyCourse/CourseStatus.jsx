@@ -1,48 +1,32 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
+import { motion } from "framer-motion";
 
-const CourseStatus = () => {
+const CourseStatus = ({MyCourseName , MyCoursePublisher , MyCourseLevel  , ImageAddress , startDate , endDate}) => {
   return (
-    <div>
-      <div className="w-[1046px] h-11 bg-[#F1F1F1] rounded-2xl absolute top-4 left-4">
-        <h5 className="absolute top-3 left-[1024px] text-[#707070] text-sm font-medium">
-          #
-        </h5>
-        <h5 className="absolute top-3 left-[906px] text-[#707070] text-sm font-medium">
-          نام
-        </h5>
-        <h5 className="absolute top-3 left-[685px] text-[#707070] text-sm font-medium">
-          مدرس
-        </h5>
-        <h5 className="absolute top-3 left-[470px] text-[#707070] text-sm font-medium">
-          تاریخ برگزاری
-        </h5>
-        <h5 className="absolute top-3 left-[305px] text-[#707070] text-sm font-medium">
-          تاریخ اتمام
-        </h5>
-        <h5 className="absolute top-3 left-[159px] text-[#707070] text-sm font-medium">
-          سطح
-        </h5>
+    <motion.div
+      dir="rtl"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }} className="h-16 flex relative ">
+      <div className={`w-[83px] h-[52px] rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg  absolute top-[72px] left-[971px]`}>
+        <img src={ImageAddress} className="w-full h-full mx-auto rounded-xl" />
       </div>
-
-      <div className="w-[83px] h-[52px] rounded-xl bg-[#FF6C6C] absolute top-[72px] left-[971px]">
-        <img src="./images/figma.png" className="size-[33px] mx-auto mt-2" />
+      <h3 dir="rtl" className="h-[23px] w-[150px] text-right absolute top-[86px] left-[780px] font-bold">
+        {MyCourseName}
+      </h3>
+      <h3 className="h-[20px] absolute top-[86px] left-[660px] font-semibold text-sm">
+        {MyCoursePublisher}
+      </h3>
+      <h3 className="h-[20px] absolute top-[86px] left-[487px] font-semibold text-sm">
+      {startDate}
+      </h3>
+      <h3 className="h-[20px] absolute top-[86px] left-[314px] font-semibold text-sm">
+       {endDate}
+      </h3>
+      <div className="h-6 absolute top-[85px] left-[164px] bg-[#FF37F5] rounded-[32px] py-[2px] px-2 text-white text-sm">
+        {MyCourseLevel}
       </div>
-      <h3 className="h-[23px] absolute top-[86px] left-[869px] font-bold">
-        دوره فیگما
-      </h3>
-      <h3 className="h-[20px] absolute top-[86px] left-[620px] font-semibold text-sm">
-        محمدحسین خلیل‌پور
-      </h3>
-      <h3 className="h-[20px] absolute top-[86px] left-[447px] font-semibold text-sm">
-        29 اردیبهشت 1403
-      </h3>
-      <h3 className="h-[20px] absolute top-[86px] left-[274px] font-semibold text-sm">
-        29 اردیبهشت 1403
-      </h3>
-      <div className="h-6 absolute top-[85px] left-[144px] bg-[#FF37F5] rounded-[32px] py-[2px] px-2 text-white text-sm">
-        پیشرفته
-      </div>
-    </div>
+    </motion.div>
   );
 };
 

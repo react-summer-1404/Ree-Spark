@@ -1,90 +1,96 @@
-import React, { useState, useRef } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import GetProfileInfoApi from "../../../core/services/api/User/GetProfileInfo.api";
 
 const CircularRange = () => {
-  const [value, setValue] = useState(40);
-  const circleRef = useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
+  const [value, setValue] = useState(0);
 
-  const size = 150; // اندازه دایره
+  const size = 150;
   const strokeWidth = 14;
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
 
-  const handleMove = (e) => {
-    if (!isDragging || !circleRef.current) return;
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const data = await GetProfileInfoApi();
+        setValue(data.profileCompletionPercentage || 0);
+      } catch (err) {
+        console.error("Error fetching profile:", err);
+      }
+    };
+    fetchProfile();
+  }, []);
 
-    const rect = circleRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
+  const motionValue = useMotionValue(0);
+  const animatedValue = useSpring(motionValue, { stiffness: 80, damping: 20 });
 
-    const angle = Math.atan2(y, x) * (180 / Math.PI) + 90;
-    const normalizedAngle = (angle + 360) % 360;
-    const newValue = Math.round((normalizedAngle / 360) * 100);
-    setValue(newValue);
+  useEffect(() => {
+    motionValue.set(value);
+  }, [value, motionValue]);
+
+  const strokeDashoffset = useTransform(
+    animatedValue,
+    (val) => circumference - (val / 100) * circumference
+  );
+  const knobX = useTransform(
+    animatedValue,
+    (val) => size / 2 + radius * Math.sin((val / 100) * 2 * Math.PI)
+  );
+  const knobY = useTransform(
+    animatedValue,
+    (val) => size / 2 - radius * Math.cos((val / 100) * 2 * Math.PI)
+  );
+  const textValue = useTransform(animatedValue, (val) => Math.round(val));
+
+  const getStrokeColor = (val) => {
+    if (val >= 90) return "#16a34a";
+    if (val >= 80) return "#4ade80";
+    if (val >= 70) return "#facc15";
+    return "#fbbf24";
   };
 
-  const handleMouseDown = () => setIsDragging(true);
-  const handleMouseUp = () => setIsDragging(false);
-
-  React.useEffect(() => {
-    window.addEventListener("mousemove", handleMove);
-    window.addEventListener("mouseup", handleMouseUp);
-    return () => {
-      window.removeEventListener("mousemove", handleMove);
-      window.removeEventListener("mouseup", handleMouseUp);
-    };
-  });
-
-  const offset = circumference - (value / 100) * circumference;
-  const angle = (value / 100) * 360;
-  const knobX =
-    size / 2 + radius * Math.sin((angle * Math.PI) / 180);
-  const knobY =
-    size / 2 - radius * Math.cos((angle * Math.PI) / 180);
-
   return (
-    <div className="flex flex-col  items-center justify-center mt-9  select-none">
-      <svg
-        ref={circleRef}
-        width={size}
-        height={size}
-        onMouseDown={handleMouseDown}
-        className="cursor-pointer"
-      >
+    <div className="flex flex-col items-center justify-center mt-9 select-none">
+      <svg width={size} height={size}>
         {/* دایره خاکستری */}
         <circle
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke="#e5e7eb"
           strokeWidth={strokeWidth}
           fill="none"
         />
-        {/* دایره زرد */}
-        <circle
+        {/* دایره رنگی */}
+        <motion.circle
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke="#facc15"
           strokeWidth={strokeWidth}
           fill="none"
-          strokeDasharray={circumference}
-          strokeDashoffset={offset}
           strokeLinecap="round"
+          stroke={getStrokeColor(value)}
+          strokeDasharray={circumference}
+          style={{ strokeDashoffset }}
           transform={`rotate(-90 ${size / 2} ${size / 2})`}
         />
-        {/* دایره کوچک روی مسیر */}
-        <circle cx={knobX} cy={knobY} r="8" fill="#facc15" />
-        {/* متن درصد وسط دایره */}
-        <text
+        {/* knob روی مسیر */}
+        <motion.circle
+          r="8"
+          fill={getStrokeColor(value)}
+          style={{ cx: knobX, cy: knobY }}
+        />
+        {/* متن درصد وسط */}
+        <motion.text
           x="50%"
           y="50%"
           textAnchor="middle"
           dy=".3em"
-          className="text-2xl font-bold fill-gray-800"
+          className="text-2xl font-bold fill-gray-800 dark:fill-slate-200"
         >
-          {value}%
-        </text>
+          <motion.tspan>{textValue}</motion.tspan>%
+        </motion.text>
       </svg>
     </div>
   );

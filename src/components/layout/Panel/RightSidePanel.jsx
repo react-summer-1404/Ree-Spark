@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../../assets/image/AuthImage/logo.png";
@@ -12,6 +13,7 @@ import { HiOutlinePresentationChartLine } from "react-icons/hi";
 import { GoBookmark } from "react-icons/go";
 import { RiBookShelfLine } from "react-icons/ri";
 import { PiMoneyWavy } from "react-icons/pi";
+import { IoNotificationsOutline } from "react-icons/io5";
 import toast from "react-hot-toast";
 const RightSidePanel = () => {
   const [showModal, setShowModal] = useState(false);
@@ -21,7 +23,7 @@ const RightSidePanel = () => {
     removeItem("token");
     setShowModal(false);
     navigate("/auth/register");
-    toast.success("حساب کاربر با موفقیت حذف شد")
+    toast.success("حساب کاربر با موفقیت حذف شد");
   };
   return (
     <div>
@@ -34,13 +36,13 @@ const RightSidePanel = () => {
           to={"panel"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-black dark:border-[#fcfcfc] font-medium"
-            } dark:text-[#FCFCFC] text-black text-[18px] h-[26px] leading-3 cursor-pointer`
+              isActive && "font-semibold dark:border-[#fcfcfc]"
+            } dark:text-[#FCFCFC] hover:font-semibold text-black text-[18px] h-[26px] leading-3 cursor-pointer`
           }
         >
           داشبرد
         </NavLink>
-        <HiOutlinePresentationChartLine size={20} className="dark:text-white"/>
+        <HiOutlinePresentationChartLine size={20} className="dark:text-white" />
       </div>
 
       {/* my course */}
@@ -50,8 +52,8 @@ const RightSidePanel = () => {
           to={"MyCourse"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-black dark:border-[#fcfcfc] font-medium"
-            } dark:text-[#FCFCFC] text-black text-[18px] h-[26px] leading-3`
+              isActive && "font-semibold dark:border-[#fcfcfc]"
+            } dark:text-[#FCFCFC] text-black hover:font-semibold text-[18px] h-[26px] leading-3`
           }
         >
           دوره من
@@ -66,13 +68,13 @@ const RightSidePanel = () => {
           to={"myReserve"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-black dark:border-[#fcfcfc] font-medium"
-            } dark:text-[#FCFCFC] text-black text-[18px] h-[26px] leading-3`
+              isActive && "font-semibold dark:border-[#fcfcfc] "
+            } dark:text-[#FCFCFC] text-black hover:font-semibold text-[18px] h-[26px] leading-3`
           }
         >
           رزرو من
         </NavLink>
-        <GoBookmark size={20} className="dark:text-white"/>
+        <GoBookmark size={20} className="dark:text-white" />
       </div>
 
       {/* favorite course */}
@@ -82,13 +84,13 @@ const RightSidePanel = () => {
           to={"favoriteCourse"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-black dark:border-[#fcfcfc] font-medium"
-            } dark:text-[#FCFCFC] text-black text-[17px] h-[26px] leading-3`
+              isActive && "font-semibold dark:border-[#fcfcfc]"
+            } dark:text-[#FCFCFC] text-black hover:font-semibold text-[17px] h-[26px] leading-3`
           }
         >
           دوره های موردعلاقه
         </NavLink>
-        <LuBookHeart size={20} className="dark:text-white"/>
+        <LuBookHeart size={20} className="dark:text-white" />
       </div>
 
       {/* favorite blog */}
@@ -98,13 +100,13 @@ const RightSidePanel = () => {
           to={"favoriteBlog"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-black dark:border-[#fcfcfc] font-medium"
-            } dark:text-[#FCFCFC] text-black text-[17px] h-[26px] leading-3`
+              isActive && "font-semibold dark:border-[#fcfcfc]"
+            } dark:text-[#FCFCFC] text-black hover:font-semibold text-[17px] h-[26px] leading-3`
           }
         >
           بلاگ های موردعلاقه
         </NavLink>
-        <RiBookShelfLine size={20} className="dark:text-white"/>
+        <RiBookShelfLine size={20} className="dark:text-white" />
       </div>
 
       {/* profile */}
@@ -114,22 +116,35 @@ const RightSidePanel = () => {
           to={"profile"}
           className={({ isActive }) =>
             `${
-              isActive && "border-b border-[#fcfcfc] font-medium"
-            } dark:text-[#FCFCFC] text-black text-[17px] h-[26px]  leading-3`
+              isActive && " font-semibold "
+            } dark:text-[#FCFCFC] text-black hover:font-semibold text-[17px] h-[26px]  leading-3`
           }
         >
           پروفایل
         </NavLink>
         <CgProfile size={20} className="dark:text-white" />
       </div>
-
+      <div className="absolute top-[465px] right-[35px] flex gap-2">
+        {" "}
+        <NavLink
+          to={"notification"}
+          className={({ isActive }) =>
+            `${
+              isActive && " font-semibold "
+            } dark:text-[#FCFCFC] text-black hover:font-semibold text-[17px] h-[26px]  leading-3`
+          }
+        >
+          نوتیفیکیشن
+        </NavLink>
+        <IoNotificationsOutline size={20} className="dark:text-white" />
+      </div>
       {/* pay money */}
-      <div className="absolute top-[455px] right-[35px] flex gap-2">
+      <div className="absolute top-[525px] right-[35px] flex gap-2">
         {" "}
         <div className="dark:text-[#FCFCFC] text-black text-[18px] h-[26px]  leading-3">
           پرداخت ها
         </div>
-      <PiMoneyWavy size={20} className="dark:text-white"/>
+        <PiMoneyWavy size={20} className="dark:text-white" />
       </div>
       {/*  */}
       <div
@@ -143,16 +158,18 @@ const RightSidePanel = () => {
       <AnimatePresence>
         {showModal && (
           <motion.div
-            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black/50 flex backdrop-blur-sm items-center justify-center z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={() => setShowModal(false)}
           >
             <motion.div
               className="bg-white rounded-2xl shadow-xl p-6 w-80 text-center"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
             >
               <h2 className="text-lg font-semibold text-gray-800 mb-4">
                 آیا مطمئنی می‌خوای خارج شی؟
